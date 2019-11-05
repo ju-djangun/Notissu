@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import Alamofire
 import Kanna
 
 class NoticeIT {
@@ -68,8 +69,32 @@ class NoticeIT {
         completion(noticeList)
     }
     
-    func parseListMedia(content: String) {
+    static func parseListMedia(page: Int, completion: @escaping ([Notice]) -> Void) {
+        var noticeList = [Notice]()
+        var authorList = [String]()
+        var titleList  = [String]()
+        var pageStringList = [String]()
+        var dateStringList = [String]()
+        let noticeUrl = "http://media.ssu.ac.kr/sub.php?code=XxH00AXY&mode=&category=1&searchType=&search=&orderType=&orderBy=&page=\(page)"
         
+        var index = 0
+        
+        Alamofire.request(noticeUrl).responseString { response in
+            //print("\(response.result.isSuccess)")
+            if let html = String(cString: response.result.value ?? "", encoding: .utf8) {
+                print(html)
+                do {
+                    let doc = try HTML(html: html, encoding: .utf8)
+                    for product in doc.xpath("//table/tbody/tr/*") {
+                        print(product.content)
+                    }
+                } catch let error {
+                    print("Error : \(error)")
+                }
+            } else {
+                return
+            }
+        }
     }
     
     func parseListSoftware(content: String) {

@@ -7,4 +7,5 @@ target 'SoongsilNotice' do
 
   # Pods for SoongsilNotice
   pod 'Kanna', '~> 5.0.0'
+  pod 'Alamofire'
 end

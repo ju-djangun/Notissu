@@ -18,10 +18,12 @@ class NoticeListPresenter: NoticePresenter {
     }
     
     func loadNoticeList(page: Int, deptCode: DeptCode) {
-        print("deptCode : \(DeptCode.IT_Computer.hashValue)")
         switch deptCode {
         case DeptCode.IT_Computer :
             NoticeIT.parseListComputer(page: page, completion: self.view.applyToTableView)
+            break
+        case DeptCode.IT_Media :
+            NoticeIT.parseListMedia(page: page, completion: self.view.applyToTableView)
             break
         default: break
         }

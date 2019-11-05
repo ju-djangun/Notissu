@@ -24,7 +24,7 @@ class NoticeListViewController: UIViewController, NoticeListView, UITableViewDel
         self.noticeListView.delegate = self
         self.noticeListView.dataSource = self
         self.noticeListView.reloadData()
-        self.noticeDeptCode = DeptCode.IT_Computer
+        self.noticeDeptCode = DeptCode.IT_Media
         ConfigSetting.canFetchData = true
         
         self.page = 1

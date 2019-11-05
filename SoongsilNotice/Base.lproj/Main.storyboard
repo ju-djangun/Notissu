@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="R4t-c4-jCX">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="nls-o3-nd0">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15509"/>
@@ -7,10 +7,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Notice Detail View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="SoongsilNotice" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="noticeDetailVC" id="BYZ-38-t0r" customClass="NoticeDetailViewController" customModule="SoongsilNotice" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -34,14 +34,14 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
-                        <outlet property="webView" destination="bxg-zn-osN" id="k6f-gn-Cm8"/>
+                        <outlet property="webView" destination="bxg-zn-osN" id="UGS-2f-jTg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="137.68115942028987" y="83.705357142857139"/>
+            <point key="canvasLocation" x="2805.7971014492755" y="79.6875"/>
         </scene>
-        <!--Notice List View Controller-->
+        <!--컴퓨터학부-->
         <scene sceneID="8gs-px-APh">
             <objects>
                 <tableViewController id="R4t-c4-jCX" customClass="NoticeListViewController" customModule="SoongsilNotice" customModuleProvider="target" sceneMemberID="viewController">
@@ -91,11 +91,30 @@
                             <outlet property="delegate" destination="R4t-c4-jCX" id="D4e-HW-vDE"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" title="컴퓨터학부" id="Pkw-Ck-KBG"/>
                     <connections>
                         <outlet property="noticeListView" destination="vgO-Z5-SZK" id="k34-HB-QEm"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3c4-hQ-MUa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1986.9565217391305" y="80.357142857142847"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="8Yb-qX-4PQ">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="nls-o3-nd0" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="AcZ-2i-pvK">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="R4t-c4-jCX" kind="relationship" relationship="rootViewController" id="IKv-5k-L8f"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="XbT-2E-437" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1076.8115942028987" y="80.357142857142847"/>
         </scene>

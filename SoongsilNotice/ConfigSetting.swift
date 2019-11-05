@@ -12,8 +12,7 @@ public enum DeptCode: Int {
     // IT대학
     case IT_Computer      = 1
     case IT_Media         = 2
-    case IT_Electric_Elec = 3
-    case IT_Electric_IT   = 4
+    case IT_Electric      = 3
     case IT_Software      = 5
     case IT_SmartSystem   = 6
     case IT_MediaOper     = 7
@@ -22,6 +21,8 @@ public enum DeptCode: Int {
     case LAW_Law          = 8
     case LAW_IntlLaw      = 9
     
+    // 융합특성화 자유전공학부
+    case MIX_mix          = 10
 }
 
 struct ConfigSetting {

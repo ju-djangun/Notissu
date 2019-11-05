@@ -20,6 +20,7 @@
 		DE2961532370FF4E0074F24B /* Notice.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2961522370FF4E0074F24B /* Notice.swift */; };
 		DE296155237195CD0074F24B /* ConfigSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE296154237195CD0074F24B /* ConfigSetting.swift */; };
 		DE296157237198070074F24B /* NoticeIT.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE296156237198070074F24B /* NoticeIT.swift */; };
+		DE2961592371ADEE0074F24B /* NoticeDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2961582371ADEE0074F24B /* NoticeDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		DE2961522370FF4E0074F24B /* Notice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notice.swift; sourceTree = "<group>"; };
 		DE296154237195CD0074F24B /* ConfigSetting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigSetting.swift; sourceTree = "<group>"; };
 		DE296156237198070074F24B /* NoticeIT.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeIT.swift; sourceTree = "<group>"; };
+		DE2961582371ADEE0074F24B /* NoticeDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +115,7 @@
 				DE29614E2370FCD20074F24B /* NoticeListContract.swift */,
 				DE2961502370FD0A0074F24B /* NoticeListViewCell.swift */,
 				DE2961522370FF4E0074F24B /* Notice.swift */,
+				DE2961582371ADEE0074F24B /* NoticeDetailViewController.swift */,
 			);
 			path = NoticeList;
 			sourceTree = "<group>";
@@ -236,6 +239,7 @@
 				DE29613623703F4C0074F24B /* AppDelegate.swift in Sources */,
 				DE296155237195CD0074F24B /* ConfigSetting.swift in Sources */,
 				DE29614F2370FCD20074F24B /* NoticeListContract.swift in Sources */,
+				DE2961592371ADEE0074F24B /* NoticeDetailViewController.swift in Sources */,
 				DE2961532370FF4E0074F24B /* Notice.swift in Sources */,
 				DE29614D2370FCB20074F24B /* NoticeListPresenter.swift in Sources */,
 				DE2961512370FD0A0074F24B /* NoticeListViewCell.swift in Sources */,

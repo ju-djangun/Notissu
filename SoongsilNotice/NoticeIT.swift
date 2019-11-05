@@ -53,6 +53,10 @@ class NoticeIT {
         }
         
         index = 0
+        if authorList.count < 1 {
+            ConfigSetting.canFetchData = false
+        }
+        
         for _ in authorList {
             //            print("index : \(index) , title : \(titleList[index]), author : \(authorList[index]), date : \(dateStringList[index])")
             let noticeItem = Notice(author: authorList[index], title: titleList[index], url: pageStringList[index], date: dateStringList[index])

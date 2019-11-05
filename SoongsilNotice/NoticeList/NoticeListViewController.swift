@@ -11,6 +11,7 @@ import UIKit
 class NoticeListViewController: UIViewController, NoticeListView, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet var noticeListView: UITableView!
+    private var refreshControl      = UIRefreshControl()
     private var presenter  : NoticeListPresenter?
     private var noticeList = [Notice]()
     private var noticeDeptCode: DeptCode?
@@ -28,10 +29,26 @@ class NoticeListViewController: UIViewController, NoticeListView, UITableViewDel
         
         self.page = 1
         self.presenter?.loadNoticeList(page: page, deptCode: noticeDeptCode!)
+        
+        if #available(iOS 10.0, *) {
+            noticeListView.refreshControl = refreshControl
+        } else { noticeListView.addSubview(refreshControl) }
+        refreshControl.addTarget(self, action: #selector(refresh), for: .valueChanged)
+    }
+    
+    @objc func refresh() {
+        self.page = 1
+        self.noticeList.removeAll()
+        self.presenter?.loadNoticeList(page: page, deptCode: noticeDeptCode!)
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("selected")
+        let storyBoard = self.storyboard!
+        let noticeDetailController = storyBoard.instantiateViewController(withIdentifier: "noticeDetailVC") as? NoticeDetailViewController
+        
+        noticeDetailController?.detailURL = noticeList[indexPath.row].url
+        self.navigationController?.pushViewController(noticeDetailController!, animated: true)
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -42,12 +59,13 @@ class NoticeListViewController: UIViewController, NoticeListView, UITableViewDel
         let cell = tableView.dequeueReusableCell(withIdentifier: "noticeListCell", for: indexPath) as! NoticeListViewCell
         cell.noticeTitle.text = noticeList[indexPath.row].title
         cell.noticeDate.text = noticeList[indexPath.row].date
+        cell.selectionStyle  = .none
         
         return cell
     }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        if self.noticeList.count - indexPath.row == 3 && ConfigSetting.canFetchData {
+        if self.noticeList.count - indexPath.row == 10 && ConfigSetting.canFetchData {
             // LOAD MORE
             self.page += 1
             self.presenter?.loadNoticeList(page: page, deptCode: self.noticeDeptCode!)
@@ -55,6 +73,7 @@ class NoticeListViewController: UIViewController, NoticeListView, UITableViewDel
     }
     
     func applyToTableView(list: [Notice]) {
+        self.refreshControl.endRefreshing()
         self.noticeList.append(contentsOf: list)
         self.noticeListView.reloadData()
     }

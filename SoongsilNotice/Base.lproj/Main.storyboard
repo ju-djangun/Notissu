@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="R4t-c4-jCX">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15509"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="SoongsilNotice" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bxg-zn-osN">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="bxg-zn-osN" secondAttribute="trailing" id="IUR-n0-loc"/>
+                            <constraint firstItem="bxg-zn-osN" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="LJF-EC-EjX"/>
+                            <constraint firstItem="bxg-zn-osN" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="Yyw-z6-SKs"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="bxg-zn-osN" secondAttribute="bottom" id="wbm-8E-k7J"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <connections>
+                        <outlet property="webView" destination="bxg-zn-osN" id="k6f-gn-Cm8"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="137.68115942028987" y="83.705357142857139"/>
+        </scene>
+        <!--Notice List View Controller-->
+        <scene sceneID="8gs-px-APh">
+            <objects>
+                <tableViewController id="R4t-c4-jCX" customClass="NoticeListViewController" customModule="SoongsilNotice" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="vgO-Z5-SZK">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="noticeListCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="noticeListCell" rowHeight="66" id="c9Q-ca-8kl" customClass="NoticeListViewCell" customModule="SoongsilNotice" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="414" height="66"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="c9Q-ca-8kl" id="Qce-My-y0B">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="66"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Notice Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8MJ-5i-Buk">
+                                            <rect key="frame" x="20" y="11" width="374" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2019.11.05" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kc2-P9-Pox">
+                                            <rect key="frame" x="20" y="36" width="374" height="16"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                            <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="8MJ-5i-Buk" firstAttribute="leading" secondItem="Qce-My-y0B" secondAttribute="leading" constant="20" id="6Qg-5c-T0V"/>
+                                        <constraint firstItem="Kc2-P9-Pox" firstAttribute="top" secondItem="8MJ-5i-Buk" secondAttribute="bottom" constant="4" id="7M0-n2-X0W"/>
+                                        <constraint firstAttribute="bottom" secondItem="Kc2-P9-Pox" secondAttribute="bottom" constant="14" id="7zs-kD-ZeK"/>
+                                        <constraint firstItem="Kc2-P9-Pox" firstAttribute="leading" secondItem="Qce-My-y0B" secondAttribute="leading" constant="20" id="OmB-TX-HJf"/>
+                                        <constraint firstItem="8MJ-5i-Buk" firstAttribute="top" secondItem="Qce-My-y0B" secondAttribute="top" constant="11" id="WMQ-s9-1yc"/>
+                                        <constraint firstAttribute="trailing" secondItem="8MJ-5i-Buk" secondAttribute="trailing" constant="20" id="fks-Pl-UJS"/>
+                                        <constraint firstAttribute="trailing" secondItem="Kc2-P9-Pox" secondAttribute="trailing" constant="20" id="rAR-TE-QMO"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="noticeDate" destination="Kc2-P9-Pox" id="8X0-Rt-mnH"/>
+                                    <outlet property="noticeTitle" destination="8MJ-5i-Buk" id="A7N-qi-2tm"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="R4t-c4-jCX" id="lax-lr-9fc"/>
+                            <outlet property="delegate" destination="R4t-c4-jCX" id="D4e-HW-vDE"/>
+                        </connections>
+                    </tableView>
+                    <connections>
+                        <outlet property="noticeListView" destination="vgO-Z5-SZK" id="k34-HB-QEm"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3c4-hQ-MUa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1076.8115942028987" y="80.357142857142847"/>
+        </scene>
+    </scenes>
+</document>

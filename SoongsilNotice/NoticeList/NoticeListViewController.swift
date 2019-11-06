@@ -43,6 +43,7 @@ class NoticeListViewController: UIViewController, NoticeListView, UITableViewDel
     
     @objc func refresh() {
         self.page = 1
+        ConfigSetting.canFetchData = true
         self.noticeList.removeAll()
         self.presenter?.loadNoticeList(page: page, deptCode: noticeDeptCode!)
     }

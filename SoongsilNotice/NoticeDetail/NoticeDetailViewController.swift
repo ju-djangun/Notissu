@@ -13,15 +13,24 @@ import Kanna
 import WebKit
 
 class NoticeDetailViewController: UIViewController, WKNavigationDelegate, WKUIDelegate, NoticeDetailView {
+    
     @IBOutlet var webView: WKWebView!
+    @IBOutlet var titleLabel: UILabel!
+    @IBOutlet var dateLabel: UILabel!
+    
     var detailURL: String?
     var departmentCode: DeptCode?
+    var noticeTitle: String?
+    var noticeDay: String?
     var presenter: NoticeDetailPresenter?
     
     override func viewDidLoad() {
         self.webView.uiDelegate = self
         self.webView.navigationDelegate = self
         self.navigationItem.title = "상세보기"
+        
+        self.titleLabel.text = noticeTitle ?? ""
+        self.dateLabel.text = noticeDay ?? ""
         self.presenter = NoticeDetailPresenter(view: self)
         
         Alamofire.request(detailURL!).responseString(encoding: .utf8) { response in
@@ -53,5 +62,8 @@ class NoticeDetailViewController: UIViewController, WKNavigationDelegate, WKUIDe
     
     func showWebViewPage(attachments: [Attachment], html: String) {
         self.webView.loadHTMLString(html, baseURL: nil)
+        for attachment in attachments {
+            print("attachment : \(attachment.fileName) / \(attachment.fileURL)")
+        }
     }
 }

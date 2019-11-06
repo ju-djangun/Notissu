@@ -11,8 +11,8 @@ import UIKit
 import Kanna
 
 struct Attachment {
-    var fileName: String?
-    var fileURL: String?
+    var fileName: String
+    var fileURL: String
 }
 
 // View

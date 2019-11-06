@@ -16,24 +16,44 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bxg-zn-osN">
-                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <rect key="frame" x="0.0" y="103" width="414" height="759"/>
                                 <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <wkWebViewConfiguration key="configuration">
                                     <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
                                     <wkPreferences key="preferences" javaScriptCanOpenWindowsAutomatically="YES"/>
                                 </wkWebViewConfiguration>
                             </wkWebView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zMd-ND-uCL">
+                                <rect key="frame" x="20" y="56" width="374" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UwP-AF-1re">
+                                <rect key="frame" x="20" y="79" width="374" height="16"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="zMd-ND-uCL" secondAttribute="trailing" constant="20" id="2Xv-Qh-2Xl"/>
+                            <constraint firstItem="zMd-ND-uCL" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="Hvd-x1-t24"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="bxg-zn-osN" secondAttribute="trailing" id="IUR-n0-loc"/>
+                            <constraint firstItem="zMd-ND-uCL" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="12" id="JyW-Io-KAi"/>
                             <constraint firstItem="bxg-zn-osN" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="LJF-EC-EjX"/>
-                            <constraint firstItem="bxg-zn-osN" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="Yyw-z6-SKs"/>
+                            <constraint firstItem="UwP-AF-1re" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="aLa-fZ-hEd"/>
+                            <constraint firstItem="UwP-AF-1re" firstAttribute="top" secondItem="zMd-ND-uCL" secondAttribute="bottom" constant="2" id="mLD-pz-R0c"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="UwP-AF-1re" secondAttribute="trailing" constant="20" id="uR7-oy-gUD"/>
+                            <constraint firstItem="bxg-zn-osN" firstAttribute="top" secondItem="UwP-AF-1re" secondAttribute="bottom" constant="8" id="vrd-0J-abE"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="bxg-zn-osN" secondAttribute="bottom" id="wbm-8E-k7J"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="dateLabel" destination="UwP-AF-1re" id="IBu-Yg-R9O"/>
+                        <outlet property="titleLabel" destination="zMd-ND-uCL" id="EV7-ei-Yar"/>
                         <outlet property="webView" destination="bxg-zn-osN" id="UGS-2f-jTg"/>
                     </connections>
                 </viewController>

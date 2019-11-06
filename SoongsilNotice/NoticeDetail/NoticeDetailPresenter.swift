@@ -17,8 +17,27 @@ class NoticeDetailPresenter: NoticeDetail {
     }
     
     func parseComputer(html: HTMLDocument, completion: @escaping ([Attachment], String) -> Void) {
-        let detailHTML = html.css("div[class|=smartOutput]").first?.innerHTML ?? ""
-        completion([Attachment](), detailHTML)
+        let contentHTML = html.css("div[class|=smartOutput]").first?.innerHTML ?? ""
+        let htmlStart = "<hml><head><meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0, shrink-to-fit=no\"><style>html,body{padding:0 5px 5px;margin:0;font-size:18px !important;}iframe,img{max-width:100%;height:auto;}</style></head><bpdy>"
+        let htmlEnd = "</bpdy></hml>"
+        
+        let detailHTML = "\(htmlStart)\(contentHTML)\(htmlEnd)"
+        var attachmentList = [Attachment]()
+        
+//        html.css("span[class|=file] a")
+        let attachmentHTML = html.xpath("//span[@class='file']/a")
+        var attachmentNames = Array<XMLElement>()
+        attachmentNames.append(contentsOf: attachmentHTML.reversed())
+
+        for name in attachmentNames {
+            let fileUrl = "http://cse.ssu.ac.kr\(name["href"] ?? "")"
+            let fileName = name.content
+            
+            if !(name["href"] ?? "").isEmpty {
+                attachmentList.append(Attachment(fileName: fileName!, fileURL: fileUrl))
+            }
+        }
+        completion(attachmentList, detailHTML)
     }
     
     func parseElectric(html: HTMLDocument, completion: @escaping ([Attachment], String) -> Void) {

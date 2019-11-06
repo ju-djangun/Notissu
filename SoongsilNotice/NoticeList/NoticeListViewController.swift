@@ -54,6 +54,8 @@ class NoticeListViewController: UIViewController, NoticeListView, UITableViewDel
         
         noticeDetailController?.detailURL = noticeList[indexPath.row].url
         noticeDetailController?.departmentCode = self.noticeDeptCode
+        noticeDetailController?.noticeTitle = self.noticeList[indexPath.row].title
+        noticeDetailController?.noticeDay = self.noticeList[indexPath.row].date
         self.navigationController?.pushViewController(noticeDetailController!, animated: true)
     }
     

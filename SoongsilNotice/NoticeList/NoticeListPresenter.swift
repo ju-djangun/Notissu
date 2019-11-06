@@ -25,6 +25,8 @@ class NoticeListPresenter: NoticePresenter {
         case DeptCode.IT_Media :
             NoticeIT.parseListMedia(page: page, completion: self.view.applyToTableView)
             break
+        case DeptCode.IT_Electric :
+            NoticeIT.parseListElectric(page: page, completion: self.view.applyToTableView)
         default: break
         }
     }

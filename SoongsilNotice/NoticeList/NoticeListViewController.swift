@@ -15,6 +15,7 @@ class NoticeListViewController: UIViewController, NoticeListView, UITableViewDel
     private var presenter  : NoticeListPresenter?
     private var noticeList = [Notice]()
     private var noticeDeptCode: DeptCode?
+    private var noticeDeptName: DeptName?
     private var page : Int = 1
     
     
@@ -24,7 +25,11 @@ class NoticeListViewController: UIViewController, NoticeListView, UITableViewDel
         self.noticeListView.delegate = self
         self.noticeListView.dataSource = self
         self.noticeListView.reloadData()
-        self.noticeDeptCode = DeptCode.IT_Media
+        
+        self.noticeDeptCode = DeptCode.IT_Computer
+        self.noticeDeptName = DeptName.IT_Computer
+        
+        self.navigationItem.title = self.noticeDeptName!.rawValue
         ConfigSetting.canFetchData = true
         
         self.page = 1
@@ -48,6 +53,7 @@ class NoticeListViewController: UIViewController, NoticeListView, UITableViewDel
         let noticeDetailController = storyBoard.instantiateViewController(withIdentifier: "noticeDetailVC") as? NoticeDetailViewController
         
         noticeDetailController?.detailURL = noticeList[indexPath.row].url
+        noticeDetailController?.departmentCode = self.noticeDeptCode
         self.navigationController?.pushViewController(noticeDetailController!, animated: true)
     }
     

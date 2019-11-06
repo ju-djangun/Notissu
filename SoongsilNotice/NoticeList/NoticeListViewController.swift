@@ -65,8 +65,11 @@ class NoticeListViewController: UIViewController, NoticeListView, UITableViewDel
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "noticeListCell", for: indexPath) as! NoticeListViewCell
-        cell.noticeTitle.text = noticeList[indexPath.row].title
-        cell.noticeDate.text = noticeList[indexPath.row].date
+        
+        if noticeList.count > 0 {
+            cell.noticeTitle.text = noticeList[indexPath.row].title
+            cell.noticeDate.text = noticeList[indexPath.row].date
+        }
         cell.selectionStyle  = .none
         
         return cell

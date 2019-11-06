@@ -22,51 +22,56 @@ class NoticeIT {
         
         var index = 0
         
-        guard let main = URL(string: noticeUrl) else {
-            print("Error: \(noticeUrl) doesn't seem to be a valid URL")
-            return
-        }
-        do {
-            let noticeItemMain = try String(contentsOf: main, encoding: .utf8)
-            let doc = try HTML(html: noticeItemMain, encoding: .utf8)
-            for product in doc.xpath("//table/tbody/tr/*") {
-                if product.nextSibling?.className ?? "" == "center" {
-                    let noticeAuthor = product.nextSibling?.text ?? ""
-                    let noticeDate = product.nextSibling?.nextSibling?.text ?? ""
-                    let pageString = product.at_xpath("a")?["href"] ?? ""
-                    
-                    switch index % 2 {
-                    case 0:
-                        let noticeTitle = product.content ?? ""
-                        authorList.append(noticeAuthor)
-                        titleList.append(noticeTitle)
-                        pageStringList.append("http://cse.ssu.ac.kr/03_sub/01_sub.htm\(pageString)")
-                        dateStringList.append(noticeDate)
-                        break;
-                    case 1:  break;
-                    default: break
+        Alamofire.request(noticeUrl).responseString(encoding: .utf8) { response in
+            switch(response.result) {
+            case .success(_):
+                if let data = response.result.value {
+                    do {
+                        let doc = try HTML(html: data, encoding: .utf8)
+                        for product in doc.xpath("//table/tbody/tr/*") {
+                            if product.nextSibling?.className ?? "" == "center" {
+                                let noticeAuthor = product.nextSibling?.text ?? ""
+                                let noticeDate = product.nextSibling?.nextSibling?.text ?? ""
+                                let pageString = product.at_xpath("a")?["href"] ?? ""
+                                
+                                switch index % 2 {
+                                case 0:
+                                    let noticeTitle = product.content ?? ""
+                                    authorList.append(noticeAuthor)
+                                    titleList.append(noticeTitle)
+                                    pageStringList.append("http://cse.ssu.ac.kr/03_sub/01_sub.htm\(pageString)")
+                                    dateStringList.append(noticeDate)
+                                    break;
+                                case 1:  break;
+                                default: break
+                                }
+                                index += 1
+                                
+                            }
+                        }
+                        
+                        index = 0
+                        if authorList.count < 1 {
+                            ConfigSetting.canFetchData = false
+                        }
+                        
+                        for _ in authorList {
+                            let noticeItem = Notice(author: authorList[index], title: titleList[index], url: pageStringList[index], date: dateStringList[index])
+                            
+                            noticeList.append(noticeItem)
+                            index += 1
+                        }
+                        
+                        completion(noticeList)
+                    } catch let error {
+                        print("Error : \(error)")
                     }
-                    index += 1
                 }
+            case .failure(_):
+                print("Error message:\(response.result.error)")
+                break
             }
-        } catch let error {
-            print("Error : \(error)")
         }
-        
-        index = 0
-        if authorList.count < 1 {
-            ConfigSetting.canFetchData = false
-        }
-        
-        for _ in authorList {
-            //            print("index : \(index) , title : \(titleList[index]), author : \(authorList[index]), date : \(dateStringList[index])")
-            let noticeItem = Notice(author: authorList[index], title: titleList[index], url: pageStringList[index], date: dateStringList[index])
-            
-            noticeList.append(noticeItem)
-            index += 1
-        }
-        
-        completion(noticeList)
     }
     
     static func parseListMedia(page: Int, completion: @escaping ([Notice]) -> Void) {
@@ -76,13 +81,9 @@ class NoticeIT {
         var pageStringList = [String]()
         var dateStringList = [String]()
         let noticeUrl = "http://media.ssu.ac.kr/sub.php?code=XxH00AXY&mode=&category=1&searchType=&search=&orderType=&orderBy=&page=\(page)"
-        //        let noticeUrl = "http://www.naver.com"
         
         var index = 0
-        
         Alamofire.request(noticeUrl).responseString(encoding: .utf8) { response in
-            //            print("\(response.result.isSuccess)")
-            //            print(response.result.value ?? "")
             switch(response.result) {
             case .success(_):
                 if let data = response.result.value {
@@ -96,7 +97,7 @@ class NoticeIT {
                         print("Error : \(error)")
                     }
                 }
-                
+                break
             case .failure(_):
                 print("Error message:\(response.result.error)")
                 break
@@ -123,7 +124,7 @@ class NoticeIT {
             switch(response.result) {
             case .success(_):
                 if let data = response.result.value {
-//                    print(data)
+                    //                    print(data)
                     do {
                         let doc = try HTML(html: data, encoding: .utf8)
                         for product in doc.css("div[class^='list']") {

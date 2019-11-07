@@ -237,8 +237,71 @@ class NoticeIT {
         }
     }
     
-    func parseListSmartSystem(content: String) {
+    static func parseListSmartSystem(page: Int, completion: @escaping ([Notice]) -> Void) {
+        let noticeUrl = "http://smartsw.ssu.ac.kr/board/notice/\(page)"
+        var noticeList = [Notice]()
+        var authorList = [String]()
+        var titleList  = [String]()
+        var urlList = [String]()
+        var dateStringList = [String]()
+        var index = 0
         
+//        print("smart SW")
+        Alamofire.request(noticeUrl).responseString(encoding: .utf8) { response in
+            //            print("\(response.result.isSuccess)")
+            //            print(response.result.value ?? "")
+            switch(response.result) {
+            case .success(_):
+                if let data = response.result.value {
+//                    print(data)
+                    do {
+                        let doc = try HTML(html: data, encoding: .utf8)
+                        
+                        for product in doc.css("table[class='ui celled padded table'] tbody td") {
+                            let content = (product.text ?? "").trimmingCharacters(in: .whitespacesAndNewlines)
+                            print(content)
+                            switch(index % 3) {
+                            case 0:
+                                //title
+                                titleList.append(content)
+                                break
+                            case 1:
+                                //author
+                                authorList.append(content)
+                                break
+                            case 2:
+                                //date
+                                dateStringList.append(content)
+                                break
+                            default: break
+                            }
+                            
+                            if let url = product.css("a").first {
+                                let realUrl = "http://smartsw.ssu.ac.kr\(url["href"] ?? "")"
+                                print(realUrl)
+                                urlList.append(realUrl)
+                            }
+                            
+                            index += 1
+                        }
+                    } catch let error {
+                        print("Error : \(error)")
+                    }
+                }
+                
+                index = 0
+                for _ in authorList {
+                    let noticeItem = Notice(author: authorList[index], title: titleList[index], url: urlList[index], date: dateStringList[index])
+                    noticeList.append(noticeItem)
+                    index += 1
+                }
+                
+                completion(noticeList)
+            case .failure(_):
+                print("Error message:\(String(describing: response.result.error))")
+                break
+            }
+        }
     }
     
     func parseListMediaOper(content: String) {

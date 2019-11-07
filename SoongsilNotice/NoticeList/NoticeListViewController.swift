@@ -26,8 +26,8 @@ class NoticeListViewController: UIViewController, NoticeListView, UITableViewDel
         self.noticeListView.dataSource = self
         self.noticeListView.reloadData()
         
-        self.noticeDeptCode = DeptCode.IT_Software
-        self.noticeDeptName = DeptName.IT_Software
+        self.noticeDeptCode = DeptCode.IT_SmartSystem
+        self.noticeDeptName = DeptName.IT_SmartSystem
         
         self.navigationItem.title = self.noticeDeptName!.rawValue
         ConfigSetting.canFetchData = true
@@ -39,6 +39,10 @@ class NoticeListViewController: UIViewController, NoticeListView, UITableViewDel
             noticeListView.refreshControl = refreshControl
         } else { noticeListView.addSubview(refreshControl) }
         refreshControl.addTarget(self, action: #selector(refresh), for: .valueChanged)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.presenter?.loadNoticeList(page: page, deptCode: noticeDeptCode!)
     }
     
     @objc func refresh() {

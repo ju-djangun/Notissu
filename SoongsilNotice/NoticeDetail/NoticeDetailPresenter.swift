@@ -89,6 +89,10 @@ class NoticeDetailPresenter: NoticeDetail {
         completion(attachmentList, detailHTML)
     }
     
+    func parseSmartSystem(html: HTMLDocument, completion: @escaping ([Attachment], String) -> Void) {
+//        let contentHTML = ""
+    }
+    
     func downloadFile(url: String, fileName: String) {
         
     }

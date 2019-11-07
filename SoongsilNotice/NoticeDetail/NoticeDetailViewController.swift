@@ -59,8 +59,14 @@ class NoticeDetailViewController: BaseViewController, WKNavigationDelegate, WKUI
                             break
                         case DeptCode.IT_Software:
                             self.presenter!.parseSoftware(html: doc, completion: self.showWebViewPage)
+                            break
                         case DeptCode.IT_Media:
                             self.presenter!.parseMedia(html: doc, completion: self.showWebViewPage)
+                            break
+                        case DeptCode.IT_SmartSystem:
+//                            self.presenter!.parseSmartSystem(html: doc, completion: self.showWebViewPage)
+                            self.webView.load(URLRequest(url: URL(string: self.detailURL ?? "")!))
+                            break
                         default: break
                         }
                     } catch let error {

@@ -12,12 +12,14 @@ import Alamofire
 import Kanna
 import WebKit
 
-class NoticeDetailViewController: UIViewController, WKNavigationDelegate, WKUIDelegate, NoticeDetailView {
+class NoticeDetailViewController: UIViewController, WKNavigationDelegate, WKUIDelegate, UITableViewDelegate, UITableViewDataSource, NoticeDetailView {
     
+    @IBOutlet var attachmentView: UITableView!
     @IBOutlet var webView: WKWebView!
     @IBOutlet var titleLabel: UILabel!
     @IBOutlet var dateLabel: UILabel!
     
+    var attachments = [Attachment]()
     var detailURL: String?
     var departmentCode: DeptCode?
     var noticeTitle: String?
@@ -27,6 +29,9 @@ class NoticeDetailViewController: UIViewController, WKNavigationDelegate, WKUIDe
     override func viewDidLoad() {
         self.webView.uiDelegate = self
         self.webView.navigationDelegate = self
+        self.attachmentView.delegate = self
+        self.attachmentView.dataSource = self
+        
         self.navigationItem.title = "상세보기"
         
         self.titleLabel.text = noticeTitle ?? ""
@@ -62,8 +67,29 @@ class NoticeDetailViewController: UIViewController, WKNavigationDelegate, WKUIDe
     
     func showWebViewPage(attachments: [Attachment], html: String) {
         self.webView.loadHTMLString(html, baseURL: nil)
+        self.attachments = attachments
         for attachment in attachments {
             print("attachment : \(attachment.fileName) / \(attachment.fileURL)")
         }
+        self.attachmentView.reloadData()
+    }
+    
+    // Attachment Table View Delegate Functions
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return attachments.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "noticeAttachmentCell", for: indexPath) as! NoticeAttachmentCell
+        
+        print("cell : \(attachments.count)")
+        if self.attachments.count > 0 {
+            cell.viewController = self
+            cell.attachmentTitle.text = attachments[indexPath.row].fileName
+            cell.fileDownloadURL = attachments[indexPath.row].fileURL
+        }
+        cell.selectionStyle  = .none
+        
+        return cell
     }
 }

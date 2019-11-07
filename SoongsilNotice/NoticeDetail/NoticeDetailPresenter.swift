@@ -45,4 +45,8 @@ class NoticeDetailPresenter: NoticeDetail {
         //let attachments = doc.css("div[class^='attach']")
         completion([Attachment](), detailHTML)
     }
+    
+    func downloadFile(url: String, fileName: String) {
+        
+    }
 }

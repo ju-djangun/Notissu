@@ -26,4 +26,6 @@ protocol NoticeDetail {
     func parseComputer(html: HTMLDocument, completion: @escaping ([Attachment], String) -> Void)
     
     func parseElectric(html: HTMLDocument, completion: @escaping ([Attachment], String) -> Void)
+    
+    func downloadFile(url: String, fileName: String)
 }

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		B1BB4EC5DF62B3F4EE0CB425 /* Pods_SoongsilNotice.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57296D4BD235F1B361E7E590 /* Pods_SoongsilNotice.framework */; };
+		DE0F8F1823739C8A006A0B49 /* NoticeAttachmentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE0F8F1723739C8A006A0B49 /* NoticeAttachmentCell.swift */; };
 		DE29613623703F4C0074F24B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE29613523703F4C0074F24B /* AppDelegate.swift */; };
 		DE29613A23703F4C0074F24B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE29613923703F4C0074F24B /* ViewController.swift */; };
 		DE29613D23703F4C0074F24B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DE29613B23703F4C0074F24B /* Main.storyboard */; };
@@ -29,6 +30,7 @@
 		10D362999ACAF386EBEE89E5 /* Pods-SoongsilNotice.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SoongsilNotice.debug.xcconfig"; path = "Target Support Files/Pods-SoongsilNotice/Pods-SoongsilNotice.debug.xcconfig"; sourceTree = "<group>"; };
 		5109B6F37C7101EEB67D7049 /* Pods-SoongsilNotice.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SoongsilNotice.release.xcconfig"; path = "Target Support Files/Pods-SoongsilNotice/Pods-SoongsilNotice.release.xcconfig"; sourceTree = "<group>"; };
 		57296D4BD235F1B361E7E590 /* Pods_SoongsilNotice.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SoongsilNotice.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DE0F8F1723739C8A006A0B49 /* NoticeAttachmentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeAttachmentCell.swift; sourceTree = "<group>"; };
 		DE29613223703F4C0074F24B /* SoongsilNotice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SoongsilNotice.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE29613523703F4C0074F24B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DE29613923703F4C0074F24B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -130,6 +132,7 @@
 				DE2961582371ADEE0074F24B /* NoticeDetailViewController.swift */,
 				DE29615A237289D60074F24B /* NoticeDetailContract.swift */,
 				DE29615D23728A330074F24B /* NoticeDetailPresenter.swift */,
+				DE0F8F1723739C8A006A0B49 /* NoticeAttachmentCell.swift */,
 			);
 			path = NoticeDetail;
 			sourceTree = "<group>";
@@ -259,6 +262,7 @@
 				DE29614D2370FCB20074F24B /* NoticeListPresenter.swift in Sources */,
 				DE2961512370FD0A0074F24B /* NoticeListViewCell.swift in Sources */,
 				DE296157237198070074F24B /* NoticeIT.swift in Sources */,
+				DE0F8F1823739C8A006A0B49 /* NoticeAttachmentCell.swift in Sources */,
 				DE29614B2370FC720074F24B /* NoticeListViewController.swift in Sources */,
 				DE29615E23728A330074F24B /* NoticeDetailPresenter.swift in Sources */,
 			);

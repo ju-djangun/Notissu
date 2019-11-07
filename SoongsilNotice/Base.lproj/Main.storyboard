@@ -16,7 +16,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bxg-zn-osN">
-                                <rect key="frame" x="0.0" y="103" width="414" height="759"/>
+                                <rect key="frame" x="0.0" y="103" width="414" height="623"/>
                                 <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <wkWebViewConfiguration key="configuration">
                                     <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
@@ -35,23 +35,74 @@
                                 <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Mei-BY-e7h">
+                                <rect key="frame" x="0.0" y="734" width="414" height="128"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="128" id="HXk-jL-DGu"/>
+                                </constraints>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="noticeAttachmentCell" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="noticeAttachmentCell" id="YB3-D2-wio" customClass="NoticeAttachmentCell" customModule="SoongsilNotice" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="YB3-D2-wio" id="wut-Sy-te4">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fzu-OP-aRB">
+                                                    <rect key="frame" x="20" y="11.5" width="306" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3QO-NX-Ndh">
+                                                    <rect key="frame" x="334" y="7" width="60" height="30"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="60" id="NdM-MR-qea"/>
+                                                    </constraints>
+                                                    <state key="normal" title="다운로드"/>
+                                                    <connections>
+                                                        <action selector="onClickDownload:" destination="YB3-D2-wio" eventType="touchUpInside" id="VUV-px-V4a"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="Fzu-OP-aRB" firstAttribute="leading" secondItem="wut-Sy-te4" secondAttribute="leading" constant="20" id="KaL-Lt-c3W"/>
+                                                <constraint firstItem="3QO-NX-Ndh" firstAttribute="centerY" secondItem="wut-Sy-te4" secondAttribute="centerY" id="U8b-Tu-Sh2"/>
+                                                <constraint firstItem="3QO-NX-Ndh" firstAttribute="height" secondItem="wut-Sy-te4" secondAttribute="height" multiplier="0.689655" id="UAL-1f-PmZ"/>
+                                                <constraint firstAttribute="trailing" secondItem="3QO-NX-Ndh" secondAttribute="trailing" constant="20" id="rbY-vk-t28"/>
+                                                <constraint firstItem="Fzu-OP-aRB" firstAttribute="centerY" secondItem="wut-Sy-te4" secondAttribute="centerY" id="yDi-wo-2Qv"/>
+                                                <constraint firstItem="3QO-NX-Ndh" firstAttribute="leading" secondItem="Fzu-OP-aRB" secondAttribute="trailing" constant="8" id="yuS-vV-O4D"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="attachmentTitle" destination="Fzu-OP-aRB" id="f2T-G3-IaV"/>
+                                            <outlet property="btnDownload" destination="3QO-NX-Ndh" id="pA1-AC-QZX"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="zMd-ND-uCL" secondAttribute="trailing" constant="20" id="2Xv-Qh-2Xl"/>
+                            <constraint firstItem="Mei-BY-e7h" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="2nV-Dx-PwK"/>
+                            <constraint firstItem="Mei-BY-e7h" firstAttribute="top" secondItem="bxg-zn-osN" secondAttribute="bottom" constant="8" id="8k6-l6-wON"/>
                             <constraint firstItem="zMd-ND-uCL" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="Hvd-x1-t24"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="bxg-zn-osN" secondAttribute="trailing" id="IUR-n0-loc"/>
                             <constraint firstItem="zMd-ND-uCL" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="12" id="JyW-Io-KAi"/>
                             <constraint firstItem="bxg-zn-osN" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="LJF-EC-EjX"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Mei-BY-e7h" secondAttribute="bottom" id="UQo-dz-ycD"/>
                             <constraint firstItem="UwP-AF-1re" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="aLa-fZ-hEd"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Mei-BY-e7h" secondAttribute="trailing" id="e1J-pd-1F7"/>
                             <constraint firstItem="UwP-AF-1re" firstAttribute="top" secondItem="zMd-ND-uCL" secondAttribute="bottom" constant="2" id="mLD-pz-R0c"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="UwP-AF-1re" secondAttribute="trailing" constant="20" id="uR7-oy-gUD"/>
                             <constraint firstItem="bxg-zn-osN" firstAttribute="top" secondItem="UwP-AF-1re" secondAttribute="bottom" constant="8" id="vrd-0J-abE"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="bxg-zn-osN" secondAttribute="bottom" id="wbm-8E-k7J"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="attachmentView" destination="Mei-BY-e7h" id="KtB-26-Jt4"/>
                         <outlet property="dateLabel" destination="UwP-AF-1re" id="IBu-Yg-R9O"/>
                         <outlet property="titleLabel" destination="zMd-ND-uCL" id="EV7-ei-Yar"/>
                         <outlet property="webView" destination="bxg-zn-osN" id="UGS-2f-jTg"/>

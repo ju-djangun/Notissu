@@ -74,6 +74,9 @@ class NoticeDetailViewController: BaseViewController, WKNavigationDelegate, WKUI
         
         if attachments.count > 0 {
             self.attachViewHeightConstraint.constant = 128
+            UIView.animate(withDuration: 0.3) {
+                self.view.layoutIfNeeded()
+            }
         }
         
         for attachment in attachments {

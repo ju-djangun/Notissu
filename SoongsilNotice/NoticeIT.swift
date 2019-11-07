@@ -78,28 +78,56 @@ class NoticeIT {
         var noticeList = [Notice]()
         var authorList = [String]()
         var titleList  = [String]()
-        var pageStringList = [String]()
+        var urlList    = [String]()
         var dateStringList = [String]()
         let noticeUrl = "http://media.ssu.ac.kr/sub.php?code=XxH00AXY&mode=&category=1&searchType=&search=&orderType=&orderBy=&page=\(page)"
-        
+        print("media")
         var index = 0
-        Alamofire.request(noticeUrl).responseString(encoding: .utf8) { response in
+        Alamofire.request(noticeUrl).responseString { response in
             switch(response.result) {
             case .success(_):
-                if let data = response.result.value {
-                    print(data)
-                    do {
-                        let doc = try HTML(html: data, encoding: .utf8)
-                        for product in doc.xpath("//table/tbody/tr/*") {
-                            print(product.content)
-                        }
-                    } catch let error {
-                        print("Error : \(error)")
+                guard let data = response.data else { return }
+                let utf8Text = String(data: data, encoding: .utf8) ?? String(decoding: data, as: UTF8.self)
+//                print(utf8Text)
+                
+                do {
+                    let doc = try HTML(html: utf8Text, encoding: .utf8)
+                    for product in doc.css("table tbody tr a") {
+                        let noticeId = product["onclick"]?.getArrayAfterRegex(regex: "['](.*?)[']")[0] ?? ""
+                        let url = "http://media.ssu.ac.kr/sub.php?code=XxH00AXY&mode=view&board_num=\(noticeId)&category=1"
+                        urlList.append(url)
+                        titleList.append(product.content ?? "")
                     }
+                    
+                    index = 0
+                    for product in doc.css("td[align='center']") {
+                        if index % 4 == 1 {
+                            authorList.append(product.content ?? "")
+                        } else if index % 4 == 2 {
+                            dateStringList.append(product.content ?? "")
+                        }
+                        
+                        index += 1
+                    }
+                    
+                    index = 0
+                    if authorList.count < 1 {
+                        ConfigSetting.canFetchData = false
+                    }
+                    
+                    for _ in authorList {
+                        let noticeItem = Notice(author: authorList[index], title: titleList[index], url: urlList[index], date: dateStringList[index])
+                        
+                        noticeList.append(noticeItem)
+                        index += 1
+                    }
+                    
+                    completion(noticeList)
+                } catch let error {
+                    print("Error : \(error)")
                 }
-                break
             case .failure(_):
-                print("Error message:\(response.result.error)")
+                print("Error message:\(String(describing: response.result.error))")
                 break
             }
         }
@@ -121,8 +149,10 @@ class NoticeIT {
                     do {
                         let doc = try HTML(html: data, encoding: .utf8)
                         for product in doc.css("td[class^=subject] a") {
+                            var url = product["href"] ?? ""
+                            url = url.replacingOccurrences(of: "..", with: "https://sw.ssu.ac.kr")
                             titleList.append(product.text ?? "")
-                            urlList.append(product["href"] ?? "")
+                            urlList.append(url)
                         }
                         
                         for product in doc.css("td[class^=datetime]") {

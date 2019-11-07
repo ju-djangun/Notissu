@@ -41,12 +41,13 @@ class NoticeDetailViewController: BaseViewController, WKNavigationDelegate, WKUI
         self.dateLabel.text = noticeDay ?? ""
         self.presenter = NoticeDetailPresenter(view: self)
         
-        Alamofire.request(detailURL!).responseString(encoding: .utf8) { response in
+        Alamofire.request(detailURL!).responseString { response in
             //            print("\(response.result.isSuccess)")
             //            print(response.result.value ?? "")
             switch(response.result) {
             case .success(_):
-                if let data = response.result.value {
+                guard let text = response.data else { return }
+                let data = String(data: text, encoding: .utf8) ?? String(decoding: text, as: UTF8.self)
                     do {
                         let doc = try HTML(html: data, encoding: .utf8)
                         switch(self.departmentCode!) {
@@ -56,12 +57,16 @@ class NoticeDetailViewController: BaseViewController, WKNavigationDelegate, WKUI
                         case DeptCode.IT_Electric:
                             self.presenter!.parseElectric(html: doc, completion: self.showWebViewPage)
                             break
+                        case DeptCode.IT_Software:
+                            self.presenter!.parseSoftware(html: doc, completion: self.showWebViewPage)
+                        case DeptCode.IT_Media:
+                            self.presenter!.parseMedia(html: doc, completion: self.showWebViewPage)
                         default: break
                         }
                     } catch let error {
                         print("ERROR : \(error)")
                     }
-                }
+//            }
                 break
             default: break
             }

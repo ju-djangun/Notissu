@@ -26,8 +26,8 @@ class NoticeListViewController: UIViewController, NoticeListView, UITableViewDel
         self.noticeListView.dataSource = self
         self.noticeListView.reloadData()
         
-        self.noticeDeptCode = DeptCode.IT_Software
-        self.noticeDeptName = DeptName.IT_Software
+        self.noticeDeptCode = DeptCode.IT_Media
+        self.noticeDeptName = DeptName.IT_Media
         
         self.navigationItem.title = self.noticeDeptName!.rawValue
         ConfigSetting.canFetchData = true

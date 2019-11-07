@@ -41,9 +41,20 @@ class NoticeDetailPresenter: NoticeDetail {
     }
     
     func parseElectric(html: HTMLDocument, completion: @escaping ([Attachment], String) -> Void) {
-        let detailHTML = html.css("div[class^='content']").first?.innerHTML ?? ""
-        //let attachments = doc.css("div[class^='attach']")
-        completion([Attachment](), detailHTML)
+        let contentHTML = html.css("div[class^='content']").first?.innerHTML ?? ""
+        
+        let htmlStart = "<hml><head><meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0, shrink-to-fit=no\"><style>html,body{padding:0 5px 5px;margin:0;font-size:18px !important;}iframe,img{max-width:100%;height:auto;}</style></head><bpdy>"
+        let htmlEnd = "</bpdy></hml>"
+        
+        let detailHTML = "\(htmlStart)\(contentHTML)\(htmlEnd)"
+        
+        let attachments = html.css("div[class^='attach'] a")
+        var attachmentList = [Attachment]()
+        for attachment in attachments {
+            let fileUrl = "http://infocom.ssu.ac.kr\(attachment["href"]!)"
+            attachmentList.append(Attachment(fileName: attachment.text!, fileURL: fileUrl))
+        }
+        completion(attachmentList, detailHTML)
     }
     
     func downloadFile(url: String, fileName: String) {

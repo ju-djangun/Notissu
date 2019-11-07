@@ -33,6 +33,7 @@ class NoticeDetailViewController: BaseViewController, WKNavigationDelegate, WKUI
         self.webView.navigationDelegate = self
         self.attachmentView.delegate = self
         self.attachmentView.dataSource = self
+        self.attachmentView.tableFooterView = UIView()
         
         self.attachViewHeightConstraint.constant = 0
         self.navigationItem.title = "상세보기"
@@ -40,6 +41,8 @@ class NoticeDetailViewController: BaseViewController, WKNavigationDelegate, WKUI
         self.titleLabel.text = noticeTitle ?? ""
         self.dateLabel.text = noticeDay ?? ""
         self.presenter = NoticeDetailPresenter(view: self)
+        
+        self.showActivityIndicator(uiView: self.webView)
         
         Alamofire.request(detailURL!).responseString { response in
             //            print("\(response.result.isSuccess)")
@@ -64,9 +67,10 @@ class NoticeDetailViewController: BaseViewController, WKNavigationDelegate, WKUI
                             self.presenter!.parseMedia(html: doc, completion: self.showWebViewPage)
                             break
                         case DeptCode.IT_SmartSystem:
-//                            self.presenter!.parseSmartSystem(html: doc, completion: self.showWebViewPage)
                             self.webView.load(URLRequest(url: URL(string: self.detailURL ?? "")!))
                             break
+                        case DeptCode.LAW_Law:
+                            self.presenter!.parseLaw(html: doc, completion: self.showWebViewPage)
                         default: break
                         }
                     } catch let error {
@@ -93,6 +97,8 @@ class NoticeDetailViewController: BaseViewController, WKNavigationDelegate, WKUI
         for attachment in attachments {
             print("attachment : \(attachment.fileName) / \(attachment.fileURL)")
         }
+        
+        self.hideActivityIndicator(uiView: self.webView)
         self.attachmentView.reloadData()
     }
     
@@ -119,7 +125,7 @@ class NoticeDetailViewController: BaseViewController, WKNavigationDelegate, WKUI
     
     func showDocumentInteractionController(filePath: String) {
         print("open file dialog")
-        self.hideActivityIndicator()
+        self.hideActivityIndicator(uiView: self.webView)
         self.docController = UIDocumentInteractionController(url: NSURL(fileURLWithPath: filePath) as URL)
         self.docController.name = NSURL(fileURLWithPath: filePath).lastPathComponent
         print("NAME : " + self.docController.name!)
@@ -129,6 +135,6 @@ class NoticeDetailViewController: BaseViewController, WKNavigationDelegate, WKUI
     
     func showIndicator() {
         print("show Indicator")
-        self.showActivityIndicator()
+        self.showActivityIndicator(uiView: self.webView)
     }
 }

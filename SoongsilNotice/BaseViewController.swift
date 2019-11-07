@@ -18,29 +18,18 @@ class BaseViewController: UIViewController {
         
     }
     
-    func showActivityIndicator() {
-        print("A")
-        DispatchQueue.main.async {
-            self.loadingView = UIView()
-            self.loadingView.frame = CGRect(x: 0.0, y: 0.0, width: self.view.frame.width, height: self.view.frame.height)
-            self.loadingView.center = self.view.center
-            self.loadingView.backgroundColor = UIColor(hex: "ff303030")
-            self.loadingView.alpha = 0.3
-            self.loadingView.clipsToBounds = true
-            self.spinner = UIActivityIndicatorView(style: .large)
-            self.spinner.frame = CGRect(x: 0.0, y: 0.0, width: 80.0, height: 80.0)
-            self.spinner.center = CGPoint(x:self.loadingView.bounds.size.width / 2, y:self.loadingView.bounds.size.height / 2)
-            self.loadingView.addSubview(self.spinner)
-            self.view.addSubview(self.loadingView)
-            self.spinner.startAnimating()
-        }
+    func showActivityIndicator(uiView: UIView!) {
+        let actInd: UIActivityIndicatorView = UIActivityIndicatorView()
+        actInd.frame = CGRect(x: 0.0, y: 0.0, width: 40.0, height: 40.0);
+        actInd.center = uiView.center
+        actInd.hidesWhenStopped = true
+        actInd.style = .large
+        uiView.addSubview(actInd)
+        self.spinner.startAnimating()
     }
     
-    func hideActivityIndicator() {
-        DispatchQueue.main.async {
-            self.spinner.stopAnimating()
-            self.loadingView.removeFromSuperview()
-        }
+    func hideActivityIndicator(uiView: UIView) {
+        self.spinner.stopAnimating()
     }
 }
 

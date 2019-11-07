@@ -31,7 +31,5 @@ protocol NoticeDetail {
     
     func parseMedia(html: HTMLDocument, completion: @escaping ([Attachment], String) -> Void)
     
-    func parseSmartSystem(html: HTMLDocument, completion: @escaping ([Attachment], String) -> Void)
-    
-    func downloadFile(url: String, fileName: String)
+    func parseLaw(html: HTMLDocument, completion: @escaping ([Attachment], String) -> Void)
 }

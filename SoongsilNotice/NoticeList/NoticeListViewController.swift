@@ -8,14 +8,14 @@
 
 import UIKit
 
-class NoticeListViewController: UIViewController, NoticeListView, UITableViewDelegate, UITableViewDataSource {
+class NoticeListViewController: BaseViewController, NoticeListView, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet var noticeListView: UITableView!
     private var refreshControl      = UIRefreshControl()
     private var presenter  : NoticeListPresenter?
     private var noticeList = [Notice]()
-    private var noticeDeptCode: DeptCode?
-    private var noticeDeptName: DeptName?
+    var noticeDeptCode: DeptCode?
+    var noticeDeptName: DeptName?
     private var page : Int = 1
     
     
@@ -26,13 +26,11 @@ class NoticeListViewController: UIViewController, NoticeListView, UITableViewDel
         self.noticeListView.dataSource = self
         self.noticeListView.reloadData()
         
-        self.noticeDeptCode = DeptCode.IT_SmartSystem
-        self.noticeDeptName = DeptName.IT_SmartSystem
-        
         self.navigationItem.title = self.noticeDeptName!.rawValue
         ConfigSetting.canFetchData = true
         
         self.page = 1
+        self.showActivityIndicator(uiView: self.view)
         self.presenter?.loadNoticeList(page: page, deptCode: noticeDeptCode!)
         
         if #available(iOS 10.0, *) {
@@ -41,12 +39,9 @@ class NoticeListViewController: UIViewController, NoticeListView, UITableViewDel
         refreshControl.addTarget(self, action: #selector(refresh), for: .valueChanged)
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        self.presenter?.loadNoticeList(page: page, deptCode: noticeDeptCode!)
-    }
-    
     @objc func refresh() {
         self.page = 1
+        self.showActivityIndicator(uiView: self.view)
         ConfigSetting.canFetchData = true
         self.noticeList.removeAll()
         self.presenter?.loadNoticeList(page: page, deptCode: noticeDeptCode!)
@@ -90,6 +85,7 @@ class NoticeListViewController: UIViewController, NoticeListView, UITableViewDel
     
     func applyToTableView(list: [Notice]) {
         self.refreshControl.endRefreshing()
+        self.hideActivityIndicator(uiView: self.view)
         self.noticeList.append(contentsOf: list)
         self.noticeListView.reloadData()
     }

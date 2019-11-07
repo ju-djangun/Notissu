@@ -33,7 +33,12 @@ class NoticeListPresenter: NoticePresenter {
             break
         case DeptCode.IT_SmartSystem:
             NoticeIT.parseListSmartSystem(page: page, completion: self.view.applyToTableView)
-            
+            break
+        case DeptCode.LAW_Law:
+            NoticeLaw.parseListLaw(page: page, completion: self.view.applyToTableView)
+            break
+        case DeptCode.LAW_IntlLaw:
+            break
         default: break
         }
     }

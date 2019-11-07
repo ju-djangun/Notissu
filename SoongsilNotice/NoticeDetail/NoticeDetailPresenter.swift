@@ -57,13 +57,21 @@ class NoticeDetailPresenter: NoticeDetail {
     
     func parseSoftware(html: HTMLDocument, completion: @escaping ([Attachment], String) -> Void) { 
         let contentHTML = html.css("div[class^='bo_view_2']").first?.innerHTML ?? ""
+//        let downloadUrl = "https://sw.ssu.ac.kr/bbs/download.php?bo_table=sub6_1&wr_id=1023&no=1"
         let detailHTML = "\(htmlStart)\(contentHTML)\(htmlEnd)"
+        var attachmentList = [Attachment]()
         
+        var index = 0
         for link in html.css("div[class^='bo_view_1'] a") {
-            var url = link["href"] ?? ""
-            url = url.replacingOccurrences(of: "./", with: "https://sw.ssu.ac.kr/")
-            print(url)
+            let url = link["href"]?.getArrayAfterRegex(regex: "[=](.*?)[&]")[1] ?? ""
+            let wr_id = url.replacingOccurrences(of: "&", with: "").replacingOccurrences(of: "=", with: "")
+            
+            let realUrl = "https://sw.ssu.ac.kr/bbs/download.php?bo_table=sub6_1&wr_id=\(wr_id)&no=\(index)"
+            attachmentList.append(Attachment(fileName: link.content ?? "", fileURL: realUrl))
+            index += 1
         }
+        
+        completion(attachmentList, detailHTML)
     }
     
     func parseMedia(html: HTMLDocument, completion: @escaping ([Attachment], String) -> Void) {

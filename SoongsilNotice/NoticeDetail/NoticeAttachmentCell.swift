@@ -19,6 +19,7 @@ class NoticeAttachmentCell: UITableViewCell {
     @IBOutlet var btnDownload: UIButton!
     
     weak var cellDelegate : AttachmentDelegate?
+    var majorCode: DeptCode?
     var fileName = String()
     var fileDownloadURL = String()
     var viewController: BaseViewController?
@@ -28,7 +29,11 @@ class NoticeAttachmentCell: UITableViewCell {
     }
     
     func doDownloadFile(_ action: UIAlertAction) {
-        let encodedUrl = self.fileDownloadURL.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
+        var encodedUrl = self.fileDownloadURL
+        if majorCode ?? DeptCode.IT_Computer != DeptCode.LAW_IntlLaw {
+            encodedUrl = self.fileDownloadURL.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
+        }
+        
         print("download : \(encodedUrl)")
         
         self.cellDelegate?.showIndicator()

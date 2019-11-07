@@ -29,7 +29,7 @@ class NoticeDetailPresenter: NoticeDetail {
         let attachmentHTML = html.xpath("//span[@class='file']/a")
         var attachmentNames = Array<XMLElement>()
         attachmentNames.append(contentsOf: attachmentHTML.reversed())
-
+        
         for name in attachmentNames {
             let fileUrl = "http://cse.ssu.ac.kr\(name["href"] ?? "")"
             let fileName = name.content
@@ -57,7 +57,7 @@ class NoticeDetailPresenter: NoticeDetail {
     
     func parseSoftware(html: HTMLDocument, completion: @escaping ([Attachment], String) -> Void) { 
         let contentHTML = html.css("div[class^='bo_view_2']").first?.innerHTML ?? ""
-//        let downloadUrl = "https://sw.ssu.ac.kr/bbs/download.php?bo_table=sub6_1&wr_id=1023&no=1"
+        //        let downloadUrl = "https://sw.ssu.ac.kr/bbs/download.php?bo_table=sub6_1&wr_id=1023&no=1"
         let detailHTML = "\(htmlStart)\(contentHTML)\(htmlEnd)"
         var attachmentList = [Attachment]()
         
@@ -95,8 +95,8 @@ class NoticeDetailPresenter: NoticeDetail {
         var attachmentList = [Attachment]()
         
         for link in html.css("table[class='bbs-view'] a") {
-//            print(link["href"])
-//            print(link.content)
+            //            print(link["href"])
+            //            print(link.content)
             attachmentList.append(Attachment(fileName: link.content ?? "", fileURL: link["href"] ?? ""))
         }
         
@@ -104,7 +104,17 @@ class NoticeDetailPresenter: NoticeDetail {
     }
     
     func parseIntlLaw(html: HTMLDocument, completion: @escaping ([Attachment], String) -> Void) {
+        let contentHTML = html.css("div[class^='frame-box']").first?.innerHTML ?? ""
+        let detailHTML = "\(htmlStart)\(contentHTML)\(htmlEnd)"
+        var attachmentList = [Attachment]()
         
+        for link in html.css("table[class='bbs-view'] a") {
+            print(link["href"])
+            print(link.content)
+            attachmentList.append(Attachment(fileName: link.content ?? "", fileURL: link["href"] ?? ""))
+        }
+        
+        completion(attachmentList, detailHTML)
     }
     
 }

@@ -71,6 +71,9 @@ class NoticeDetailViewController: BaseViewController, WKNavigationDelegate, WKUI
                             break
                         case DeptCode.LAW_Law:
                             self.presenter!.parseLaw(html: doc, completion: self.showWebViewPage)
+                            break
+                        case DeptCode.LAW_IntlLaw:
+                            self.presenter!.parseIntlLaw(html: doc, completion: self.showWebViewPage)
                         default: break
                         }
                     } catch let error {
@@ -117,6 +120,10 @@ class NoticeDetailViewController: BaseViewController, WKNavigationDelegate, WKUI
             cell.fileName = attachments[indexPath.row].fileName
             cell.attachmentTitle.text = attachments[indexPath.row].fileName
             cell.fileDownloadURL = attachments[indexPath.row].fileURL
+            cell.majorCode = self.departmentCode
+            
+            print("FINAL")
+            print(attachments[indexPath.row].fileURL)
         }
         cell.selectionStyle  = .none
         

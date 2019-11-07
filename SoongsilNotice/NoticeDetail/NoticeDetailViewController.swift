@@ -14,10 +14,11 @@ import WebKit
 
 class NoticeDetailViewController: BaseViewController, WKNavigationDelegate, WKUIDelegate, UITableViewDelegate, UITableViewDataSource, UIDocumentInteractionControllerDelegate, NoticeDetailView, AttachmentDelegate {
     
-    @IBOutlet var attachmentView: UITableView!
-    @IBOutlet var webView       : WKWebView!
-    @IBOutlet var titleLabel    : UILabel!
-    @IBOutlet var dateLabel     : UILabel!
+    @IBOutlet var attachmentView            : UITableView!
+    @IBOutlet var webView                   : WKWebView!
+    @IBOutlet var titleLabel                : UILabel!
+    @IBOutlet var dateLabel                 : UILabel!
+    @IBOutlet var attachViewHeightConstraint: NSLayoutConstraint!
     
     var attachments   = [Attachment]()
     var detailURL     : String?
@@ -33,6 +34,7 @@ class NoticeDetailViewController: BaseViewController, WKNavigationDelegate, WKUI
         self.attachmentView.delegate = self
         self.attachmentView.dataSource = self
         
+        self.attachViewHeightConstraint.constant = 0
         self.navigationItem.title = "상세보기"
         
         self.titleLabel.text = noticeTitle ?? ""
@@ -69,6 +71,11 @@ class NoticeDetailViewController: BaseViewController, WKNavigationDelegate, WKUI
     func showWebViewPage(attachments: [Attachment], html: String) {
         self.webView.loadHTMLString(html, baseURL: nil)
         self.attachments = attachments
+        
+        if attachments.count > 0 {
+            self.attachViewHeightConstraint.constant = 128
+        }
+        
         for attachment in attachments {
             print("attachment : \(attachment.fileName) / \(attachment.fileURL)")
         }

@@ -102,6 +102,7 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="attachViewHeightConstraint" destination="HXk-jL-DGu" id="klS-Aa-cu2"/>
                         <outlet property="attachmentView" destination="Mei-BY-e7h" id="KtB-26-Jt4"/>
                         <outlet property="dateLabel" destination="UwP-AF-1re" id="IBu-Yg-R9O"/>
                         <outlet property="titleLabel" destination="zMd-ND-uCL" id="EV7-ei-Yar"/>

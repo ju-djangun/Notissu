@@ -13,19 +13,19 @@ import JavaScriptCore
 class NoticeDetailPresenter: NoticeDetail {
     private var view: NoticeDetailView?
     
+    let htmlStart = "<hml><head><meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0, shrink-to-fit=no\"><style>html,body{padding:0 5px 5px;margin:0;font-size:18px !important;}iframe,img{max-width:100%;height:auto;}</style></head><bpdy>"
+    let htmlEnd = "</bpdy></hml>"
+    
     init(view: NoticeDetailView) {
         self.view = view
     }
     
     func parseComputer(html: HTMLDocument, completion: @escaping ([Attachment], String) -> Void) {
         let contentHTML = html.css("div[class|=smartOutput]").first?.innerHTML ?? ""
-        let htmlStart = "<hml><head><meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0, shrink-to-fit=no\"><style>html,body{padding:0 5px 5px;margin:0;font-size:18px !important;}iframe,img{max-width:100%;height:auto;}</style></head><bpdy>"
-        let htmlEnd = "</bpdy></hml>"
         
         let detailHTML = "\(htmlStart)\(contentHTML)\(htmlEnd)"
         var attachmentList = [Attachment]()
         
-//        html.css("span[class|=file] a")
         let attachmentHTML = html.xpath("//span[@class='file']/a")
         var attachmentNames = Array<XMLElement>()
         attachmentNames.append(contentsOf: attachmentHTML.reversed())
@@ -44,9 +44,6 @@ class NoticeDetailPresenter: NoticeDetail {
     func parseElectric(html: HTMLDocument, completion: @escaping ([Attachment], String) -> Void) {
         let contentHTML = html.css("div[class^='content']").first?.innerHTML ?? ""
         
-        let htmlStart = "<hml><head><meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0, shrink-to-fit=no\"><style>html,body{padding:0 5px 5px;margin:0;font-size:18px !important;}iframe,img{max-width:100%;height:auto;}</style></head><bpdy>"
-        let htmlEnd = "</bpdy></hml>"
-        
         let detailHTML = "\(htmlStart)\(contentHTML)\(htmlEnd)"
         
         let attachments = html.css("div[class^='attach'] a")
@@ -60,10 +57,6 @@ class NoticeDetailPresenter: NoticeDetail {
     
     func parseSoftware(html: HTMLDocument, completion: @escaping ([Attachment], String) -> Void) { 
         let contentHTML = html.css("div[class^='bo_view_2']").first?.innerHTML ?? ""
-        
-        let htmlStart = "<hml><head><meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0, shrink-to-fit=no\"><style>html,body{padding:0 5px 5px;margin:0;font-size:18px !important;}iframe,img{max-width:100%;height:auto;}</style></head><bpdy>"
-        let htmlEnd = "</bpdy></hml>"
-        
         let detailHTML = "\(htmlStart)\(contentHTML)\(htmlEnd)"
         
         for link in html.css("div[class^='bo_view_1'] a") {
@@ -75,19 +68,17 @@ class NoticeDetailPresenter: NoticeDetail {
     
     func parseMedia(html: HTMLDocument, completion: @escaping ([Attachment], String) -> Void) {
         let contentHTML = html.css("td[class^='s_default_view_body_2']").first?.innerHTML ?? ""
-        print(contentHTML)
-        
-        let htmlStart = "<hml><head><meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0, shrink-to-fit=no\"><style>html,body{padding:0 5px 5px;margin:0;font-size:18px !important;}iframe,img{max-width:100%;height:auto;}</style></head><bpdy>"
-        let htmlEnd = "</bpdy></hml>"
-        
         let detailHTML = "\(htmlStart)\(contentHTML)\(htmlEnd)"
+        let mediaUrl = "http://media.ssu.ac.kr/"
+        var attachmentList = [Attachment]()
         
-        print("parse media")
         for link in html.css("td[width^=480] a") {
-            print(link.text)
+            let url = "\(mediaUrl)\(link["href"] ?? "")"
+            print("media : \(url)")
+            attachmentList.append(Attachment(fileName: link.text ?? "", fileURL: url))
         }
         
-        completion([Attachment](), detailHTML)
+        completion(attachmentList, detailHTML)
     }
     
     func downloadFile(url: String, fileName: String) {

@@ -105,8 +105,56 @@ class NoticeIT {
         }
     }
     
-    func parseListSoftware(content: String) {
+    static func parseListSoftware(page: Int, completion: @escaping ([Notice]) -> Void) {
+        let noticeUrl = "https://sw.ssu.ac.kr/bbs/board.php?bo_table=sub6_1&page=\(page)"
+        var noticeList = [Notice]()
+        var authorList = [String]()
+        var titleList  = [String]()
+        var urlList = [String]()
+        var dateStringList = [String]()
+        var index = 0
         
+        Alamofire.request(noticeUrl).responseString(encoding: .utf8) { response in
+            switch(response.result) {
+            case .success(_):
+                if let data = response.result.value {
+                    do {
+                        let doc = try HTML(html: data, encoding: .utf8)
+                        for product in doc.css("td[class^=subject] a") {
+                            titleList.append(product.text ?? "")
+                            urlList.append(product["href"] ?? "")
+                        }
+                        
+                        for product in doc.css("td[class^=datetime]") {
+                            dateStringList.append(product.text ?? "")
+                        }
+                        
+                        for product in doc.css("td[class^=name]") {
+                            authorList.append(product.text ?? "")
+                        }
+                    } catch let error {
+                        print("Error : \(error)")
+                    }
+                    
+                    index = 0
+                    if authorList.count < 1 {
+                        ConfigSetting.canFetchData = false
+                    }
+                    
+                    for _ in authorList {
+                        let noticeItem = Notice(author: authorList[index], title: titleList[index], url: urlList[index], date: dateStringList[index])
+                        
+                        noticeList.append(noticeItem)
+                        index += 1
+                    }
+                    
+                    completion(noticeList)
+                }
+            case .failure(_):
+                print("Error message:\(String(describing: response.result.error))")
+                break
+            }
+        }
     }
     
     static func parseListElectric(page: Int, completion: @escaping ([Notice]) -> Void) {

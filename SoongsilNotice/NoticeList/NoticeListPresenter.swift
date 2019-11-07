@@ -27,6 +27,8 @@ class NoticeListPresenter: NoticePresenter {
             break
         case DeptCode.IT_Electric :
             NoticeIT.parseListElectric(page: page, completion: self.view.applyToTableView)
+        case DeptCode.IT_Software :
+            NoticeIT.parseListSoftware(page: page, completion: self.view.applyToTableView)
         default: break
         }
     }

@@ -9,18 +9,49 @@
 import UIKit
 import Alamofire
 
+protocol AttachmentDelegate : class {
+    func showDocumentInteractionController(filePath: String)
+    func showIndicator()
+}
+
 class NoticeAttachmentCell: UITableViewCell {
     @IBOutlet var attachmentTitle: UILabel!
     @IBOutlet var btnDownload: UIButton!
+    
+    weak var cellDelegate : AttachmentDelegate?
+    var fileName = String()
     var fileDownloadURL = String()
-    var viewController: UIViewController?
+    var viewController: BaseViewController?
     
     @IBAction func onClickDownload(_ sender: Any) {
         showAlert(title: "파일 다운로드", msg: "파일을 다운로드하시겠습니까?", handler: doDownloadFile(_:))
     }
     
     func doDownloadFile(_ action: UIAlertAction) {
-        print("download : \(fileDownloadURL)")
+        let encodedUrl = self.fileDownloadURL.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
+        print("download : \(encodedUrl)")
+        
+        self.cellDelegate?.showIndicator()
+        let destination: DownloadRequest.DownloadFileDestination = { _, _ in
+            let documentsURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
+            let fileURL = documentsURL.appendingPathComponent(self.fileName)
+
+            return (fileURL, [.removePreviousFile, .createIntermediateDirectories])
+        }
+        
+        Alamofire.download(encodedUrl ?? "", to: destination)
+            .downloadProgress { progress in
+                print("Download Progress: \(progress.fractionCompleted)")
+        }
+        .response { response in
+            debugPrint(response)
+            
+            if let filePath = response.destinationURL?.path {
+                print("Downloaded File Path : " + filePath)
+            self.cellDelegate?.showDocumentInteractionController(filePath: filePath)
+            }
+        }
+        print("B")
     }
     
     func showAlert(title: String, msg: String, handler: ((UIAlertAction) -> Swift.Void)?){

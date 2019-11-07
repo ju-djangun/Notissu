@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		B1BB4EC5DF62B3F4EE0CB425 /* Pods_SoongsilNotice.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57296D4BD235F1B361E7E590 /* Pods_SoongsilNotice.framework */; };
 		DE0F8F1823739C8A006A0B49 /* NoticeAttachmentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE0F8F1723739C8A006A0B49 /* NoticeAttachmentCell.swift */; };
+		DE0F8F1A2373A222006A0B49 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE0F8F192373A222006A0B49 /* BaseViewController.swift */; };
 		DE29613623703F4C0074F24B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE29613523703F4C0074F24B /* AppDelegate.swift */; };
 		DE29613A23703F4C0074F24B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE29613923703F4C0074F24B /* ViewController.swift */; };
 		DE29613D23703F4C0074F24B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DE29613B23703F4C0074F24B /* Main.storyboard */; };
@@ -31,6 +32,7 @@
 		5109B6F37C7101EEB67D7049 /* Pods-SoongsilNotice.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SoongsilNotice.release.xcconfig"; path = "Target Support Files/Pods-SoongsilNotice/Pods-SoongsilNotice.release.xcconfig"; sourceTree = "<group>"; };
 		57296D4BD235F1B361E7E590 /* Pods_SoongsilNotice.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SoongsilNotice.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE0F8F1723739C8A006A0B49 /* NoticeAttachmentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeAttachmentCell.swift; sourceTree = "<group>"; };
+		DE0F8F192373A222006A0B49 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		DE29613223703F4C0074F24B /* SoongsilNotice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SoongsilNotice.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE29613523703F4C0074F24B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DE29613923703F4C0074F24B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -110,6 +112,7 @@
 				DE29614323703F4D0074F24B /* Info.plist */,
 				DE296154237195CD0074F24B /* ConfigSetting.swift */,
 				DE296156237198070074F24B /* NoticeIT.swift */,
+				DE0F8F192373A222006A0B49 /* BaseViewController.swift */,
 			);
 			path = SoongsilNotice;
 			sourceTree = "<group>";
@@ -257,6 +260,7 @@
 				DE29615B237289D60074F24B /* NoticeDetailContract.swift in Sources */,
 				DE296155237195CD0074F24B /* ConfigSetting.swift in Sources */,
 				DE29614F2370FCD20074F24B /* NoticeListContract.swift in Sources */,
+				DE0F8F1A2373A222006A0B49 /* BaseViewController.swift in Sources */,
 				DE2961592371ADEE0074F24B /* NoticeDetailViewController.swift in Sources */,
 				DE2961532370FF4E0074F24B /* Notice.swift in Sources */,
 				DE29614D2370FCB20074F24B /* NoticeListPresenter.swift in Sources */,

@@ -12,19 +12,23 @@ import Alamofire
 import Kanna
 import WebKit
 
-class NoticeDetailViewController: UIViewController, WKNavigationDelegate, WKUIDelegate, UITableViewDelegate, UITableViewDataSource, NoticeDetailView {
+class NoticeDetailViewController: BaseViewController, WKNavigationDelegate, WKUIDelegate, UITableViewDelegate, UITableViewDataSource, UIDocumentInteractionControllerDelegate, NoticeDetailView, AttachmentDelegate {
     
     @IBOutlet var attachmentView: UITableView!
-    @IBOutlet var webView: WKWebView!
-    @IBOutlet var titleLabel: UILabel!
-    @IBOutlet var dateLabel: UILabel!
+    @IBOutlet var webView       : WKWebView!
+    @IBOutlet var titleLabel    : UILabel!
+    @IBOutlet var dateLabel     : UILabel!
     
-    var attachments = [Attachment]()
-    var detailURL: String?
+    var loadingView   : UIView = UIView()
+    var spinner       = UIActivityIndicatorView(style: .large)
+    
+    var attachments   = [Attachment]()
+    var detailURL     : String?
     var departmentCode: DeptCode?
-    var noticeTitle: String?
-    var noticeDay: String?
-    var presenter: NoticeDetailPresenter?
+    var noticeTitle   : String?
+    var noticeDay     : String?
+    var presenter     : NoticeDetailPresenter?
+    var docController : UIDocumentInteractionController!
     
     override func viewDidLoad() {
         self.webView.uiDelegate = self
@@ -85,11 +89,53 @@ class NoticeDetailViewController: UIViewController, WKNavigationDelegate, WKUIDe
         print("cell : \(attachments.count)")
         if self.attachments.count > 0 {
             cell.viewController = self
+            cell.cellDelegate = self
+            cell.fileName = attachments[indexPath.row].fileName
             cell.attachmentTitle.text = attachments[indexPath.row].fileName
             cell.fileDownloadURL = attachments[indexPath.row].fileURL
         }
         cell.selectionStyle  = .none
         
         return cell
+    }
+    
+    func showDocumentInteractionController(filePath: String) {
+        print("open file dialog")
+        self.hideActivityIndicator()
+        self.docController = UIDocumentInteractionController(url: NSURL(fileURLWithPath: filePath) as URL)
+        self.docController.name = NSURL(fileURLWithPath: filePath).lastPathComponent
+        print("NAME : " + self.docController.name!)
+        self.docController.delegate = self
+        self.docController.presentOptionsMenu(from: view.frame, in: view, animated: true)
+    }
+    
+    func showIndicator() {
+        print("show Indicator")
+        self.showActivityIndicator()
+    }
+    
+    func showActivityIndicator() {
+        print("A")
+        DispatchQueue.main.async {
+            self.loadingView = UIView()
+            self.loadingView.frame = CGRect(x: 0.0, y: 0.0, width: self.view.frame.width, height: self.view.frame.height)
+            self.loadingView.center = self.view.center
+            self.loadingView.backgroundColor = UIColor(hex: "ff303030")
+            self.loadingView.alpha = 0.3
+            self.loadingView.clipsToBounds = true
+            self.spinner = UIActivityIndicatorView(style: .large)
+            self.spinner.frame = CGRect(x: 0.0, y: 0.0, width: 80.0, height: 80.0)
+            self.spinner.center = CGPoint(x:self.loadingView.bounds.size.width / 2, y:self.loadingView.bounds.size.height / 2)
+            self.loadingView.addSubview(self.spinner)
+            self.view.addSubview(self.loadingView)
+            self.spinner.startAnimating()
+        }
+    }
+    
+    func hideActivityIndicator() {
+        DispatchQueue.main.async {
+            self.spinner.stopAnimating()
+            self.loadingView.removeFromSuperview()
+        }
     }
 }

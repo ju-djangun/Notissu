@@ -38,6 +38,7 @@ class NoticeListPresenter: NoticePresenter {
             NoticeLaw.parseListLaw(page: page, completion: self.view.applyToTableView)
             break
         case DeptCode.LAW_IntlLaw:
+            NoticeLaw.parseListIntlLaw(page: page, completion: self.view.applyToTableView)
             break
         default: break
         }

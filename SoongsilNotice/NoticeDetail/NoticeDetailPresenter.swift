@@ -103,4 +103,8 @@ class NoticeDetailPresenter: NoticeDetail {
         completion(attachmentList, detailHTML)
     }
     
+    func parseIntlLaw(html: HTMLDocument, completion: @escaping ([Attachment], String) -> Void) {
+        
+    }
+    
 }

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Lottie
 
 class NoticeListViewController: BaseViewController, NoticeListView, UITableViewDelegate, UITableViewDataSource {
     
@@ -16,6 +17,7 @@ class NoticeListViewController: BaseViewController, NoticeListView, UITableViewD
     private var noticeList = [Notice]()
     var noticeDeptCode: DeptCode?
     var noticeDeptName: DeptName?
+    
     private var page : Int = 1
     
     
@@ -26,11 +28,13 @@ class NoticeListViewController: BaseViewController, NoticeListView, UITableViewD
         self.noticeListView.dataSource = self
         self.noticeListView.reloadData()
         
+        
+        
         self.navigationItem.title = self.noticeDeptName!.rawValue
         ConfigSetting.canFetchData = true
         
         self.page = 1
-        self.showActivityIndicator(uiView: self.view)
+        self.showProgressBar()
         self.presenter?.loadNoticeList(page: page, deptCode: noticeDeptCode!)
         
         if #available(iOS 10.0, *) {
@@ -41,7 +45,7 @@ class NoticeListViewController: BaseViewController, NoticeListView, UITableViewD
     
     @objc func refresh() {
         self.page = 1
-        self.showActivityIndicator(uiView: self.view)
+        self.showProgressBar()
         ConfigSetting.canFetchData = true
         self.noticeList.removeAll()
         self.presenter?.loadNoticeList(page: page, deptCode: noticeDeptCode!)
@@ -85,7 +89,7 @@ class NoticeListViewController: BaseViewController, NoticeListView, UITableViewD
     
     func applyToTableView(list: [Notice]) {
         self.refreshControl.endRefreshing()
-        self.hideActivityIndicator(uiView: self.view)
+        self.hideProgressBar()
         self.noticeList.append(contentsOf: list)
         self.noticeListView.reloadData()
     }

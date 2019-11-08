@@ -78,7 +78,6 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             noticeListViewController?.noticeDeptCode = majorListInmun[indexPath.row].majorCode
             noticeListViewController?.noticeDeptName = majorListInmun[indexPath.row].majorName
         }
-        
         self.navigationController?.pushViewController(noticeListViewController!, animated: true)
     }
     

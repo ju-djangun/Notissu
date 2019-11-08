@@ -7,29 +7,33 @@
 //
 
 import UIKit
+import Lottie
 
 class BaseViewController: UIViewController {
-    
-    var loadingView   : UIView = UIView()
-    var spinner       = UIActivityIndicatorView(style: .whiteLarge)
+    let animationView = AnimationView(name: "notissu_anim")
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
     }
     
-    func showActivityIndicator(uiView: UIView!) {
-        let actInd: UIActivityIndicatorView = UIActivityIndicatorView()
-        actInd.frame = CGRect(x: 0.0, y: 0.0, width: 40.0, height: 40.0);
-        actInd.center = uiView.center
-        actInd.hidesWhenStopped = true
-        actInd.style = .whiteLarge
-        uiView.addSubview(actInd)
-        self.spinner.startAnimating()
+    func showProgressBar() {
+        print("START")
+        print("\(self.view.frame.width) / \(self.view.frame.height)")
+        //animationView.frame = CGRect(x: 0, y: 0, width: 200, height: 200)
+        
+        animationView.frame       = self.view.frame
+        animationView.center      = self.view.center
+        animationView.contentMode = .center
+        animationView.loopMode    = .loop
+        
+        self.view.addSubview(animationView)
+        animationView.play()
     }
     
-    func hideActivityIndicator(uiView: UIView) {
-        self.spinner.stopAnimating()
+    func hideProgressBar() {
+        animationView.stop()
+        animationView.removeFromSuperview()
     }
 }
 

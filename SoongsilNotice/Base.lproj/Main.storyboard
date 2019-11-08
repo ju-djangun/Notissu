@@ -84,9 +84,6 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="Whx-L7-RLa">
-                                <rect key="frame" x="197" y="443" width="20" height="20"/>
-                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" name="detail_bg"/>
                         <constraints>
@@ -101,8 +98,6 @@
                             <constraint firstItem="UwP-AF-1re" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="aLa-fZ-hEd"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Mei-BY-e7h" secondAttribute="trailing" id="e1J-pd-1F7"/>
                             <constraint firstItem="UwP-AF-1re" firstAttribute="top" secondItem="zMd-ND-uCL" secondAttribute="bottom" constant="2" id="mLD-pz-R0c"/>
-                            <constraint firstItem="Whx-L7-RLa" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="rrs-mj-0qg"/>
-                            <constraint firstItem="Whx-L7-RLa" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="syY-m6-GEC"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="UwP-AF-1re" secondAttribute="trailing" constant="20" id="uR7-oy-gUD"/>
                             <constraint firstItem="bxg-zn-osN" firstAttribute="top" secondItem="UwP-AF-1re" secondAttribute="bottom" constant="8" id="vrd-0J-abE"/>
                         </constraints>
@@ -120,10 +115,72 @@
             </objects>
             <point key="canvasLocation" x="2588" y="80"/>
         </scene>
+        <!--Notice List View Controller-->
+        <scene sceneID="h2e-gb-5RE">
+            <objects>
+                <viewController storyboardIdentifier="noticeListVC" id="4wj-vb-Pte" customClass="NoticeListViewController" customModule="Notissu" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="7Fz-YE-dex">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Cev-oP-pXq">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="noticeListCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="noticeListCell" rowHeight="66" id="1Eh-dA-jli" customClass="NoticeListViewCell" customModule="Notissu" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="66"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="1Eh-dA-jli" id="dbi-UA-kQl">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="66"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Notice Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uWu-k9-zH9">
+                                                    <rect key="frame" x="20" y="11" width="374" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2019.11.05" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5of-rP-fDc">
+                                                    <rect key="frame" x="20" y="36" width="374" height="16"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                    <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="uWu-k9-zH9" firstAttribute="leading" secondItem="dbi-UA-kQl" secondAttribute="leading" constant="20" id="AYq-oI-Ast"/>
+                                                <constraint firstItem="5of-rP-fDc" firstAttribute="top" secondItem="uWu-k9-zH9" secondAttribute="bottom" constant="4" id="BQh-2K-7gf"/>
+                                                <constraint firstAttribute="trailing" secondItem="5of-rP-fDc" secondAttribute="trailing" constant="20" id="CZe-er-Qpb"/>
+                                                <constraint firstItem="uWu-k9-zH9" firstAttribute="top" secondItem="dbi-UA-kQl" secondAttribute="top" constant="11" id="GkY-EO-vM8"/>
+                                                <constraint firstAttribute="bottom" secondItem="5of-rP-fDc" secondAttribute="bottom" constant="14" id="Owo-Fz-Ixx"/>
+                                                <constraint firstAttribute="trailing" secondItem="uWu-k9-zH9" secondAttribute="trailing" constant="20" id="amI-dS-jkn"/>
+                                                <constraint firstItem="5of-rP-fDc" firstAttribute="leading" secondItem="dbi-UA-kQl" secondAttribute="leading" constant="20" id="sIs-SC-3CJ"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="noticeDate" destination="5of-rP-fDc" id="GmD-5q-24b"/>
+                                            <outlet property="noticeTitle" destination="uWu-k9-zH9" id="qmL-cK-jJG"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="yqb-zc-DwJ"/>
+                    </view>
+                    <connections>
+                        <outlet property="noticeListView" destination="Cev-oP-pXq" id="siy-3V-jIh"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="65n-bp-4kh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1762" y="80"/>
+        </scene>
         <!--컴퓨터학부-->
         <scene sceneID="8gs-px-APh">
             <objects>
-                <tableViewController storyboardIdentifier="noticeListVC" id="R4t-c4-jCX" customClass="NoticeListViewController" customModule="Notissu" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="noticeListVC_Temp" id="R4t-c4-jCX" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="vgO-Z5-SZK">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -165,19 +222,12 @@
                                 </connections>
                             </tableViewCell>
                         </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="R4t-c4-jCX" id="lax-lr-9fc"/>
-                            <outlet property="delegate" destination="R4t-c4-jCX" id="D4e-HW-vDE"/>
-                        </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="컴퓨터학부" id="Pkw-Ck-KBG"/>
-                    <connections>
-                        <outlet property="noticeListView" destination="vgO-Z5-SZK" id="k34-HB-QEm"/>
-                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3c4-hQ-MUa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1758" y="80"/>
+            <point key="canvasLocation" x="3899" y="-504"/>
         </scene>
         <!--홈-->
         <scene sceneID="ed7-c7-6Dq">
@@ -212,7 +262,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="main_ios_arrow" translatesAutoresizingMaskIntoConstraints="NO" id="Gm7-qo-TUO">
-                                                    <rect key="frame" x="394" y="-11" width="11" height="104"/>
+                                                    <rect key="frame" x="394" y="15" width="11" height="52"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="11" id="QnV-lr-yhf"/>
                                                     </constraints>

@@ -42,7 +42,7 @@ class NoticeDetailViewController: BaseViewController, WKNavigationDelegate, WKUI
         self.dateLabel.text = noticeDay ?? ""
         self.presenter = NoticeDetailPresenter(view: self)
         
-        self.showActivityIndicator(uiView: self.webView)
+        self.showProgressBar()
         
         Alamofire.request(detailURL!).responseString { response in
             //            print("\(response.result.isSuccess)")
@@ -126,7 +126,7 @@ class NoticeDetailViewController: BaseViewController, WKNavigationDelegate, WKUI
             print("attachment : \(attachment.fileName) / \(attachment.fileURL)")
         }
         
-        self.hideActivityIndicator(uiView: self.webView)
+        self.hideProgressBar()
         self.attachmentView.reloadData()
     }
     
@@ -157,7 +157,7 @@ class NoticeDetailViewController: BaseViewController, WKNavigationDelegate, WKUI
     
     func showDocumentInteractionController(filePath: String) {
         print("open file dialog")
-        self.hideActivityIndicator(uiView: self.webView)
+        self.hideProgressBar()
         self.docController = UIDocumentInteractionController(url: NSURL(fileURLWithPath: filePath) as URL)
         self.docController.name = NSURL(fileURLWithPath: filePath).lastPathComponent
         print("NAME : " + self.docController.name!)
@@ -167,6 +167,6 @@ class NoticeDetailViewController: BaseViewController, WKNavigationDelegate, WKUI
     
     func showIndicator() {
         print("show Indicator")
-        self.showActivityIndicator(uiView: self.webView)
+        self.showProgressBar()
     }
 }

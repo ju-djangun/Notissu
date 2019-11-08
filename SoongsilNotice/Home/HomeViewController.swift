@@ -65,8 +65,8 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         self.majorListView.delegate = self
         self.majorListView.dataSource = self
-        self.majorListView.rowHeight = UITableView.automaticDimension
-        self.majorListView.separatorStyle = .singleLine
+//        self.majorListView.rowHeight = UITableView.automaticDimension
+//        self.majorListView.separatorStyle = .singleLine
 //        self.majorListView.separatorInset = .zero
         self.majorListView.tableFooterView = UIView()
         self.majorListView.reloadData()

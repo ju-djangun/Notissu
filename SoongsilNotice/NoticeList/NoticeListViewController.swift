@@ -26,6 +26,7 @@ class NoticeListViewController: BaseViewController, NoticeListView, UITableViewD
         
         self.noticeListView.delegate = self
         self.noticeListView.dataSource = self
+        self.noticeListView.tableFooterView = UIView()
         self.noticeListView.reloadData()
         
         

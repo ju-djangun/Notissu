@@ -192,7 +192,6 @@ class NoticeDetailPresenter: NoticeDetail {
             //            print(link.content)
             attachmentList.append(Attachment(fileName: link.content ?? "", fileURL: link["href"] ?? ""))
         }
-        
         completion(attachmentList, detailHTML)
     }
     

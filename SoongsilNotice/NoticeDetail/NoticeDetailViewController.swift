@@ -111,6 +111,9 @@ class NoticeDetailViewController: BaseViewController, WKNavigationDelegate, WKUI
                         case DeptCode.Engineering_Industrial:
                             self.presenter!.parseEngineerIndustry(html: doc, host: "http://iise.ssu.ac.kr", completion: self.showWebViewPage)
                             break
+                        case DeptCode.Engineering_Organic:
+                            self.webView.load(URLRequest(url: URL(string: self.detailURL ?? "")!))
+                            break
                         default: break
                         }
                     } catch let error {

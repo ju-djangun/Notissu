@@ -130,4 +130,12 @@ class NoticeDetailPresenter: NoticeDetail {
         
         completion(attachmentList, detailHTML)
     }
+    
+    func parseEngineerChemistry(html: HTMLDocument, completion: @escaping ([Attachment], String) -> Void) {
+        let contentHTML = html.css("div[class^='body']").first?.innerHTML ?? ""
+        var detailHTML = "\(htmlStart)\(contentHTML)\(htmlEnd)"
+        detailHTML = detailHTML.replacingOccurrences(of: "src=\"", with: "src=\"http://chemeng.ssu.ac.kr")
+        print(detailHTML)
+        completion([Attachment](), detailHTML)
+    }
 }

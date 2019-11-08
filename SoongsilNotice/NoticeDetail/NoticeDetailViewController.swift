@@ -99,6 +99,9 @@ class NoticeDetailViewController: BaseViewController, WKNavigationDelegate, WKUI
                         case DeptCode.Inmun_Japanese:
                             self.presenter!.parseInmun(html: doc, completion: self.showWebViewPage)
                             break
+                        case DeptCode.Engineering_Chemistry:
+                            self.presenter!.parseEngineerChemistry(html: doc, completion: self.showWebViewPage)
+                            break
                         default: break
                         }
                     } catch let error {

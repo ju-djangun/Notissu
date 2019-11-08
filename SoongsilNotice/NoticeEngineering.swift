@@ -17,7 +17,10 @@ class NoticeEngineering {
     }
     
     static func parseListChemistryEngineering(page: Int, completion: @escaping ([Notice]) -> Void) {
-        let noticeUrl = "\(NoticeURL.historyURL)\(page)"
+        // offset : 0 / 10 / 20 / etc.
+        // offset : 0 * 10 / 1 * 10
+        let offset = (page - 1) * 10
+        let noticeUrl = "\(NoticeURL.engineerChemistryURL)\(offset)"
         var noticeList = [Notice]()
         var authorList = [String]()
         var titleList  = [String]()
@@ -31,34 +34,34 @@ class NoticeEngineering {
                 if let data = response.result.value {
                     do {
                         let doc = try HTML(html: data, encoding: .utf8)
-                        for product in doc.css("div[class=board-list] td") {
+                        for product in doc.css("div[class^='board-list'] td") {
                             //print("***")
                             let content = product.text!.trimmingCharacters(in: .whitespacesAndNewlines)
                             print(content)
-                            switch (index % 6) {
+                            switch (index % 5) {
                             case 0: break
                             case 1:
                                 // Title
                                 titleList.append(content)
                                 break
-                            case 2: break
-                            case 3:
+                            case 2:
                                 // Author
                                 authorList.append(content)
                                 break
-                            case 4:
+                            case 3:
                                 // Date
                                 dateStringList.append(content)
                                 break
-                            case 5: break
+                            case 4:
+                                break
                             default: break
                             }
                             index += 1
                         }
                         
-                        for product in doc.css("table[class='bbs-list'] a") {
-                            //print(product["href"] ?? "")
-                            urlList.append(product["href"] ?? "")
+                        for product in doc.css("div[class^='board-list'] td a") {
+                            print("http://chemeng.ssu.ac.kr\(product["href"] ?? "")")
+                            urlList.append("http://chemeng.ssu.ac.kr\(product["href"] ?? "")")
                         }
                     } catch let error {
                         print("Error : \(error)")

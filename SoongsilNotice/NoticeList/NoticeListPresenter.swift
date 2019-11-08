@@ -67,6 +67,9 @@ class NoticeListPresenter: NoticePresenter {
         case DeptCode.Inmun_French:
             NoticeInmun.parseListFrench(page: page, completion: self.view.applyToTableView)
             break
+        case DeptCode.Engineering_Chemistry:
+            NoticeEngineering.parseListChemistryEngineering(page: page, completion: self.view.applyToTableView)
+            break
         default: break
         }
     }

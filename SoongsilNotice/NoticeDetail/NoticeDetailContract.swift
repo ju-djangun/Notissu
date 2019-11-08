@@ -38,4 +38,7 @@ protocol NoticeDetail {
     
     // 국문, 불문, 독문, 중문, 영문
     func parseInmun(html: HTMLDocument, completion: @escaping ([Attachment], String) -> Void)
+    
+    // 화학공학과
+    func parseEngineerChemistry(html: HTMLDocument, completion: @escaping ([Attachment], String) -> Void)
 }

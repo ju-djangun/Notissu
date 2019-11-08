@@ -43,9 +43,9 @@ class NoticeListPresenter: NoticePresenter {
         case DeptCode.Inmun_Korean:
             NoticeInmun.parseListKorean(page: page, completion: self.view.applyToTableView)
             break
-        case DeptCode.Inmun_Creative:
-            NoticeInmun.parseListCreative(page: page, completion: self.view.applyToTableView)
-            break
+//        case DeptCode.Inmun_Creative:
+//            NoticeInmun.parseListCreative(page: page, completion: self.view.applyToTableView)
+//            break
         case DeptCode.Inmun_Philosophy:
             NoticeInmun.parseListPhilo(page: page, completion: self.view.applyToTableView)
             break

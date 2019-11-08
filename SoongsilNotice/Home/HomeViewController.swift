@@ -21,9 +21,9 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     var majorEngNameListLaw = [DeptNameEng.LAW_Law, DeptNameEng.LAW_IntlLaw]
     
     // 인문대학
-    var majorCodeListInmun = [DeptCode.Inmun_Korean, DeptCode.Inmun_French, DeptCode.Inmun_German, DeptCode.Inmun_Chinese, DeptCode.Inmun_English, DeptCode.Inmun_History, DeptCode.Inmun_Philosophy, DeptCode.Inmun_Japanese, DeptCode.Inmun_Creative]
-    var majorNameListInmun = [DeptName.Inmun_Korean, DeptName.Inmun_French, DeptName.Inmun_German, DeptName.Inmun_Chinese, DeptName.Inmun_English, DeptName.Inmun_History, DeptName.Inmun_Philosophy, DeptName.Inmun_Japanese, DeptName.Inmun_Creative]
-    var majorEngNameListInmun = [DeptNameEng.Inmun_Korean, DeptNameEng.Inmun_French, DeptNameEng.Inmun_German, DeptNameEng.Inmun_Chinese, DeptNameEng.Inmun_English, DeptNameEng.Inmun_History, DeptNameEng.Inmun_Philosophy, DeptNameEng.Inmun_Japanese, DeptNameEng.Inmun_Creative]
+    var majorCodeListInmun = [DeptCode.Inmun_Korean, DeptCode.Inmun_French, DeptCode.Inmun_German, DeptCode.Inmun_Chinese, DeptCode.Inmun_English, DeptCode.Inmun_History, DeptCode.Inmun_Philosophy, DeptCode.Inmun_Japanese]
+    var majorNameListInmun = [DeptName.Inmun_Korean, DeptName.Inmun_French, DeptName.Inmun_German, DeptName.Inmun_Chinese, DeptName.Inmun_English, DeptName.Inmun_History, DeptName.Inmun_Philosophy, DeptName.Inmun_Japanese]
+    var majorEngNameListInmun = [DeptNameEng.Inmun_Korean, DeptNameEng.Inmun_French, DeptNameEng.Inmun_German, DeptNameEng.Inmun_Chinese, DeptNameEng.Inmun_English, DeptNameEng.Inmun_History, DeptNameEng.Inmun_Philosophy, DeptNameEng.Inmun_Japanese]
     
     var sections = ["IT 대학", "법과대학", "인문대학"]
     

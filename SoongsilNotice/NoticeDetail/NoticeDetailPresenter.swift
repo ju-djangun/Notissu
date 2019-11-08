@@ -117,7 +117,7 @@ class NoticeDetailPresenter: NoticeDetail {
         completion(attachmentList, detailHTML)
     }
     
-    func parseKorean(html: HTMLDocument, completion: @escaping ([Attachment], String) -> Void) {
+    func parseInmun(html: HTMLDocument, completion: @escaping ([Attachment], String) -> Void) {
         let contentHTML = html.css("div[class^='frame-box']").first?.innerHTML ?? ""
         let detailHTML = "\(htmlStart)\(contentHTML)\(htmlEnd)"
         var attachmentList = [Attachment]()

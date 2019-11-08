@@ -76,28 +76,28 @@ class NoticeDetailViewController: BaseViewController, WKNavigationDelegate, WKUI
                             self.presenter!.parseIntlLaw(html: doc, completion: self.showWebViewPage)
                             break
                         case DeptCode.Inmun_Korean:
-                            self.presenter!.parseKorean(html: doc, completion: self.showWebViewPage)
+                            self.presenter!.parseInmun(html: doc, completion: self.showWebViewPage)
                             break
                         case DeptCode.Inmun_French:
-                            self.presenter!.parseKorean(html: doc, completion: self.showWebViewPage)
+                            self.presenter!.parseInmun(html: doc, completion: self.showWebViewPage)
                             break
                         case DeptCode.Inmun_German:
-                            self.presenter!.parseKorean(html: doc, completion: self.showWebViewPage)
+                            self.presenter!.parseInmun(html: doc, completion: self.showWebViewPage)
                             break
                         case DeptCode.Inmun_Chinese:
-                            self.presenter!.parseKorean(html: doc, completion: self.showWebViewPage)
+                            self.presenter!.parseInmun(html: doc, completion: self.showWebViewPage)
                             break
                         case DeptCode.Inmun_English:
-                            self.presenter!.parseKorean(html: doc, completion: self.showWebViewPage)
+                            self.presenter!.parseInmun(html: doc, completion: self.showWebViewPage)
                             break
                         case DeptCode.Inmun_History:
-                            self.presenter!.parseKorean(html: doc, completion: self.showWebViewPage)
+                            self.presenter!.parseInmun(html: doc, completion: self.showWebViewPage)
                             break
                         case DeptCode.Inmun_Philosophy:
-                            self.presenter!.parseKorean(html: doc, completion: self.showWebViewPage)
+                            self.presenter!.parseInmun(html: doc, completion: self.showWebViewPage)
                             break
                         case DeptCode.Inmun_Japanese:
-                            self.presenter!.parseKorean(html: doc, completion: self.showWebViewPage)
+                            self.presenter!.parseInmun(html: doc, completion: self.showWebViewPage)
                             break
                         default: break
                         }

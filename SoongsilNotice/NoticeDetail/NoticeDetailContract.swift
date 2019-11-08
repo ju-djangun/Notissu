@@ -37,5 +37,5 @@ protocol NoticeDetail {
     func parseIntlLaw(html: HTMLDocument, completion: @escaping ([Attachment], String) -> Void)
     
     // 국문, 불문, 독문, 중문, 영문
-    func parseKorean(html: HTMLDocument, completion: @escaping ([Attachment], String) -> Void)
+    func parseInmun(html: HTMLDocument, completion: @escaping ([Attachment], String) -> Void)
 }

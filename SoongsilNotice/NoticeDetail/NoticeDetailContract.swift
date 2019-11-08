@@ -37,7 +37,7 @@ protocol NoticeDetail {
     func parseIntlLaw(html: HTMLDocument, completion: @escaping ([Attachment], String) -> Void)
     
     // 국문, 불문, 독문, 중문, 영문
-    func parseInmun(html: HTMLDocument, completion: @escaping ([Attachment], String) -> Void)
+    func parseInmun(html: HTMLDocument, host: String?, completion: @escaping ([Attachment], String) -> Void)
     
     // 화학공학과
     func parseEngineerChemistry(html: HTMLDocument, completion: @escaping ([Attachment], String) -> Void)

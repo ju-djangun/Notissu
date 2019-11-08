@@ -109,17 +109,44 @@ class NoticeDetailPresenter: NoticeDetail {
         var attachmentList = [Attachment]()
         
         for link in html.css("table[class='bbs-view'] a") {
-//            print(link["href"])
-//            print(link.content)
+            //            print(link["href"])
+            //            print(link.content)
             attachmentList.append(Attachment(fileName: link.content ?? "", fileURL: link["href"] ?? ""))
         }
         
         completion(attachmentList, detailHTML)
     }
     
-    func parseInmun(html: HTMLDocument, completion: @escaping ([Attachment], String) -> Void) {
+    func parseInmun(html: HTMLDocument, host: String?, completion: @escaping ([Attachment], String) -> Void) {
         let contentHTML = html.css("div[class^='frame-box']").first?.innerHTML ?? ""
-        let detailHTML = "\(htmlStart)\(contentHTML)\(htmlEnd)"
+        var detailHTML = "\(htmlStart)\(contentHTML)\(htmlEnd)"
+        detailHTML = detailHTML.replacingOccurrences(of: "src=\"/", with: "src=\"\(host ?? "")/")
+        var attachmentList = [Attachment]()
+        
+        for link in html.css("table[class='bbs-view'] a") {
+            //            print(link["href"])
+            //            print(link.content)
+            attachmentList.append(Attachment(fileName: link.content ?? "", fileURL: link["href"] ?? ""))
+        }
+        
+        completion(attachmentList, detailHTML)
+    }
+    
+    // 공과대학
+    // 화학공학과
+    func parseEngineerChemistry(html: HTMLDocument, completion: @escaping ([Attachment], String) -> Void) {
+        let contentHTML = html.css("div[class^='body']").first?.innerHTML ?? ""
+        var detailHTML = "\(htmlStart)\(contentHTML)\(htmlEnd)"
+        detailHTML = detailHTML.replacingOccurrences(of: "src=\"", with: "src=\"http://chemeng.ssu.ac.kr")
+        print(detailHTML)
+        completion([Attachment](), detailHTML)
+    }
+    
+    // 기계공학과
+    func parseEngineerMachine(html: HTMLDocument, host: String?, completion: @escaping ([Attachment], String) -> Void) {
+        let contentHTML = html.css("div[class^='frame-box']").first?.innerHTML ?? ""
+        var detailHTML = "\(htmlStart)\(contentHTML)\(htmlEnd)"
+        detailHTML = detailHTML.replacingOccurrences(of: "src=\"/", with: "src=\"\(host ?? "")/")
         var attachmentList = [Attachment]()
         
         for link in html.css("table[class='bbs-view'] a") {
@@ -129,13 +156,5 @@ class NoticeDetailPresenter: NoticeDetail {
         }
         
         completion(attachmentList, detailHTML)
-    }
-    
-    func parseEngineerChemistry(html: HTMLDocument, completion: @escaping ([Attachment], String) -> Void) {
-        let contentHTML = html.css("div[class^='body']").first?.innerHTML ?? ""
-        var detailHTML = "\(htmlStart)\(contentHTML)\(htmlEnd)"
-        detailHTML = detailHTML.replacingOccurrences(of: "src=\"", with: "src=\"http://chemeng.ssu.ac.kr")
-        print(detailHTML)
-        completion([Attachment](), detailHTML)
     }
 }

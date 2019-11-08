@@ -76,31 +76,34 @@ class NoticeDetailViewController: BaseViewController, WKNavigationDelegate, WKUI
                             self.presenter!.parseIntlLaw(html: doc, completion: self.showWebViewPage)
                             break
                         case DeptCode.Inmun_Korean:
-                            self.presenter!.parseInmun(html: doc, completion: self.showWebViewPage)
+                            self.presenter!.parseInmun(html: doc, host: "http://korlan.ssu.ac.kr", completion: self.showWebViewPage)
                             break
                         case DeptCode.Inmun_French:
-                            self.presenter!.parseInmun(html: doc, completion: self.showWebViewPage)
+                            self.presenter!.parseInmun(html: doc, host: "http://france.ssu.ac.kr", completion: self.showWebViewPage)
                             break
                         case DeptCode.Inmun_German:
-                            self.presenter!.parseInmun(html: doc, completion: self.showWebViewPage)
+                            self.presenter!.parseInmun(html: doc, host: "http://gerlan.ssu.ac.kr", completion: self.showWebViewPage)
                             break
                         case DeptCode.Inmun_Chinese:
-                            self.presenter!.parseInmun(html: doc, completion: self.showWebViewPage)
+                            self.presenter!.parseInmun(html: doc, host: "http://chilan.ssu.ac.kr",completion: self.showWebViewPage)
                             break
                         case DeptCode.Inmun_English:
-                            self.presenter!.parseInmun(html: doc, completion: self.showWebViewPage)
+                            self.presenter!.parseInmun(html: doc, host: "http://englan.ssu.ac.kr", completion: self.showWebViewPage)
                             break
                         case DeptCode.Inmun_History:
-                            self.presenter!.parseInmun(html: doc, completion: self.showWebViewPage)
+                            self.presenter!.parseInmun(html: doc, host: "http://history.ssu.ac.kr", completion: self.showWebViewPage)
                             break
                         case DeptCode.Inmun_Philosophy:
-                            self.presenter!.parseInmun(html: doc, completion: self.showWebViewPage)
+                            self.presenter!.parseInmun(html: doc, host: nil, completion: self.showWebViewPage)
                             break
                         case DeptCode.Inmun_Japanese:
-                            self.presenter!.parseInmun(html: doc, completion: self.showWebViewPage)
+                            self.presenter!.parseInmun(html: doc, host: "http://japanstu.ssu.ac.kr", completion: self.showWebViewPage)
                             break
                         case DeptCode.Engineering_Chemistry:
                             self.presenter!.parseEngineerChemistry(html: doc, completion: self.showWebViewPage)
+                            break
+                        case DeptCode.Engineering_Machine:
+                            self.presenter!.parseEngineerMachine(html: doc, host: "http://me.ssu.ac.kr", completion: self.showWebViewPage)
                             break
                         default: break
                         }

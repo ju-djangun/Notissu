@@ -108,6 +108,9 @@ class NoticeDetailViewController: BaseViewController, WKNavigationDelegate, WKUI
                         case DeptCode.Engineering_Electonic:
                             self.presenter!.parseEngineerElectric(html: doc, host: "http://ee.ssu.ac.kr", completion: self.showWebViewPage)
                             break
+                        case DeptCode.Engineering_Industrial:
+                            self.presenter!.parseEngineerIndustry(html: doc, host: "http://iise.ssu.ac.kr", completion: self.showWebViewPage)
+                            break
                         default: break
                         }
                     } catch let error {

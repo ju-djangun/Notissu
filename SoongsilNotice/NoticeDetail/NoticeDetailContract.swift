@@ -41,4 +41,8 @@ protocol NoticeDetail {
     
     // 화학공학과
     func parseEngineerChemistry(html: HTMLDocument, completion: @escaping ([Attachment], String) -> Void)
+    
+    func parseEngineerElectric(html: HTMLDocument, host: String?, completion: @escaping ([Attachment], String) -> Void)
+    
+    func parseEngineerIndustry(html: HTMLDocument, host: String?, completion: @escaping ([Attachment], String) -> Void)
 }

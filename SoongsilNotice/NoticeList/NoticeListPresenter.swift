@@ -76,6 +76,9 @@ class NoticeListPresenter: NoticePresenter {
         case DeptCode.Engineering_Electonic:
             NoticeEngineering.parseListElectric(page: page, completion: self.view.applyToTableView)
             break
+        case DeptCode.Engineering_Industrial:
+            NoticeEngineering.parseListIndustry(page: page, completion: self.view.applyToTableView)
+            break
         default: break
         }
     }

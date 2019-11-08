@@ -93,6 +93,12 @@ class NoticeDetailViewController: BaseViewController, WKNavigationDelegate, WKUI
                         case DeptCode.Inmun_History:
                             self.presenter!.parseKorean(html: doc, completion: self.showWebViewPage)
                             break
+                        case DeptCode.Inmun_Philosophy:
+                            self.presenter!.parseKorean(html: doc, completion: self.showWebViewPage)
+                            break
+                        case DeptCode.Inmun_Japanese:
+                            self.presenter!.parseKorean(html: doc, completion: self.showWebViewPage)
+                            break
                         default: break
                         }
                     } catch let error {

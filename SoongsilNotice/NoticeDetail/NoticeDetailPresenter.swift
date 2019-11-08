@@ -150,11 +150,34 @@ class NoticeDetailPresenter: NoticeDetail {
         var attachmentList = [Attachment]()
         
         for link in html.css("table[class='bbs-view'] a") {
-//            print(link["href"])
-//            print(link.content)
+            //            print(link["href"])
+            //            print(link.content)
             attachmentList.append(Attachment(fileName: link.content ?? "", fileURL: link["href"] ?? ""))
         }
         
+        completion(attachmentList, detailHTML)
+    }
+    
+    func parseEngineerElectric(html: HTMLDocument, host: String?, completion: @escaping ([Attachment], String) -> Void) {
+        let contentHTML = html.css("div[class^='body']").first?.innerHTML ?? ""
+        var detailHTML = "\(htmlStart)\(contentHTML)\(htmlEnd)"
+        detailHTML = detailHTML.replacingOccurrences(of: "src=\"/", with: "src=\"\(host ?? "")/")
+        var attachmentList = [Attachment]()
+        
+        for link in html.css("div[class='fileLayer'] a") {
+            let arguments = link["href"]?.getArrayAfterRegex(regex: "[(](.*?)[)]") ?? []
+            if arguments.count > 0 {
+                let params = arguments[0].replacingOccurrences(of: "(", with: "").replacingOccurrences(of: ")", with: "").replacingOccurrences(of: "'", with: "")
+                let boardId = params.split(separator: ",")[0]
+                let bIndex = params.split(separator: ",")[1]
+                let index = params.split(separator: ",")[2]
+                
+                let attachmentURL = "http://ee.ssu.ac.kr/module/board/download.php?boardid=\(boardId)&b_idx=\(bIndex)&idx=\(index)"
+                print(attachmentURL)
+                attachmentList.append(Attachment(fileName: link.content ?? "", fileURL: attachmentURL))
+            }
+        }
+//        attachmentList.remove(at: attachmentList.count - 1)
         completion(attachmentList, detailHTML)
     }
 }

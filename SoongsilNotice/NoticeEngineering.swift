@@ -142,4 +142,71 @@ class NoticeEngineering {
             }
         }
     }
+    
+    static func parseListElectric(page: Int, completion: @escaping ([Notice]) -> Void) {
+        // offset : 0 / 10 / 20 / etc.
+        // offset : 0 * 10 / 1 * 10
+        let offset = (page - 1) * 10
+        let noticeUrl = "\(NoticeURL.engineerElectricURL)\(offset)"
+        var noticeList = [Notice]()
+        var authorList = [String]()
+        var titleList  = [String]()
+        var urlList = [String]()
+        var dateStringList = [String]()
+        var index = 0
+        
+        Alamofire.request(noticeUrl).responseString(encoding: .utf8) { response in
+            switch(response.result) {
+            case .success(_):
+                if let data = response.result.value {
+                    do {
+                        let doc = try HTML(html: data, encoding: .utf8)
+                        for product in doc.css("div[class^='subject']") {
+                            //print("***")
+                            let content = product.text!.trimmingCharacters(in: .whitespacesAndNewlines)
+//                            print(content)
+                            let detailUrl = product.css("a").first?["href"]
+                            titleList.append(content)
+                            urlList.append("http://ee.ssu.ac.kr\(detailUrl ?? "")")
+                            
+//                            print("http://ee.ssu.ac.kr\(detailUrl ?? "")")
+                        }
+                        
+                        index = 0
+                        for product in doc.css("div[class^='info'] span") {
+                            let content = product.text!.trimmingCharacters(in: .whitespacesAndNewlines)
+//                            print(content)
+                            
+                            switch (index % 3) {
+                            case 0:
+                                // Date
+                                dateStringList.append(content)
+                                break
+                            case 1:
+                                // Author
+                                authorList.append(content)
+                                break
+                            default: break
+                            }
+                            index += 1
+                        }
+                    } catch let error {
+                        print("Error : \(error)")
+                    }
+                    
+                    index = 0
+                    for _ in urlList {
+                        let noticeItem = Notice(author: authorList[index], title: titleList[index], url: urlList[index], date: dateStringList[index])
+                        noticeList.append(noticeItem)
+                        index += 1
+                    }
+                    
+                    completion(noticeList)
+                }
+            case .failure(_):
+                print("Error message:\(String(describing: response.result.error))")
+                break
+            }
+        }
+    }
 }

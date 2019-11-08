@@ -30,18 +30,17 @@ public enum DeptCode: Int {
     case Engineering_Electonic    = 12
     case Engineering_Machine      = 13
     case Engineering_Industrial   = 14
-    case Engineering_Architecture = 15
     
     // 인문대학
-    case Inmun_Korean = 16
-    case Inmun_Chinese = 17
-    case Inmun_English = 18
-    case Inmun_French = 19
-    case Inmun_German = 20
-    case Inmun_Japanese = 21
-    case Inmun_History = 22 // 사학과
-    case Inmun_Philosophy = 23 // 철학과
-    case Inmun_Creative = 24 // 문예창작
+    case Inmun_Korean = 15
+    case Inmun_Chinese = 16
+    case Inmun_English = 17
+    case Inmun_French = 18
+    case Inmun_German = 19
+    case Inmun_Japanese = 20
+    case Inmun_History = 21 // 사학과
+    case Inmun_Philosophy = 22 // 철학과
+    case Inmun_Creative = 23 // 문예창작
     
     // 사회과학대학
     
@@ -71,7 +70,6 @@ public enum DeptName: String {
     case Engineering_Electonic = "전기공학과"
     case Engineering_Machine = "기계공학부"
     case Engineering_Industrial = "산업정보시스템공학과"
-    case Engineering_Architecture = "건축학부"
     
     // 인문대학
     case Inmun_Korean = "국어국문학과"
@@ -105,7 +103,6 @@ public enum DeptNameEng: String {
     case Engineering_Electonic = "School of Electrical Engineering"
     case Engineering_Machine = "School of Mechanical Engineering"
     case Engineering_Industrial = "Industrial & Information Systems"
-    case Engineering_Architecture = "School of Architecture"
     
     // 인문대학
     case Inmun_Korean = "Korean Language & Literature"

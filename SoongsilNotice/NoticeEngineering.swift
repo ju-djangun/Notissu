@@ -269,4 +269,65 @@ class NoticeEngineering {
             }
         }
     }
+    
+    static func parseListOrganic(page: Int, completion: @escaping ([Notice]) -> Void) {
+        let noticeUrl = "\(NoticeURL.engineerOrganicURL)\(page)"
+        var noticeList = [Notice]()
+        var authorList = [String]()
+        var titleList  = [String]()
+        var urlList = [String]()
+        var dateStringList = [String]()
+        var index = 0
+        
+        print(noticeUrl)
+        
+        Alamofire.request(noticeUrl).responseString { response in
+            switch(response.result) {
+            case .success(_):
+                if let data = response.result.value {
+                    do {
+                        let doc = try HTML(html: data, encoding: .utf8)
+                        for product in (doc.css("div[class='mt40']").first?.css("td[align=left] a"))! {
+                            let content = product.text!.trimmingCharacters(in: .whitespacesAndNewlines)
+                            titleList.append(content)
+                            urlList.append(product["href"] ?? "")
+                        }
+                        // Remove Frist Item
+                        urlList.remove(at: 0)
+                        index = 0
+                        for product in (doc.css("div[class='mt40']").first?.css("tr[height=35]"))! {
+                            var realContent = product.content ?? ""
+                            realContent = realContent.replacingOccurrences(of: "\t", with: "")
+                            realContent = realContent.replacingOccurrences(of: " ", with: "")
+                            if index > 0 {
+                                var postItem = (realContent.split(separator: "\n"))
+                                if postItem.count > 9 {
+                                    // 번호를 지운다
+                                    postItem.remove(at: 0)
+                                }
+                                print("a : \(postItem)")
+                                authorList.append(String(postItem[3]))
+                                dateStringList.append(String(postItem[5]))
+                            }
+                            index += 1
+                        }
+                    } catch let error {
+                        print("Error : \(error)")
+                    }
+                    
+                    index = 0
+                    for _ in urlList {
+                        let noticeItem = Notice(author: authorList[index], title: titleList[index], url: urlList[index], date: dateStringList[index])
+                        noticeList.append(noticeItem)
+                        index += 1
+                    }
+                    // 17
+                    completion(noticeList)
+                }
+            case .failure(_):
+                print("Error message:\(String(describing: response.result.error))")
+                break
+            }
+        }
+    }
 }

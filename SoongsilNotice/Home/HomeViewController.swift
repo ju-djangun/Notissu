@@ -26,9 +26,9 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     var majorEngNameListInmun = [DeptNameEng.Inmun_Korean, DeptNameEng.Inmun_French, DeptNameEng.Inmun_German, DeptNameEng.Inmun_Chinese, DeptNameEng.Inmun_English, DeptNameEng.Inmun_History, DeptNameEng.Inmun_Philosophy, DeptNameEng.Inmun_Japanese]
     
     // 공과대학
-    var majorCodeListEngineer = [DeptCode.Engineering_Chemistry, DeptCode.Engineering_Machine, DeptCode.Engineering_Electonic, DeptCode.Engineering_Industrial, DeptCode.Engineering_Architecture, DeptCode.Engineering_Organic]
-    var majorNameListEngineer = [DeptName.Engineering_Chemistry, DeptName.Engineering_Machine, DeptName.Engineering_Electonic, DeptName.Engineering_Industrial, DeptName.Engineering_Architecture, DeptName.Engineering_Organic]
-    var majorEngNameListEngineer = [DeptNameEng.Engineering_Chemistry, DeptNameEng.Engineering_Machine, DeptNameEng.Engineering_Electonic, DeptNameEng.Engineering_Industrial, DeptNameEng.Engineering_Architecture, DeptNameEng.Engineering_Organic]
+    var majorCodeListEngineer = [DeptCode.Engineering_Chemistry, DeptCode.Engineering_Machine, DeptCode.Engineering_Electonic, DeptCode.Engineering_Industrial, DeptCode.Engineering_Organic]
+    var majorNameListEngineer = [DeptName.Engineering_Chemistry, DeptName.Engineering_Machine, DeptName.Engineering_Electonic, DeptName.Engineering_Industrial, DeptName.Engineering_Organic]
+    var majorEngNameListEngineer = [DeptNameEng.Engineering_Chemistry, DeptNameEng.Engineering_Machine, DeptNameEng.Engineering_Electonic, DeptNameEng.Engineering_Industrial, DeptNameEng.Engineering_Organic]
     
     var sections = ["IT 대학", "법과대학", "인문대학", "공과대학"]
     

@@ -109,8 +109,8 @@ class NoticeDetailPresenter: NoticeDetail {
         var attachmentList = [Attachment]()
         
         for link in html.css("table[class='bbs-view'] a") {
-            print(link["href"])
-            print(link.content)
+//            print(link["href"])
+//            print(link.content)
             attachmentList.append(Attachment(fileName: link.content ?? "", fileURL: link["href"] ?? ""))
         }
         
@@ -123,22 +123,8 @@ class NoticeDetailPresenter: NoticeDetail {
         var attachmentList = [Attachment]()
         
         for link in html.css("table[class='bbs-view'] a") {
-            print(link["href"])
-            print(link.content)
-            attachmentList.append(Attachment(fileName: link.content ?? "", fileURL: link["href"] ?? ""))
-        }
-        
-        completion(attachmentList, detailHTML)
-    }
-    
-    func parseFrench(html: HTMLDocument, completion: @escaping ([Attachment], String) -> Void) {
-        let contentHTML = html.css("div[class^='frame-box']").first?.innerHTML ?? ""
-        let detailHTML = "\(htmlStart)\(contentHTML)\(htmlEnd)"
-        var attachmentList = [Attachment]()
-        
-        for link in html.css("table[class='bbs-view'] a") {
-            print(link["href"])
-            print(link.content)
+//            print(link["href"])
+//            print(link.content)
             attachmentList.append(Attachment(fileName: link.content ?? "", fileURL: link["href"] ?? ""))
         }
         

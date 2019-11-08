@@ -67,7 +67,7 @@ public enum DeptName: String {
     case MIX_mix = "융합특성화자유전공학부"
     // Engineering
     case Engineering_Chemistry = "화학공학과"
-    case Engineering_Organic = "유기신소재ㆍ 파이버공학과"
+    case Engineering_Organic = "유기신소재ㆍ파이버공학과"
     case Engineering_Electonic = "전기공학과"
     case Engineering_Machine = "기계공학부"
     case Engineering_Industrial = "산업정보시스템공학과"

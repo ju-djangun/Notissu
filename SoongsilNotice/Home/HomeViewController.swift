@@ -25,11 +25,17 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     var majorNameListInmun = [DeptName.Inmun_Korean, DeptName.Inmun_French, DeptName.Inmun_German, DeptName.Inmun_Chinese, DeptName.Inmun_English, DeptName.Inmun_History, DeptName.Inmun_Philosophy, DeptName.Inmun_Japanese]
     var majorEngNameListInmun = [DeptNameEng.Inmun_Korean, DeptNameEng.Inmun_French, DeptNameEng.Inmun_German, DeptNameEng.Inmun_Chinese, DeptNameEng.Inmun_English, DeptNameEng.Inmun_History, DeptNameEng.Inmun_Philosophy, DeptNameEng.Inmun_Japanese]
     
-    var sections = ["IT 대학", "법과대학", "인문대학"]
+    // 공과대학
+    var majorCodeListEngineer = [DeptCode.Engineering_Chemistry, DeptCode.Engineering_Machine, DeptCode.Engineering_Electonic, DeptCode.Engineering_Industrial, DeptCode.Engineering_Architecture, DeptCode.Engineering_Organic]
+    var majorNameListEngineer = [DeptName.Engineering_Chemistry, DeptName.Engineering_Machine, DeptName.Engineering_Electonic, DeptName.Engineering_Industrial, DeptName.Engineering_Architecture, DeptName.Engineering_Organic]
+    var majorEngNameListEngineer = [DeptNameEng.Engineering_Chemistry, DeptNameEng.Engineering_Machine, DeptNameEng.Engineering_Electonic, DeptNameEng.Engineering_Industrial, DeptNameEng.Engineering_Architecture, DeptNameEng.Engineering_Organic]
     
-    var majorListIT = [Major]()
-    var majorListLaw = [Major]()
-    var majorListInmun = [Major]()
+    var sections = ["IT 대학", "법과대학", "인문대학", "공과대학"]
+    
+    var majorListIT       = [Major]()
+    var majorListLaw      = [Major]()
+    var majorListInmun    = [Major]()
+    var majorListEngineer = [Major]()
     
     @IBOutlet var majorListView: UITableView!
     
@@ -51,6 +57,10 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         for index in 0..<majorCodeListInmun.count {
             majorListInmun.append(Major(majorCode: majorCodeListInmun[index], majorName: majorNameListInmun[index], majorNameEng: majorEngNameListInmun[index]))
+        }
+        
+        for index in 0..<majorCodeListEngineer.count {
+            majorListEngineer.append(Major(majorCode: majorCodeListEngineer[index], majorName: majorNameListEngineer[index], majorNameEng: majorEngNameListEngineer[index]))
         }
         
         self.majorListView.delegate = self
@@ -77,6 +87,9 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         } else if indexPath.section == 2 {
             noticeListViewController?.noticeDeptCode = majorListInmun[indexPath.row].majorCode
             noticeListViewController?.noticeDeptName = majorListInmun[indexPath.row].majorName
+        } else if indexPath.section == 3 {
+            noticeListViewController?.noticeDeptCode = majorListEngineer[indexPath.row].majorCode
+            noticeListViewController?.noticeDeptName = majorListEngineer[indexPath.row].majorName
         }
         self.navigationController?.pushViewController(noticeListViewController!, animated: true)
     }
@@ -88,6 +101,8 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             return majorListLaw.count
         } else if section == 2 {
             return majorListInmun.count
+        } else if section == 3 {
+            return  majorListEngineer.count
         } else {
             return 0
         }
@@ -114,6 +129,10 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             cell.majorTitle.text = majorListInmun[indexPath.row].majorName.map { $0.rawValue }
             cell.majorTitleEng.text = majorListInmun[indexPath.row].majorNameEng.map { $0.rawValue }
             cell.majorCode = majorListInmun[indexPath.row].majorCode
+        } else if indexPath.section == 3 {
+            cell.majorTitle.text = majorListEngineer[indexPath.row].majorName.map { $0.rawValue }
+            cell.majorTitleEng.text = majorListEngineer[indexPath.row].majorNameEng.map { $0.rawValue }
+            cell.majorCode = majorListEngineer[indexPath.row].majorCode
         } else {
             return UITableViewCell()
         }

@@ -280,7 +280,7 @@ class NoticeInmun {
                             //print("***")
                             let content = product.text!.trimmingCharacters(in: .whitespacesAndNewlines)
                             print(content)
-                            switch (index % 6) {
+                            switch (index % 5) {
                             case 0: break
                             case 1:
                                 // Title
@@ -288,14 +288,10 @@ class NoticeInmun {
                                 break
                             case 2: break
                             case 3:
-                                // Author
-                                authorList.append(content)
-                                break
-                            case 4:
                                 // Date
                                 dateStringList.append(content)
                                 break
-                            case 5: break
+                            case 4: break
                             default: break
                             }
                             index += 1
@@ -311,7 +307,7 @@ class NoticeInmun {
                     
                     index = 0
                     for _ in urlList {
-                        let noticeItem = Notice(author: authorList[index], title: titleList[index], url: urlList[index], date: dateStringList[index])
+                        let noticeItem = Notice(author: "", title: titleList[index], url: urlList[index], date: dateStringList[index])
                         noticeList.append(noticeItem)
                         index += 1
                     }

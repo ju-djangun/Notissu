@@ -32,7 +32,8 @@ class NoticeAttachmentCell: UITableViewCell {
         var encodedUrl = self.fileDownloadURL
         if majorCode ?? DeptCode.IT_Computer == DeptCode.LAW_IntlLaw
             || majorCode ?? DeptCode.IT_Computer == DeptCode.Inmun_Korean
-            || majorCode ?? DeptCode.IT_Computer == DeptCode.Inmun_French {
+            || majorCode ?? DeptCode.IT_Computer == DeptCode.Inmun_French
+            || majorCode ?? DeptCode.IT_Computer == DeptCode.Inmun_Chinese {
             encodedUrl = self.fileDownloadURL
         } else {
             encodedUrl = self.fileDownloadURL.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""

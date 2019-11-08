@@ -279,7 +279,7 @@ class NoticeEngineering {
         var dateStringList = [String]()
         var index = 0
         
-        print(noticeUrl)
+//        print(noticeUrl)
         
         Alamofire.request(noticeUrl).responseString { response in
             switch(response.result) {
@@ -289,11 +289,11 @@ class NoticeEngineering {
                         let doc = try HTML(html: data, encoding: .utf8)
                         for product in (doc.css("div[class='mt40']").first?.css("td[align=left] a"))! {
                             let content = product.text!.trimmingCharacters(in: .whitespacesAndNewlines)
+                            print(product["href"])
                             titleList.append(content)
-                            urlList.append(product["href"] ?? "")
+                            urlList.append("http://materials.ssu.ac.kr\(product["href"] ?? "")")
                         }
                         // Remove Frist Item
-                        urlList.remove(at: 0)
                         index = 0
                         for product in (doc.css("div[class='mt40']").first?.css("tr[height=35]"))! {
                             var realContent = product.content ?? ""

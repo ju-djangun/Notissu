@@ -67,6 +67,7 @@ class NoticeDetailViewController: BaseViewController, WKNavigationDelegate, WKUI
                             self.presenter!.parseMedia(html: doc, completion: self.showWebViewPage)
                             break
                         case DeptCode.IT_SmartSystem:
+                            self.hideProgressBar()
                             self.webView.load(URLRequest(url: URL(string: self.detailURL ?? "")!))
                             break
                         case DeptCode.LAW_Law:
@@ -112,6 +113,8 @@ class NoticeDetailViewController: BaseViewController, WKNavigationDelegate, WKUI
                             self.presenter!.parseEngineerIndustry(html: doc, host: "http://iise.ssu.ac.kr", completion: self.showWebViewPage)
                             break
                         case DeptCode.Engineering_Organic:
+                            self.hideProgressBar()
+                            print("\(self.detailURL ?? "")")
                             self.webView.load(URLRequest(url: URL(string: self.detailURL ?? "")!))
                             break
                         default: break

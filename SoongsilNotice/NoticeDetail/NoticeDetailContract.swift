@@ -31,5 +31,14 @@ protocol NoticeDetail {
     
     func parseMedia(html: HTMLDocument, completion: @escaping ([Attachment], String) -> Void)
     
+    // 법학과, 국제법무학과
     func parseLaw(html: HTMLDocument, completion: @escaping ([Attachment], String) -> Void)
+    
+    func parseIntlLaw(html: HTMLDocument, completion: @escaping ([Attachment], String) -> Void)
+    
+    // 국어국문학과
+    func parseKorean(html: HTMLDocument, completion: @escaping ([Attachment], String) -> Void)
+    
+    //불어불문학과
+    func parseFrench(html: HTMLDocument, completion: @escaping ([Attachment], String) -> Void)
 }

@@ -11,7 +11,7 @@ import UIKit
 class BaseViewController: UIViewController {
     
     var loadingView   : UIView = UIView()
-    var spinner       = UIActivityIndicatorView(style: .large)
+    var spinner       = UIActivityIndicatorView(style: .whiteLarge)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,7 +23,7 @@ class BaseViewController: UIViewController {
         actInd.frame = CGRect(x: 0.0, y: 0.0, width: 40.0, height: 40.0);
         actInd.center = uiView.center
         actInd.hidesWhenStopped = true
-        actInd.style = .large
+        actInd.style = .whiteLarge
         uiView.addSubview(actInd)
         self.spinner.startAnimating()
     }

@@ -31,6 +31,25 @@ public enum DeptCode: Int {
     case Engineering_Machine      = 13
     case Engineering_Industrial   = 14
     case Engineering_Architecture = 15
+    
+    // 인문대학
+    case Inmun_Korean = 16
+    case Inmun_Chinese = 17
+    case Inmun_English = 18
+    case Inmun_French = 19
+    case Inmun_German = 20
+    case Inmun_Japanese = 21
+    case Inmun_History = 22 // 사학과
+    case Inmun_Philosophy = 23 // 철학과
+    case Inmun_Creative = 24 // 문예창작
+    
+    // 사회과학대학
+    
+    // 자연과학대학
+    
+    // 경제통상대학
+    
+    // 경영대학
 }
 
 public enum DeptName: String {
@@ -53,6 +72,17 @@ public enum DeptName: String {
     case Engineering_Machine = "기계공학부"
     case Engineering_Industrial = "산업정보시스템공학과"
     case Engineering_Architecture = "건축학부"
+    
+    // 인문대학
+    case Inmun_Korean = "국어국문학과"
+    case Inmun_Chinese = "중어중문학과"
+    case Inmun_English = "영어영문학과"
+    case Inmun_French = "불어불문학과"
+    case Inmun_German = "독어독문학과"
+    case Inmun_Japanese = "일어일문학과"
+    case Inmun_History = "사학과"
+    case Inmun_Philosophy = "철학과"
+    case Inmun_Creative = "문예창작전공"
 }
 
 public enum DeptNameEng: String {
@@ -76,6 +106,17 @@ public enum DeptNameEng: String {
     case Engineering_Machine = "School of Mechanical Engineering"
     case Engineering_Industrial = "Industrial & Information Systems"
     case Engineering_Architecture = "School of Architecture"
+    
+    // 인문대학
+    case Inmun_Korean = "Korean Language & Literature"
+    case Inmun_Chinese = "Chinese Language & Literature"
+    case Inmun_English = "English Language & Literature"
+    case Inmun_French = "French Language & Literature"
+    case Inmun_German = "German Language & Literature"
+    case Inmun_Japanese = "Japanese Language & Literature"
+    case Inmun_History = "Department of History"
+    case Inmun_Philosophy = "Department of Philosophy"
+    case Inmun_Creative = "Major in Creative Writing"
 }
 
 struct ConfigSetting {

@@ -10,18 +10,26 @@ import UIKit
 
 class HomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
+    // IT대학
     var majorCodeListIT = [DeptCode.IT_Computer, DeptCode.IT_Media, DeptCode.IT_Electric, DeptCode.IT_Software, DeptCode.IT_SmartSystem]
     var majorNameListIT = [DeptName.IT_Computer, DeptName.IT_Media, DeptName.IT_Electric, DeptName.IT_Software, DeptName.IT_SmartSystem]
     var majorEngNameListIT = [DeptNameEng.IT_Computer, DeptNameEng.IT_Media, DeptNameEng.IT_Electric, DeptNameEng.IT_Software, DeptNameEng.IT_SmartSystem]
     
+    // 법과대학
     var majorCodeListLaw = [DeptCode.LAW_Law, DeptCode.LAW_IntlLaw]
     var majorNameListLaw = [DeptName.LAW_Law, DeptName.LAW_IntlLaw]
     var majorEngNameListLaw = [DeptNameEng.LAW_Law, DeptNameEng.LAW_IntlLaw]
     
-    var sections = ["IT 대학", "법과대학"]
+    // 인문대학
+    var majorCodeListInmun = [DeptCode.Inmun_Korean, DeptCode.Inmun_French, DeptCode.Inmun_German, DeptCode.Inmun_Chinese, DeptCode.Inmun_English, DeptCode.Inmun_History, DeptCode.Inmun_Philosophy, DeptCode.Inmun_Japanese, DeptCode.Inmun_Creative]
+    var majorNameListInmun = [DeptName.Inmun_Korean, DeptName.Inmun_French, DeptName.Inmun_German, DeptName.Inmun_Chinese, DeptName.Inmun_English, DeptName.Inmun_History, DeptName.Inmun_Philosophy, DeptName.Inmun_Japanese, DeptName.Inmun_Creative]
+    var majorEngNameListInmun = [DeptNameEng.Inmun_Korean, DeptNameEng.Inmun_French, DeptNameEng.Inmun_German, DeptNameEng.Inmun_Chinese, DeptNameEng.Inmun_English, DeptNameEng.Inmun_History, DeptNameEng.Inmun_Philosophy, DeptNameEng.Inmun_Japanese, DeptNameEng.Inmun_Creative]
+    
+    var sections = ["IT 대학", "법과대학", "인문대학"]
     
     var majorListIT = [Major]()
     var majorListLaw = [Major]()
+    var majorListInmun = [Major]()
     
     @IBOutlet var majorListView: UITableView!
     
@@ -39,6 +47,10 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         for index in 0..<majorCodeListLaw.count {
             majorListLaw.append(Major(majorCode: majorCodeListLaw[index], majorName: majorNameListLaw[index], majorNameEng: majorEngNameListLaw[index]))
+        }
+        
+        for index in 0..<majorCodeListInmun.count {
+            majorListInmun.append(Major(majorCode: majorCodeListInmun[index], majorName: majorNameListInmun[index], majorNameEng: majorEngNameListInmun[index]))
         }
         
         self.majorListView.delegate = self
@@ -62,6 +74,9 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         } else if indexPath.section == 1 {
             noticeListViewController?.noticeDeptCode = majorListLaw[indexPath.row].majorCode
             noticeListViewController?.noticeDeptName = majorListLaw[indexPath.row].majorName
+        } else if indexPath.section == 2 {
+            noticeListViewController?.noticeDeptCode = majorListInmun[indexPath.row].majorCode
+            noticeListViewController?.noticeDeptName = majorListInmun[indexPath.row].majorName
         }
         
         self.navigationController?.pushViewController(noticeListViewController!, animated: true)
@@ -72,6 +87,8 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             return majorListIT.count
         } else if section == 1 {
             return majorListLaw.count
+        } else if section == 2 {
+            return majorListInmun.count
         } else {
             return 0
         }
@@ -84,7 +101,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "majorCell", for: indexPath) as! HomeCell
         
-        print("cellForRowAt - section - \(indexPath.section)")
+//        print("cellForRowAt - section - \(indexPath.section)")
         
         if indexPath.section == 0 {
             cell.majorTitle.text = majorListIT[indexPath.row].majorName.map { $0.rawValue }
@@ -94,6 +111,10 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             cell.majorTitle.text = majorListLaw[indexPath.row].majorName.map { $0.rawValue }
             cell.majorTitleEng.text = majorListLaw[indexPath.row].majorNameEng.map { $0.rawValue }
             cell.majorCode = majorListLaw[indexPath.row].majorCode
+        } else if indexPath.section == 2 {
+            cell.majorTitle.text = majorListInmun[indexPath.row].majorName.map { $0.rawValue }
+            cell.majorTitleEng.text = majorListInmun[indexPath.row].majorNameEng.map { $0.rawValue }
+            cell.majorCode = majorListInmun[indexPath.row].majorCode
         } else {
             return UITableViewCell()
         }

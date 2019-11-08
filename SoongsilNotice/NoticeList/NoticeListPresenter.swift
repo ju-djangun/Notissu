@@ -40,6 +40,33 @@ class NoticeListPresenter: NoticePresenter {
         case DeptCode.LAW_IntlLaw:
             NoticeLaw.parseListIntlLaw(page: page, completion: self.view.applyToTableView)
             break
+        case DeptCode.Inmun_Korean:
+            NoticeInmun.parseListKorean(page: page, completion: self.view.applyToTableView)
+            break
+        case DeptCode.Inmun_Creative:
+            NoticeInmun.parseListCreative(page: page, completion: self.view.applyToTableView)
+            break
+        case DeptCode.Inmun_Philosophy:
+            NoticeInmun.parseListPhilo(page: page, completion: self.view.applyToTableView)
+            break
+        case DeptCode.Inmun_History:
+            NoticeInmun.parseListHistory(page: page, completion: self.view.applyToTableView)
+            break
+        case DeptCode.Inmun_English:
+            NoticeInmun.parseListEnglish(page: page, completion: self.view.applyToTableView)
+            break
+        case DeptCode.Inmun_Japanese:
+            NoticeInmun.parseListJapanese(page: page, completion: self.view.applyToTableView)
+            break
+        case DeptCode.Inmun_Chinese:
+            NoticeInmun.parseListChinese(page: page, completion: self.view.applyToTableView)
+            break
+        case DeptCode.Inmun_German:
+            NoticeInmun.parseListGerman(page: page, completion: self.view.applyToTableView)
+            break
+        case DeptCode.Inmun_French:
+            NoticeInmun.parseListFrench(page: page, completion: self.view.applyToTableView)
+            break
         default: break
         }
     }

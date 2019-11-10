@@ -50,13 +50,6 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     override func viewDidLoad() {
-        
-        //        case IT_Computer = "컴퓨터학부"
-        //        case IT_Media = "글로벌미디어학부"
-        //        case IT_Electric = "전자정보공학부"
-        //        case IT_Software = "소프트웨어학부"
-        //        case IT_SmartSystem = "스마트시스템소프트웨어학과"
-        
         for index in 0..<majorCodeListIT.count {
             majorListIT.append(Major(majorCode: majorCodeListIT[index], majorName: majorNameListIT[index], majorNameEng: majorEngNameListIT[index]))
         }
@@ -79,9 +72,6 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         self.majorListView.delegate = self
         self.majorListView.dataSource = self
-//        self.majorListView.rowHeight = UITableView.automaticDimension
-//        self.majorListView.separatorStyle = .singleLine
-//        self.majorListView.separatorInset = .zero
         self.majorListView.tableFooterView = UIView()
         self.majorListView.reloadData()
     }

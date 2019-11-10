@@ -62,9 +62,6 @@ class StartViewController: BaseViewController, UIPickerViewDelegate, UIPickerVie
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        print("row: \(row)")
-        print("value: \(self.majorList[row])")
-        
         selectedIndex = row
         selectedMajor = self.majorList[row]
     }

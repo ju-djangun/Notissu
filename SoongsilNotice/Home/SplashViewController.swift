@@ -12,11 +12,6 @@ class SplashViewController : BaseViewController {
     override func viewDidLoad() {
         BaseViewController.noticeDeptCode = DeptCode(rawValue: UserDefaults.standard.integer(forKey: "myDeptCode"))
         BaseViewController.noticeDeptName = DeptName(rawValue: UserDefaults.standard.string(forKey: "myDeptName") ?? "")
-        
-        print(UserDefaults.standard.object(forKey: "myDeptCode"))
-        print(BaseViewController.noticeDeptCode)
-        print(BaseViewController.noticeDeptName)
-        
         HomeSwitcher.updateRootVC()
     }
 }

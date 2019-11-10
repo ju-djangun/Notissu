@@ -23,8 +23,6 @@ class NoticeListViewController: BaseViewController, NoticeListView, UITableViewD
     private var page : Int = 1
     
     override func viewWillAppear(_ animated: Bool) {
-        print("Dept : \(self.noticeDeptName!.rawValue)")
-        
         if isMyList {
             self.noticeDeptCode = BaseViewController.noticeDeptCode
             self.noticeDeptName = BaseViewController.noticeDeptName
@@ -54,7 +52,6 @@ class NoticeListViewController: BaseViewController, NoticeListView, UITableViewD
         BaseViewController.noticeDeptCode = self.noticeDeptCode
         BaseViewController.noticeDeptName = self.noticeDeptName
         
-        print(BaseViewController.noticeDeptName!.rawValue)
         UserDefaults.standard.setValue(BaseViewController.noticeDeptCode!.rawValue, forKey: "myDeptCode")
         UserDefaults.standard.setValue(BaseViewController.noticeDeptName!.rawValue, forKey: "myDeptName")
         
@@ -82,7 +79,6 @@ class NoticeListViewController: BaseViewController, NoticeListView, UITableViewD
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("selected")
         let storyBoard = self.storyboard!
         let noticeDetailController = storyBoard.instantiateViewController(withIdentifier: "noticeDetailVC") as? NoticeDetailViewController
         

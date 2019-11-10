@@ -42,13 +42,21 @@ public enum DeptCode: Int {
     case Inmun_Philosophy = 22 // 철학과
     case Inmun_Creative = 23 // 문예창작
     
+    // 자연과학대학
+    case NaturalScience_Math = 24 // 수학과
+    case NaturalScience_Chemistry = 25 // 화학과
+    case NaturalScience_Physics = 26 // 물리학과
+    case NaturalScience_Actuarial = 27 // 정보통계 보험수리학과
+    case NaturalScience_Medical = 28 // 의생명시스템학부
+    
     // 사회과학대학
     
-    // 자연과학대학
     
     // 경제통상대학
     
+    
     // 경영대학
+    
 }
 
 public enum DeptName: String {
@@ -81,6 +89,18 @@ public enum DeptName: String {
     case Inmun_History = "사학과"
     case Inmun_Philosophy = "철학과"
     case Inmun_Creative = "문예창작전공"
+    
+    // 자연과학대학
+    case NaturalScience_Math = "수학과" // 수학과
+    case NaturalScience_Chemistry = "화학과" // 화학과
+    case NaturalScience_Physics = "물리학과" // 물리학과
+    case NaturalScience_Actuarial = "정보통계보험수리학과" // 정보통계 보험수리학과
+    case NaturalScience_Medical = "의생명시스템학부" // 의생명시스템학부
+    
+    // 사회과학대학
+    
+    // 경제통상대학
+    
 }
 
 public enum DeptNameEng: String {
@@ -114,6 +134,13 @@ public enum DeptNameEng: String {
     case Inmun_History = "Department of History"
     case Inmun_Philosophy = "Department of Philosophy"
     case Inmun_Creative = "Major in Creative Writing"
+    
+    // 자연과학대학
+    case NaturalScience_Math = "College of Mathematics" // 수학과
+    case NaturalScience_Chemistry = "Department of Chemistry" // 화학과
+    case NaturalScience_Physics = "Physics" // 물리학과
+    case NaturalScience_Actuarial = "Statistics and Actuarial Science" // 정보통계 보험수리학과
+    case NaturalScience_Medical = "School of Systems Biomedical Science" // 의생명시스템학부
 }
 
 struct ConfigSetting {

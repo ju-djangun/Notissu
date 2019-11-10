@@ -96,11 +96,6 @@ class NoticeEngineering {
                         let doc = try HTML(html: data, encoding: .utf8)
                         
                         for product in doc.css("div[class^='board-list'] tr") {
-                            //print("***")
-                            print(product.css("td[class^='subject'] a").first?.text!.trimmingCharacters(in: .whitespacesAndNewlines))
-                            print(product.css("td[class^='name']").first?.text!.trimmingCharacters(in: .whitespacesAndNewlines))
-                            print(product.css("td[class^='date']").first?.text!.trimmingCharacters(in: .whitespacesAndNewlines))
-                            
                             let title = product.css("td[class^='subject'] a").first?.text!.trimmingCharacters(in: .whitespacesAndNewlines)
                             let author = product.css("td[class^='name']").first?.text!.trimmingCharacters(in: .whitespacesAndNewlines)
                             let date = product.css("td[class^='date']").first?.text!.trimmingCharacters(in: .whitespacesAndNewlines)
@@ -110,6 +105,7 @@ class NoticeEngineering {
                                 authorList.append(author ?? "")
                                 dateStringList.append(date ?? "")
                             }
+                            
                             index += 1
                         }
                         

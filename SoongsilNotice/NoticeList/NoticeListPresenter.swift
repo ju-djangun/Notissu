@@ -82,6 +82,21 @@ class NoticeListPresenter: NoticePresenter {
         case DeptCode.Engineering_Organic:
             NoticeEngineering.parseListOrganic(page: page, completion: self.view.applyToTableView)
             break
+        case DeptCode.NaturalScience_Math:
+            NoticeNaturalScience.parseListMath(page: page, completion: self.view.applyToTableView)
+            break
+        case DeptCode.NaturalScience_Physics:
+            NoticeNaturalScience.parseListPhysics(page: page, completion: self.view.applyToTableView)
+            break
+        case DeptCode.NaturalScience_Chemistry:
+            NoticeNaturalScience.parseListChemistry(page: page, completion: self.view.applyToTableView)
+            break
+        case DeptCode.NaturalScience_Actuarial:
+            NoticeNaturalScience.parseListActuarial(page: page, completion: self.view.applyToTableView)
+            break
+        case DeptCode.NaturalScience_Medical:
+            NoticeNaturalScience.parseListBiomedical(page: page, completion: self.view.applyToTableView)
+            break
         default: break
         }
     }

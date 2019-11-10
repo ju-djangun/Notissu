@@ -30,12 +30,18 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     var majorNameListEngineer = [DeptName.Engineering_Chemistry, DeptName.Engineering_Machine, DeptName.Engineering_Electonic, DeptName.Engineering_Industrial, DeptName.Engineering_Organic]
     var majorEngNameListEngineer = [DeptNameEng.Engineering_Chemistry, DeptNameEng.Engineering_Machine, DeptNameEng.Engineering_Electonic, DeptNameEng.Engineering_Industrial, DeptNameEng.Engineering_Organic]
     
-    var sections = ["IT 대학", "법과대학", "인문대학", "공과대학"]
+    // 자연과학대학
+    var majorCodeListNaturalScience = [DeptCode.NaturalScience_Math, DeptCode.NaturalScience_Physics, DeptCode.NaturalScience_Chemistry, DeptCode.NaturalScience_Actuarial, DeptCode.NaturalScience_Medical]
+    var majorNameListNaturalScience = [DeptName.NaturalScience_Math, DeptName.NaturalScience_Physics, DeptName.NaturalScience_Chemistry, DeptName.NaturalScience_Actuarial, DeptName.NaturalScience_Medical]
+    var majorEngNameListNaturalScience = [DeptNameEng.NaturalScience_Math, DeptNameEng.NaturalScience_Physics, DeptNameEng.NaturalScience_Chemistry, DeptNameEng.NaturalScience_Actuarial, DeptNameEng.NaturalScience_Medical]
+    
+    var sections = ["IT 대학", "법과대학", "인문대학", "공과대학", "자연과학대학"]
     
     var majorListIT       = [Major]()
     var majorListLaw      = [Major]()
     var majorListInmun    = [Major]()
     var majorListEngineer = [Major]()
+    var majorListNatural  = [Major]()
     
     @IBOutlet var majorListView: UITableView!
     
@@ -61,6 +67,10 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         for index in 0..<majorCodeListEngineer.count {
             majorListEngineer.append(Major(majorCode: majorCodeListEngineer[index], majorName: majorNameListEngineer[index], majorNameEng: majorEngNameListEngineer[index]))
+        }
+        
+        for index in 0..<majorCodeListNaturalScience.count {
+            majorListNatural.append(Major(majorCode: majorCodeListNaturalScience[index], majorName: majorNameListNaturalScience[index], majorNameEng: majorEngNameListNaturalScience[index]))
         }
         
         self.majorListView.delegate = self
@@ -90,7 +100,11 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         } else if indexPath.section == 3 {
             noticeListViewController?.noticeDeptCode = majorListEngineer[indexPath.row].majorCode
             noticeListViewController?.noticeDeptName = majorListEngineer[indexPath.row].majorName
+        } else if indexPath.section == 4 {
+            noticeListViewController?.noticeDeptCode = majorListNatural[indexPath.row].majorCode
+            noticeListViewController?.noticeDeptName = majorListNatural[indexPath.row].majorName
         }
+        
         self.navigationController?.pushViewController(noticeListViewController!, animated: true)
     }
     
@@ -103,6 +117,8 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             return majorListInmun.count
         } else if section == 3 {
             return  majorListEngineer.count
+        } else if section == 4 {
+            return majorListNatural.count
         } else {
             return 0
         }
@@ -114,8 +130,6 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "majorCell", for: indexPath) as! HomeCell
-        
-//        print("cellForRowAt - section - \(indexPath.section)")
         
         if indexPath.section == 0 {
             cell.majorTitle.text = majorListIT[indexPath.row].majorName.map { $0.rawValue }
@@ -133,12 +147,15 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             cell.majorTitle.text = majorListEngineer[indexPath.row].majorName.map { $0.rawValue }
             cell.majorTitleEng.text = majorListEngineer[indexPath.row].majorNameEng.map { $0.rawValue }
             cell.majorCode = majorListEngineer[indexPath.row].majorCode
+        } else if indexPath.section == 4 {
+            cell.majorTitle.text = majorListNatural[indexPath.row].majorName.map { $0.rawValue }
+            cell.majorTitleEng.text = majorListNatural[indexPath.row].majorNameEng.map { $0.rawValue }
+            cell.majorCode = majorListNatural[indexPath.row].majorCode
         } else {
             return UITableViewCell()
         }
-        
+
         cell.selectionStyle  = .none
-        
         return cell
     }
 }

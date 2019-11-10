@@ -114,8 +114,10 @@ class NoticeDetailViewController: BaseViewController, WKNavigationDelegate, WKUI
                             break
                         case DeptCode.Engineering_Organic:
                             self.hideProgressBar()
-                            print("\(self.detailURL ?? "")")
                             self.webView.load(URLRequest(url: URL(string: self.detailURL ?? "")!))
+                            break
+                        case DeptCode.NaturalScience_Math:
+                            self.presenter!.parseNaturalMath(html: doc, host: nil, completion: self.showWebViewPage)
                             break
                         default: break
                         }

@@ -30,6 +30,7 @@
 		DE501C472374FC9D0053055A /* NoticeInmun.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE501C462374FC9D0053055A /* NoticeInmun.swift */; };
 		DE501C492374FD250053055A /* NoticeURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE501C482374FD250053055A /* NoticeURL.swift */; };
 		DE501C4B23750DCB0053055A /* notissu_anim.json in Resources */ = {isa = PBXBuildFile; fileRef = DE501C4A23750DCA0053055A /* notissu_anim.json */; };
+		DE5542402377CC31004E01EB /* NoticeNaturalScience.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE55423F2377CC31004E01EB /* NoticeNaturalScience.swift */; };
 		DEBB714E23744AC700C38812 /* Pods_SoongsilNotice.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57296D4BD235F1B361E7E590 /* Pods_SoongsilNotice.framework */; };
 		DEBB715123744AC800C38812 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DEBB714C23744AC400C38812 /* WebKit.framework */; };
 /* End PBXBuildFile section */
@@ -63,6 +64,7 @@
 		DE501C462374FC9D0053055A /* NoticeInmun.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeInmun.swift; sourceTree = "<group>"; };
 		DE501C482374FD250053055A /* NoticeURL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeURL.swift; sourceTree = "<group>"; };
 		DE501C4A23750DCA0053055A /* notissu_anim.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = notissu_anim.json; sourceTree = SOURCE_ROOT; };
+		DE55423F2377CC31004E01EB /* NoticeNaturalScience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeNaturalScience.swift; sourceTree = "<group>"; };
 		DEBB714C23744AC400C38812 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -143,6 +145,7 @@
 				DE0F8F2223740041006A0B49 /* NoticeLaw.swift */,
 				DE501C462374FC9D0053055A /* NoticeInmun.swift */,
 				DE501C482374FD250053055A /* NoticeURL.swift */,
+				DE55423F2377CC31004E01EB /* NoticeNaturalScience.swift */,
 			);
 			path = SoongsilNotice;
 			sourceTree = "<group>";
@@ -302,6 +305,7 @@
 				DE296157237198070074F24B /* NoticeIT.swift in Sources */,
 				DE501C472374FC9D0053055A /* NoticeInmun.swift in Sources */,
 				DE0F8F1823739C8A006A0B49 /* NoticeAttachmentCell.swift in Sources */,
+				DE5542402377CC31004E01EB /* NoticeNaturalScience.swift in Sources */,
 				DE29614B2370FC720074F24B /* NoticeListViewController.swift in Sources */,
 				DE29615E23728A330074F24B /* NoticeDetailPresenter.swift in Sources */,
 				DE0F8F212373FDD7006A0B49 /* NoticeEngineering.swift in Sources */,

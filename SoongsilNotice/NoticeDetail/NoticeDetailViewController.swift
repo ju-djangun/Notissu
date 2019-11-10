@@ -122,6 +122,9 @@ class NoticeDetailViewController: BaseViewController, WKNavigationDelegate, WKUI
                         case DeptCode.NaturalScience_Physics:
                             self.presenter!.parseNaturalPhysics(html: doc, host: nil, completion: self.showWebViewPage)
                             break
+                        case DeptCode.NaturalScience_Chemistry:
+                            self.presenter!.parseNaturalChemistry(html: doc, host: nil, completion: self.showWebViewPage)
+                            break
                         default: break
                         }
                     } catch let error {

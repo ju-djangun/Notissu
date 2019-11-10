@@ -54,6 +54,10 @@ class NoticeListViewController: BaseViewController, NoticeListView, UITableViewD
         BaseViewController.noticeDeptCode = self.noticeDeptCode
         BaseViewController.noticeDeptName = self.noticeDeptName
         
+        print(BaseViewController.noticeDeptName!.rawValue)
+        UserDefaults.standard.setValue(BaseViewController.noticeDeptCode!.rawValue, forKey: "myDeptCode")
+        UserDefaults.standard.setValue(BaseViewController.noticeDeptName!.rawValue, forKey: "myDeptName")
+        
         self.navigationItem.rightBarButtonItem = nil
     }
     

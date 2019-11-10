@@ -94,27 +94,21 @@ class NoticeEngineering {
                 if let data = response.result.value {
                     do {
                         let doc = try HTML(html: data, encoding: .utf8)
-                        for product in doc.css("table[class^='board-list'] td") {
+                        
+                        for product in doc.css("div[class^='board-list'] tr") {
                             //print("***")
-                            let content = product.text!.trimmingCharacters(in: .whitespacesAndNewlines)
-                            print(content)
-                            switch (index % 5) {
-                            case 0: break
-                            case 1:
-                                // Title
-                                titleList.append(content)
-                                break
-                            case 2:
-                                // Author
-                                authorList.append(content)
-                                break
-                            case 3:
-                                // Date
-                                dateStringList.append(content)
-                                break
-                            case 4:
-                                break
-                            default: break
+                            print(product.css("td[class^='subject'] a").first?.text!.trimmingCharacters(in: .whitespacesAndNewlines))
+                            print(product.css("td[class^='name']").first?.text!.trimmingCharacters(in: .whitespacesAndNewlines))
+                            print(product.css("td[class^='date']").first?.text!.trimmingCharacters(in: .whitespacesAndNewlines))
+                            
+                            let title = product.css("td[class^='subject'] a").first?.text!.trimmingCharacters(in: .whitespacesAndNewlines)
+                            let author = product.css("td[class^='name']").first?.text!.trimmingCharacters(in: .whitespacesAndNewlines)
+                            let date = product.css("td[class^='date']").first?.text!.trimmingCharacters(in: .whitespacesAndNewlines)
+                            
+                            if index > 0 {
+                                titleList.append(title ?? "")
+                                authorList.append(author ?? "")
+                                dateStringList.append(date ?? "")
                             }
                             index += 1
                         }

@@ -47,6 +47,8 @@ class StartViewController: BaseViewController, UIPickerViewDelegate, UIPickerVie
         UserDefaults.standard.setValue(myCode.rawValue, forKey: "myDeptCode")
 //        UserDefaults.standard.set(myName, forKey: "myDeptName")
         UserDefaults.standard.setValue(myName.rawValue, forKey: "myDeptName")
+        
+        HomeSwitcher.updateRootVC()
     }
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {

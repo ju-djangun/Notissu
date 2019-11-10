@@ -8,7 +8,7 @@
 
 import Foundation
 
-public enum DeptCode: Int {
+public enum DeptCode: Int, CaseIterable {
     // IT대학
     case IT_Computer      = 1
     case IT_Media         = 2
@@ -59,7 +59,7 @@ public enum DeptCode: Int {
     
 }
 
-public enum DeptName: String {
+public enum DeptName: String, CaseIterable {
     // IT
     case IT_Computer = "컴퓨터학부"
     case IT_Media = "글로벌미디어학부"
@@ -100,6 +100,7 @@ public enum DeptName: String {
     // 사회과학대학
     
     // 경제통상대학
+    
     
 }
 

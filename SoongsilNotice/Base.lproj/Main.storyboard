@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="dKD-gx-4UC">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="5cQ-Xb-nyz">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -229,7 +229,7 @@
             </objects>
             <point key="canvasLocation" x="3899" y="-504"/>
         </scene>
-        <!--홈-->
+        <!--전공 목록-->
         <scene sceneID="ed7-c7-6Dq">
             <objects>
                 <viewController id="oMw-42-hXP" customClass="HomeViewController" customModule="Notissu" sceneMemberID="viewController">
@@ -295,7 +295,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="uVe-ps-lKm"/>
                     </view>
-                    <navigationItem key="navigationItem" title="홈" id="Qd3-0d-rW4"/>
+                    <navigationItem key="navigationItem" title="전공 목록" id="Qd3-0d-rW4">
+                        <barButtonItem key="rightBarButtonItem" title="즐겨찾기 설정" id="bVg-eC-tSj"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="majorListView" destination="GoR-ko-bON" id="MAc-Xu-dhd"/>
                     </connections>
@@ -307,7 +309,7 @@
         <!--Navigation Controller-->
         <scene sceneID="CMH-QJ-gBC">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="dKD-gx-4UC" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="HomeNavVC" automaticallyAdjustsScrollViewInsets="NO" id="dKD-gx-4UC" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="X2t-Fz-0ln">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -326,6 +328,67 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dxw-kr-GLx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="103" y="80"/>
+        </scene>
+        <!--Start View Controller-->
+        <scene sceneID="Cmq-CU-GyN">
+            <objects>
+                <viewController storyboardIdentifier="StartVC" id="5cQ-Xb-nyz" customClass="StartViewController" customModule="Notissu" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="GNL-7s-WH7">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mIY-6h-4eW">
+                                <rect key="frame" x="0.0" y="460" width="414" height="216"/>
+                            </pickerView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EoW-CB-vD3">
+                                <rect key="frame" x="20" y="712" width="374" height="30"/>
+                                <state key="normal" title="다음으로"/>
+                                <connections>
+                                    <action selector="onClickNext:" destination="5cQ-Xb-nyz" eventType="touchUpInside" id="W4g-It-JXw"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="앱을 시작하기 위해" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xya-fz-zbV">
+                                <rect key="frame" x="20" y="369" width="374" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="전공을 선택해주세요" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YXG-Sx-rtX">
+                                <rect key="frame" x="20" y="401" width="374" height="29"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="24"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="Xya-fz-zbV" firstAttribute="centerX" secondItem="JOP-5Y-g5a" secondAttribute="centerX" id="AlE-gY-3Gu"/>
+                            <constraint firstItem="YXG-Sx-rtX" firstAttribute="centerX" secondItem="JOP-5Y-g5a" secondAttribute="centerX" id="Ej2-gN-oc9"/>
+                            <constraint firstItem="JOP-5Y-g5a" firstAttribute="bottom" secondItem="EoW-CB-vD3" secondAttribute="bottom" constant="120" id="Hys-Re-GcL"/>
+                            <constraint firstItem="EoW-CB-vD3" firstAttribute="centerX" secondItem="JOP-5Y-g5a" secondAttribute="centerX" id="Vu1-pX-rsw"/>
+                            <constraint firstItem="JOP-5Y-g5a" firstAttribute="trailing" secondItem="YXG-Sx-rtX" secondAttribute="trailing" constant="20" id="XVn-Gd-9bj"/>
+                            <constraint firstItem="YXG-Sx-rtX" firstAttribute="top" secondItem="Xya-fz-zbV" secondAttribute="bottom" constant="11" id="Xu5-2g-a0V"/>
+                            <constraint firstItem="EoW-CB-vD3" firstAttribute="top" secondItem="mIY-6h-4eW" secondAttribute="bottom" constant="36" id="ZcR-3I-7pX"/>
+                            <constraint firstItem="JOP-5Y-g5a" firstAttribute="trailing" secondItem="mIY-6h-4eW" secondAttribute="trailing" id="aHy-MI-lq2"/>
+                            <constraint firstItem="mIY-6h-4eW" firstAttribute="centerX" secondItem="JOP-5Y-g5a" secondAttribute="centerX" id="bDd-Zd-Zkk"/>
+                            <constraint firstItem="mIY-6h-4eW" firstAttribute="leading" secondItem="JOP-5Y-g5a" secondAttribute="leading" id="cPH-i0-rKE"/>
+                            <constraint firstItem="EoW-CB-vD3" firstAttribute="leading" secondItem="JOP-5Y-g5a" secondAttribute="leading" constant="20" id="gZt-e3-k0B"/>
+                            <constraint firstItem="YXG-Sx-rtX" firstAttribute="leading" secondItem="JOP-5Y-g5a" secondAttribute="leading" constant="20" id="mSx-RL-a9N"/>
+                            <constraint firstItem="JOP-5Y-g5a" firstAttribute="trailing" secondItem="EoW-CB-vD3" secondAttribute="trailing" constant="20" id="oAk-5s-UCh"/>
+                            <constraint firstItem="mIY-6h-4eW" firstAttribute="top" secondItem="YXG-Sx-rtX" secondAttribute="bottom" constant="30" id="sZd-qZ-Ycc"/>
+                            <constraint firstItem="Xya-fz-zbV" firstAttribute="leading" secondItem="JOP-5Y-g5a" secondAttribute="leading" constant="20" id="syg-YF-DvI"/>
+                            <constraint firstItem="JOP-5Y-g5a" firstAttribute="trailing" secondItem="Xya-fz-zbV" secondAttribute="trailing" constant="20" id="vuZ-dW-NMa"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="JOP-5Y-g5a"/>
+                    </view>
+                    <connections>
+                        <outlet property="nextButton" destination="EoW-CB-vD3" id="TEw-Ua-t2b"/>
+                        <outlet property="pickerView" destination="mIY-6h-4eW" id="M7U-IZ-qur"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cQW-Db-csJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="103" y="898"/>
         </scene>
     </scenes>
     <resources>

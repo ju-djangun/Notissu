@@ -15,6 +15,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        let myName = UserDefaults.standard.object(forKey: "myDeptName")
+        let myCode = UserDefaults.standard.object(forKey: "myDeptCode")
+        
         return true
     }
 

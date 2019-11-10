@@ -42,7 +42,8 @@ class NoticeAttachmentCell: UITableViewCell {
             || majorCode ?? DeptCode.IT_Computer == DeptCode.Engineering_Industrial
             || majorCode ?? DeptCode.IT_Computer == DeptCode.NaturalScience_Math
             || majorCode ?? DeptCode.IT_Computer == DeptCode.NaturalScience_Physics
-            || majorCode ?? DeptCode.IT_Computer == DeptCode.NaturalScience_Chemistry {
+            || majorCode ?? DeptCode.IT_Computer == DeptCode.NaturalScience_Chemistry
+            || majorCode ?? DeptCode.IT_Computer == DeptCode.NaturalScience_Medical {
             encodedUrl = self.fileDownloadURL
         } else {
             encodedUrl = self.fileDownloadURL.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""

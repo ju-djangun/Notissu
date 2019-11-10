@@ -25,25 +25,43 @@ class NoticeListViewController: BaseViewController, NoticeListView, UITableViewD
     override func viewWillAppear(_ animated: Bool) {
         print("Dept : \(self.noticeDeptName!.rawValue)")
         
+        if isMyList {
+            self.noticeDeptCode = BaseViewController.noticeDeptCode
+            self.noticeDeptName = BaseViewController.noticeDeptName
+        }
+        
         self.navigationItem.title = self.noticeDeptName!.rawValue
+        
         if isMyList {
             self.navigationController?.navigationBar.topItem?.title = self.noticeDeptName!.rawValue
+        } else {
+            if self.noticeDeptCode != BaseViewController.noticeDeptCode {
+                self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "즐겨찾기 등록", style: .plain, target: self, action: #selector(onFavoriteClick))
+            }
         }
-    }
-    
-    override func viewDidLoad() {
-        self.presenter = NoticeListPresenter(view: self)
         
+        self.presenter = NoticeListPresenter(view: self)
         self.noticeListView.delegate = self
         self.noticeListView.dataSource = self
         self.noticeListView.tableFooterView = UIView()
         self.noticeListView.reloadData()
         
-        ConfigSetting.canFetchData = true
+        self.refresh()
+    }
+    
+    @objc func onFavoriteClick(sender: UIBarButtonItem) {
+        // 즐겨찾기 등록
+        BaseViewController.noticeDeptCode = self.noticeDeptCode
+        BaseViewController.noticeDeptName = self.noticeDeptName
         
-        self.page = 1
-        self.showProgressBar()
-        self.presenter?.loadNoticeList(page: page, deptCode: noticeDeptCode!)
+        self.navigationItem.rightBarButtonItem = nil
+    }
+    
+    override func viewDidLoad() {
+        self.noticeListView.delegate = self
+        self.noticeListView.dataSource = self
+        self.noticeListView.tableFooterView = UIView()
+        self.noticeListView.reloadData()
         
         if #available(iOS 10.0, *) {
             noticeListView.refreshControl = refreshControl

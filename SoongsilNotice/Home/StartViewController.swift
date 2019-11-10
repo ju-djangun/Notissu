@@ -9,19 +9,15 @@
 import UIKit
 
 class StartViewController: BaseViewController, UIPickerViewDelegate, UIPickerViewDataSource {
-
+    
     @IBOutlet var pickerView: UIPickerView!
     @IBOutlet var nextButton: UIButton!
     
     private var majorList = [DeptName]()
     private var majorCodeList = [DeptCode]()
     
-    private var selectedIndex: Int?
-    private var selectedMajor: DeptName?
-    
-    override func viewWillAppear(_ animated: Bool) {
-        HomeSwitcher.updateRootVC()
-    }
+    private var selectedIndex = 0
+    private var selectedMajor = DeptName.IT_Computer
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,13 +35,18 @@ class StartViewController: BaseViewController, UIPickerViewDelegate, UIPickerVie
     }
     
     @IBAction func onClickNext(_ sender: Any?) {
-        if selectedIndex != nil && selectedMajor != nil {
-            let myCode = majorCodeList[selectedIndex ?? 0]
-            let myName = selectedMajor!
-            
-            UserDefaults.standard.set(myCode, forKey: "myDeptCode")
-            UserDefaults.standard.set(myName, forKey: "myDeptName")
-        }
+        let myCode = majorCodeList[selectedIndex]
+        let myName = selectedMajor
+        
+        print(myCode.rawValue)
+        print(myName.rawValue)
+        BaseViewController.noticeDeptCode = myCode
+        BaseViewController.noticeDeptName = myName
+        
+//        UserDefaults.standard.set(myCode, forKey: "myDeptCode")
+        UserDefaults.standard.setValue(myCode.rawValue, forKey: "myDeptCode")
+//        UserDefaults.standard.set(myName, forKey: "myDeptName")
+        UserDefaults.standard.setValue(myName.rawValue, forKey: "myDeptName")
     }
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {

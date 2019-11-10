@@ -12,6 +12,9 @@ import Lottie
 class BaseViewController: UIViewController {
     let animationView = AnimationView(name: "notissu_anim")
     
+    static var noticeDeptCode: DeptCode?
+    static var noticeDeptName: DeptName?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         

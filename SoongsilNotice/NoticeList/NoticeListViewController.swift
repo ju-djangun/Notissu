@@ -15,11 +15,21 @@ class NoticeListViewController: BaseViewController, NoticeListView, UITableViewD
     private var refreshControl      = UIRefreshControl()
     private var presenter  : NoticeListPresenter?
     private var noticeList = [Notice]()
-    var noticeDeptCode: DeptCode?
-    var noticeDeptName: DeptName?
+    
+    var isMyList = true
+    var noticeDeptCode = BaseViewController.noticeDeptCode
+    var noticeDeptName = BaseViewController.noticeDeptName
     
     private var page : Int = 1
     
+    override func viewWillAppear(_ animated: Bool) {
+        print("Dept : \(self.noticeDeptName!.rawValue)")
+        
+        self.navigationItem.title = self.noticeDeptName!.rawValue
+        if isMyList {
+            self.navigationController?.navigationBar.topItem?.title = self.noticeDeptName!.rawValue
+        }
+    }
     
     override func viewDidLoad() {
         self.presenter = NoticeListPresenter(view: self)
@@ -29,9 +39,6 @@ class NoticeListViewController: BaseViewController, NoticeListView, UITableViewD
         self.noticeListView.tableFooterView = UIView()
         self.noticeListView.reloadData()
         
-        
-        
-        self.navigationItem.title = self.noticeDeptName!.rawValue
         ConfigSetting.canFetchData = true
         
         self.page = 1

@@ -45,6 +45,10 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     @IBOutlet var majorListView: UITableView!
     
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.navigationBar.topItem?.title = "전공 목록"
+    }
+    
     override func viewDidLoad() {
         
         //        case IT_Computer = "컴퓨터학부"
@@ -104,6 +108,8 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             noticeListViewController?.noticeDeptCode = majorListNatural[indexPath.row].majorCode
             noticeListViewController?.noticeDeptName = majorListNatural[indexPath.row].majorName
         }
+        
+        noticeListViewController?.isMyList = false
         
         self.navigationController?.pushViewController(noticeListViewController!, animated: true)
     }

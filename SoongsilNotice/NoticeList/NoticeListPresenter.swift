@@ -43,9 +43,9 @@ class NoticeListPresenter: NoticePresenter {
         case DeptCode.Inmun_Korean:
             NoticeInmun.parseListKorean(page: page, completion: self.view.applyToTableView)
             break
-//        case DeptCode.Inmun_Creative:
-//            NoticeInmun.parseListCreative(page: page, completion: self.view.applyToTableView)
-//            break
+            //        case DeptCode.Inmun_Creative:
+            //            NoticeInmun.parseListCreative(page: page, completion: self.view.applyToTableView)
+        //            break
         case DeptCode.Inmun_Philosophy:
             NoticeInmun.parseListPhilo(page: page, completion: self.view.applyToTableView)
             break
@@ -96,6 +96,18 @@ class NoticeListPresenter: NoticePresenter {
             break
         case DeptCode.NaturalScience_Medical:
             NoticeNaturalScience.parseListBiomedical(page: page, completion: self.view.applyToTableView)
+            break
+        case DeptCode.Business_biz:
+            NoticeBusiness.parseListBiz(page: page, completion: self.view.applyToTableView)
+            break
+        case DeptCode.Business_venture:
+            NoticeBusiness.parseListVenture(page: page, completion: self.view.applyToTableView)
+            break
+        case DeptCode.Business_Account:
+            NoticeBusiness.parseListAccount(page: page, completion: self.view.applyToTableView)
+            break
+        case DeptCode.Business_Finance:
+            NoticeBusiness.parseListFinance(page: page, completion: self.view.applyToTableView)
             break
         default: break
         }

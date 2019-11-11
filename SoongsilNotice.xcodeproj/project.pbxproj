@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DE03E9CF2379B05D002AA5AE /* NoticeBusiness.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE03E9CE2379B05D002AA5AE /* NoticeBusiness.swift */; };
 		DE0F8F1823739C8A006A0B49 /* NoticeAttachmentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE0F8F1723739C8A006A0B49 /* NoticeAttachmentCell.swift */; };
 		DE0F8F1A2373A222006A0B49 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE0F8F192373A222006A0B49 /* BaseViewController.swift */; };
 		DE0F8F1D2373F346006A0B49 /* HomeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE0F8F1C2373F346006A0B49 /* HomeCell.swift */; };
@@ -43,6 +44,7 @@
 		10D362999ACAF386EBEE89E5 /* Pods-SoongsilNotice.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SoongsilNotice.debug.xcconfig"; path = "Target Support Files/Pods-SoongsilNotice/Pods-SoongsilNotice.debug.xcconfig"; sourceTree = "<group>"; };
 		5109B6F37C7101EEB67D7049 /* Pods-SoongsilNotice.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SoongsilNotice.release.xcconfig"; path = "Target Support Files/Pods-SoongsilNotice/Pods-SoongsilNotice.release.xcconfig"; sourceTree = "<group>"; };
 		57296D4BD235F1B361E7E590 /* Pods_SoongsilNotice.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SoongsilNotice.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DE03E9CE2379B05D002AA5AE /* NoticeBusiness.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeBusiness.swift; sourceTree = "<group>"; };
 		DE0F8F1723739C8A006A0B49 /* NoticeAttachmentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeAttachmentCell.swift; sourceTree = "<group>"; };
 		DE0F8F192373A222006A0B49 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		DE0F8F1C2373F346006A0B49 /* HomeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCell.swift; sourceTree = "<group>"; };
@@ -107,6 +109,19 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		DE03E9D02379B063002AA5AE /* NoticeParser */ = {
+			isa = PBXGroup;
+			children = (
+				DE296156237198070074F24B /* NoticeIT.swift */,
+				DE0F8F202373FDD7006A0B49 /* NoticeEngineering.swift */,
+				DE0F8F2223740041006A0B49 /* NoticeLaw.swift */,
+				DE501C462374FC9D0053055A /* NoticeInmun.swift */,
+				DE55423F2377CC31004E01EB /* NoticeNaturalScience.swift */,
+				DE03E9CE2379B05D002AA5AE /* NoticeBusiness.swift */,
+			);
+			path = NoticeParser;
+			sourceTree = "<group>";
+		};
 		DE0F8F1B2373F333006A0B49 /* Home */ = {
 			isa = PBXGroup;
 			children = (
@@ -139,6 +154,7 @@
 		DE29613423703F4C0074F24B /* SoongsilNotice */ = {
 			isa = PBXGroup;
 			children = (
+				DE03E9D02379B063002AA5AE /* NoticeParser */,
 				DE501C4A23750DCA0053055A /* notissu_anim.json */,
 				DE0F8F1B2373F333006A0B49 /* Home */,
 				DE554249237933FA004E01EB /* More */,
@@ -150,13 +166,8 @@
 				DE29614023703F4D0074F24B /* LaunchScreen.storyboard */,
 				DE29614323703F4D0074F24B /* Info.plist */,
 				DE296154237195CD0074F24B /* ConfigSetting.swift */,
-				DE296156237198070074F24B /* NoticeIT.swift */,
 				DE0F8F192373A222006A0B49 /* BaseViewController.swift */,
-				DE0F8F202373FDD7006A0B49 /* NoticeEngineering.swift */,
-				DE0F8F2223740041006A0B49 /* NoticeLaw.swift */,
-				DE501C462374FC9D0053055A /* NoticeInmun.swift */,
 				DE501C482374FD250053055A /* NoticeURL.swift */,
-				DE55423F2377CC31004E01EB /* NoticeNaturalScience.swift */,
 				DE5542432377E076004E01EB /* HomeSwticher.swift */,
 			);
 			path = SoongsilNotice;
@@ -319,6 +330,7 @@
 				DE0F8F1A2373A222006A0B49 /* BaseViewController.swift in Sources */,
 				DE0F8F2323740041006A0B49 /* NoticeLaw.swift in Sources */,
 				DE0F8F1F2373F44C006A0B49 /* HomeViewController.swift in Sources */,
+				DE03E9CF2379B05D002AA5AE /* NoticeBusiness.swift in Sources */,
 				DE5542422377D993004E01EB /* StartViewController.swift in Sources */,
 				DE2961592371ADEE0074F24B /* NoticeDetailViewController.swift in Sources */,
 				DE2961532370FF4E0074F24B /* Notice.swift in Sources */,

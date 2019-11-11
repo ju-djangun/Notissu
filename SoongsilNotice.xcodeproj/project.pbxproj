@@ -36,6 +36,7 @@
 		DE5542442377E076004E01EB /* HomeSwticher.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE5542432377E076004E01EB /* HomeSwticher.swift */; };
 		DE55424623784879004E01EB /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE55424523784879004E01EB /* SplashViewController.swift */; };
 		DE55424B2379340A004E01EB /* MoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE55424A2379340A004E01EB /* MoreViewController.swift */; };
+		DE8C73842379BB2E008F2FE1 /* NoticeEconomy.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE8C73832379BB2E008F2FE1 /* NoticeEconomy.swift */; };
 		DEBB714E23744AC700C38812 /* Pods_SoongsilNotice.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57296D4BD235F1B361E7E590 /* Pods_SoongsilNotice.framework */; };
 		DEBB715123744AC800C38812 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DEBB714C23744AC400C38812 /* WebKit.framework */; };
 /* End PBXBuildFile section */
@@ -75,6 +76,7 @@
 		DE5542432377E076004E01EB /* HomeSwticher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeSwticher.swift; sourceTree = "<group>"; };
 		DE55424523784879004E01EB /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 		DE55424A2379340A004E01EB /* MoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreViewController.swift; sourceTree = "<group>"; };
+		DE8C73832379BB2E008F2FE1 /* NoticeEconomy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeEconomy.swift; sourceTree = "<group>"; };
 		DEBB714C23744AC400C38812 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -118,6 +120,7 @@
 				DE501C462374FC9D0053055A /* NoticeInmun.swift */,
 				DE55423F2377CC31004E01EB /* NoticeNaturalScience.swift */,
 				DE03E9CE2379B05D002AA5AE /* NoticeBusiness.swift */,
+				DE8C73832379BB2E008F2FE1 /* NoticeEconomy.swift */,
 			);
 			path = NoticeParser;
 			sourceTree = "<group>";
@@ -338,6 +341,7 @@
 				DE0F8F1D2373F346006A0B49 /* HomeCell.swift in Sources */,
 				DE2961512370FD0A0074F24B /* NoticeListViewCell.swift in Sources */,
 				DE296157237198070074F24B /* NoticeIT.swift in Sources */,
+				DE8C73842379BB2E008F2FE1 /* NoticeEconomy.swift in Sources */,
 				DE501C472374FC9D0053055A /* NoticeInmun.swift in Sources */,
 				DE0F8F1823739C8A006A0B49 /* NoticeAttachmentCell.swift in Sources */,
 				DE5542402377CC31004E01EB /* NoticeNaturalScience.swift in Sources */,

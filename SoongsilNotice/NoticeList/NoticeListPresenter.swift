@@ -109,6 +109,12 @@ class NoticeListPresenter: NoticePresenter {
         case DeptCode.Business_Finance:
             NoticeBusiness.parseListFinance(page: page, completion: self.view.applyToTableView)
             break
+        case DeptCode.Economy_Economics:
+            NoticeEconomy.parseListEconomics(page: page, completion: self.view.applyToTableView)
+            break
+        case DeptCode.Economy_GlobalCommerce:
+            NoticeEconomy.parseListGlobalCommerce(page: page, completion: self.view.applyToTableView)
+            break
         default: break
         }
     }

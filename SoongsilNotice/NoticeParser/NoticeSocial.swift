@@ -77,7 +77,7 @@ class NoticeSocial {
     }
     
     static func parseListAdministration(page: Int, completion: @escaping ([Notice]) -> Void) {
-        let offset =  page * 10
+        let offset =  (page - 1) * 10
         let noticeUrl = "\(NoticeURL.socialAdministrationURL)\(offset)"
         var noticeList = [Notice]()
         var authorList = [String]()
@@ -143,7 +143,7 @@ class NoticeSocial {
     }
     
     static func parseListSociology(page: Int, completion: @escaping ([Notice]) -> Void) {
-        let offset =  page * 10
+        let offset =  (page - 1) * 10
         let noticeUrl = "\(NoticeURL.socialSociologyURL)\(offset)"
         var noticeList = [Notice]()
         var authorList = [String]()
@@ -160,33 +160,35 @@ class NoticeSocial {
                 if let data = response.result.value {
                     do {
                         let doc = try HTML(html: data, encoding: .utf8)
-                        for product in doc.css("div[class='board-list'] td") {
+                        for product in doc.css("div[class='board_list'] td") {
                             //print("***")
                             let content = product.text!.trimmingCharacters(in: .whitespacesAndNewlines)
                             print(content)
-                            switch (index % 5) {
+                            switch (index % 6) {
                             case 0: break
                             case 1:
+                                break
+                            case 2:
                                 // Title
                                 titleList.append(content)
                                 break
-                            case 2:
+                            case 3:
                                 // Author
                                 authorList.append(content)
                                 break
-                            case 3:
+                            case 4:
                                 // Date
                                 dateStringList.append(content)
                                 break
-                            case 4: break
+                            case 5: break
                             default: break
                             }
                             index += 1
                         }
                         
                         for product in doc.css("td[class='subject'] a") {
-                            print("http://pubad.ssu.ac.kr\(product["href"] ?? "")")
-                            urlList.append("http://pubad.ssu.ac.kr\(product["href"] ?? "")")
+                            print("http://inso.ssu.ac.kr\(product["href"] ?? "")")
+                            urlList.append("http://inso.ssu.ac.kr\(product["href"] ?? "")")
                         }
                     } catch let error {
                         print("Error : \(error)")

@@ -51,110 +51,124 @@ class NoticeDetailViewController: BaseViewController, WKNavigationDelegate, WKUI
             case .success(_):
                 guard let text = response.data else { return }
                 let data = String(data: text, encoding: .utf8) ?? String(decoding: text, as: UTF8.self)
-                    do {
-                        let doc = try HTML(html: data, encoding: .utf8)
-                        switch(self.departmentCode!) {
-                        case DeptCode.IT_Computer:
-                            self.presenter!.parseComputer(html: doc, completion: self.showWebViewPage)
-                            break
-                        case DeptCode.IT_Electric:
-                            self.presenter!.parseElectric(html: doc, completion: self.showWebViewPage)
-                            break
-                        case DeptCode.IT_Software:
-                            self.presenter!.parseSoftware(html: doc, completion: self.showWebViewPage)
-                            break
-                        case DeptCode.IT_Media:
-                            self.presenter!.parseMedia(html: doc, completion: self.showWebViewPage)
-                            break
-                        case DeptCode.IT_SmartSystem:
-                            self.hideProgressBar()
-                            self.webView.load(URLRequest(url: URL(string: self.detailURL ?? "")!))
-                            break
-                        case DeptCode.LAW_Law:
-                            self.presenter!.parseLaw(html: doc, completion: self.showWebViewPage)
-                            break
-                        case DeptCode.LAW_IntlLaw:
-                            self.presenter!.parseIntlLaw(html: doc, completion: self.showWebViewPage)
-                            break
-                        case DeptCode.Inmun_Korean:
-                            self.presenter!.parseInmun(html: doc, host: "http://korlan.ssu.ac.kr", completion: self.showWebViewPage)
-                            break
-                        case DeptCode.Inmun_French:
-                            self.presenter!.parseInmun(html: doc, host: "http://france.ssu.ac.kr", completion: self.showWebViewPage)
-                            break
-                        case DeptCode.Inmun_German:
-                            self.presenter!.parseInmun(html: doc, host: "http://gerlan.ssu.ac.kr", completion: self.showWebViewPage)
-                            break
-                        case DeptCode.Inmun_Chinese:
-                            self.presenter!.parseInmun(html: doc, host: "http://chilan.ssu.ac.kr",completion: self.showWebViewPage)
-                            break
-                        case DeptCode.Inmun_English:
-                            self.presenter!.parseInmun(html: doc, host: "http://englan.ssu.ac.kr", completion: self.showWebViewPage)
-                            break
-                        case DeptCode.Inmun_History:
-                            self.presenter!.parseInmun(html: doc, host: "http://history.ssu.ac.kr", completion: self.showWebViewPage)
-                            break
-                        case DeptCode.Inmun_Philosophy:
-                            self.presenter!.parseInmun(html: doc, host: nil, completion: self.showWebViewPage)
-                            break
-                        case DeptCode.Inmun_Japanese:
-                            self.presenter!.parseInmun(html: doc, host: "http://japanstu.ssu.ac.kr", completion: self.showWebViewPage)
-                            break
-                        case DeptCode.Engineering_Chemistry:
-                            self.presenter!.parseEngineerChemistry(html: doc, completion: self.showWebViewPage)
-                            break
-                        case DeptCode.Engineering_Machine:
-                            self.presenter!.parseEngineerMachine(html: doc, host: "http://me.ssu.ac.kr", completion: self.showWebViewPage)
-                            break
-                        case DeptCode.Engineering_Electonic:
-                            self.presenter!.parseEngineerElectric(html: doc, host: "http://ee.ssu.ac.kr", completion: self.showWebViewPage)
-                            break
-                        case DeptCode.Engineering_Industrial:
-                            self.presenter!.parseEngineerIndustry(html: doc, host: "http://iise.ssu.ac.kr", completion: self.showWebViewPage)
-                            break
-                        case DeptCode.Engineering_Organic:
-                            self.hideProgressBar()
-                            self.webView.load(URLRequest(url: URL(string: self.detailURL ?? "")!))
-                            break
-                        case DeptCode.NaturalScience_Math:
-                            self.presenter!.parseNaturalMath(html: doc, host: nil, completion: self.showWebViewPage)
-                            break
-                        case DeptCode.NaturalScience_Physics:
-                            self.presenter!.parseNaturalPhysics(html: doc, host: nil, completion: self.showWebViewPage)
-                            break
-                        case DeptCode.NaturalScience_Chemistry:
-                            self.presenter!.parseNaturalChemistry(html: doc, host: nil, completion: self.showWebViewPage)
-                            break
-                        case DeptCode.NaturalScience_Actuarial:
-                            self.presenter!.parseNaturalActuarial(html: doc, host: nil, completion: self.showWebViewPage)
-                            break
-                        case DeptCode.NaturalScience_Medical:
-                            self.presenter!.parseNaturalMedical(html: doc, host: nil, completion: self.showWebViewPage)
-                            break
-                        case DeptCode.Business_biz:
-                            self.presenter!.parseBusinessBiz(html: doc, host: "http://biz.ssu.ac.kr", completion: self.showWebViewPage)
-                            break
-                        case DeptCode.Business_venture:
-                            self.presenter!.parseBusinessVenture(html: doc, host: "http://ensb.ssu.ac.kr", completion: self.showWebViewPage)
-                            break
-                        case DeptCode.Business_Account:
-                            self.presenter!.parseBusinessAccount(html: doc, host: "http://accounting.ssu.ac.kr", completion: self.showWebViewPage)
-                            break
-                        case DeptCode.Business_Finance:
-                            self.presenter!.parseBusinessFinance(html: doc, host: "http://finance.ssu.ac.kr", completion: self.showWebViewPage)
-                            break
-                        case DeptCode.Economy_Economics:
-                            self.presenter!.parseEconomyEconomics(html: doc, host:"http://eco.ssu.ac.kr", completion: self.showWebViewPage)
-                            break
-                        case DeptCode.Economy_GlobalCommerce:
-                            self.presenter!.parseEconomyGlobalCommerce(html: doc, host:nil, completion: self.showWebViewPage)
-                            break
-                        default: break
-                        }
-                    } catch let error {
-                        print("ERROR : \(error)")
+                do {
+                    let doc = try HTML(html: data, encoding: .utf8)
+                    switch(self.departmentCode!) {
+                    case DeptCode.IT_Computer:
+                        self.presenter!.parseComputer(html: doc, completion: self.showWebViewPage)
+                        break
+                    case DeptCode.IT_Electric:
+                        self.presenter!.parseElectric(html: doc, completion: self.showWebViewPage)
+                        break
+                    case DeptCode.IT_Software:
+                        self.presenter!.parseSoftware(html: doc, completion: self.showWebViewPage)
+                        break
+                    case DeptCode.IT_Media:
+                        self.presenter!.parseMedia(html: doc, completion: self.showWebViewPage)
+                        break
+                    case DeptCode.IT_SmartSystem:
+                        self.hideProgressBar()
+                        self.webView.load(URLRequest(url: URL(string: self.detailURL ?? "")!))
+                        break
+                    case DeptCode.LAW_Law:
+                        self.presenter!.parseLaw(html: doc, completion: self.showWebViewPage)
+                        break
+                    case DeptCode.LAW_IntlLaw:
+                        self.presenter!.parseIntlLaw(html: doc, completion: self.showWebViewPage)
+                        break
+                    case DeptCode.Inmun_Korean:
+                        self.presenter!.parseInmun(html: doc, host: "http://korlan.ssu.ac.kr", completion: self.showWebViewPage)
+                        break
+                    case DeptCode.Inmun_French:
+                        self.presenter!.parseInmun(html: doc, host: "http://france.ssu.ac.kr", completion: self.showWebViewPage)
+                        break
+                    case DeptCode.Inmun_German:
+                        self.presenter!.parseInmun(html: doc, host: "http://gerlan.ssu.ac.kr", completion: self.showWebViewPage)
+                        break
+                    case DeptCode.Inmun_Chinese:
+                        self.presenter!.parseInmun(html: doc, host: "http://chilan.ssu.ac.kr",completion: self.showWebViewPage)
+                        break
+                    case DeptCode.Inmun_English:
+                        self.presenter!.parseInmun(html: doc, host: "http://englan.ssu.ac.kr", completion: self.showWebViewPage)
+                        break
+                    case DeptCode.Inmun_History:
+                        self.presenter!.parseInmun(html: doc, host: "http://history.ssu.ac.kr", completion: self.showWebViewPage)
+                        break
+                    case DeptCode.Inmun_Philosophy:
+                        self.presenter!.parseInmun(html: doc, host: nil, completion: self.showWebViewPage)
+                        break
+                    case DeptCode.Inmun_Japanese:
+                        self.presenter!.parseInmun(html: doc, host: "http://japanstu.ssu.ac.kr", completion: self.showWebViewPage)
+                        break
+                    case DeptCode.Engineering_Chemistry:
+                        self.presenter!.parseEngineerChemistry(html: doc, completion: self.showWebViewPage)
+                        break
+                    case DeptCode.Engineering_Machine:
+                        self.presenter!.parseEngineerMachine(html: doc, host: "http://me.ssu.ac.kr", completion: self.showWebViewPage)
+                        break
+                    case DeptCode.Engineering_Electonic:
+                        self.presenter!.parseEngineerElectric(html: doc, host: "http://ee.ssu.ac.kr", completion: self.showWebViewPage)
+                        break
+                    case DeptCode.Engineering_Industrial:
+                        self.presenter!.parseEngineerIndustry(html: doc, host: "http://iise.ssu.ac.kr", completion: self.showWebViewPage)
+                        break
+                    case DeptCode.Engineering_Organic:
+                        self.hideProgressBar()
+                        self.webView.load(URLRequest(url: URL(string: self.detailURL ?? "")!))
+                        break
+                    case DeptCode.NaturalScience_Math:
+                        self.presenter!.parseNaturalMath(html: doc, host: nil, completion: self.showWebViewPage)
+                        break
+                    case DeptCode.NaturalScience_Physics:
+                        self.presenter!.parseNaturalPhysics(html: doc, host: nil, completion: self.showWebViewPage)
+                        break
+                    case DeptCode.NaturalScience_Chemistry:
+                        self.presenter!.parseNaturalChemistry(html: doc, host: nil, completion: self.showWebViewPage)
+                        break
+                    case DeptCode.NaturalScience_Actuarial:
+                        self.presenter!.parseNaturalActuarial(html: doc, host: nil, completion: self.showWebViewPage)
+                        break
+                    case DeptCode.NaturalScience_Medical:
+                        self.presenter!.parseNaturalMedical(html: doc, host: nil, completion: self.showWebViewPage)
+                        break
+                    case DeptCode.Business_biz:
+                        self.presenter!.parseBusinessBiz(html: doc, host: "http://biz.ssu.ac.kr", completion: self.showWebViewPage)
+                        break
+                    case DeptCode.Business_venture:
+                        self.presenter!.parseBusinessVenture(html: doc, host: "http://ensb.ssu.ac.kr", completion: self.showWebViewPage)
+                        break
+                    case DeptCode.Business_Account:
+                        self.presenter!.parseBusinessAccount(html: doc, host: "http://accounting.ssu.ac.kr", completion: self.showWebViewPage)
+                        break
+                    case DeptCode.Business_Finance:
+                        self.presenter!.parseBusinessFinance(html: doc, host: "http://finance.ssu.ac.kr", completion: self.showWebViewPage)
+                        break
+                    case DeptCode.Economy_Economics:
+                        self.presenter!.parseEconomyEconomics(html: doc, host:"http://eco.ssu.ac.kr", completion: self.showWebViewPage)
+                        break
+                    case DeptCode.Economy_GlobalCommerce:
+                        self.presenter!.parseEconomyGlobalCommerce(html: doc, host:nil, completion: self.showWebViewPage)
+                        break
+                    case DeptCode.Social_Welfare:
+                        self.presenter!.parseSocialWelfare(html: doc, host:nil, completion: self.showWebViewPage)
+                        break
+                    case DeptCode.Social_Administration:
+                        self.presenter!.parseSocialAdministration(html: doc, host:nil, completion: self.showWebViewPage)
+                        break
+                    case DeptCode.Social_Sociology:
+                        break
+                    case DeptCode.Social_Journalism:
+                        break
+                    case DeptCode.Social_LifeLong:
+                        break
+                    case DeptCode.Social_Political:
+                        break
+                    default: break
                     }
-//            }
+                } catch let error {
+                    print("ERROR : \(error)")
+                }
+                //            }
                 break
             default: break
             }

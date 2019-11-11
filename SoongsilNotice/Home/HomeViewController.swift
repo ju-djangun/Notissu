@@ -35,13 +35,31 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     var majorNameListNaturalScience = [DeptName.NaturalScience_Math, DeptName.NaturalScience_Physics, DeptName.NaturalScience_Chemistry, DeptName.NaturalScience_Actuarial, DeptName.NaturalScience_Medical]
     var majorEngNameListNaturalScience = [DeptNameEng.NaturalScience_Math, DeptNameEng.NaturalScience_Physics, DeptNameEng.NaturalScience_Chemistry, DeptNameEng.NaturalScience_Actuarial, DeptNameEng.NaturalScience_Medical]
     
-    var sections = ["IT 대학", "법과대학", "인문대학", "공과대학", "자연과학대학"]
+    // 경영대학 4
+    var majorCodeListBusiness = [DeptCode.Business_biz, DeptCode.Business_venture, DeptCode.Business_Account, DeptCode.Business_Finance]
+    var majorNameListBusiness = [DeptName.Business_biz, DeptName.Business_venture, DeptName.Business_Account, DeptName.Business_Finance]
+    var majorEngNameListBusiness = [DeptNameEng.Business_biz, DeptNameEng.Business_venture, DeptNameEng.Business_Account, DeptNameEng.Business_Finance]
+    
+    // 경제통상대학 2
+    var majorCodeListEconomy = [DeptCode.Economy_Economics, DeptCode.Economy_GlobalCommerce]
+    var majorNameListEconomy = [DeptName.Economy_Economics, DeptName.Economy_GlobalCommerce]
+    var majorEngNameListEconomy = [DeptNameEng.Economy_Economics, DeptNameEng.Economy_GlobalCommerce]
+    
+    // 사회과학대학 6
+    var majorCodeListSocial = [DeptCode.Social_Welfare, DeptCode.Social_Administration, DeptCode.Social_Sociology, DeptCode.Social_Journalism, DeptCode.Social_LifeLong, DeptCode.Social_Political]
+    var majorNameListSocial = [DeptName.Social_Welfare, DeptName.Social_Administration, DeptName.Social_Sociology, DeptName.Social_Journalism, DeptName.Social_LifeLong, DeptName.Social_Political]
+    var majorEngNameListSocial = [DeptNameEng.Social_Welfare, DeptNameEng.Social_Administration, DeptNameEng.Social_Sociology, DeptNameEng.Social_Journalism, DeptNameEng.Social_LifeLong, DeptNameEng.Social_Political]
+    
+    var sections = ["IT 대학", "법과대학", "인문대학", "공과대학", "자연과학대학", "경영대학", "경제통상대학", "사회과학대학"]
     
     var majorListIT       = [Major]()
     var majorListLaw      = [Major]()
     var majorListInmun    = [Major]()
     var majorListEngineer = [Major]()
     var majorListNatural  = [Major]()
+    var majorListBusiness = [Major]()
+    var majorListEconomy  = [Major]()
+    var majorListSocial   = [Major]()
     
     @IBOutlet var majorListView: UITableView!
     
@@ -68,6 +86,18 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         for index in 0..<majorCodeListNaturalScience.count {
             majorListNatural.append(Major(majorCode: majorCodeListNaturalScience[index], majorName: majorNameListNaturalScience[index], majorNameEng: majorEngNameListNaturalScience[index]))
+        }
+        
+        for index in 0..<majorCodeListBusiness.count {
+            majorListBusiness.append(Major(majorCode: majorCodeListBusiness[index], majorName: majorNameListBusiness[index], majorNameEng: majorEngNameListBusiness[index]))
+        }
+        
+        for index in 0..<majorCodeListEconomy.count {
+            majorListEconomy.append(Major(majorCode: majorCodeListEconomy[index], majorName: majorNameListEconomy[index], majorNameEng: majorEngNameListEconomy[index]))
+        }
+        
+        for index in 0..<majorCodeListSocial.count {
+            majorListSocial.append(Major(majorCode: majorCodeListSocial[index], majorName: majorNameListSocial[index], majorNameEng: majorEngNameListSocial[index]))
         }
         
         self.majorListView.delegate = self
@@ -97,6 +127,15 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         } else if indexPath.section == 4 {
             noticeListViewController?.noticeDeptCode = majorListNatural[indexPath.row].majorCode
             noticeListViewController?.noticeDeptName = majorListNatural[indexPath.row].majorName
+        } else if indexPath.section == 5 {
+            noticeListViewController?.noticeDeptCode = majorListBusiness[indexPath.row].majorCode
+            noticeListViewController?.noticeDeptName = majorListBusiness[indexPath.row].majorName
+        } else if indexPath.section == 6 {
+            noticeListViewController?.noticeDeptCode = majorListEconomy[indexPath.row].majorCode
+            noticeListViewController?.noticeDeptName = majorListEconomy[indexPath.row].majorName
+        } else if indexPath.section == 7 {
+            noticeListViewController?.noticeDeptCode = majorListSocial[indexPath.row].majorCode
+            noticeListViewController?.noticeDeptName = majorListSocial[indexPath.row].majorName
         }
         
         noticeListViewController?.isMyList = false
@@ -115,6 +154,12 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             return  majorListEngineer.count
         } else if section == 4 {
             return majorListNatural.count
+        } else if section == 5 {
+            return majorListBusiness.count
+        } else if section == 6 {
+            return majorListEconomy.count
+        } else if section == 7 {
+            return majorListSocial.count
         } else {
             return 0
         }
@@ -147,10 +192,22 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             cell.majorTitle.text = majorListNatural[indexPath.row].majorName.map { $0.rawValue }
             cell.majorTitleEng.text = majorListNatural[indexPath.row].majorNameEng.map { $0.rawValue }
             cell.majorCode = majorListNatural[indexPath.row].majorCode
+        } else if indexPath.section == 5 {
+            cell.majorTitle.text = majorListBusiness[indexPath.row].majorName.map { $0.rawValue }
+            cell.majorTitleEng.text = majorListBusiness[indexPath.row].majorNameEng.map { $0.rawValue }
+            cell.majorCode = majorListBusiness[indexPath.row].majorCode
+        } else if indexPath.section == 6 {
+            cell.majorTitle.text = majorListEconomy[indexPath.row].majorName.map { $0.rawValue }
+            cell.majorTitleEng.text = majorListEconomy[indexPath.row].majorNameEng.map { $0.rawValue }
+            cell.majorCode = majorListEconomy[indexPath.row].majorCode
+        } else if indexPath.section == 7 {
+            cell.majorTitle.text = majorListSocial[indexPath.row].majorName.map { $0.rawValue }
+            cell.majorTitleEng.text = majorListSocial[indexPath.row].majorNameEng.map { $0.rawValue }
+            cell.majorCode = majorListSocial[indexPath.row].majorCode
         } else {
             return UITableViewCell()
         }
-
+        
         cell.selectionStyle  = .none
         return cell
     }

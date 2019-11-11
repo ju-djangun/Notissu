@@ -49,13 +49,23 @@ public enum DeptCode: Int, CaseIterable {
     case NaturalScience_Actuarial = 27 // 정보통계 보험수리학과
     case NaturalScience_Medical = 28 // 의생명시스템학부
     
-    // 사회과학대학
-    
+    // 경영대학
+    case Business_biz = 29 // 경영학부
+    case Business_venture = 30 // 벤처중소기업학과
+    case Business_Account = 31 // 회계학과
+    case Business_Finance = 32 // 금융학부
     
     // 경제통상대학
+    case Economy_Economics = 33 // 경제학과
+    case Economy_GlobalCommerce = 34 // 글로벌통상학과
     
-    
-    // 경영대학
+    // 사회과학대학
+    case Social_Welfare = 35 // 사회복지학부
+    case Social_Administration = 36 // 행정학부
+    case Social_Sociology = 37 // 정보사회학과
+    case Social_Journalism = 38 // 언론홍보학과
+    case Social_LifeLong = 39 // 평생교육학과
+    case Social_Political = 40 // 정치외교학과
     
 }
 
@@ -97,11 +107,23 @@ public enum DeptName: String, CaseIterable {
     case NaturalScience_Actuarial = "정보통계보험수리학과" // 정보통계 보험수리학과
     case NaturalScience_Medical = "의생명시스템학부" // 의생명시스템학부
     
-    // 사회과학대학
+    // 경영대학
+    case Business_biz = "경영학부" // 경영학부
+    case Business_venture = "벤처중소기업학과" // 벤처중소기업학과
+    case Business_Account = "회계학과" // 회계학과
+    case Business_Finance = "금융학부" // 금융학부
     
     // 경제통상대학
+    case Economy_Economics = "경제학과" // 경제학과
+    case Economy_GlobalCommerce = "글로벌통상학과" // 글로벌통상학과
     
-    
+    // 사회과학대학
+    case Social_Welfare = "사회복지학부" // 사회복지학부
+    case Social_Administration = "행정학부" // 행정학부
+    case Social_Sociology = "정보사회학과" // 정보사회학과
+    case Social_Journalism = "언론홍보학과" // 언론홍보학과
+    case Social_LifeLong = "평생교육학과" // 평생교육학과
+    case Social_Political = "정치외교학과" // 정치외교학과
 }
 
 public enum DeptNameEng: String {
@@ -142,6 +164,24 @@ public enum DeptNameEng: String {
     case NaturalScience_Physics = "Physics" // 물리학과
     case NaturalScience_Actuarial = "Statistics and Actuarial Science" // 정보통계 보험수리학과
     case NaturalScience_Medical = "School of Systems Biomedical Science" // 의생명시스템학부
+    
+    // 경영대학
+    case Business_biz = "School of Business Administration" // 경영학부
+    case Business_venture = "Entrepreneurship and Small Business" // 벤처중소기업학과
+    case Business_Account = "Department of Accounting" // 회계학과
+    case Business_Finance = "School of Finance" // 금융학부
+    
+    // 경제통상대학
+    case Economy_Economics = "Economics" // 경제학과
+    case Economy_GlobalCommerce = "Global Commerce" // 글로벌통상학과
+    
+    // 사회과학대학
+    case Social_Welfare = "School of Social Welfare" // 사회복지학부
+    case Social_Administration = "School of Public Administration" // 행정학부
+    case Social_Sociology = "Information Sociology" // 정보사회학과
+    case Social_Journalism = "Journalism, Public Relations, Advertising" // 언론홍보학과
+    case Social_LifeLong = "Lifelong Education" // 평생교육학과
+    case Social_Political = "Politics & International Relation" // 정치외교학과
 }
 
 struct ConfigSetting {

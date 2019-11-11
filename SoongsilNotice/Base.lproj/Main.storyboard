@@ -262,7 +262,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="main_ios_arrow" translatesAutoresizingMaskIntoConstraints="NO" id="Gm7-qo-TUO">
-                                                    <rect key="frame" x="808" y="15" width="11" height="52"/>
+                                                    <rect key="frame" x="808" y="-11" width="11" height="104"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="11" id="QnV-lr-yhf"/>
                                                     </constraints>
@@ -506,6 +506,7 @@
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="Guz-h2-LOK"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Vpe-D0-nVg">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="barTintColor" name="detail_bg"/>
@@ -531,13 +532,13 @@
             <color white="0.95999997854232788" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </namedColor>
         <namedColor name="home_major_title">
-            <color red="0.14064052699999999" green="0.28307017680000002" blue="0.73337382080000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <color red="0.14100000262260437" green="0.28299999237060547" blue="0.73299998044967651" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <namedColor name="nav_bg">
-            <color red="0.14117647058823529" green="0.28235294117647058" blue="0.73333333333333328" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.14100000262260437" green="0.28200000524520874" blue="0.73299998044967651" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="tab_icon_tint">
-            <color red="0.14064052699999999" green="0.28307017680000002" blue="0.73337382080000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <color red="0.14100000262260437" green="0.28299999237060547" blue="0.73299998044967651" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
     </resources>
 </document>

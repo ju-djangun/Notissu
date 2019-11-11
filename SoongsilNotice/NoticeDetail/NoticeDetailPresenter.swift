@@ -312,8 +312,6 @@ class NoticeDetailPresenter: NoticeDetail {
         var attachmentList = [Attachment]()
         
         for link in html.css("table[class='bbs-view'] a") {
-            //            print(link["href"])
-            //            print(link.content)
             attachmentList.append(Attachment(fileName: link.content ?? "", fileURL: link["href"] ?? ""))
         }
         completion(attachmentList, detailHTML)

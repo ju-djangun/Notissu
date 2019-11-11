@@ -131,6 +131,9 @@ class NoticeDetailViewController: BaseViewController, WKNavigationDelegate, WKUI
                         case DeptCode.NaturalScience_Medical:
                             self.presenter!.parseNaturalMedical(html: doc, host: nil, completion: self.showWebViewPage)
                             break
+                        case DeptCode.Business_biz:
+                            self.presenter!.parseNaturalBiz(html: doc, host: "http://biz.ssu.ac.kr", completion: self.showWebViewPage)
+                            break
                         default: break
                         }
                     } catch let error {

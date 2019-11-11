@@ -265,4 +265,18 @@ class NoticeDetailPresenter: NoticeDetail {
         completion(attachmentList, detailHTML)
     }
     
+    func parseNaturalBiz(html: HTMLDocument, host: String?, completion: @escaping ([Attachment], String) -> Void) {
+        let contentHTML = html.css("div[id^='postContents']").first?.innerHTML ?? ""
+        var detailHTML = "\(htmlStart)\(contentHTML)\(htmlEnd)"
+        detailHTML = detailHTML.replacingOccurrences(of: "src=\"/", with: "src=\"\(host ?? "")/")
+        var attachmentList = [Attachment]()
+        
+        for link in html.css("ul[id='postFileList'] a") {
+            print("\(host ?? "")\(link["href"] ?? "")")
+            print(link.content)
+            attachmentList.append(Attachment(fileName: link.content ?? "", fileURL: "\(host ?? "")\(link["href"] ?? "")" ))
+        }
+        completion(attachmentList, detailHTML)
+    }
+    
 }

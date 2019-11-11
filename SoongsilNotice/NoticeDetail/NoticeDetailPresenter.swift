@@ -265,7 +265,7 @@ class NoticeDetailPresenter: NoticeDetail {
         completion(attachmentList, detailHTML)
     }
     
-    func parseNaturalBiz(html: HTMLDocument, host: String?, completion: @escaping ([Attachment], String) -> Void) {
+    func parseBusinessBiz(html: HTMLDocument, host: String?, completion: @escaping ([Attachment], String) -> Void) {
         let contentHTML = html.css("div[id^='postContents']").first?.innerHTML ?? ""
         var detailHTML = "\(htmlStart)\(contentHTML)\(htmlEnd)"
         detailHTML = detailHTML.replacingOccurrences(of: "src=\"/", with: "src=\"\(host ?? "")/")
@@ -279,4 +279,45 @@ class NoticeDetailPresenter: NoticeDetail {
         completion(attachmentList, detailHTML)
     }
     
+    func parseBusinessVenture(html: HTMLDocument, host: String?, completion: @escaping ([Attachment], String) -> Void) {
+        let contentHTML = html.css("div[class^='frame-box']").first?.innerHTML ?? ""
+        var detailHTML = "\(htmlStart)\(contentHTML)\(htmlEnd)"
+        detailHTML = detailHTML.replacingOccurrences(of: "src=\"/", with: "src=\"\(host ?? "")/")
+        var attachmentList = [Attachment]()
+        
+        for link in html.css("table[class='bbs-view'] a") {
+            //            print(link["href"])
+            //            print(link.content)
+            attachmentList.append(Attachment(fileName: link.content ?? "", fileURL: link["href"] ?? ""))
+        }
+        completion(attachmentList, detailHTML)
+    }
+    
+    func parseBusinessAccount(html: HTMLDocument, host: String?, completion: @escaping ([Attachment], String) -> Void) {
+        let contentHTML = html.css("div[class^='frame-box']").first?.innerHTML ?? ""
+        var detailHTML = "\(htmlStart)\(contentHTML)\(htmlEnd)"
+        detailHTML = detailHTML.replacingOccurrences(of: "src=\"/", with: "src=\"\(host ?? "")/")
+        var attachmentList = [Attachment]()
+        
+        for link in html.css("table[class='bbs-view'] a") {
+            //            print(link["href"])
+            //            print(link.content)
+            attachmentList.append(Attachment(fileName: link.content ?? "", fileURL: link["href"] ?? ""))
+        }
+        completion(attachmentList, detailHTML)
+    }
+    
+    func parseBusinessFinance(html: HTMLDocument, host: String?, completion: @escaping ([Attachment], String) -> Void) {
+        let contentHTML = html.css("div[class^='frame-box']").first?.innerHTML ?? ""
+        var detailHTML = "\(htmlStart)\(contentHTML)\(htmlEnd)"
+        detailHTML = detailHTML.replacingOccurrences(of: "src=\"/", with: "src=\"\(host ?? "")/")
+        var attachmentList = [Attachment]()
+        
+        for link in html.css("table[class='bbs-view'] a") {
+            //            print(link["href"])
+            //            print(link.content)
+            attachmentList.append(Attachment(fileName: link.content ?? "", fileURL: link["href"] ?? ""))
+        }
+        completion(attachmentList, detailHTML)
+    }
 }

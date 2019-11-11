@@ -132,7 +132,16 @@ class NoticeDetailViewController: BaseViewController, WKNavigationDelegate, WKUI
                             self.presenter!.parseNaturalMedical(html: doc, host: nil, completion: self.showWebViewPage)
                             break
                         case DeptCode.Business_biz:
-                            self.presenter!.parseNaturalBiz(html: doc, host: "http://biz.ssu.ac.kr", completion: self.showWebViewPage)
+                            self.presenter!.parseBusinessBiz(html: doc, host: "http://biz.ssu.ac.kr", completion: self.showWebViewPage)
+                            break
+                        case DeptCode.Business_venture:
+                            self.presenter!.parseBusinessVenture(html: doc, host: "http://ensb.ssu.ac.kr", completion: self.showWebViewPage)
+                            break
+                        case DeptCode.Business_Account:
+                            self.presenter!.parseBusinessAccount(html: doc, host: "http://accounting.ssu.ac.kr", completion: self.showWebViewPage)
+                            break
+                        case DeptCode.Business_Finance:
+                            self.presenter!.parseBusinessFinance(html: doc, host: "http://finance.ssu.ac.kr", completion: self.showWebViewPage)
                             break
                         default: break
                         }

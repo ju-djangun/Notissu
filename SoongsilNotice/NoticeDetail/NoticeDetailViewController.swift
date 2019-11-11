@@ -45,8 +45,8 @@ class NoticeDetailViewController: BaseViewController, WKNavigationDelegate, WKUI
         self.showProgressBar()
         
         Alamofire.request(detailURL!).responseString { response in
-            //            print("\(response.result.isSuccess)")
-            //            print(response.result.value ?? "")
+                        print("\(response.result.isSuccess)")
+                        print(response.result.value ?? "")
             switch(response.result) {
             case .success(_):
                 guard let text = response.data else { return }
@@ -156,6 +156,8 @@ class NoticeDetailViewController: BaseViewController, WKNavigationDelegate, WKUI
                         self.presenter!.parseSocialAdministration(html: doc, host:"http://pubad.ssu.ac.kr", completion: self.showWebViewPage)
                         break
                     case DeptCode.Social_Sociology:
+                        print(doc)
+                        self.presenter!.parseSocialSociology(html: doc, host:"http://inso.ssu.ac.kr", completion: self.showWebViewPage)
                         break
                     case DeptCode.Social_Journalism:
                         break

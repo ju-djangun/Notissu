@@ -377,4 +377,29 @@ class NoticeDetailPresenter: NoticeDetail {
         completion(attachmentList, detailHTML)
     }
     
+    func parseSocialSociology(html: HTMLDocument, host: String?, completion: @escaping ([Attachment], String) -> Void) {
+        //view_content
+        let contentHTML = html.css("div[class='view_content']").first?.innerHTML ?? ""
+        var detailHTML = "\(htmlStart)\(contentHTML)\(htmlEnd)"
+        detailHTML = detailHTML.replacingOccurrences(of: "src=\"/", with: "src=\"\(host ?? "")/")
+        var attachmentList = [Attachment]()
+        
+        for link in html.css("div[class='board_view'] a") {
+            let arguments = link["href"]?.getArrayAfterRegex(regex: "[(](.*?)[)]") ?? []
+            if arguments.count > 0 {
+                let params = arguments[0].replacingOccurrences(of: "(", with: "").replacingOccurrences(of: ")", with: "").replacingOccurrences(of: "'", with: "")
+                print(link.content)
+                print(params)
+                let boardId = params.split(separator: ",")[0]
+                let bIndex = params.split(separator: ",")[1]
+                let index = params.split(separator: ",")[2]
+                
+                let attachmentURL = "\(host ?? "")/module/board/download.php?boardid=\(boardId)&b_idx=\(bIndex)&idx=\(index)"
+                print(attachmentURL)
+                attachmentList.append(Attachment(fileName: link.content ?? "", fileURL: attachmentURL))
+            }
+        }
+        completion(attachmentList, detailHTML)
+    }
+    
 }

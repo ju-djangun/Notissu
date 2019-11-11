@@ -187,8 +187,10 @@ class NoticeSocial {
                         }
                         
                         for product in doc.css("td[class='subject'] a") {
-                            print("http://inso.ssu.ac.kr\(product["href"] ?? "")")
-                            urlList.append("http://inso.ssu.ac.kr\(product["href"] ?? "")")
+                            var url = "http://inso.ssu.ac.kr\(product["href"] ?? "")"
+                            url = url.replacingOccurrences(of: "학과공지", with: "")
+                            print(url)
+                            urlList.append(url)
                         }
                     } catch let error {
                         print("Error : \(error)")

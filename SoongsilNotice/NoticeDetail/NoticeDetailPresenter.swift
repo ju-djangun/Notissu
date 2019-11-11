@@ -316,4 +316,29 @@ class NoticeDetailPresenter: NoticeDetail {
         }
         completion(attachmentList, detailHTML)
     }
+    
+    func parseEconomyEconomics(html: HTMLDocument, host: String?, completion: @escaping ([Attachment], String) -> Void) {
+        let contentHTML = html.css("div[class^='frame-box']").first?.innerHTML ?? ""
+        var detailHTML = "\(htmlStart)\(contentHTML)\(htmlEnd)"
+        detailHTML = detailHTML.replacingOccurrences(of: "src=\"/", with: "src=\"\(host ?? "")/")
+        var attachmentList = [Attachment]()
+        
+        for link in html.css("table[class='bbs-view'] a") {
+            attachmentList.append(Attachment(fileName: link.content ?? "", fileURL: link["href"] ?? ""))
+        }
+        completion(attachmentList, detailHTML)
+    }
+    
+    func parseEconomyGlobalCommerce(html: HTMLDocument, host: String?, completion: @escaping ([Attachment], String) -> Void) {
+        let contentHTML = html.css("div[class^='frame-box']").first?.innerHTML ?? ""
+        var detailHTML = "\(htmlStart)\(contentHTML)\(htmlEnd)"
+        detailHTML = detailHTML.replacingOccurrences(of: "src=\"/", with: "src=\"\(host ?? "")/")
+        var attachmentList = [Attachment]()
+        
+        for link in html.css("table[class='bbs-view'] a") {
+            attachmentList.append(Attachment(fileName: link.content ?? "", fileURL: link["href"] ?? ""))
+        }
+        completion(attachmentList, detailHTML)
+    }
+    
 }

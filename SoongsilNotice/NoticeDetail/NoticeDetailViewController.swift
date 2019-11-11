@@ -143,6 +143,12 @@ class NoticeDetailViewController: BaseViewController, WKNavigationDelegate, WKUI
                         case DeptCode.Business_Finance:
                             self.presenter!.parseBusinessFinance(html: doc, host: "http://finance.ssu.ac.kr", completion: self.showWebViewPage)
                             break
+                        case DeptCode.Economy_Economics:
+                            self.presenter!.parseEconomyEconomics(html: doc, host:"http://eco.ssu.ac.kr", completion: self.showWebViewPage)
+                            break
+                        case DeptCode.Economy_GlobalCommerce:
+                            self.presenter!.parseEconomyGlobalCommerce(html: doc, host:nil, completion: self.showWebViewPage)
+                            break
                         default: break
                         }
                     } catch let error {

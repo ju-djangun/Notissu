@@ -13,7 +13,7 @@ import Kanna
 
 class NoticeEconomy {
     static func parseListEconomics(page: Int, completion: @escaping ([Notice]) -> Void) {
-        let noticeUrl = "\(NoticeURL.businessAccountURL)\(page)"
+        let noticeUrl = "\(NoticeURL.economyEconomicURL)\(page)"
         var noticeList = [Notice]()
         var authorList = [String]()
         var titleList  = [String]()
@@ -77,7 +77,7 @@ class NoticeEconomy {
     }
     
     static func parseListGlobalCommerce(page: Int, completion: @escaping ([Notice]) -> Void) {
-        let noticeUrl = "\(NoticeURL.businessAccountURL)\(page)"
+        let noticeUrl = "\(NoticeURL.economyGlobalCommerceURL)\(page)"
         var noticeList = [Notice]()
         var authorList = [String]()
         var titleList  = [String]()
@@ -95,7 +95,7 @@ class NoticeEconomy {
                             //print("***")
                             let content = product.text!.trimmingCharacters(in: .whitespacesAndNewlines)
                             print(content)
-                            switch (index % 6) {
+                            switch (index % 5) {
                             case 0: break
                             case 1:
                                 // Title
@@ -103,14 +103,12 @@ class NoticeEconomy {
                                 break
                             case 2: break
                             case 3:
-                                // Author
-                                authorList.append(content)
-                                break
-                            case 4:
                                 // Date
                                 dateStringList.append(content)
+                                // Author
+                                authorList.append("")
                                 break
-                            case 5: break
+                            case 4: break
                             default: break
                             }
                             index += 1

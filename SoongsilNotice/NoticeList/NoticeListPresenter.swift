@@ -115,6 +115,24 @@ class NoticeListPresenter: NoticePresenter {
         case DeptCode.Economy_GlobalCommerce:
             NoticeEconomy.parseListGlobalCommerce(page: page, completion: self.view.applyToTableView)
             break
+        case DeptCode.Social_Welfare:
+            NoticeSocial.parseListWelfare(page: page, completion: self.view.applyToTableView)
+            break
+        case DeptCode.Social_Administration:
+            NoticeSocial.parseListAdministration(page: page, completion: self.view.applyToTableView)
+            break
+        case DeptCode.Social_Sociology:
+            NoticeSocial.parseListSociology(page: page, completion: self.view.applyToTableView)
+            break
+        case DeptCode.Social_Journalism:
+            NoticeSocial.parseListJournalism(page: page, completion: self.view.applyToTableView)
+            break
+        case DeptCode.Social_LifeLong:
+            NoticeSocial.parseListLifeLong(page: page, completion: self.view.applyToTableView)
+            break
+        case DeptCode.Social_Political:
+            NoticeSocial.parseListPolitical(page: page, completion: self.view.applyToTableView)
+            break
         default: break
         }
     }

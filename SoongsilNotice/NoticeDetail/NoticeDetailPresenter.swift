@@ -177,7 +177,7 @@ class NoticeDetailPresenter: NoticeDetail {
                 attachmentList.append(Attachment(fileName: link.content ?? "", fileURL: attachmentURL))
             }
         }
-//        attachmentList.remove(at: attachmentList.count - 1)
+        //        attachmentList.remove(at: attachmentList.count - 1)
         completion(attachmentList, detailHTML)
     }
     
@@ -409,8 +409,8 @@ class NoticeDetailPresenter: NoticeDetail {
         var attachmentList = [Attachment]()
         
         for link in html.css("table[class='bbs-view'] a") {
-                        print(link["href"])
-                        print(link.content)
+            print(link["href"])
+            print(link.content)
             attachmentList.append(Attachment(fileName: link.content ?? "", fileURL: link["href"] ?? ""))
         }
         completion(attachmentList, detailHTML)
@@ -423,11 +423,43 @@ class NoticeDetailPresenter: NoticeDetail {
         detailHTML = detailHTML.replacingOccurrences(of: "src=\"/", with: "src=\"\(host ?? "")/")
         var attachmentList = [Attachment]()
         
-        for link in html.css("table[class='bbs-view'] a") {
-                        print(link["href"])
-                        print(link.content)
-            attachmentList.append(Attachment(fileName: link.content ?? "", fileURL: link["href"] ?? ""))
+        print("------")
+        var index = 0
+        for link in html.css("div[id='content'] a") {
+            if index > 1 {
+//                print(link["href"])
+//                print(link.css("span").first?.text)
+//                attachmentList.append(Attachment(fileName: link.content ?? "", fileURL: link["href"] ?? ""))
+//                print(link["href"])
+                if "\(link["href"] ?? "")".contains("download") && link["href"]?.getArrayAfterRegex(regex: "[=](.*?)[&]").count ?? 0 > 1 {
+                    let url = link["href"]?.getArrayAfterRegex(regex: "[=](.*?)[&]")[1] ?? ""
+                    let page = link["href"]?.getArrayAfterRegex(regex: "[=](.*?)[&]")[2]
+                    let wr_id = url.replacingOccurrences(of: "&", with: "").replacingOccurrences(of: "=", with: "")
+                
+//                    print(url)
+//                    print(wr_id)
+//                    print(page)
+                
+                    let realUrl = "http://lifelongedu.ssu.ac.kr/bbs/download.php?bo_table=univ&wr_id=\(wr_id)&no=\(index - 2)"
+                    print(link.css("span").first?.content)
+                    print(realUrl)
+                    attachmentList.append(Attachment(fileName: link.css("span").first?.content ?? "", fileURL: realUrl))
+                }
+            }
+            index += 1
         }
+        
+        print("------")
+        print("index : \(index)")
+//        if attachmentList.count > 0 {
+//            attachmentList.remove(at: attachmentList.count - 1)
+//        }
+//        if index > 0 {
+//            for idx in 1...6 {
+//                attachmentList.remove(at: index - 1)
+//            }
+//        }
+        // 뒤에 6개 제거
         completion(attachmentList, detailHTML)
     }
     

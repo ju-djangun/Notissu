@@ -167,6 +167,9 @@ class NoticeDetailViewController: BaseViewController, WKNavigationDelegate, WKUI
                     case DeptCode.Social_Political:
                         self.presenter!.parseSocialPolitical(html: doc, host: "http://pre.ssu.ac.kr", completion: self.showWebViewPage)
                         break
+                    case DeptCode.MIX_mix:
+                        self.presenter!.parseConvergence(html: doc, host: "http://pre.ssu.ac.kr", completion: self.showWebViewPage)
+                        break
                     default: break
                     }
                 } catch let error {

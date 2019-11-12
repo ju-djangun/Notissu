@@ -474,9 +474,21 @@ class NoticeSocial {
                             }
                         }
                         
-                        for product in doc.css("td[class='left'] a") {
-                            print("\(product["href"] ?? "")")
-                            urlList.append("\(product["href"] ?? "")")
+//                        for item in product.css("table[class='bbs-list'] tbody tr td a") {
+//                            print("\(item["href"] ?? "")")
+//                            urlList.append("\(item["href"] ?? "")")
+//                        }
+                        
+                        if page > 1 {
+                            for item in product.css("tbody tr:not(.trNotice) td a") {
+                                print("\(item["href"] ?? "")")
+                                urlList.append("\(item["href"] ?? "")")
+                            }
+                        } else {
+                            for item in product.css("tbody tr td a") {
+                                print("\(item["href"] ?? "")")
+                                urlList.append("\(item["href"] ?? "")")
+                            }
                         }
                     } catch let error {
                         print("Error : \(error)")

@@ -165,7 +165,7 @@ class NoticeDetailViewController: BaseViewController, WKNavigationDelegate, WKUI
                         self.presenter!.parseSocialLifeLong(html: doc, host: "http://lifelongedu.ssu.ac.kr", completion: self.showWebViewPage)
                         break
                     case DeptCode.Social_Political:
-                        self.presenter!.parseSocialPolitical(html: doc, host: "", completion: self.showWebViewPage)
+                        self.presenter!.parseSocialPolitical(html: doc, host: "http://pre.ssu.ac.kr", completion: self.showWebViewPage)
                         break
                     default: break
                     }

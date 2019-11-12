@@ -7,6 +7,15 @@
 //
 
 import Foundation
+import UIKit
+
+struct NotiSSU_ColorSet {
+    // From Assets.xcassets
+    var navBackgroundColor = UIColor(named: "")
+    var tabIconTintColor = UIColor(named: "")
+    var detailBGColor = UIColor(named: "")
+    var homeMajorColor = UIColor(named: "")
+}
 
 public enum DeptCode: Int, CaseIterable {
     // IT대학

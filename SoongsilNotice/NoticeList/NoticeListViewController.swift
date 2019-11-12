@@ -16,6 +16,7 @@ class NoticeListViewController: BaseViewController, NoticeListView, UITableViewD
     private var presenter  : NoticeListPresenter?
     private var noticeList = [Notice]()
     
+    var spinnerFooter = UIActivityIndicatorView(style: .gray)
     var isMyList = true
     var noticeDeptCode = BaseViewController.noticeDeptCode
     var noticeDeptName = BaseViewController.noticeDeptName
@@ -112,8 +113,14 @@ class NoticeListViewController: BaseViewController, NoticeListView, UITableViewD
     }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        if self.noticeList.count - indexPath.row == 10 && ConfigSetting.canFetchData {
+        if self.noticeList.count - indexPath.row == 5 && ConfigSetting.canFetchData {
             // LOAD MORE
+            self.spinnerFooter.startAnimating()
+            self.spinnerFooter.frame = CGRect(x: CGFloat(0), y: CGFloat(0), width: tableView.bounds.width, height: CGFloat(44))
+            
+            self.noticeListView.tableFooterView = spinnerFooter
+            self.noticeListView.tableFooterView?.isHidden = false
+            
             self.page += 1
             self.presenter?.loadNoticeList(page: page, deptCode: self.noticeDeptCode!)
         }
@@ -121,6 +128,10 @@ class NoticeListViewController: BaseViewController, NoticeListView, UITableViewD
     
     func applyToTableView(list: [Notice]) {
         self.refreshControl.endRefreshing()
+        
+        self.spinnerFooter.stopAnimating()
+        self.noticeListView.tableFooterView?.isHidden = true
+        
         self.hideProgressBar()
         self.noticeList.append(contentsOf: list)
         self.noticeListView.reloadData()

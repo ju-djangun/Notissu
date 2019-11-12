@@ -79,7 +79,11 @@ class NoticeListViewController: BaseViewController, NoticeListView, UITableViewD
     
     @objc func refresh() {
         self.page = 1
-        self.showProgressBar()
+        
+        if !self.refreshControl.isRefreshing {
+            self.showProgressBar()
+        }
+        
         ConfigSetting.canFetchData = true
         self.noticeList.removeAll()
         self.presenter?.loadNoticeList(page: page, deptCode: noticeDeptCode!)

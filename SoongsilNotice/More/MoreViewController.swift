@@ -9,6 +9,15 @@
 import UIKit
 
 class MoreViewController : BaseViewController {
+    @IBOutlet var mailButton: UIButton!
+    
+    @IBAction func onClickMailButton(_ sender: Any?) {
+        let email = "della.kimko@gmail.com"
+        if let url = URL(string: "mailto:\(email)") {
+            UIApplication.shared.open(url)
+        }
+    }
+    
     override func viewDidLoad() {
     }
     

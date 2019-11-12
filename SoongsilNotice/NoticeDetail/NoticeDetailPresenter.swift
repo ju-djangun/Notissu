@@ -230,8 +230,6 @@ class NoticeDetailPresenter: NoticeDetail {
         var attachmentList = [Attachment]()
         
         for link in html.css("table[class='bbs-view'] a") {
-            //            print(link["href"])
-            //            print(link.content)
             attachmentList.append(Attachment(fileName: link.content ?? "", fileURL: link["href"] ?? ""))
         }
         completion(attachmentList, detailHTML)
@@ -244,8 +242,6 @@ class NoticeDetailPresenter: NoticeDetail {
         var attachmentList = [Attachment]()
         
         for link in html.css("section[id='bo_v_file'] a") {
-            print(link["href"])
-            print(link.css("strong").first?.content)
             attachmentList.append(Attachment(fileName: link.css("strong").first?.content ?? "", fileURL: link["href"] ?? ""))
         }
         completion(attachmentList, detailHTML)
@@ -258,8 +254,6 @@ class NoticeDetailPresenter: NoticeDetail {
         var attachmentList = [Attachment]()
         
         for link in html.css("table[class='bbs-view'] a") {
-            //            print(link["href"])
-            //            print(link.content)
             attachmentList.append(Attachment(fileName: link.content ?? "", fileURL: link["href"] ?? ""))
         }
         completion(attachmentList, detailHTML)
@@ -272,8 +266,6 @@ class NoticeDetailPresenter: NoticeDetail {
         var attachmentList = [Attachment]()
         
         for link in html.css("ul[id='postFileList'] a") {
-            print("\(host ?? "")\(link["href"] ?? "")")
-            print(link.content)
             attachmentList.append(Attachment(fileName: link.content ?? "", fileURL: "\(host ?? "")\(link["href"] ?? "")" ))
         }
         completion(attachmentList, detailHTML)
@@ -364,13 +356,11 @@ class NoticeDetailPresenter: NoticeDetail {
             let arguments = link["href"]?.getArrayAfterRegex(regex: "[(](.*?)[)]") ?? []
             if arguments.count > 0 {
                 let params = arguments[0].replacingOccurrences(of: "(", with: "").replacingOccurrences(of: ")", with: "").replacingOccurrences(of: "'", with: "")
-                print(params)
                 let boardId = params.split(separator: ",")[0]
                 let bIndex = params.split(separator: ",")[1]
                 let index = params.split(separator: ",")[2]
                 
                 let attachmentURL = "\(host ?? "")/module/board/download.php?boardid=\(boardId)&b_idx=\(bIndex)&idx=\(index)"
-                print(attachmentURL)
                 attachmentList.append(Attachment(fileName: link["title"] ?? "", fileURL: attachmentURL))
             }
         }
@@ -388,14 +378,11 @@ class NoticeDetailPresenter: NoticeDetail {
             let arguments = link["href"]?.getArrayAfterRegex(regex: "[(](.*?)[)]") ?? []
             if arguments.count > 0 {
                 let params = arguments[0].replacingOccurrences(of: "(", with: "").replacingOccurrences(of: ")", with: "").replacingOccurrences(of: "'", with: "")
-                print(link.content)
-                print(params)
                 let boardId = params.split(separator: ",")[0]
                 let bIndex = params.split(separator: ",")[1]
                 let index = params.split(separator: ",")[2]
                 
                 let attachmentURL = "\(host ?? "")/module/board/download.php?boardid=\(boardId)&b_idx=\(bIndex)&idx=\(index)"
-                print(attachmentURL)
                 attachmentList.append(Attachment(fileName: link.content ?? "", fileURL: attachmentURL))
             }
         }
@@ -409,8 +396,6 @@ class NoticeDetailPresenter: NoticeDetail {
         var attachmentList = [Attachment]()
         
         for link in html.css("table[class='bbs-view'] a") {
-            print(link["href"])
-            print(link.content)
             attachmentList.append(Attachment(fileName: link.content ?? "", fileURL: link["href"] ?? ""))
         }
         completion(attachmentList, detailHTML)
@@ -419,47 +404,20 @@ class NoticeDetailPresenter: NoticeDetail {
     func parseSocialLifeLong(html: HTMLDocument, host: String?, completion: @escaping ([Attachment], String) -> Void) {
         let contentHTML = html.css("span[id='writeContents']").first?.toHTML ?? ""
         var detailHTML = "\(htmlStart)\(contentHTML)\(htmlEnd)"
-        print(detailHTML)
         detailHTML = detailHTML.replacingOccurrences(of: "src=\"/", with: "src=\"\(host ?? "")/")
         var attachmentList = [Attachment]()
-        
-        print("------")
         var index = 0
         for link in html.css("div[id='content'] a") {
             if index > 1 {
-//                print(link["href"])
-//                print(link.css("span").first?.text)
-//                attachmentList.append(Attachment(fileName: link.content ?? "", fileURL: link["href"] ?? ""))
-//                print(link["href"])
                 if "\(link["href"] ?? "")".contains("download") && link["href"]?.getArrayAfterRegex(regex: "[=](.*?)[&]").count ?? 0 > 1 {
                     let url = link["href"]?.getArrayAfterRegex(regex: "[=](.*?)[&]")[1] ?? ""
-                    let page = link["href"]?.getArrayAfterRegex(regex: "[=](.*?)[&]")[2]
                     let wr_id = url.replacingOccurrences(of: "&", with: "").replacingOccurrences(of: "=", with: "")
-                
-//                    print(url)
-//                    print(wr_id)
-//                    print(page)
-                
                     let realUrl = "http://lifelongedu.ssu.ac.kr/bbs/download.php?bo_table=univ&wr_id=\(wr_id)&no=\(index - 2)"
-                    print(link.css("span").first?.content)
-                    print(realUrl)
                     attachmentList.append(Attachment(fileName: link.css("span").first?.content ?? "", fileURL: realUrl))
                 }
             }
             index += 1
         }
-        
-        print("------")
-        print("index : \(index)")
-//        if attachmentList.count > 0 {
-//            attachmentList.remove(at: attachmentList.count - 1)
-//        }
-//        if index > 0 {
-//            for idx in 1...6 {
-//                attachmentList.remove(at: index - 1)
-//            }
-//        }
-        // 뒤에 6개 제거
         completion(attachmentList, detailHTML)
     }
     

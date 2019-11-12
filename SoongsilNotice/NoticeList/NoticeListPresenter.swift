@@ -133,6 +133,9 @@ class NoticeListPresenter: NoticePresenter {
         case DeptCode.Social_Political:
             NoticeSocial.parseListPolitical(page: page, completion: self.view.applyToTableView)
             break
+        case DeptCode.MIX_mix:
+            NoticeConvergence.parseListConvergence(page: page, completion: self.view.applyToTableView)
+            break
         default: break
         }
     }

@@ -36,6 +36,7 @@
 		DE5542442377E076004E01EB /* HomeSwticher.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE5542432377E076004E01EB /* HomeSwticher.swift */; };
 		DE55424623784879004E01EB /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE55424523784879004E01EB /* SplashViewController.swift */; };
 		DE55424B2379340A004E01EB /* MoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE55424A2379340A004E01EB /* MoreViewController.swift */; };
+		DE72017B237A76DE00F60CEB /* NoticeConvergence.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE72017A237A76DE00F60CEB /* NoticeConvergence.swift */; };
 		DE8C73842379BB2E008F2FE1 /* NoticeEconomy.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE8C73832379BB2E008F2FE1 /* NoticeEconomy.swift */; };
 		DE8C73862379BDF6008F2FE1 /* NoticeSocial.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE8C73852379BDF6008F2FE1 /* NoticeSocial.swift */; };
 		DEBB714E23744AC700C38812 /* Pods_SoongsilNotice.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57296D4BD235F1B361E7E590 /* Pods_SoongsilNotice.framework */; };
@@ -77,6 +78,7 @@
 		DE5542432377E076004E01EB /* HomeSwticher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeSwticher.swift; sourceTree = "<group>"; };
 		DE55424523784879004E01EB /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 		DE55424A2379340A004E01EB /* MoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreViewController.swift; sourceTree = "<group>"; };
+		DE72017A237A76DE00F60CEB /* NoticeConvergence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeConvergence.swift; sourceTree = "<group>"; };
 		DE8C73832379BB2E008F2FE1 /* NoticeEconomy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeEconomy.swift; sourceTree = "<group>"; };
 		DE8C73852379BDF6008F2FE1 /* NoticeSocial.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeSocial.swift; sourceTree = "<group>"; };
 		DEBB714C23744AC400C38812 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
@@ -124,6 +126,7 @@
 				DE03E9CE2379B05D002AA5AE /* NoticeBusiness.swift */,
 				DE8C73832379BB2E008F2FE1 /* NoticeEconomy.swift */,
 				DE8C73852379BDF6008F2FE1 /* NoticeSocial.swift */,
+				DE72017A237A76DE00F60CEB /* NoticeConvergence.swift */,
 			);
 			path = NoticeParser;
 			sourceTree = "<group>";
@@ -341,6 +344,7 @@
 				DE5542422377D993004E01EB /* StartViewController.swift in Sources */,
 				DE2961592371ADEE0074F24B /* NoticeDetailViewController.swift in Sources */,
 				DE2961532370FF4E0074F24B /* Notice.swift in Sources */,
+				DE72017B237A76DE00F60CEB /* NoticeConvergence.swift in Sources */,
 				DE29614D2370FCB20074F24B /* NoticeListPresenter.swift in Sources */,
 				DE0F8F1D2373F346006A0B49 /* HomeCell.swift in Sources */,
 				DE2961512370FD0A0074F24B /* NoticeListViewCell.swift in Sources */,

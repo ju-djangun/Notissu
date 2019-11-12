@@ -50,7 +50,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     var majorNameListSocial = [DeptName.Social_Welfare, DeptName.Social_Administration, DeptName.Social_Sociology, DeptName.Social_Journalism, DeptName.Social_LifeLong, DeptName.Social_Political]
     var majorEngNameListSocial = [DeptNameEng.Social_Welfare, DeptNameEng.Social_Administration, DeptNameEng.Social_Sociology, DeptNameEng.Social_Journalism, DeptNameEng.Social_LifeLong, DeptNameEng.Social_Political]
     
-    var sections = ["IT 대학", "법과대학", "인문대학", "공과대학", "자연과학대학", "경영대학", "경제통상대학", "사회과학대학"]
+    var sections = ["IT 대학", "법과대학", "인문대학", "공과대학", "자연과학대학", "경영대학", "경제통상대학", "사회과학대학", "융합특성화자유전공학부"]
     
     var majorListIT       = [Major]()
     var majorListLaw      = [Major]()
@@ -60,6 +60,8 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     var majorListBusiness = [Major]()
     var majorListEconomy  = [Major]()
     var majorListSocial   = [Major]()
+    
+    var majorConvergence = Major(majorCode: DeptCode.MIX_mix, majorName: DeptName.MIX_mix, majorNameEng: DeptNameEng.MIX_mix)
     
     @IBOutlet var majorListView: UITableView!
     
@@ -136,6 +138,9 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         } else if indexPath.section == 7 {
             noticeListViewController?.noticeDeptCode = majorListSocial[indexPath.row].majorCode
             noticeListViewController?.noticeDeptName = majorListSocial[indexPath.row].majorName
+        } else if indexPath.section == 8 {
+            noticeListViewController?.noticeDeptCode = majorConvergence.majorCode
+            noticeListViewController?.noticeDeptName = majorConvergence.majorName
         }
         
         noticeListViewController?.isMyList = false
@@ -160,6 +165,8 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             return majorListEconomy.count
         } else if section == 7 {
             return majorListSocial.count
+        } else if section == 8 {
+            return 1
         } else {
             return 0
         }
@@ -204,6 +211,10 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             cell.majorTitle.text = majorListSocial[indexPath.row].majorName.map { $0.rawValue }
             cell.majorTitleEng.text = majorListSocial[indexPath.row].majorNameEng.map { $0.rawValue }
             cell.majorCode = majorListSocial[indexPath.row].majorCode
+        } else if indexPath.section == 8 {
+            cell.majorTitle.text = majorConvergence.majorName.map { $0.rawValue }
+            cell.majorTitleEng.text = majorConvergence.majorNameEng.map { $0.rawValue }
+            cell.majorCode = majorConvergence.majorCode
         } else {
             return UITableViewCell()
         }

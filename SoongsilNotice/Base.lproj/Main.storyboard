@@ -262,7 +262,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="main_ios_arrow" translatesAutoresizingMaskIntoConstraints="NO" id="Gm7-qo-TUO">
-                                                    <rect key="frame" x="393" y="-11" width="11" height="104"/>
+                                                    <rect key="frame" x="393" y="15" width="11" height="52"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="11" id="QnV-lr-yhf"/>
                                                     </constraints>
@@ -334,7 +334,7 @@
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="김태인" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hIE-7Q-LwP">
                                         <rect key="frame" x="18" y="119" width="52" height="24"/>
                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
-                                        <color key="textColor" name="nav_bg"/>
+                                        <color key="textColor" name="tab_icon_tint"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="숭실대학교 컴퓨터학부 14" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yPj-Oh-GXC">
@@ -346,7 +346,7 @@
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NoTISSUE - 노티슈" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RIy-gs-ZNd">
                                         <rect key="frame" x="124.5" y="19" width="165" height="24"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
-                                        <color key="textColor" name="nav_bg"/>
+                                        <color key="textColor" name="tab_icon_tint"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jnf-mt-MKf">
@@ -461,7 +461,7 @@
                             </pickerView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EoW-CB-vD3">
                                 <rect key="frame" x="20" y="686" width="374" height="56"/>
-                                <color key="backgroundColor" name="nav_bg"/>
+                                <color key="backgroundColor" red="0.15686274509803921" green="0.26132941250000002" blue="0.73337453600000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="56" id="XZd-HW-WnW"/>
                                 </constraints>

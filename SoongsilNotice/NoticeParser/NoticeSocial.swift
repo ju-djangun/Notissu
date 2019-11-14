@@ -325,7 +325,7 @@ class NoticeSocial {
                         var boldCount = 0
                         let doc = try HTML(html: data, encoding: .utf8)
                         var isAdd = false
-                        for product in doc.css("table[class='board_list'] td") {
+                        for product in doc.css("table[class='board_list'] tbody td") {
                             let content = product.text!.trimmingCharacters(in: .whitespacesAndNewlines)
                             print(content)
                             switch (index % 5) {

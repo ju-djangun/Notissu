@@ -19,11 +19,11 @@ class MoreViewController : BaseViewController, UITableViewDelegate, UITableViewD
         self.moreTableView.dataSource = self
         self.moreTableView.separatorInset  = .zero
         self.moreTableView.tableFooterView = UIView(frame: .zero)
-        self.majorLbl.text = BaseViewController.noticeDeptName?.rawValue ?? ""
     }
     
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.navigationBar.topItem?.title = "더보기"
+        self.majorLbl.text = BaseViewController.noticeDeptName?.rawValue ?? ""
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

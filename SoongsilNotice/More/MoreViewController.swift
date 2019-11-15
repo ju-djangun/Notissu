@@ -8,10 +8,30 @@
 
 import UIKit
 
-class MoreViewController : BaseViewController {
-    @IBOutlet var mailButton: UIButton!
+class MoreViewController : BaseViewController, UITableViewDelegate, UITableViewDataSource {
+    let moreMenu = ["오픈소스 사용 정보", "개발자 정보", "추천 앱 사용하기"]
     
-    @IBAction func onClickMailButton(_ sender: Any?) {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return moreMenu.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "moreListCell", for: indexPath) as! MoreTableCell
+        
+        cell.lblTitle.text = moreMenu[indexPath.row]
+        cell.selectionStyle  = .none
+        
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        let storyBoard = self.storyboard!
+//        let noticeDetailController = storyBoard.instantiateViewController(withIdentifier: "noticeDetailVC") as? NoticeDetailViewController
+//        self.navigationController?.pushViewController(noticeDetailController!, animated: true)
+    }
+    
+    
+    func onClickMailButton(_ sender: Any?) {
         let email = "della.kimko@gmail.com"
         if let url = URL(string: "mailto:\(email)") {
             UIApplication.shared.open(url)

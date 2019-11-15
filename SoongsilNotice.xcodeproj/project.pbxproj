@@ -41,6 +41,7 @@
 		DE8C73862379BDF6008F2FE1 /* NoticeSocial.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE8C73852379BDF6008F2FE1 /* NoticeSocial.swift */; };
 		DEBB714E23744AC700C38812 /* Pods_SoongsilNotice.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57296D4BD235F1B361E7E590 /* Pods_SoongsilNotice.framework */; };
 		DEBB715123744AC800C38812 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DEBB714C23744AC400C38812 /* WebKit.framework */; };
+		DEBFDC43237E31A3003888D9 /* MoreTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEBFDC42237E31A3003888D9 /* MoreTableCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -82,6 +83,7 @@
 		DE8C73832379BB2E008F2FE1 /* NoticeEconomy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeEconomy.swift; sourceTree = "<group>"; };
 		DE8C73852379BDF6008F2FE1 /* NoticeSocial.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeSocial.swift; sourceTree = "<group>"; };
 		DEBB714C23744AC400C38812 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
+		DEBFDC42237E31A3003888D9 /* MoreTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreTableCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -209,6 +211,7 @@
 			isa = PBXGroup;
 			children = (
 				DE55424A2379340A004E01EB /* MoreViewController.swift */,
+				DEBFDC42237E31A3003888D9 /* MoreTableCell.swift */,
 			);
 			path = More;
 			sourceTree = "<group>";
@@ -330,6 +333,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DE8C73862379BDF6008F2FE1 /* NoticeSocial.swift in Sources */,
+				DEBFDC43237E31A3003888D9 /* MoreTableCell.swift in Sources */,
 				DE29613623703F4C0074F24B /* AppDelegate.swift in Sources */,
 				DE29615B237289D60074F24B /* NoticeDetailContract.swift in Sources */,
 				DE501C492374FD250053055A /* NoticeURL.swift in Sources */,

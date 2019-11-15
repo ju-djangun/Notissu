@@ -42,6 +42,8 @@
 		DEBB714E23744AC700C38812 /* Pods_SoongsilNotice.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57296D4BD235F1B361E7E590 /* Pods_SoongsilNotice.framework */; };
 		DEBB715123744AC800C38812 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DEBB714C23744AC400C38812 /* WebKit.framework */; };
 		DEBFDC43237E31A3003888D9 /* MoreTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEBFDC42237E31A3003888D9 /* MoreTableCell.swift */; };
+		DEBFDC45237E391C003888D9 /* OpenSourceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEBFDC44237E391C003888D9 /* OpenSourceViewController.swift */; };
+		DEBFDC47237E3950003888D9 /* OpenSourceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEBFDC46237E3950003888D9 /* OpenSourceTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -84,6 +86,8 @@
 		DE8C73852379BDF6008F2FE1 /* NoticeSocial.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeSocial.swift; sourceTree = "<group>"; };
 		DEBB714C23744AC400C38812 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		DEBFDC42237E31A3003888D9 /* MoreTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreTableCell.swift; sourceTree = "<group>"; };
+		DEBFDC44237E391C003888D9 /* OpenSourceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenSourceViewController.swift; sourceTree = "<group>"; };
+		DEBFDC46237E3950003888D9 /* OpenSourceTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenSourceTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -212,6 +216,8 @@
 			children = (
 				DE55424A2379340A004E01EB /* MoreViewController.swift */,
 				DEBFDC42237E31A3003888D9 /* MoreTableCell.swift */,
+				DEBFDC44237E391C003888D9 /* OpenSourceViewController.swift */,
+				DEBFDC46237E3950003888D9 /* OpenSourceTableViewCell.swift */,
 			);
 			path = More;
 			sourceTree = "<group>";
@@ -337,6 +343,7 @@
 				DE29613623703F4C0074F24B /* AppDelegate.swift in Sources */,
 				DE29615B237289D60074F24B /* NoticeDetailContract.swift in Sources */,
 				DE501C492374FD250053055A /* NoticeURL.swift in Sources */,
+				DEBFDC45237E391C003888D9 /* OpenSourceViewController.swift in Sources */,
 				DE5542442377E076004E01EB /* HomeSwticher.swift in Sources */,
 				DE296155237195CD0074F24B /* ConfigSetting.swift in Sources */,
 				DE55424623784879004E01EB /* SplashViewController.swift in Sources */,
@@ -349,6 +356,7 @@
 				DE2961592371ADEE0074F24B /* NoticeDetailViewController.swift in Sources */,
 				DE2961532370FF4E0074F24B /* Notice.swift in Sources */,
 				DE72017B237A76DE00F60CEB /* NoticeConvergence.swift in Sources */,
+				DEBFDC47237E3950003888D9 /* OpenSourceTableViewCell.swift in Sources */,
 				DE29614D2370FCB20074F24B /* NoticeListPresenter.swift in Sources */,
 				DE0F8F1D2373F346006A0B49 /* HomeCell.swift in Sources */,
 				DE2961512370FD0A0074F24B /* NoticeListViewCell.swift in Sources */,

@@ -110,9 +110,15 @@ class NoticeListViewController: BaseViewController, NoticeListView, UITableViewD
         if noticeList.count > 0 {
             cell.noticeTitle.text = noticeList[indexPath.row].title
             cell.noticeDate.text = noticeList[indexPath.row].date
+            if noticeList[indexPath.row].isNotice ?? false {
+//                cell.noticeTitle.textColor = UIColor(named: "launch_bg")
+                cell.noticeBadgeWidthConstraint.constant = 36
+            } else {
+//                cell.noticeTitle.textColor = UIColor.black
+                cell.noticeBadgeWidthConstraint.constant = 0
+            }
         }
         cell.selectionStyle  = .none
-        
         return cell
     }
     

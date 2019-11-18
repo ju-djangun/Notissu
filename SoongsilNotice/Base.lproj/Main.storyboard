@@ -3,7 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15509"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -136,7 +136,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Notice Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uWu-k9-zH9">
-                                                    <rect key="frame" x="20" y="11" width="374" height="21"/>
+                                                    <rect key="frame" x="56" y="11" width="338" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -147,18 +147,31 @@
                                                     <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="공지" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YIR-gJ-6Kh">
+                                                    <rect key="frame" x="20" y="11" width="36" height="21"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="36" id="Sar-wf-FBI"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                                                    <color key="textColor" name="launch_bg"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="uWu-k9-zH9" firstAttribute="leading" secondItem="dbi-UA-kQl" secondAttribute="leading" constant="20" id="AYq-oI-Ast"/>
                                                 <constraint firstItem="5of-rP-fDc" firstAttribute="top" secondItem="uWu-k9-zH9" secondAttribute="bottom" constant="4" id="BQh-2K-7gf"/>
                                                 <constraint firstAttribute="trailing" secondItem="5of-rP-fDc" secondAttribute="trailing" constant="20" id="CZe-er-Qpb"/>
-                                                <constraint firstItem="uWu-k9-zH9" firstAttribute="top" secondItem="dbi-UA-kQl" secondAttribute="top" constant="11" id="GkY-EO-vM8"/>
                                                 <constraint firstAttribute="bottom" secondItem="5of-rP-fDc" secondAttribute="bottom" constant="14" id="Owo-Fz-Ixx"/>
+                                                <constraint firstItem="YIR-gJ-6Kh" firstAttribute="top" secondItem="dbi-UA-kQl" secondAttribute="top" constant="11" id="Qdx-7Y-lnb"/>
+                                                <constraint firstItem="YIR-gJ-6Kh" firstAttribute="leading" secondItem="dbi-UA-kQl" secondAttribute="leading" constant="20" id="ZhK-7f-t8Q"/>
                                                 <constraint firstAttribute="trailing" secondItem="uWu-k9-zH9" secondAttribute="trailing" constant="20" id="amI-dS-jkn"/>
+                                                <constraint firstItem="uWu-k9-zH9" firstAttribute="leading" secondItem="YIR-gJ-6Kh" secondAttribute="trailing" id="qmV-oY-Yij"/>
                                                 <constraint firstItem="5of-rP-fDc" firstAttribute="leading" secondItem="dbi-UA-kQl" secondAttribute="leading" constant="20" id="sIs-SC-3CJ"/>
+                                                <constraint firstItem="uWu-k9-zH9" firstAttribute="top" secondItem="YIR-gJ-6Kh" secondAttribute="top" id="wge-aj-Kzf"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="noticeBadge" destination="YIR-gJ-6Kh" id="KkE-Do-Sey"/>
+                                            <outlet property="noticeBadgeWidthConstraint" destination="Sar-wf-FBI" id="GE4-KO-0wq"/>
                                             <outlet property="noticeDate" destination="5of-rP-fDc" id="GmD-5q-24b"/>
                                             <outlet property="noticeTitle" destination="uWu-k9-zH9" id="qmL-cK-jJG"/>
                                         </connections>
@@ -175,7 +188,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="65n-bp-4kh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1499" y="-601"/>
+            <point key="canvasLocation" x="1498.5507246376812" y="-601.33928571428567"/>
         </scene>
         <!--컴퓨터학부-->
         <scene sceneID="8gs-px-APh">
@@ -262,7 +275,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="main_ios_arrow" translatesAutoresizingMaskIntoConstraints="NO" id="Gm7-qo-TUO">
-                                                    <rect key="frame" x="393" y="15" width="11" height="52"/>
+                                                    <rect key="frame" x="393" y="-11" width="11" height="104"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="11" id="QnV-lr-yhf"/>
                                                     </constraints>
@@ -643,7 +656,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Notice Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VzB-6j-d19">
-                                                    <rect key="frame" x="20" y="11" width="374" height="21"/>
+                                                    <rect key="frame" x="56" y="11" width="338" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -654,18 +667,30 @@
                                                     <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="공지" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="czO-k3-8ns">
+                                                    <rect key="frame" x="20" y="11" width="36" height="21"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="36" id="FUZ-ki-gtl"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                                                    <color key="textColor" name="launch_bg"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstItem="VzB-6j-d19" firstAttribute="leading" secondItem="czO-k3-8ns" secondAttribute="trailing" id="1mC-h7-yEr"/>
+                                                <constraint firstItem="czO-k3-8ns" firstAttribute="leading" secondItem="UqN-cH-Tgv" secondAttribute="leading" constant="20" id="3a3-wn-Fy5"/>
                                                 <constraint firstAttribute="trailing" secondItem="Ysn-GY-gRS" secondAttribute="trailing" constant="20" id="8Be-jf-M82"/>
                                                 <constraint firstItem="VzB-6j-d19" firstAttribute="top" secondItem="UqN-cH-Tgv" secondAttribute="top" constant="11" id="HCV-he-51b"/>
-                                                <constraint firstItem="VzB-6j-d19" firstAttribute="leading" secondItem="UqN-cH-Tgv" secondAttribute="leading" constant="20" id="Wi6-bx-nEt"/>
                                                 <constraint firstAttribute="trailing" secondItem="VzB-6j-d19" secondAttribute="trailing" constant="20" id="Ww8-xN-yCg"/>
                                                 <constraint firstItem="Ysn-GY-gRS" firstAttribute="leading" secondItem="UqN-cH-Tgv" secondAttribute="leading" constant="20" id="bdk-ZS-Ivb"/>
                                                 <constraint firstAttribute="bottom" secondItem="Ysn-GY-gRS" secondAttribute="bottom" constant="14" id="ged-w7-63u"/>
+                                                <constraint firstItem="czO-k3-8ns" firstAttribute="top" secondItem="UqN-cH-Tgv" secondAttribute="top" constant="11" id="sA0-5e-F9T"/>
                                                 <constraint firstItem="Ysn-GY-gRS" firstAttribute="top" secondItem="VzB-6j-d19" secondAttribute="bottom" constant="4" id="xfo-M3-fSl"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="noticeBadgeWidthConstraint" destination="FUZ-ki-gtl" id="ntQ-X7-RlY"/>
                                             <outlet property="noticeDate" destination="Ysn-GY-gRS" id="6pQ-6s-q1e"/>
                                             <outlet property="noticeTitle" destination="VzB-6j-d19" id="A4U-6F-Yrw"/>
                                         </connections>
@@ -683,7 +708,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LFv-5z-668" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="520" y="-1347"/>
+            <point key="canvasLocation" x="518.84057971014499" y="-1347.3214285714284"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="Gqj-jz-DBQ">
@@ -719,7 +744,10 @@
             <color white="0.95999997854232788" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </namedColor>
         <namedColor name="home_major_title">
-            <color red="0.14117647058823529" green="0.28235294117647058" blue="0.73333333333333328" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <color red="0.14100000262260437" green="0.28200000524520874" blue="0.73299998044967651" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+        <namedColor name="launch_bg">
+            <color red="0.14100000262260437" green="0.28200000524520874" blue="0.73299998044967651" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="nav_bg">
             <color red="0.14100000262260437" green="0.28200000524520874" blue="0.73299998044967651" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

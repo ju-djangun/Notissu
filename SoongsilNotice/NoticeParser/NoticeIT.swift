@@ -18,6 +18,8 @@ class NoticeIT {
         var titleList  = [String]()
         var pageStringList = [String]()
         var dateStringList = [String]()
+        var isNoticeList = [Bool]()
+        
         let noticeUrl = "http://cse.ssu.ac.kr/03_sub/01_sub.htm?page=\(page)&key=&keyfield=&category=&bbs_code=Ti_BBS_1"
         
         var index = 0
@@ -37,16 +39,48 @@ class NoticeIT {
                                 switch index % 2 {
                                 case 0:
                                     let noticeTitle = product.content ?? ""
+//                                    print("product1 : \(noticeTitle)")
+//                                    print("product1 : \(noticeAuthor)")
+//                                    print("product1 : \(noticeDate)")
+//                                    print("product1 : \(pageString)")
                                     authorList.append(noticeAuthor)
                                     titleList.append(noticeTitle)
                                     pageStringList.append("http://cse.ssu.ac.kr/03_sub/01_sub.htm\(pageString)")
                                     dateStringList.append(noticeDate)
+                                    isNoticeList.append(false)
                                     break;
                                 case 1:  break;
                                 default: break
                                 }
                                 index += 1
                                 
+                            } else if product.nextSibling?.className ?? "" == "etc" {
+                                // 첫 페이지만 보여주기
+                                
+                                if page < 2 {
+                                    let noticeAuthor = product.nextSibling?.text ?? ""
+                                    let noticeDate = product.nextSibling?.nextSibling?.text ?? ""
+                                    let pageString = product.css("a").first?["href"] ?? ""
+                                    pageStringList.append("http://cse.ssu.ac.kr/03_sub/01_sub.htm\(pageString)")
+                                    
+                                    switch index % 2 {
+                                    case 0:
+                                        let noticeTitle = product.content ?? ""
+//                                        print("productTitle : \(noticeTitle)")
+//                                        print("productAuthor : \(noticeAuthor)")
+//                                        print("productDate : \(noticeDate)")
+//                                        print("productPage : \(pageString)")
+                                        authorList.append(noticeAuthor)
+                                        titleList.append(noticeTitle)
+                                        pageStringList.append("http://cse.ssu.ac.kr/03_sub/01_sub.htm\(pageString)")
+                                        dateStringList.append(noticeDate)
+                                        isNoticeList.append(true)
+                                        break;
+                                    case 1: break;
+                                    default: break
+                                    }
+                                    index += 1
+                                }
                             }
                         }
                         
@@ -56,7 +90,7 @@ class NoticeIT {
                         }
                         
                         for _ in authorList {
-                            let noticeItem = Notice(author: authorList[index], title: titleList[index], url: pageStringList[index], date: dateStringList[index])
+                            let noticeItem = Notice(author: authorList[index], title: titleList[index], url: pageStringList[index], date: dateStringList[index], isNotice: isNoticeList[index])
                             
                             noticeList.append(noticeItem)
                             index += 1
@@ -80,15 +114,15 @@ class NoticeIT {
         var titleList  = [String]()
         var urlList    = [String]()
         var dateStringList = [String]()
+        var isNoticeList = [Bool]()
         let noticeUrl = "http://media.ssu.ac.kr/sub.php?code=XxH00AXY&mode=&category=1&searchType=&search=&orderType=&orderBy=&page=\(page)"
-        print("media")
+
         var index = 0
         Alamofire.request(noticeUrl).responseString { response in
             switch(response.result) {
             case .success(_):
                 guard let data = response.data else { return }
                 let utf8Text = String(data: data, encoding: .utf8) ?? String(decoding: data, as: UTF8.self)
-//                print(utf8Text)
                 
                 do {
                     let doc = try HTML(html: utf8Text, encoding: .utf8)
@@ -101,6 +135,18 @@ class NoticeIT {
                     
                     index = 0
                     for product in doc.css("td[align='center']") {
+                        print(product.text)
+                        if index % 4 == 0 {
+//                            print(product.text)
+                            let isNotice = product.text ?? ""
+                            
+                            if !isNotice.isNumeric() {
+                                isNoticeList.append(true)
+                            } else {
+                                isNoticeList.append(false)
+                            }
+                        }
+                        
                         if index % 4 == 1 {
                             authorList.append(product.content ?? "")
                         } else if index % 4 == 2 {
@@ -116,7 +162,7 @@ class NoticeIT {
                     }
                     
                     for _ in authorList {
-                        let noticeItem = Notice(author: authorList[index], title: titleList[index], url: urlList[index], date: dateStringList[index])
+                        let noticeItem = Notice(author: authorList[index], title: titleList[index], url: urlList[index], date: dateStringList[index], isNotice: isNoticeList[index])
                         
                         noticeList.append(noticeItem)
                         index += 1
@@ -140,6 +186,7 @@ class NoticeIT {
         var titleList  = [String]()
         var urlList = [String]()
         var dateStringList = [String]()
+        var isNoticeList = [Bool]()
         var index = 0
         
         Alamofire.request(noticeUrl).responseString(encoding: .utf8) { response in
@@ -148,6 +195,17 @@ class NoticeIT {
                 if let data = response.result.value {
                     do {
                         let doc = try HTML(html: data, encoding: .utf8)
+                        for product in doc.css("td[class^=num]") {
+                            var num = product.text ?? ""
+                            
+                            if num.isNumeric() {
+                                // isNotice
+                                isNoticeList.append(true)
+                            } else {
+                                isNoticeList.append(false)
+                            }
+                        }
+                        
                         for product in doc.css("td[class^=subject] a") {
                             var url = product["href"] ?? ""
                             url = url.replacingOccurrences(of: "..", with: "https://sw.ssu.ac.kr")
@@ -172,7 +230,7 @@ class NoticeIT {
                     }
                     
                     for _ in authorList {
-                        let noticeItem = Notice(author: authorList[index], title: titleList[index], url: urlList[index], date: dateStringList[index])
+                        let noticeItem = Notice(author: authorList[index], title: titleList[index], url: urlList[index], date: dateStringList[index], isNotice: isNoticeList[index])
                         
                         noticeList.append(noticeItem)
                         index += 1
@@ -194,6 +252,7 @@ class NoticeIT {
         var titleList  = [String]()
         var urlList = [String]()
         var dateStringList = [String]()
+        var isNoticeList = [Bool]()
         var index = 0
         
         Alamofire.request(noticeUrl).responseString(encoding: .utf8) { response in
@@ -206,8 +265,6 @@ class NoticeIT {
                     do {
                         let doc = try HTML(html: data, encoding: .utf8)
                         for product in doc.css("div[class^='list']") {
-                            print("http://infocom.ssu.ac.kr\((product.toHTML?.getArrayAfterRegex(regex: "(?=')\\S+(?=')")[0].split(separator: "'")[0] ?? "")!.replacingOccurrences(of: "&amp;", with: "&"))")
-                            
                             let url = "http://infocom.ssu.ac.kr\((product.toHTML?.getArrayAfterRegex(regex: "(?=')\\S+(?=')")[0].split(separator: "'")[0] ?? "")!.replacingOccurrences(of: "&amp;", with: "&"))"
                             
                             let strs = (product.css("div[class^='info']").first?.text ?? "")!.split(separator: "|")
@@ -216,6 +273,13 @@ class NoticeIT {
                             authorList.append(strs[0].trimmingCharacters(in: .whitespacesAndNewlines))
                             dateStringList.append(strs[1].trimmingCharacters(in: .whitespacesAndNewlines))
                             titleList.append((product.css("span[class^='subject']").first?.text ?? "")!)
+                            
+                            if product.innerHTML?.contains("i") ?? false {
+                                // isNotice
+                                isNoticeList.append(true)
+                            } else {
+                                isNoticeList.append(false)
+                            }
                         }
                     } catch let error {
                         print("Error : \(error)")
@@ -224,7 +288,7 @@ class NoticeIT {
                 
                 index = 0
                 for _ in authorList {
-                    let noticeItem = Notice(author: authorList[index], title: titleList[index], url: urlList[index], date: dateStringList[index])
+                    let noticeItem = Notice(author: authorList[index], title: titleList[index], url: urlList[index], date: dateStringList[index], isNotice: isNoticeList[index])
                     noticeList.append(noticeItem)
                     index += 1
                 }
@@ -259,7 +323,6 @@ class NoticeIT {
                         
                         for product in doc.css("table[class='ui celled padded table'] tbody td") {
                             let content = (product.text ?? "").trimmingCharacters(in: .whitespacesAndNewlines)
-                            print(content)
                             switch(index % 3) {
                             case 0:
                                 //title
@@ -278,7 +341,6 @@ class NoticeIT {
                             
                             if let url = product.css("a").first {
                                 let realUrl = "http://smartsw.ssu.ac.kr\(url["href"] ?? "")"
-                                print(realUrl)
                                 urlList.append(realUrl)
                             }
                             
@@ -291,7 +353,7 @@ class NoticeIT {
                 
                 index = 0
                 for _ in authorList {
-                    let noticeItem = Notice(author: authorList[index], title: titleList[index], url: urlList[index], date: dateStringList[index])
+                    let noticeItem = Notice(author: authorList[index], title: titleList[index], url: urlList[index], date: dateStringList[index], isNotice: false)
                     noticeList.append(noticeItem)
                     index += 1
                 }
@@ -307,6 +369,7 @@ class NoticeIT {
     func parseListMediaOper(content: String) {
         
     }
+
 }
 
 extension String{
@@ -323,5 +386,9 @@ extension String{
             print("invalid regex: \(error.localizedDescription)")
             return []
         }
+    }
+    
+    func isNumeric() -> Bool {
+      return Double(self) != nil
     }
 }

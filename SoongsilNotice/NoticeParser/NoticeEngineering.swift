@@ -28,7 +28,6 @@ class NoticeEngineering {
                     do {
                         let doc = try HTML(html: data, encoding: .utf8)
                         for product in doc.css("table[class^='bbs-list'] td") {
-                            //print("***")
                             let content = product.text!.trimmingCharacters(in: .whitespacesAndNewlines)
                             //                            print(content)
                             switch (index % 5) {
@@ -53,7 +52,6 @@ class NoticeEngineering {
                         }
                         
                         for product in doc.css("table[class^='bbs-list'] td a") {
-                            print(product["href"] ?? "")
                             urlList.append(product["href"] ?? "")
                         }
                     } catch let error {
@@ -62,7 +60,7 @@ class NoticeEngineering {
                     
                     index = 0
                     for _ in urlList {
-                        let noticeItem = Notice(author: authorList[index], title: titleList[index], url: urlList[index], date: dateStringList[index])
+                        let noticeItem = Notice(author: authorList[index], title: titleList[index], url: urlList[index], date: dateStringList[index], isNotice: false)
                         noticeList.append(noticeItem)
                         index += 1
                     }
@@ -119,7 +117,7 @@ class NoticeEngineering {
                     
                     index = 0
                     for _ in urlList {
-                        let noticeItem = Notice(author: authorList[index], title: titleList[index], url: urlList[index], date: dateStringList[index])
+                        let noticeItem = Notice(author: authorList[index], title: titleList[index], url: urlList[index], date: dateStringList[index], isNotice: false)
                         noticeList.append(noticeItem)
                         index += 1
                     }
@@ -186,7 +184,7 @@ class NoticeEngineering {
                     
                     index = 0
                     for _ in urlList {
-                        let noticeItem = Notice(author: authorList[index], title: titleList[index], url: urlList[index], date: dateStringList[index])
+                        let noticeItem = Notice(author: authorList[index], title: titleList[index], url: urlList[index], date: dateStringList[index], isNotice: false)
                         noticeList.append(noticeItem)
                         index += 1
                     }
@@ -218,7 +216,6 @@ class NoticeEngineering {
                         for product in doc.css("table[class^='bbs-list'] td") {
                             //print("***")
                             let content = product.text!.trimmingCharacters(in: .whitespacesAndNewlines)
-                            print(content)
                             switch (index % 5) {
                             case 0: break
                             case 1:
@@ -237,7 +234,6 @@ class NoticeEngineering {
                         }
                         
                         for product in doc.css("table[class^='bbs-list'] td a") {
-                            print(product["href"] ?? "")
                             urlList.append(product["href"] ?? "")
                         }
                     } catch let error {
@@ -246,7 +242,7 @@ class NoticeEngineering {
                     
                     index = 0
                     for _ in urlList {
-                        let noticeItem = Notice(author: "", title: titleList[index], url: urlList[index], date: dateStringList[index])
+                        let noticeItem = Notice(author: "", title: titleList[index], url: urlList[index], date: dateStringList[index], isNotice: false)
                         noticeList.append(noticeItem)
                         index += 1
                     }
@@ -279,7 +275,6 @@ class NoticeEngineering {
                         let doc = try HTML(html: data, encoding: .utf8)
                         for product in (doc.css("div[class='mt40']").first?.css("td[align=left] a"))! {
                             let content = product.text!.trimmingCharacters(in: .whitespacesAndNewlines)
-                            print(product["href"])
                             titleList.append(content)
                             urlList.append("http://materials.ssu.ac.kr\(product["href"] ?? "")")
                         }
@@ -295,7 +290,6 @@ class NoticeEngineering {
                                     // 번호를 지운다
                                     postItem.remove(at: 0)
                                 }
-                                print("a : \(postItem)")
                                 authorList.append(String(postItem[3]))
                                 dateStringList.append(String(postItem[5]))
                             }
@@ -307,7 +301,7 @@ class NoticeEngineering {
                     
                     index = 0
                     for _ in urlList {
-                        let noticeItem = Notice(author: authorList[index], title: titleList[index], url: urlList[index], date: dateStringList[index])
+                        let noticeItem = Notice(author: authorList[index], title: titleList[index], url: urlList[index], date: dateStringList[index], isNotice: false)
                         noticeList.append(noticeItem)
                         index += 1
                     }

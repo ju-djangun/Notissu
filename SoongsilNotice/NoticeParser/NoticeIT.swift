@@ -135,11 +135,8 @@ class NoticeIT {
                     
                     index = 0
                     for product in doc.css("td[align='center']") {
-                        print(product.text)
                         if index % 4 == 0 {
-//                            print(product.text)
                             let isNotice = product.text ?? ""
-                            
                             if !isNotice.isNumeric() {
                                 isNoticeList.append(true)
                             } else {
@@ -152,7 +149,6 @@ class NoticeIT {
                         } else if index % 4 == 2 {
                             dateStringList.append(product.content ?? "")
                         }
-                        
                         index += 1
                     }
                     
@@ -196,7 +192,7 @@ class NoticeIT {
                     do {
                         let doc = try HTML(html: data, encoding: .utf8)
                         for product in doc.css("td[class^=num]") {
-                            var num = product.text ?? ""
+                            let num = product.text ?? ""
                             
                             if num.isNumeric() {
                                 // isNotice
@@ -255,13 +251,13 @@ class NoticeIT {
         var isNoticeList = [Bool]()
         var index = 0
         
-        Alamofire.request(noticeUrl).responseString(encoding: .utf8) { response in
+        Alamofire.request(noticeUrl).responseString { response in
             //            print("\(response.result.isSuccess)")
             //            print(response.result.value ?? "")
             switch(response.result) {
             case .success(_):
                 if let data = response.result.value {
-                    //                    print(data)
+                    print(data)
                     do {
                         let doc = try HTML(html: data, encoding: .utf8)
                         for product in doc.css("div[class^='list']") {
@@ -272,7 +268,12 @@ class NoticeIT {
                             urlList.append(url)
                             authorList.append(strs[0].trimmingCharacters(in: .whitespacesAndNewlines))
                             dateStringList.append(strs[1].trimmingCharacters(in: .whitespacesAndNewlines))
-                            titleList.append((product.css("span[class^='subject']").first?.text ?? "")!)
+                            
+                            if product.css("span[class^='subject']").first!.text == "" {
+                                titleList.append("(제목없음)")
+                            } else {
+                                titleList.append(product.css("span[class^='subject']").first!.text!)
+                            }
                             
                             if product.innerHTML?.contains("i") ?? false {
                                 // isNotice

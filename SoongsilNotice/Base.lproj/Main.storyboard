@@ -682,11 +682,11 @@
                                                 <constraint firstItem="czO-k3-8ns" firstAttribute="leading" secondItem="UqN-cH-Tgv" secondAttribute="leading" constant="20" id="3a3-wn-Fy5"/>
                                                 <constraint firstAttribute="trailing" secondItem="Ysn-GY-gRS" secondAttribute="trailing" constant="20" id="8Be-jf-M82"/>
                                                 <constraint firstItem="VzB-6j-d19" firstAttribute="top" secondItem="UqN-cH-Tgv" secondAttribute="top" constant="11" id="HCV-he-51b"/>
+                                                <constraint firstItem="Ysn-GY-gRS" firstAttribute="top" secondItem="czO-k3-8ns" secondAttribute="bottom" constant="4" id="Rdu-4q-RJi"/>
                                                 <constraint firstAttribute="trailing" secondItem="VzB-6j-d19" secondAttribute="trailing" constant="20" id="Ww8-xN-yCg"/>
                                                 <constraint firstItem="Ysn-GY-gRS" firstAttribute="leading" secondItem="UqN-cH-Tgv" secondAttribute="leading" constant="20" id="bdk-ZS-Ivb"/>
                                                 <constraint firstAttribute="bottom" secondItem="Ysn-GY-gRS" secondAttribute="bottom" constant="14" id="ged-w7-63u"/>
                                                 <constraint firstItem="czO-k3-8ns" firstAttribute="top" secondItem="UqN-cH-Tgv" secondAttribute="top" constant="11" id="sA0-5e-F9T"/>
-                                                <constraint firstItem="Ysn-GY-gRS" firstAttribute="top" secondItem="VzB-6j-d19" secondAttribute="bottom" constant="4" id="xfo-M3-fSl"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>

@@ -76,7 +76,10 @@ class NoticeDetailPresenter: NoticeDetail {
     
     func parseMedia(html: HTMLDocument, completion: @escaping ([Attachment], String) -> Void) {
         let contentHTML = html.css("td[class^='s_default_view_body_2']").first?.innerHTML ?? ""
-        let detailHTML = "\(htmlStart)\(contentHTML)\(htmlEnd)"
+        var detailHTML = "\(htmlStart)\(contentHTML)\(htmlEnd)"
+        let host = "http://media.ssu.ac.kr"
+        detailHTML = detailHTML.replacingOccurrences(of: "src=\"/", with: "src=\"\(host )/")
+        
         let mediaUrl = "http://media.ssu.ac.kr/"
         var attachmentList = [Attachment]()
         

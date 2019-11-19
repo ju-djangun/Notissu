@@ -76,6 +76,7 @@ public enum DeptCode: Int, CaseIterable {
     case Social_LifeLong = 39 // 평생교육학과
     case Social_Political = 40 // 정치외교학과
     
+    case Soongsil = 77
 }
 
 public enum DeptName: String, CaseIterable {

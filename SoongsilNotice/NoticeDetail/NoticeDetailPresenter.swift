@@ -20,6 +20,35 @@ class NoticeDetailPresenter: NoticeDetail {
         self.view = view
     }
     
+    func parseSoongsil(html: HTMLDocument, completion: @escaping ([Attachment], String) -> Void) {
+        var index = 0
+        var contentHTML = ""
+        for div in html.css("div[class^='bg-white p-4 mb-5'] div") {
+//            print(div.toHTML)
+            if index == 4 {
+                contentHTML = div.toHTML ?? ""
+//                print(div.toHTML)
+            }
+            index += 1
+        }
+//        contentHTML = html.css("div[class^='bg-white p-4 mb-5'] div").first?.toHTML ?? ""
+//        print(contentHTML)
+        
+        let detailHTML = "\(htmlStart)\(contentHTML)\(htmlEnd)"
+        var attachmentList = [Attachment]()
+        
+        for attachment in html.css("div[class^='bg-white p-4 mb-5'] ul li") {
+            let link = "https://scatch.ssu.ac.kr/\(attachment.css("a").first?["href"] ?? "")"
+            let title = (attachment.css("a span").first?.text ?? "").trimmingCharacters(in: .whitespacesAndNewlines)
+            
+            print(link)
+            print(title)
+            
+            attachmentList.append(Attachment(fileName: title, fileURL: link))
+        }
+        completion(attachmentList, detailHTML)
+    }
+    
     func parseComputer(html: HTMLDocument, completion: @escaping ([Attachment], String) -> Void) {
         let contentHTML = html.css("div[class|=smartOutput]").first?.innerHTML ?? ""
         

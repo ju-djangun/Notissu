@@ -275,7 +275,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="main_ios_arrow" translatesAutoresizingMaskIntoConstraints="NO" id="Gm7-qo-TUO">
-                                                    <rect key="frame" x="393" y="15" width="11" height="52"/>
+                                                    <rect key="frame" x="393" y="-11" width="11" height="104"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="11" id="QnV-lr-yhf"/>
                                                     </constraints>
@@ -723,22 +723,6 @@
             </objects>
             <point key="canvasLocation" x="-1614.4927536231885" y="-87.053571428571431"/>
         </scene>
-        <!--학교공지-->
-        <scene sceneID="O1F-ke-tZG">
-            <objects>
-                <viewController id="VJk-TO-cUQ" customClass="SchoolViewController" customModule="Notissu" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="miv-fZ-D7g">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <viewLayoutGuide key="safeArea" id="rsm-va-q9M"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="학교공지" image="tab_school" id="fJH-Z3-1sF"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Jrg-Ft-mKA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-952" y="608"/>
-        </scene>
         <!--내 공지-->
         <scene sceneID="uef-mS-A94">
             <objects>
@@ -830,14 +814,86 @@
                     <connections>
                         <segue destination="lFj-lN-wli" kind="relationship" relationship="viewControllers" id="uhf-aF-xO7"/>
                         <segue destination="oMw-42-hXP" kind="relationship" relationship="viewControllers" id="E9Y-cl-PlL"/>
-                        <segue destination="VJk-TO-cUQ" kind="relationship" relationship="viewControllers" id="uaE-zD-T0e"/>
-                        <segue destination="9PT-IW-mSw" kind="relationship" relationship="viewControllers" id="sml-lj-d9H"/>
-                        <segue destination="0Lg-Vb-cRH" kind="relationship" relationship="viewControllers" id="UCI-FD-rtE"/>
+                        <segue destination="aNl-kT-oDi" kind="relationship" relationship="viewControllers" id="Vg9-78-Mkp"/>
+                        <segue destination="9PT-IW-mSw" kind="relationship" relationship="viewControllers" id="YAp-B7-OVP"/>
+                        <segue destination="0Lg-Vb-cRH" kind="relationship" relationship="viewControllers" id="ia0-r2-Ej5"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ehx-cR-O5f" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-719" y="-845"/>
+        </scene>
+        <!--학교 공지-->
+        <scene sceneID="5gk-UD-1op">
+            <objects>
+                <viewController id="aNl-kT-oDi" customClass="SchoolViewController" customModule="Notissu" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="vHf-GI-Cjm">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="TJU-iT-Yg8">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="noticeListCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="noticeListCell" rowHeight="66" id="il7-CC-g95" customClass="NoticeListViewCell" customModule="Notissu" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="66"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="il7-CC-g95" id="pxn-gy-8xS">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="66"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Notice Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eaC-Dq-eEb">
+                                                    <rect key="frame" x="56" y="11" width="338" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2019.11.05" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rce-fu-6A5">
+                                                    <rect key="frame" x="20" y="36" width="374" height="16"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                    <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="공지" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pJZ-GO-Zdo">
+                                                    <rect key="frame" x="20" y="11" width="36" height="21"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="36" id="RyV-4Y-Eik"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                                                    <color key="textColor" name="launch_bg"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="eaC-Dq-eEb" secondAttribute="trailing" constant="20" id="7CP-lx-qOE"/>
+                                                <constraint firstItem="eaC-Dq-eEb" firstAttribute="top" secondItem="pxn-gy-8xS" secondAttribute="top" constant="11" id="B98-Yv-Obk"/>
+                                                <constraint firstItem="eaC-Dq-eEb" firstAttribute="leading" secondItem="pJZ-GO-Zdo" secondAttribute="trailing" id="HMR-Qo-Pma"/>
+                                                <constraint firstItem="Rce-fu-6A5" firstAttribute="leading" secondItem="pxn-gy-8xS" secondAttribute="leading" constant="20" id="Obx-vE-10u"/>
+                                                <constraint firstItem="pJZ-GO-Zdo" firstAttribute="leading" secondItem="pxn-gy-8xS" secondAttribute="leading" constant="20" id="bVq-pP-5Ul"/>
+                                                <constraint firstAttribute="trailing" secondItem="Rce-fu-6A5" secondAttribute="trailing" constant="20" id="cTB-Je-Nyd"/>
+                                                <constraint firstItem="Rce-fu-6A5" firstAttribute="top" secondItem="pJZ-GO-Zdo" secondAttribute="bottom" constant="4" id="koF-w7-ZPB"/>
+                                                <constraint firstItem="pJZ-GO-Zdo" firstAttribute="top" secondItem="pxn-gy-8xS" secondAttribute="top" constant="11" id="lVX-kk-hbq"/>
+                                                <constraint firstAttribute="bottom" secondItem="Rce-fu-6A5" secondAttribute="bottom" constant="14" id="mQP-Ri-o2f"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="noticeBadgeWidthConstraint" destination="RyV-4Y-Eik" id="84B-Xj-Hi6"/>
+                                            <outlet property="noticeDate" destination="Rce-fu-6A5" id="l3C-uW-a2M"/>
+                                            <outlet property="noticeTitle" destination="eaC-Dq-eEb" id="orl-jF-Tg9"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="6aq-CJ-ZPS"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="학교 공지" image="tab_school" id="r7d-be-atD"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4lu-6U-fDN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-922" y="947"/>
         </scene>
     </scenes>
     <resources>

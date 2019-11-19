@@ -9,9 +9,9 @@
 import Foundation
 
 protocol SchoolView {
-    
+    func applyTableView(list: [Notice]) -> Void
 }
 
 protocol SchoolPresenterIf {
-    func parseSchoolNotice(page: Int, keyword: String?, completion: @escaping ([Notice]) -> Void)
+    func parseSchoolNotice(page: Int, keyword: String?)
 }

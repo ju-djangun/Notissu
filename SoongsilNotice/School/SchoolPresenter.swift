@@ -11,7 +11,50 @@ import Alamofire
 import Kanna
 
 class SchoolPresenter : SchoolPresenterIf {
-    func parseSchoolNotice(page: Int, keyword: String?, completion: @escaping ([Notice]) -> Void) {
+    private var view: SchoolView?
+    
+    init(view: SchoolView) {
+        self.view = view
+    }
+    
+    func parseSchoolNotice(page: Int, keyword: String?) {
+        var noticeList = [Notice]()
+        var authorList = [String]()
+        var titleList  = [String]()
+        var urlList    = [String]()
+        var dateStringList = [String]()
         
+        var isNoticeList = [Bool]()
+        var requestURL = ""
+        let noticeUrl = "https://scatch.ssu.ac.kr/%ea%b3%b5%ec%a7%80%ec%82%ac%ed%95%ad/page/\(page)/"
+        
+        if keyword != nil {
+            let keywordSearch = keyword!.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)
+            let searchUrl = "https://scatch.ssu.ac.kr/%EA%B3%B5%EC%A7%80%EC%82%AC%ED%95%AD/page/\(page)/?f=all&keyword=\(keywordSearch)"
+            requestURL = searchUrl
+        } else {
+            requestURL = noticeUrl
+        }
+        
+        var index = 0
+        Alamofire.request(requestURL).responseString { response in
+            switch(response.result) {
+            case .success(_):
+                guard let data = response.data else { return }
+                let utf8Text = String(data: data, encoding: .utf8) ?? String(decoding: data, as: UTF8.self)
+                do {
+                    let doc = try HTML(html: utf8Text, encoding: .utf8)
+                        for product in doc.css("div[class^='col-xl-50 col-lg-3 col-md-4 col-6']") {
+                            print(product.css("h6[class='font-weight-300']").first?.text ?? "")
+                        }
+                    self.view?.applyTableView(list: [Notice]())
+                } catch let error {
+                    print("Error : \(error)")
+                }
+            case .failure(_):
+                print("Error message:\(String(describing: response.result.error))")
+                break
+            }
+        }
     }
 }

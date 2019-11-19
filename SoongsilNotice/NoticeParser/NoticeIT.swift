@@ -12,20 +12,30 @@ import Alamofire
 import Kanna
 
 class NoticeIT {
-    static func parseListComputer(page: Int, completion: @escaping ([Notice]) -> Void) {
+    static func parseListComputer(page: Int, keyword: String?, completion: @escaping ([Notice]) -> Void) {
         var noticeList = [Notice]()
         var authorList = [String]()
         var titleList  = [String]()
         var pageStringList = [String]()
         var dateStringList = [String]()
         var isNoticeList = [Bool]()
-        let keyword = String()
-        let searchUrl = "http://cse.ssu.ac.kr/03_sub/01_sub.htm?page=\(page)&key=\(keyword)&keyfield=subject&category=&bbs_code=Ti_BBS_1"
+        var requestURL = ""
         let noticeUrl = "http://cse.ssu.ac.kr/03_sub/01_sub.htm?page=\(page)&key=&keyfield=&category=&bbs_code=Ti_BBS_1"
         
         var index = 0
         
-        Alamofire.request(noticeUrl).responseString(encoding: .utf8) { response in
+        if keyword != nil {
+            let keywordSearch = keyword!.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)
+            let searchUrl = "http://cse.ssu.ac.kr/03_sub/01_sub.htm?page=\(page)&key=\(keywordSearch!)&keyfield=subject&category=&bbs_code=Ti_BBS_1"
+            
+            requestURL = searchUrl
+        } else {
+            requestURL = noticeUrl
+        }
+        
+        print(requestURL)
+        
+        Alamofire.request(requestURL).responseString(encoding: .utf8) { response in
             switch(response.result) {
             case .success(_):
                 if let data = response.result.value {
@@ -67,10 +77,6 @@ class NoticeIT {
                                     switch index % 2 {
                                     case 0:
                                         let noticeTitle = product.content ?? ""
-//                                        print("productTitle : \(noticeTitle)")
-//                                        print("productAuthor : \(noticeAuthor)")
-//                                        print("productDate : \(noticeDate)")
-//                                        print("productPage : \(pageString)")
                                         authorList.append(noticeAuthor)
                                         titleList.append(noticeTitle)
                                         pageStringList.append("http://cse.ssu.ac.kr/03_sub/01_sub.htm\(pageString)")
@@ -109,19 +115,28 @@ class NoticeIT {
         }
     }
     
-    static func parseListMedia(page: Int, completion: @escaping ([Notice]) -> Void) {
+    static func parseListMedia(page: Int, keyword: String?, completion: @escaping ([Notice]) -> Void) {
         var noticeList = [Notice]()
         var authorList = [String]()
         var titleList  = [String]()
         var urlList    = [String]()
         var dateStringList = [String]()
         var isNoticeList = [Bool]()
-        let keyword = String()
+        var requestURL = ""
         let searchUrl = "http://media.ssu.ac.kr/sub.php?code=XxH00AXY&mode=&category=1&searchType=title&search=\(keyword)&orderType=&orderBy=&page=\(page)"
         let noticeUrl = "http://media.ssu.ac.kr/sub.php?code=XxH00AXY&mode=&category=1&searchType=&search=&orderType=&orderBy=&page=\(page)"
 
+        if keyword != nil {
+            let keywordSearch = keyword!.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)
+            let searchUrl = "http://media.ssu.ac.kr/sub.php?code=XxH00AXY&mode=&category=1&searchType=title&search=\(keywordSearch!)&orderType=&orderBy=&page=\(page)"
+                
+                requestURL = searchUrl
+        } else {
+                requestURL = noticeUrl
+            }
+        
         var index = 0
-        Alamofire.request(noticeUrl).responseString { response in
+        Alamofire.request(requestURL).responseString { response in
             switch(response.result) {
             case .success(_):
                 guard let data = response.data else { return }
@@ -178,7 +193,7 @@ class NoticeIT {
         }
     }
     
-    static func parseListSoftware(page: Int, completion: @escaping ([Notice]) -> Void) {
+    static func parseListSoftware(page: Int, keyword: String?, completion: @escaping ([Notice]) -> Void) {
         let searchUrl = "https://sw.ssu.ac.kr/bbs/board.php?bo_table=sub6_1&stx="
         let noticeUrl = "https://sw.ssu.ac.kr/bbs/board.php?bo_table=sub6_1&page=\(page)"
         var noticeList = [Notice]()
@@ -245,7 +260,7 @@ class NoticeIT {
         }
     }
     
-    static func parseListElectric(page: Int, completion: @escaping ([Notice]) -> Void) {
+    static func parseListElectric(page: Int, keyword: String?, completion: @escaping ([Notice]) -> Void) {
         let searchUrl = "http://infocom.ssu.ac.kr/rb/?r=home&c=2%2F38&m=bbs&bid=notice&cat=&sort=gid&orderby=asc&recnum=20&type=&iframe=&skin=&where=subject%7Ctag&keyword="
         let noticeUrl = "http://infocom.ssu.ac.kr/rb/?c=2/38&p=\(page)"
         var noticeList = [Notice]()
@@ -307,7 +322,7 @@ class NoticeIT {
         }
     }
     
-    static func parseListSmartSystem(page: Int, completion: @escaping ([Notice]) -> Void) {
+    static func parseListSmartSystem(page: Int, keyword: String?, completion: @escaping ([Notice]) -> Void) {
         let searchUrl = "http://smartsw.ssu.ac.kr/board/notice?search="
         let noticeUrl = "http://smartsw.ssu.ac.kr/board/notice/\(page)"
         var noticeList = [Notice]()
@@ -371,10 +386,6 @@ class NoticeIT {
                 break
             }
         }
-    }
-    
-    func parseListMediaOper(content: String) {
-        
     }
 
 }

@@ -18,6 +18,8 @@ class NoticeListViewController: BaseViewController, NoticeListView, UITableViewD
     
     var spinnerFooter = UIActivityIndicatorView(style: .gray)
     var isMyList = true
+    var searchKeyword: String?
+    var isSearchResult = false
     var noticeDeptCode = BaseViewController.noticeDeptCode
     var noticeDeptName = BaseViewController.noticeDeptName
     
@@ -86,7 +88,7 @@ class NoticeListViewController: BaseViewController, NoticeListView, UITableViewD
         
         ConfigSetting.canFetchData = true
         self.noticeList.removeAll()
-        self.presenter?.loadNoticeList(page: page, deptCode: noticeDeptCode!)
+        self.presenter?.loadNoticeList(page: page, keyword: searchKeyword, deptCode: noticeDeptCode!)
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -132,7 +134,7 @@ class NoticeListViewController: BaseViewController, NoticeListView, UITableViewD
             self.noticeListView.tableFooterView?.isHidden = false
             
             self.page += 1
-            self.presenter?.loadNoticeList(page: page, deptCode: self.noticeDeptCode!)
+            self.presenter?.loadNoticeList(page: page, keyword: searchKeyword, deptCode: self.noticeDeptCode!)
         }
     }
     

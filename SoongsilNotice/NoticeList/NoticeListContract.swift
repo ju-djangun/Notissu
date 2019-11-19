@@ -13,5 +13,5 @@ protocol NoticeListView {
 }
 
 protocol NoticePresenter {
-    func loadNoticeList(page: Int, deptCode: DeptCode)
+    func loadNoticeList(page: Int, keyword: String?, deptCode: DeptCode)
 }

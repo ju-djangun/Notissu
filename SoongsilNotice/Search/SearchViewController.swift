@@ -24,13 +24,16 @@ class SearchViewController: BaseViewController, UIPickerViewDelegate, UIPickerVi
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        for deptName in DeptName.allCases {
-            majorList.append(deptName)
-        }
+        majorList = [DeptName.Soongsil, DeptName.IT_Computer, DeptName.IT_Media, DeptName.IT_Electric, DeptName.IT_Software, DeptName.IT_SmartSystem]
+        majorCodeList = [DeptCode.Soongsil, DeptCode.IT_Computer, DeptCode.IT_Media, DeptCode.IT_Electric, DeptCode.IT_Software, DeptCode.IT_SmartSystem]
         
-        for deptCode in DeptCode.allCases {
-            majorCodeList.append(deptCode)
-        }
+//        for deptName in DeptName.allCases {
+//            majorList.append(deptName)
+//        }
+//        
+//        for deptCode in DeptCode.allCases {
+//            majorCodeList.append(deptCode)
+//        }
         
     }
     

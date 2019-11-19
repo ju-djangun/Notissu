@@ -45,17 +45,25 @@ class SearchViewController: BaseViewController, UIPickerViewDelegate, UIPickerVi
     @IBAction func searchAction(_ sender: Any?) {
         print("검색 : \(String(describing: self.keywordTextField.text))")
         
-        let storyBoard = self.storyboard!
-        let noticeListViewController = storyBoard.instantiateViewController(withIdentifier: "noticeListVC") as? NoticeListViewController
-        
-        noticeListViewController?.noticeDeptCode = majorCodeList[selectedIndex]
-        noticeListViewController?.noticeDeptName = selectedMajor
-        
-        noticeListViewController?.isSearchResult = true
-        noticeListViewController?.isMyList = false
-        noticeListViewController?.searchKeyword = self.keywordTextField.text
-        
-        self.navigationController?.pushViewController(noticeListViewController!, animated: true)
+        if (self.keywordTextField.text ?? "").isEmpty {
+            let alert = UIAlertController(title: "검색어를 입력해주세요", message: "", preferredStyle: .alert)
+            alert.isModalInPopover = true
+            alert.addAction(UIAlertAction(title: "확인", style: .default, handler: nil))
+            self.present(alert,animated: true, completion: nil )
+        } else {
+            
+            let storyBoard = self.storyboard!
+            let noticeListViewController = storyBoard.instantiateViewController(withIdentifier: "noticeListVC") as? NoticeListViewController
+            
+            noticeListViewController?.noticeDeptCode = majorCodeList[selectedIndex]
+            noticeListViewController?.noticeDeptName = selectedMajor
+            
+            noticeListViewController?.isSearchResult = true
+            noticeListViewController?.isMyList = false
+            noticeListViewController?.searchKeyword = self.keywordTextField.text
+            
+            self.navigationController?.pushViewController(noticeListViewController!, animated: true)
+        }
     }
     
     @IBAction func selectMajorAction(_ sender: Any?) {
@@ -75,11 +83,11 @@ class SearchViewController: BaseViewController, UIPickerViewDelegate, UIPickerVi
         alert.view.addSubview(pickerFrame)
         pickerFrame.dataSource = self
         pickerFrame.delegate = self
+        pickerFrame.selectRow(selectedIndex, inComponent: 0, animated: true)
+        //        pickerFrame.selectedRow(inComponent: self.selectedIndex)
         
-        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
-        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (UIAlertAction) in
-            
-            print("You selected " + self.selectedMajor.rawValue )
+        alert.addAction(UIAlertAction(title: "취소", style: .cancel, handler: nil))
+        alert.addAction(UIAlertAction(title: "확인", style: .default, handler: { (UIAlertAction) in
             self.majorText.text = "선택한 전공 : \(self.selectedMajor.rawValue)"
             
         }))

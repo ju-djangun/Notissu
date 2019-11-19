@@ -27,7 +27,7 @@ class SchoolViewController: BaseViewController, SchoolView, UITableViewDelegate,
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        self.navigationController?.navigationBar.topItem?.title = "학교 공지"
+        self.navigationController?.navigationBar.topItem?.title = "SSU:Catch"
         self.presenter = SchoolPresenter(view: self)
         self.noticeListView.delegate = self
         self.noticeListView.dataSource = self

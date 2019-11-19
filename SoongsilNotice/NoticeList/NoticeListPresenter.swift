@@ -19,6 +19,9 @@ class NoticeListPresenter: NoticePresenter {
     
     func loadNoticeList(page: Int, keyword: String?, deptCode: DeptCode) {
         switch deptCode {
+        case DeptCode.Soongsil:
+            NoticeSoongsil.parseSchoolNotice(page: page, keyword: keyword, completion: self.view.applyToTableView)
+            break
         case DeptCode.IT_Computer :
             NoticeIT.parseListComputer(page: page, keyword: keyword, completion: self.view.applyToTableView)
             break

@@ -36,7 +36,7 @@ class NoticeListViewController: BaseViewController, NoticeListView, UITableViewD
         if isMyList {
             self.navigationController?.navigationBar.topItem?.title = self.noticeDeptName!.rawValue
         } else {
-            if self.noticeDeptCode != BaseViewController.noticeDeptCode {
+            if self.noticeDeptCode != BaseViewController.noticeDeptCode && self.searchKeyword == nil {
                 self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(onFavoriteClick))
 //                UIBarButtonItem(title: "내 전공 등록", style: .plain, target: self, action: #selector(onFavoriteClick))
             }

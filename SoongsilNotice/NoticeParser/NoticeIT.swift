@@ -340,7 +340,6 @@ class NoticeIT {
     }
     
     static func parseListSmartSystem(page: Int, keyword: String?, completion: @escaping ([Notice]) -> Void) {
-        let searchUrl = "http://smartsw.ssu.ac.kr/board/notice?search="
         let noticeUrl = "http://smartsw.ssu.ac.kr/board/notice/\(page)"
         var noticeList = [Notice]()
         var authorList = [String]()
@@ -348,15 +347,20 @@ class NoticeIT {
         var urlList = [String]()
         var dateStringList = [String]()
         var index = 0
+        var requestURL = ""
         
-//        print("smart SW")
-        Alamofire.request(noticeUrl).responseString(encoding: .utf8) { response in
-            //            print("\(response.result.isSuccess)")
-            //            print(response.result.value ?? "")
+        if keyword != nil {
+            let keywordSearch = keyword!.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)
+            let searchUrl = "http://smartsw.ssu.ac.kr/board/notice/\(page)?search=\(keywordSearch ?? "")"
+            requestURL = searchUrl
+        } else {
+            requestURL = noticeUrl
+        }
+        
+        Alamofire.request(requestURL).responseString(encoding: .utf8) { response in
             switch(response.result) {
             case .success(_):
                 if let data = response.result.value {
-//                    print(data)
                     do {
                         let doc = try HTML(html: data, encoding: .utf8)
                         

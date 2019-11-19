@@ -44,6 +44,7 @@
 		DEBFDC43237E31A3003888D9 /* MoreTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEBFDC42237E31A3003888D9 /* MoreTableCell.swift */; };
 		DEBFDC45237E391C003888D9 /* OpenSourceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEBFDC44237E391C003888D9 /* OpenSourceViewController.swift */; };
 		DEBFDC47237E3950003888D9 /* OpenSourceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEBFDC46237E3950003888D9 /* OpenSourceTableViewCell.swift */; };
+		DEF56D7523837778003CA0F0 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEF56D7423837778003CA0F0 /* SearchViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -88,6 +89,7 @@
 		DEBFDC42237E31A3003888D9 /* MoreTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreTableCell.swift; sourceTree = "<group>"; };
 		DEBFDC44237E391C003888D9 /* OpenSourceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenSourceViewController.swift; sourceTree = "<group>"; };
 		DEBFDC46237E3950003888D9 /* OpenSourceTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenSourceTableViewCell.swift; sourceTree = "<group>"; };
+		DEF56D7423837778003CA0F0 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -169,6 +171,7 @@
 		DE29613423703F4C0074F24B /* SoongsilNotice */ = {
 			isa = PBXGroup;
 			children = (
+				DEF56D732383775D003CA0F0 /* Search */,
 				DE03E9D02379B063002AA5AE /* NoticeParser */,
 				DE501C4A23750DCA0053055A /* notissu_anim.json */,
 				DE0F8F1B2373F333006A0B49 /* Home */,
@@ -220,6 +223,14 @@
 				DEBFDC46237E3950003888D9 /* OpenSourceTableViewCell.swift */,
 			);
 			path = More;
+			sourceTree = "<group>";
+		};
+		DEF56D732383775D003CA0F0 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				DEF56D7423837778003CA0F0 /* SearchViewController.swift */,
+			);
+			path = Search;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -348,6 +359,7 @@
 				DE296155237195CD0074F24B /* ConfigSetting.swift in Sources */,
 				DE55424623784879004E01EB /* SplashViewController.swift in Sources */,
 				DE29614F2370FCD20074F24B /* NoticeListContract.swift in Sources */,
+				DEF56D7523837778003CA0F0 /* SearchViewController.swift in Sources */,
 				DE0F8F1A2373A222006A0B49 /* BaseViewController.swift in Sources */,
 				DE0F8F2323740041006A0B49 /* NoticeLaw.swift in Sources */,
 				DE0F8F1F2373F44C006A0B49 /* HomeViewController.swift in Sources */,

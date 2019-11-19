@@ -19,7 +19,8 @@ class NoticeIT {
         var pageStringList = [String]()
         var dateStringList = [String]()
         var isNoticeList = [Bool]()
-        
+        let keyword = String()
+        let searchUrl = "http://cse.ssu.ac.kr/03_sub/01_sub.htm?page=\(page)&key=\(keyword)&keyfield=subject&category=&bbs_code=Ti_BBS_1"
         let noticeUrl = "http://cse.ssu.ac.kr/03_sub/01_sub.htm?page=\(page)&key=&keyfield=&category=&bbs_code=Ti_BBS_1"
         
         var index = 0
@@ -115,6 +116,8 @@ class NoticeIT {
         var urlList    = [String]()
         var dateStringList = [String]()
         var isNoticeList = [Bool]()
+        let keyword = String()
+        let searchUrl = "http://media.ssu.ac.kr/sub.php?code=XxH00AXY&mode=&category=1&searchType=title&search=\(keyword)&orderType=&orderBy=&page=\(page)"
         let noticeUrl = "http://media.ssu.ac.kr/sub.php?code=XxH00AXY&mode=&category=1&searchType=&search=&orderType=&orderBy=&page=\(page)"
 
         var index = 0
@@ -176,6 +179,7 @@ class NoticeIT {
     }
     
     static func parseListSoftware(page: Int, completion: @escaping ([Notice]) -> Void) {
+        let searchUrl = "https://sw.ssu.ac.kr/bbs/board.php?bo_table=sub6_1&stx="
         let noticeUrl = "https://sw.ssu.ac.kr/bbs/board.php?bo_table=sub6_1&page=\(page)"
         var noticeList = [Notice]()
         var authorList = [String]()
@@ -192,13 +196,13 @@ class NoticeIT {
                     do {
                         let doc = try HTML(html: data, encoding: .utf8)
                         for product in doc.css("td[class^=num]") {
-                            let num = product.text ?? ""
+                            let num = product.css("b").first?.text ?? ""
                             
-                            if num.isNumeric() {
+                            if num.isEmpty {
                                 // isNotice
-                                isNoticeList.append(true)
-                            } else {
                                 isNoticeList.append(false)
+                            } else {
+                                isNoticeList.append(true)
                             }
                         }
                         
@@ -242,6 +246,7 @@ class NoticeIT {
     }
     
     static func parseListElectric(page: Int, completion: @escaping ([Notice]) -> Void) {
+        let searchUrl = "http://infocom.ssu.ac.kr/rb/?r=home&c=2%2F38&m=bbs&bid=notice&cat=&sort=gid&orderby=asc&recnum=20&type=&iframe=&skin=&where=subject%7Ctag&keyword="
         let noticeUrl = "http://infocom.ssu.ac.kr/rb/?c=2/38&p=\(page)"
         var noticeList = [Notice]()
         var authorList = [String]()
@@ -303,6 +308,7 @@ class NoticeIT {
     }
     
     static func parseListSmartSystem(page: Int, completion: @escaping ([Notice]) -> Void) {
+        let searchUrl = "http://smartsw.ssu.ac.kr/board/notice?search="
         let noticeUrl = "http://smartsw.ssu.ac.kr/board/notice/\(page)"
         var noticeList = [Notice]()
         var authorList = [String]()

@@ -890,6 +890,9 @@
                         <viewLayoutGuide key="safeArea" id="6aq-CJ-ZPS"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="학교 공지" image="tab_school" id="r7d-be-atD"/>
+                    <connections>
+                        <outlet property="noticeListView" destination="TJU-iT-Yg8" id="NLE-49-XP5"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4lu-6U-fDN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

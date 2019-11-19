@@ -44,10 +44,36 @@ class SchoolPresenter : SchoolPresenterIf {
                 let utf8Text = String(data: data, encoding: .utf8) ?? String(decoding: data, as: UTF8.self)
                 do {
                     let doc = try HTML(html: utf8Text, encoding: .utf8)
-                        for product in doc.css("div[class^='col-xl-50 col-lg-3 col-md-4 col-6']") {
-                            print(product.css("h6[class='font-weight-300']").first?.text ?? "")
+                    var currentDate = ""
+                    for item in doc.css("ul[class^='notice-lists'] li") {
+                        if item.className == "start" {
+                            currentDate = ""
+                            for date in item.css("div[class^='col-lg-2 text-center m-text-left m-mb-10'] div") {
+                                if currentDate.isEmpty {
+                                    currentDate.append((date.text ?? "").trimmingCharacters(in: .whitespacesAndNewlines))
+                                } else {
+                                    currentDate.append(".\(date.text ?? "")".trimmingCharacters(in: .whitespacesAndNewlines))
+                                }
+                            }
                         }
-                    self.view?.applyTableView(list: [Notice]())
+                        print("currentDate : \(currentDate)")
+                        print(item.css("span[class^='d-block d-lg-inline-block m-pt-5']").first?.text ?? "")
+                        print(item.css("div[class^='col-lg-8'] a").first?["href"] ?? "")
+                        print(item.css("div[class^='col-lg-2 m-text-right']").first?.text?.trimmingCharacters(in: .whitespacesAndNewlines) ?? "")
+                        
+                        titleList.append(item.css("span[class^='d-block d-lg-inline-block m-pt-5']").first?.text ?? "")
+                        dateStringList.append(currentDate)
+                        urlList.append(item.css("div[class^='col-lg-8'] a").first?["href"] ?? "")
+                        authorList.append(item.css("div[class^='col-lg-2 m-text-right']").first?.text?.trimmingCharacters(in: .whitespacesAndNewlines) ?? "")
+                         
+                    }
+                    
+                    for _ in titleList {
+                        noticeList.append(Notice(author: authorList[index], title: titleList[index], url: urlList[index], date: dateStringList[index], isNotice: false))
+                        index += 1
+                    }
+                    
+                    self.view?.applyTableView(list: noticeList)
                 } catch let error {
                     print("Error : \(error)")
                 }

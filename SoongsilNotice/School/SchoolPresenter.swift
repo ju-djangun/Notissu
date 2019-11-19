@@ -56,10 +56,10 @@ class SchoolPresenter : SchoolPresenterIf {
                                 }
                             }
                         }
-                        print("currentDate : \(currentDate)")
-                        print(item.css("span[class^='d-block d-lg-inline-block m-pt-5']").first?.text ?? "")
-                        print(item.css("div[class^='col-lg-8'] a").first?["href"] ?? "")
-                        print(item.css("div[class^='col-lg-2 m-text-right']").first?.text?.trimmingCharacters(in: .whitespacesAndNewlines) ?? "")
+//                        print("currentDate : \(currentDate)")
+//                        print(item.css("span[class^='d-block d-lg-inline-block m-pt-5']").first?.text ?? "")
+//                        print(item.css("div[class^='col-lg-8'] a").first?["href"] ?? "")
+//                        print(item.css("div[class^='col-lg-2 m-text-right']").first?.text?.trimmingCharacters(in: .whitespacesAndNewlines) ?? "")
                         
                         titleList.append(item.css("span[class^='d-block d-lg-inline-block m-pt-5']").first?.text ?? "")
                         dateStringList.append(currentDate)

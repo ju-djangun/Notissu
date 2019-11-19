@@ -54,6 +54,9 @@ class NoticeDetailViewController: BaseViewController, WKNavigationDelegate, WKUI
                 do {
                     let doc = try HTML(html: data, encoding: .utf8)
                     switch(self.departmentCode!) {
+                    case DeptCode.Soongsil:
+                        self.presenter!.parseSoongsil(html: doc, completion: self.showWebViewPage)
+                        break
                     case DeptCode.IT_Computer:
                         self.presenter!.parseComputer(html: doc, completion: self.showWebViewPage)
                         break

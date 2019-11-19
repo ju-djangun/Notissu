@@ -194,7 +194,6 @@ class NoticeIT {
     }
     
     static func parseListSoftware(page: Int, keyword: String?, completion: @escaping ([Notice]) -> Void) {
-        let searchUrl = "https://sw.ssu.ac.kr/bbs/board.php?bo_table=sub6_1&stx="
         let noticeUrl = "https://sw.ssu.ac.kr/bbs/board.php?bo_table=sub6_1&page=\(page)"
         var noticeList = [Notice]()
         var authorList = [String]()
@@ -204,7 +203,17 @@ class NoticeIT {
         var isNoticeList = [Bool]()
         var index = 0
         
-        Alamofire.request(noticeUrl).responseString(encoding: .utf8) { response in
+        var requestURL = ""
+        
+        if keyword != nil {
+            let keywordSearch = keyword!.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)
+            let searchUrl = "https://sw.ssu.ac.kr/bbs/board.php?bo_table=sub6_1&sca=&stx=\(keywordSearch ?? "")&sop=and&page=\(page)"
+            requestURL = searchUrl
+        } else {
+            requestURL = noticeUrl
+        }
+        
+        Alamofire.request(requestURL).responseString(encoding: .utf8) { response in
             switch(response.result) {
             case .success(_):
                 if let data = response.result.value {
@@ -261,7 +270,6 @@ class NoticeIT {
     }
     
     static func parseListElectric(page: Int, keyword: String?, completion: @escaping ([Notice]) -> Void) {
-        let searchUrl = "http://infocom.ssu.ac.kr/rb/?r=home&c=2%2F38&m=bbs&bid=notice&cat=&sort=gid&orderby=asc&recnum=20&type=&iframe=&skin=&where=subject%7Ctag&keyword="
         let noticeUrl = "http://infocom.ssu.ac.kr/rb/?c=2/38&p=\(page)"
         var noticeList = [Notice]()
         var authorList = [String]()
@@ -270,8 +278,17 @@ class NoticeIT {
         var dateStringList = [String]()
         var isNoticeList = [Bool]()
         var index = 0
+        var requestURL = ""
         
-        Alamofire.request(noticeUrl).responseString { response in
+        if keyword != nil {
+            let keywordSearch = keyword!.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)
+            let searchUrl = "http://infocom.ssu.ac.kr/rb/?c=2/38&where=subject%7Ctag&keyword=\(keywordSearch ?? "")&p=\(page)"
+            requestURL = searchUrl
+        } else {
+            requestURL = noticeUrl
+        }
+        
+        Alamofire.request(requestURL).responseString { response in
             //            print("\(response.result.isSuccess)")
             //            print(response.result.value ?? "")
             switch(response.result) {
@@ -295,7 +312,7 @@ class NoticeIT {
                                 titleList.append(product.css("span[class^='subject']").first!.text!)
                             }
                             
-                            if product.innerHTML?.contains("i") ?? false {
+                            if product.innerHTML?.contains("img") ?? false {
                                 // isNotice
                                 isNoticeList.append(true)
                             } else {

@@ -12,7 +12,7 @@ import Alamofire
 import Kanna
 
 class NoticeLaw {
-    static func parseListLaw(page: Int, completion: @escaping ([Notice]) -> Void) {
+    static func parseListLaw(page: Int, keyword: String?, completion: @escaping ([Notice]) -> Void) {
         let noticeUrl = "http://law.ssu.ac.kr/web/law/board1?p_p_id=EXT_BBS&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&p_p_col_id=column-1&p_p_col_count=1&_EXT_BBS_struts_action=%2Fext%2Fbbs%2Fview&_EXT_BBS_sCategory=&_EXT_BBS_sTitle=&_EXT_BBS_sWriter=&_EXT_BBS_sTag=&_EXT_BBS_sContent=&_EXT_BBS_sCategory2=&_EXT_BBS_sKeyType=&_EXT_BBS_sKeyword=&_EXT_BBS_curPage=\(page)"
         
         var noticeList = [Notice]()
@@ -21,6 +21,15 @@ class NoticeLaw {
         var urlList = [String]()
         var dateStringList = [String]()
         var index = 0
+        var requestURL = ""
+        
+        if keyword != nil {
+            let keywordSearch = keyword!.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)
+            let searchUrl = "http://law.ssu.ac.kr/web/law/board1?p_p_id=EXT_BBS&amp;p_p_lifecycle=0&amp;p_p_state=normal&amp;p_p_mode=view&amp;p_p_col_id=column-1&amp;p_p_col_count=1&amp;_EXT_BBS_struts_action=%2Fext%2Fbbs%2Fview"
+            requestURL = searchUrl
+        } else {
+            requestURL = noticeUrl
+        }
         
         Alamofire.request(noticeUrl).responseString(encoding: .utf8) { response in
             switch(response.result) {
@@ -74,7 +83,7 @@ class NoticeLaw {
         }
     }
     
-    static func parseListIntlLaw(page: Int, completion: @escaping ([Notice]) -> Void) {
+    static func parseListIntlLaw(page: Int, keyword: String?, completion: @escaping ([Notice]) -> Void) {
         let noticeUrl = "http://lawyer.ssu.ac.kr/web/lawyer/27?p_p_id=EXT_BBS&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&p_p_col_id=column-1&p_p_col_count=1&_EXT_BBS_struts_action=%2Fext%2Fbbs%2Fview&_EXT_BBS_sCategory=&_EXT_BBS_sTitle=&_EXT_BBS_sWriter=&_EXT_BBS_sTag=&_EXT_BBS_sContent=&_EXT_BBS_sCategory2=&_EXT_BBS_sKeyType=&_EXT_BBS_sKeyword=&_EXT_BBS_curPage=\(page)"
         
         var noticeList = [Notice]()

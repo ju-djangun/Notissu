@@ -38,10 +38,10 @@ class NoticeListPresenter: NoticePresenter {
             NoticeIT.parseListSmartSystem(page: page, keyword: keyword, completion: self.view.applyToTableView)
             break
         case DeptCode.LAW_Law:
-            NoticeLaw.parseListLaw(page: page, completion: self.view.applyToTableView)
+            NoticeLaw.parseListLaw(page: page, keyword: keyword, completion: self.view.applyToTableView)
             break
         case DeptCode.LAW_IntlLaw:
-            NoticeLaw.parseListIntlLaw(page: page, completion: self.view.applyToTableView)
+            NoticeLaw.parseListIntlLaw(page: page, keyword: keyword, completion: self.view.applyToTableView)
             break
         case DeptCode.Inmun_Korean:
             NoticeInmun.parseListKorean(page: page, completion: self.view.applyToTableView)

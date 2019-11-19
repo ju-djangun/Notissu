@@ -17,22 +17,22 @@ class NoticeListPresenter: NoticePresenter {
         self.view = view
     }
     
-    func loadNoticeList(page: Int, deptCode: DeptCode) {
+    func loadNoticeList(page: Int, keyword: String?, deptCode: DeptCode) {
         switch deptCode {
         case DeptCode.IT_Computer :
-            NoticeIT.parseListComputer(page: page, completion: self.view.applyToTableView)
+            NoticeIT.parseListComputer(page: page, keyword: keyword, completion: self.view.applyToTableView)
             break
         case DeptCode.IT_Media :
-            NoticeIT.parseListMedia(page: page, completion: self.view.applyToTableView)
+            NoticeIT.parseListMedia(page: page, keyword: keyword, completion: self.view.applyToTableView)
             break
         case DeptCode.IT_Electric :
-            NoticeIT.parseListElectric(page: page, completion: self.view.applyToTableView)
+            NoticeIT.parseListElectric(page: page, keyword: keyword, completion: self.view.applyToTableView)
             break
         case DeptCode.IT_Software :
-            NoticeIT.parseListSoftware(page: page, completion: self.view.applyToTableView)
+            NoticeIT.parseListSoftware(page: page, keyword: keyword, completion: self.view.applyToTableView)
             break
         case DeptCode.IT_SmartSystem:
-            NoticeIT.parseListSmartSystem(page: page, completion: self.view.applyToTableView)
+            NoticeIT.parseListSmartSystem(page: page, keyword: keyword, completion: self.view.applyToTableView)
             break
         case DeptCode.LAW_Law:
             NoticeLaw.parseListLaw(page: page, completion: self.view.applyToTableView)

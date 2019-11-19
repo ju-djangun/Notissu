@@ -34,12 +34,28 @@ class SearchViewController: BaseViewController, UIPickerViewDelegate, UIPickerVi
         
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.navigationBar.topItem?.title = "검색"
+    }
+    
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
     }
     
     @IBAction func searchAction(_ sender: Any?) {
         print("검색 : \(String(describing: self.keywordTextField.text))")
+        
+        let storyBoard = self.storyboard!
+        let noticeListViewController = storyBoard.instantiateViewController(withIdentifier: "noticeListVC") as? NoticeListViewController
+        
+        noticeListViewController?.noticeDeptCode = majorCodeList[selectedIndex]
+        noticeListViewController?.noticeDeptName = selectedMajor
+        
+        noticeListViewController?.isSearchResult = true
+        noticeListViewController?.isMyList = false
+        noticeListViewController?.searchKeyword = self.keywordTextField.text
+        
+        self.navigationController?.pushViewController(noticeListViewController!, animated: true)
     }
     
     @IBAction func selectMajorAction(_ sender: Any?) {

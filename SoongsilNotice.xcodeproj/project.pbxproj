@@ -48,6 +48,7 @@
 		DEF56D782383BF05003CA0F0 /* SchoolViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEF56D772383BF05003CA0F0 /* SchoolViewController.swift */; };
 		DEF56D7A2383BF81003CA0F0 /* SchoolPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEF56D792383BF81003CA0F0 /* SchoolPresenter.swift */; };
 		DEF56D7C2383C002003CA0F0 /* SchoolContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEF56D7B2383C002003CA0F0 /* SchoolContract.swift */; };
+		DEF56D7E238425D7003CA0F0 /* NoticeSoongsil.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEF56D7D238425D7003CA0F0 /* NoticeSoongsil.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -96,6 +97,7 @@
 		DEF56D772383BF05003CA0F0 /* SchoolViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchoolViewController.swift; sourceTree = "<group>"; };
 		DEF56D792383BF81003CA0F0 /* SchoolPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchoolPresenter.swift; sourceTree = "<group>"; };
 		DEF56D7B2383C002003CA0F0 /* SchoolContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchoolContract.swift; sourceTree = "<group>"; };
+		DEF56D7D238425D7003CA0F0 /* NoticeSoongsil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeSoongsil.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,6 +143,7 @@
 				DE8C73832379BB2E008F2FE1 /* NoticeEconomy.swift */,
 				DE8C73852379BDF6008F2FE1 /* NoticeSocial.swift */,
 				DE72017A237A76DE00F60CEB /* NoticeConvergence.swift */,
+				DEF56D7D238425D7003CA0F0 /* NoticeSoongsil.swift */,
 			);
 			path = NoticeParser;
 			sourceTree = "<group>";
@@ -401,6 +404,7 @@
 				DE55424B2379340A004E01EB /* MoreViewController.swift in Sources */,
 				DE29615E23728A330074F24B /* NoticeDetailPresenter.swift in Sources */,
 				DE0F8F212373FDD7006A0B49 /* NoticeEngineering.swift in Sources */,
+				DEF56D7E238425D7003CA0F0 /* NoticeSoongsil.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

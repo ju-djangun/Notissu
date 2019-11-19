@@ -18,6 +18,8 @@ struct NotiSSU_ColorSet {
 }
 
 public enum DeptCode: Int, CaseIterable {
+    case Soongsil = 0
+    
     // IT대학
     case IT_Computer      = 1
     case IT_Media         = 2
@@ -49,7 +51,6 @@ public enum DeptCode: Int, CaseIterable {
     case Inmun_Japanese = 20
     case Inmun_History = 21 // 사학과
     case Inmun_Philosophy = 22 // 철학과
-    case Inmun_Creative = 23 // 문예창작
     
     // 자연과학대학
     case NaturalScience_Math = 24 // 수학과
@@ -75,18 +76,17 @@ public enum DeptCode: Int, CaseIterable {
     case Social_Journalism = 38 // 언론홍보학과
     case Social_LifeLong = 39 // 평생교육학과
     case Social_Political = 40 // 정치외교학과
-    
-    case Soongsil = 77
 }
 
 public enum DeptName: String, CaseIterable {
+    case Soongsil = "숭실대학교 공지"
+    
     // IT
     case IT_Computer = "컴퓨터학부"
     case IT_Media = "글로벌미디어학부"
     case IT_Electric = "전자정보공학부"
     case IT_Software = "소프트웨어학부"
     case IT_SmartSystem = "스마트시스템소프트웨어학과"
-    case IT_MediaOper = "미디어경영학과"
     // LAW
     case LAW_Law = "법학과"
     case LAW_IntlLaw = "국제법무학과"
@@ -108,7 +108,6 @@ public enum DeptName: String, CaseIterable {
     case Inmun_Japanese = "일어일문학과"
     case Inmun_History = "사학과"
     case Inmun_Philosophy = "철학과"
-    case Inmun_Creative = "문예창작전공"
     
     // 자연과학대학
     case NaturalScience_Math = "수학과" // 수학과
@@ -137,6 +136,8 @@ public enum DeptName: String, CaseIterable {
 }
 
 public enum DeptNameEng: String {
+    case Soongsil = "SSU Notice"
+    
     // IT
     case IT_Computer = "Computer Science & Engineering"
     case IT_Media = "The Global School of Media"
@@ -166,7 +167,6 @@ public enum DeptNameEng: String {
     case Inmun_Japanese = "Japanese Language & Literature"
     case Inmun_History = "Department of History"
     case Inmun_Philosophy = "Department of Philosophy"
-    case Inmun_Creative = "Major in Creative Writing"
     
     // 자연과학대학
     case NaturalScience_Math = "College of Mathematics" // 수학과

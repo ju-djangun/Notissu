@@ -113,7 +113,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2462" y="-601"/>
+            <point key="canvasLocation" x="4312" y="-601"/>
         </scene>
         <!--Notice List View Controller-->
         <scene sceneID="h2e-gb-5RE">
@@ -188,7 +188,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="65n-bp-4kh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1498.5507246376812" y="-601.33928571428567"/>
+            <point key="canvasLocation" x="3349" y="-601"/>
         </scene>
         <!--컴퓨터학부-->
         <scene sceneID="8gs-px-APh">
@@ -240,7 +240,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3c4-hQ-MUa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4808.695652173913" y="-504.24107142857139"/>
+            <point key="canvasLocation" x="6658" y="-504"/>
         </scene>
         <!--전공 목록-->
         <scene sceneID="ed7-c7-6Dq">
@@ -319,7 +319,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ENX-ph-Xfw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="519" y="-601"/>
+            <point key="canvasLocation" x="519" y="-1291"/>
         </scene>
         <!--더보기-->
         <scene sceneID="RzR-AE-RKC">
@@ -433,7 +433,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SUp-Dj-id1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="518.84057971014499" y="201.5625"/>
+            <point key="canvasLocation" x="519" y="951"/>
         </scene>
         <!--검색-->
         <scene sceneID="YQy-Pz-Yzv">
@@ -550,7 +550,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2jN-3G-0Fh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="515.94202898550725" y="978.34821428571422"/>
+            <point key="canvasLocation" x="519" y="170"/>
         </scene>
         <!--오픈소스 사용정보-->
         <scene sceneID="6pC-1y-oLG">
@@ -631,7 +631,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nIi-gt-F1q" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1488.4057971014495" y="198.88392857142856"/>
+            <point key="canvasLocation" x="3339" y="199"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="CMH-QJ-gBC">
@@ -752,6 +752,70 @@
             </objects>
             <point key="canvasLocation" x="-1614.4927536231885" y="-87.053571428571431"/>
         </scene>
+        <!--Manual View Controller-->
+        <scene sceneID="KY5-dy-d9i">
+            <objects>
+                <viewController restorationIdentifier="manualVC" storyboardIdentifier="manualVC" id="qmq-et-aKG" customClass="ManualViewController" customModule="Notissu" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ZeX-ob-J7g">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" bounces="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aRK-gv-885">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <viewLayoutGuide key="contentLayoutGuide" id="QWZ-Lr-Ois"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="feV-iL-sSh"/>
+                            </scrollView>
+                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="U7J-Nn-Ygr">
+                                <rect key="frame" x="20" y="44" width="374" height="37"/>
+                                <color key="pageIndicatorTintColor" white="1" alpha="0.19547755281690141" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="currentPageIndicatorTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </pageControl>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2CT-cX-UqO">
+                                <rect key="frame" x="20" y="796" width="374" height="56"/>
+                                <color key="backgroundColor" red="0.15686274510000001" green="0.26132941250000002" blue="0.73337453600000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="56" id="3bh-W8-QG4"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="19"/>
+                                <state key="normal" title="Notissu 시작하기">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="onClickNext:" destination="5cQ-Xb-nyz" eventType="touchUpInside" id="FkE-J1-JCZ"/>
+                                    <action selector="onClickStartButton:" destination="qmq-et-aKG" eventType="touchUpInside" id="aA0-PE-zOO"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="U7J-Nn-Ygr" firstAttribute="centerX" secondItem="oaV-fx-D4W" secondAttribute="centerX" id="0fs-3G-WSO"/>
+                            <constraint firstItem="oaV-fx-D4W" firstAttribute="trailing" secondItem="aRK-gv-885" secondAttribute="trailing" id="3Md-iU-tcm"/>
+                            <constraint firstItem="2CT-cX-UqO" firstAttribute="leading" secondItem="oaV-fx-D4W" secondAttribute="leading" constant="20" id="DnL-kd-Jmp"/>
+                            <constraint firstItem="oaV-fx-D4W" firstAttribute="trailing" secondItem="2CT-cX-UqO" secondAttribute="trailing" constant="20" id="Nri-Jt-rdU"/>
+                            <constraint firstItem="U7J-Nn-Ygr" firstAttribute="leading" secondItem="oaV-fx-D4W" secondAttribute="leading" constant="20" id="Ogn-yB-ghB"/>
+                            <constraint firstItem="2CT-cX-UqO" firstAttribute="centerX" secondItem="oaV-fx-D4W" secondAttribute="centerX" id="Sb2-4b-zeq"/>
+                            <constraint firstItem="oaV-fx-D4W" firstAttribute="bottom" secondItem="2CT-cX-UqO" secondAttribute="bottom" constant="10" id="ZBW-DV-8i7"/>
+                            <constraint firstItem="aRK-gv-885" firstAttribute="leading" secondItem="oaV-fx-D4W" secondAttribute="leading" id="b3Y-m3-eUH"/>
+                            <constraint firstItem="oaV-fx-D4W" firstAttribute="top" secondItem="aRK-gv-885" secondAttribute="top" constant="44" id="deK-wo-jb8"/>
+                            <constraint firstItem="aRK-gv-885" firstAttribute="centerX" secondItem="oaV-fx-D4W" secondAttribute="centerX" id="fQB-gj-F9c"/>
+                            <constraint firstItem="aRK-gv-885" firstAttribute="centerY" secondItem="oaV-fx-D4W" secondAttribute="centerY" id="frO-7W-pkz"/>
+                            <constraint firstItem="U7J-Nn-Ygr" firstAttribute="top" secondItem="oaV-fx-D4W" secondAttribute="top" id="i4h-oy-Kzf"/>
+                            <constraint firstItem="aRK-gv-885" firstAttribute="bottom" secondItem="oaV-fx-D4W" secondAttribute="bottom" constant="34" id="lqK-tI-Swo"/>
+                            <constraint firstItem="oaV-fx-D4W" firstAttribute="trailing" secondItem="U7J-Nn-Ygr" secondAttribute="trailing" constant="20" id="vSj-lm-chy"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="oaV-fx-D4W"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="gcm-Od-RVy"/>
+                    <connections>
+                        <outlet property="pageControl" destination="U7J-Nn-Ygr" id="zeR-Hr-a25"/>
+                        <outlet property="scrollView" destination="aRK-gv-885" id="TQh-qn-c5o"/>
+                        <outlet property="startButton" destination="2CT-cX-UqO" id="Q3n-8X-UuT"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pkh-fh-y98" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1614.4927536231885" y="638.83928571428567"/>
+        </scene>
         <!--내 공지-->
         <scene sceneID="uef-mS-A94">
             <objects>
@@ -807,7 +871,8 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="noticeBadgeWidthConstraint" destination="FUZ-ki-gtl" id="ntQ-X7-RlY"/>
+                                            <outlet property="noticeBadge" destination="czO-k3-8ns" id="NLS-c4-Fd1"/>
+                                            <outlet property="noticeBadgeWidthConstraint" destination="FUZ-ki-gtl" id="xfj-D8-Zuw"/>
                                             <outlet property="noticeDate" destination="Ysn-GY-gRS" id="6pQ-6s-q1e"/>
                                             <outlet property="noticeTitle" destination="VzB-6j-d19" id="A4U-6F-Yrw"/>
                                         </connections>
@@ -825,7 +890,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LFv-5z-668" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="518.84057971014499" y="-1347.3214285714284"/>
+            <point key="canvasLocation" x="519" y="-2037"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="Gqj-jz-DBQ">
@@ -925,7 +990,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4lu-6U-fDN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-922" y="947"/>
+            <point key="canvasLocation" x="519" y="-601"/>
         </scene>
     </scenes>
     <resources>

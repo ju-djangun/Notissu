@@ -30,6 +30,9 @@ class StartViewController: BaseViewController, UIPickerViewDelegate, UIPickerVie
             majorCodeList.append(deptCode)
         }
         
+        majorList.removeLast()
+        majorCodeList.removeLast()
+        
         self.pickerView.dataSource = self
         self.pickerView.delegate = self
     }
@@ -48,7 +51,10 @@ class StartViewController: BaseViewController, UIPickerViewDelegate, UIPickerVie
 //        UserDefaults.standard.set(myName, forKey: "myDeptName")
         UserDefaults.standard.setValue(myName.rawValue, forKey: "myDeptName")
         
-        HomeSwitcher.updateRootVC()
+        let storyBoard = self.storyboard!
+        let manualViewController = storyBoard.instantiateViewController(withIdentifier: "manualVC") as? ManualViewController
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        appDelegate.window?.rootViewController = manualViewController!
     }
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {

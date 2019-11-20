@@ -18,7 +18,6 @@ struct NotiSSU_ColorSet {
 }
 
 public enum DeptCode: Int, CaseIterable {
-    case Soongsil = 0
     
     // IT대학
     case IT_Computer      = 1
@@ -41,7 +40,7 @@ public enum DeptCode: Int, CaseIterable {
     case Engineering_Electonic    = 12
     case Engineering_Machine      = 13
     case Engineering_Industrial   = 14
-    
+
     // 인문대학
     case Inmun_Korean = 15
     case Inmun_Chinese = 16
@@ -53,34 +52,34 @@ public enum DeptCode: Int, CaseIterable {
     case Inmun_Philosophy = 22 // 철학과
     
     // 자연과학대학
-    case NaturalScience_Math = 24 // 수학과
-    case NaturalScience_Chemistry = 25 // 화학과
-    case NaturalScience_Physics = 26 // 물리학과
-    case NaturalScience_Actuarial = 27 // 정보통계 보험수리학과
-    case NaturalScience_Medical = 28 // 의생명시스템학부
+    case NaturalScience_Math = 23 // 수학과
+    case NaturalScience_Chemistry = 24 // 화학과
+    case NaturalScience_Physics = 25 // 물리학과
+    case NaturalScience_Actuarial = 26 // 정보통계 보험수리학과
+    case NaturalScience_Medical = 27 // 의생명시스템학부
     
     // 경영대학
-    case Business_biz = 29 // 경영학부
-    case Business_venture = 30 // 벤처중소기업학과
-    case Business_Account = 31 // 회계학과
-    case Business_Finance = 32 // 금융학부
+    case Business_biz = 28 // 경영학부
+    case Business_venture = 29 // 벤처중소기업학과
+    case Business_Account = 30 // 회계학과
+    case Business_Finance = 31 // 금융학부
     
     // 경제통상대학
-    case Economy_Economics = 33 // 경제학과
-    case Economy_GlobalCommerce = 34 // 글로벌통상학과
+    case Economy_Economics = 32 // 경제학과
+    case Economy_GlobalCommerce = 33 // 글로벌통상학과
     
     // 사회과학대학
-    case Social_Welfare = 35 // 사회복지학부
-    case Social_Administration = 36 // 행정학부
-    case Social_Sociology = 37 // 정보사회학과
-    case Social_Journalism = 38 // 언론홍보학과
-    case Social_LifeLong = 39 // 평생교육학과
-    case Social_Political = 40 // 정치외교학과
+    case Social_Welfare = 34 // 사회복지학부
+    case Social_Administration = 35 // 행정학부
+    case Social_Sociology = 36 // 정보사회학과
+    case Social_Journalism = 37 // 언론홍보학과
+    case Social_LifeLong = 38 // 평생교육학과
+    case Social_Political = 39 // 정치외교학과
+    
+    case Soongsil = 100
 }
 
 public enum DeptName: String, CaseIterable {
-    case Soongsil = "숭실대학교 공지"
-    
     // IT
     case IT_Computer = "컴퓨터학부"
     case IT_Media = "글로벌미디어학부"
@@ -133,11 +132,11 @@ public enum DeptName: String, CaseIterable {
     case Social_Journalism = "언론홍보학과" // 언론홍보학과
     case Social_LifeLong = "평생교육학과" // 평생교육학과
     case Social_Political = "정치외교학과" // 정치외교학과
+    
+    case Soongsil = "숭실대학교 공지"
 }
 
 public enum DeptNameEng: String {
-    case Soongsil = "SSU Notice"
-    
     // IT
     case IT_Computer = "Computer Science & Engineering"
     case IT_Media = "The Global School of Media"
@@ -192,6 +191,7 @@ public enum DeptNameEng: String {
     case Social_Journalism = "Journalism, Public Relations, Advertising" // 언론홍보학과
     case Social_LifeLong = "Lifelong Education" // 평생교육학과
     case Social_Political = "Politics & International Relation" // 정치외교학과
+    case Soongsil = "SSU Notice"
 }
 
 struct ConfigSetting {

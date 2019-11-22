@@ -25,6 +25,7 @@ class ManualViewController : BaseViewController {
             let subView = UIImageView()
             subView.frame = UIScreen.main.bounds
             subView.image = manualImageList[index]
+            subView.contentMode = .scaleToFill
             
             subView.frame.origin.x = UIScreen.main.bounds.width * CGFloat(index)
             self.scrollView.addSubview(subView)

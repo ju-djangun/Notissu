@@ -82,6 +82,7 @@ class NoticeInmun {
         var authorList = [String]()
         var titleList  = [String]()
         var urlList = [String]()
+        var isNoticeList = [Bool]()
         var dateStringList = [String]()
         var index = 0
         
@@ -96,7 +97,14 @@ class NoticeInmun {
                             let content = product.text!.trimmingCharacters(in: .whitespacesAndNewlines)
                             print(content)
                             switch (index % 6) {
-                            case 0: break
+                            case 0:
+                                if product.innerHTML?.contains("img") ?? false {
+                                    // isNotice
+                                    isNoticeList.append(true)
+                                } else {
+                                    isNoticeList.append(false)
+                                }
+                                break
                             case 1:
                                 // Title
                                 titleList.append(content)
@@ -126,7 +134,7 @@ class NoticeInmun {
                     
                     index = 0
                     for _ in urlList {
-                        let noticeItem = Notice(author: authorList[index], title: titleList[index], url: urlList[index], date: dateStringList[index], isNotice: false)
+                        let noticeItem = Notice(author: authorList[index], title: titleList[index], url: urlList[index], date: dateStringList[index], isNotice: isNoticeList[index])
                         noticeList.append(noticeItem)
                         index += 1
                     }
@@ -267,6 +275,7 @@ class NoticeInmun {
         var authorList = [String]()
         var titleList  = [String]()
         var urlList = [String]()
+        var isNoticeList = [Bool]()
         var dateStringList = [String]()
         var index = 0
         
@@ -281,7 +290,14 @@ class NoticeInmun {
                             let content = product.text!.trimmingCharacters(in: .whitespacesAndNewlines)
                             print(content)
                             switch (index % 5) {
-                            case 0: break
+                            case 0:
+                                if product.innerHTML?.contains("img") ?? false {
+                                    // isNotice
+                                    isNoticeList.append(true)
+                                } else {
+                                    isNoticeList.append(false)
+                                }
+                                break
                             case 1:
                                 // Title
                                 titleList.append(content)
@@ -307,7 +323,7 @@ class NoticeInmun {
                     
                     index = 0
                     for _ in urlList {
-                        let noticeItem = Notice(author: "", title: titleList[index], url: urlList[index], date: dateStringList[index], isNotice: false)
+                        let noticeItem = Notice(author: "", title: titleList[index], url: urlList[index], date: dateStringList[index], isNotice: isNoticeList[index])
                         noticeList.append(noticeItem)
                         index += 1
                     }
@@ -327,6 +343,7 @@ class NoticeInmun {
         var authorList = [String]()
         var titleList  = [String]()
         var urlList = [String]()
+        var isNoticeList = [Bool]()
         var dateStringList = [String]()
         var index = 0
         
@@ -341,7 +358,14 @@ class NoticeInmun {
                             let content = product.text!.trimmingCharacters(in: .whitespacesAndNewlines)
                             print(content)
                             switch (index % 6) {
-                            case 0: break
+                            case 0:
+                                if product.innerHTML?.contains("img") ?? false {
+                                    // isNotice
+                                    isNoticeList.append(true)
+                                } else {
+                                    isNoticeList.append(false)
+                                }
+                                break
                             case 1:
                                 // Title
                                 titleList.append(content)
@@ -371,7 +395,7 @@ class NoticeInmun {
                     
                     index = 0
                     for _ in urlList {
-                        let noticeItem = Notice(author: authorList[index], title: titleList[index], url: urlList[index], date: dateStringList[index], isNotice: false)
+                        let noticeItem = Notice(author: authorList[index], title: titleList[index], url: urlList[index], date: dateStringList[index], isNotice: isNoticeList[index])
                         noticeList.append(noticeItem)
                         index += 1
                     }

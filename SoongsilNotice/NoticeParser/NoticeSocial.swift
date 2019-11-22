@@ -373,11 +373,12 @@ class NoticeSocial {
                         var boldCount = 0
                         let doc = try HTML(html: data, encoding: .utf8)
                         var isAdd = false
-                        for product in doc.css("table[class='board_list'] tbody td") {
+                        for product in doc.css("table[class='bbs-list'] tbody td") {
                             let content = product.text!.trimmingCharacters(in: .whitespacesAndNewlines)
+                            print(content)
                             switch (index % 5) {
                             case 0:
-                                if page > 1 && content == "공지" {
+                                if page > 1 && !content.isNumeric() {
                                     isAdd = false
                                     boldCount += 1
                                 } else {

@@ -25,56 +25,55 @@ public enum DeptCode: Int, CaseIterable {
     case IT_Electric      = 3
     case IT_Software      = 4
     case IT_SmartSystem   = 5
-    case IT_MediaOper     = 6
     
     // 법과대학
-    case LAW_Law          = 7
-    case LAW_IntlLaw      = 8
-    
-    // 융합특성화 자유전공학부
-    case MIX_mix          = 9
+    case LAW_Law          = 6
+    case LAW_IntlLaw      = 7
     
     // 공과대학
-    case Engineering_Chemistry    = 10
-    case Engineering_Organic      = 11
-    case Engineering_Electonic    = 12
-    case Engineering_Machine      = 13
-    case Engineering_Industrial   = 14
+    case Engineering_Chemistry    = 8
+    case Engineering_Organic      = 9
+    case Engineering_Electonic    = 10
+    case Engineering_Machine      = 11
+    case Engineering_Industrial   = 12
 
     // 인문대학
-    case Inmun_Korean = 15
-    case Inmun_Chinese = 16
-    case Inmun_English = 17
-    case Inmun_French = 18
-    case Inmun_German = 19
-    case Inmun_Japanese = 20
-    case Inmun_History = 21 // 사학과
-    case Inmun_Philosophy = 22 // 철학과
+    case Inmun_Korean = 13
+    case Inmun_Chinese = 14
+    case Inmun_English = 15
+    case Inmun_French = 16
+    case Inmun_German = 17
+    case Inmun_Japanese = 18
+    case Inmun_History = 19 // 사학과
+    case Inmun_Philosophy = 20 // 철학과
     
     // 자연과학대학
-    case NaturalScience_Math = 23 // 수학과
-    case NaturalScience_Chemistry = 24 // 화학과
-    case NaturalScience_Physics = 25 // 물리학과
-    case NaturalScience_Actuarial = 26 // 정보통계 보험수리학과
-    case NaturalScience_Medical = 27 // 의생명시스템학부
+    case NaturalScience_Math = 21 // 수학과
+    case NaturalScience_Chemistry = 22 // 화학과
+    case NaturalScience_Physics = 23 // 물리학과
+    case NaturalScience_Actuarial = 24 // 정보통계 보험수리학과
+    case NaturalScience_Medical = 25 // 의생명시스템학부
     
     // 경영대학
-    case Business_biz = 28 // 경영학부
-    case Business_venture = 29 // 벤처중소기업학과
-    case Business_Account = 30 // 회계학과
-    case Business_Finance = 31 // 금융학부
+    case Business_biz = 26 // 경영학부
+    case Business_venture = 27 // 벤처중소기업학과
+    case Business_Account = 28 // 회계학과
+    case Business_Finance = 29 // 금융학부
     
     // 경제통상대학
-    case Economy_Economics = 32 // 경제학과
-    case Economy_GlobalCommerce = 33 // 글로벌통상학과
+    case Economy_Economics = 30 // 경제학과
+    case Economy_GlobalCommerce = 31 // 글로벌통상학과
     
     // 사회과학대학
-    case Social_Welfare = 34 // 사회복지학부
-    case Social_Administration = 35 // 행정학부
-    case Social_Sociology = 36 // 정보사회학과
-    case Social_Journalism = 37 // 언론홍보학과
-    case Social_LifeLong = 38 // 평생교육학과
-    case Social_Political = 39 // 정치외교학과
+    case Social_Welfare = 32 // 사회복지학부
+    case Social_Administration = 33 // 행정학부
+    case Social_Sociology = 34 // 정보사회학과
+    case Social_Journalism = 35 // 언론홍보학과
+    case Social_LifeLong = 36 // 평생교육학과
+    case Social_Political = 37 // 정치외교학과
+    
+    // 융합특성화 자유전공학부
+    case MIX_mix          = 38
     
     case Soongsil = 100
 }
@@ -89,8 +88,7 @@ public enum DeptName: String, CaseIterable {
     // LAW
     case LAW_Law = "법학과"
     case LAW_IntlLaw = "국제법무학과"
-    // 융합
-    case MIX_mix = "융합특성화자유전공학부"
+
     // Engineering
     case Engineering_Chemistry = "화학공학과"
     case Engineering_Organic = "유기신소재ㆍ파이버공학과"
@@ -133,6 +131,9 @@ public enum DeptName: String, CaseIterable {
     case Social_LifeLong = "평생교육학과" // 평생교육학과
     case Social_Political = "정치외교학과" // 정치외교학과
     
+    // 융합
+    case MIX_mix = "융합특성화자유전공학부"
+    
     case Soongsil = "숭실대학교 공지"
 }
 
@@ -147,8 +148,6 @@ public enum DeptNameEng: String {
     // LAW
     case LAW_Law = "Law"
     case LAW_IntlLaw = "Global Law"
-    // 융합
-    case MIX_mix = "School of Convergence Specialization"
     
     // Engineering
     case Engineering_Chemistry = "Chemical Engineering"
@@ -191,6 +190,10 @@ public enum DeptNameEng: String {
     case Social_Journalism = "Journalism, Public Relations, Advertising" // 언론홍보학과
     case Social_LifeLong = "Lifelong Education" // 평생교육학과
     case Social_Political = "Politics & International Relation" // 정치외교학과
+    
+    // 융합
+    case MIX_mix = "School of Convergence Specialization"
+    
     case Soongsil = "SSU Notice"
 }
 

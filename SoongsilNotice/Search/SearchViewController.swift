@@ -19,7 +19,7 @@ class SearchViewController: BaseViewController, UIPickerViewDelegate, UIPickerVi
     private var majorCodeList = [DeptCode]()
     
     private var selectedIndex = -1
-    private var selectedMajor = DeptName.Soongsil
+    private var selectedMajor = DeptName.IT_Computer
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -62,6 +62,13 @@ class SearchViewController: BaseViewController, UIPickerViewDelegate, UIPickerVi
             
             let storyBoard = self.storyboard!
             let noticeListViewController = storyBoard.instantiateViewController(withIdentifier: "noticeListVC") as? NoticeListViewController
+            
+            print("---")
+            print(selectedIndex)
+            print(selectedMajor)
+            print(majorCodeList[selectedIndex].rawValue)
+            print(majorList[selectedIndex].rawValue)
+            print("---")
             
             noticeListViewController?.noticeDeptCode = majorCodeList[selectedIndex]
             noticeListViewController?.noticeDeptName = selectedMajor

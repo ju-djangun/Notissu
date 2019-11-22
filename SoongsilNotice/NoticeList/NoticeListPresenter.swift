@@ -46,9 +46,6 @@ class NoticeListPresenter: NoticePresenter {
         case DeptCode.Inmun_Korean:
             NoticeInmun.parseListKorean(page: page, keyword: keyword, completion: self.view.applyToTableView)
             break
-            //        case DeptCode.Inmun_Creative:
-            //            NoticeInmun.parseListCreative(page: page, completion: self.view.applyToTableView)
-        //            break
         case DeptCode.Inmun_Philosophy:
             NoticeInmun.parseListPhilo(page: page, keyword: keyword, completion: self.view.applyToTableView)
             break
@@ -137,7 +134,8 @@ class NoticeListPresenter: NoticePresenter {
             NoticeSocial.parseListPolitical(page: page, keyword: keyword, completion: self.view.applyToTableView)
             break
         case DeptCode.MIX_mix:
-            NoticeConvergence.parseListConvergence(page: page, completion: self.view.applyToTableView)
+            print("융합특성화")
+            NoticeConvergence.parseListConvergence(page: page, keyword: keyword, completion: self.view.applyToTableView)
             break
         default: break
         }

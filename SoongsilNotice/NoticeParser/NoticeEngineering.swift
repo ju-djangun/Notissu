@@ -84,6 +84,7 @@ class NoticeEngineering {
         var titleList  = [String]()
         var urlList = [String]()
         var dateStringList = [String]()
+        var isNoticeList = [Bool]()
         var index = 0
         
         Alamofire.request(noticeUrl).responseString(encoding: .utf8) { response in
@@ -94,14 +95,23 @@ class NoticeEngineering {
                         let doc = try HTML(html: data, encoding: .utf8)
                         
                         for product in doc.css("div[class^='board-list'] tr") {
+                            let number = product.css("td[class^='no']").first?.text!.trimmingCharacters(in: .whitespacesAndNewlines)
                             let title = product.css("td[class^='subject'] a").first?.text!.trimmingCharacters(in: .whitespacesAndNewlines)
                             let author = product.css("td[class^='name']").first?.text!.trimmingCharacters(in: .whitespacesAndNewlines)
                             let date = product.css("td[class^='date']").first?.text!.trimmingCharacters(in: .whitespacesAndNewlines)
                             
                             if index > 0 {
+                                if (number ?? "").isNumeric() {
+                                    // normal
+                                    isNoticeList.append(false)
+                                } else {
+                                    // notice
+                                    isNoticeList.append(true)
+                                }
                                 titleList.append(title ?? "")
                                 authorList.append(author ?? "")
                                 dateStringList.append(date ?? "")
+                                
                             }
                             
                             index += 1
@@ -117,7 +127,7 @@ class NoticeEngineering {
                     
                     index = 0
                     for _ in urlList {
-                        let noticeItem = Notice(author: authorList[index], title: titleList[index], url: urlList[index], date: dateStringList[index], isNotice: false)
+                        let noticeItem = Notice(author: authorList[index], title: titleList[index], url: urlList[index], date: dateStringList[index], isNotice: isNoticeList[index])
                         noticeList.append(noticeItem)
                         index += 1
                     }

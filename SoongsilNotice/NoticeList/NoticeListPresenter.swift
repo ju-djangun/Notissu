@@ -101,16 +101,16 @@ class NoticeListPresenter: NoticePresenter {
             NoticeNaturalScience.parseListBiomedical(page: page, keyword: keyword, completion: self.view.applyToTableView)
             break
         case DeptCode.Business_biz:
-            NoticeBusiness.parseListBiz(page: page, completion: self.view.applyToTableView)
+            NoticeBusiness.parseListBiz(page: page, keyword: keyword, completion: self.view.applyToTableView)
             break
         case DeptCode.Business_venture:
-            NoticeBusiness.parseListVenture(page: page, completion: self.view.applyToTableView)
+            NoticeBusiness.parseListVenture(page: page, keyword: keyword, completion: self.view.applyToTableView)
             break
         case DeptCode.Business_Account:
-            NoticeBusiness.parseListAccount(page: page, completion: self.view.applyToTableView)
+            NoticeBusiness.parseListAccount(page: page, keyword: keyword, completion: self.view.applyToTableView)
             break
         case DeptCode.Business_Finance:
-            NoticeBusiness.parseListFinance(page: page, completion: self.view.applyToTableView)
+            NoticeBusiness.parseListFinance(page: page, keyword: keyword, completion: self.view.applyToTableView)
             break
         case DeptCode.Economy_Economics:
             NoticeEconomy.parseListEconomics(page: page, keyword: keyword, completion: self.view.applyToTableView)

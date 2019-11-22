@@ -74,7 +74,7 @@ class NoticeEngineering {
         }
     }
     
-    static func parseListChemistryEngineering(page: Int, completion: @escaping ([Notice]) -> Void) {
+    static func parseListChemistryEngineering(page: Int, keyword: String?, completion: @escaping ([Notice]) -> Void) {
         // offset : 0 / 10 / 20 / etc.
         // offset : 0 * 10 / 1 * 10
         let offset = (page - 1) * 10
@@ -86,8 +86,17 @@ class NoticeEngineering {
         var dateStringList = [String]()
         var isNoticeList = [Bool]()
         var index = 0
+        var requestURL = ""
         
-        Alamofire.request(noticeUrl).responseString(encoding: .utf8) { response in
+        if keyword != nil {
+            let keywordSearch = keyword!.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)
+            let searchUrl = "http://chemeng.ssu.ac.kr/sub/sub03_01.php?boardid=notice1&sk=\(keywordSearch ?? "")&sw=a&category=&offset=\(offset)"
+            requestURL = searchUrl
+        } else {
+            requestURL = noticeUrl
+        }
+        
+        Alamofire.request(requestURL).responseString(encoding: .utf8) { response in
             switch(response.result) {
             case .success(_):
                 if let data = response.result.value {

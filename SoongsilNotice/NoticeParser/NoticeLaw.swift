@@ -16,7 +16,6 @@ class NoticeLaw {
         let noticeUrl = "http://law.ssu.ac.kr/web/law/board1?p_p_id=EXT_BBS&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&p_p_col_id=column-1&p_p_col_count=1&_EXT_BBS_struts_action=%2Fext%2Fbbs%2Fview&_EXT_BBS_sCategory=&_EXT_BBS_sTitle=&_EXT_BBS_sWriter=&_EXT_BBS_sTag=&_EXT_BBS_sContent=&_EXT_BBS_sCategory2=&_EXT_BBS_sKeyType=&_EXT_BBS_sKeyword=&_EXT_BBS_curPage=\(page)"
         
         var noticeList = [Notice]()
-        var authorList = [String]()
         var titleList  = [String]()
         var urlList = [String]()
         var isNoticeList = [Bool]()
@@ -88,7 +87,7 @@ class NoticeLaw {
                     completion(noticeList)
                 }
             case .failure(_):
-                print("Error message:\(response.result.error)")
+                print("Error message:\(String(describing: response.result.error))")
                 break
             }
         }
@@ -171,7 +170,7 @@ class NoticeLaw {
                     completion(noticeList)
                 }
             case .failure(_):
-                print("Error message:\(response.result.error)")
+                print("Error message:\(String(describing: response.result.error))")
                 break
             }
         }

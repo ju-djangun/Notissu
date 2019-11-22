@@ -44,31 +44,31 @@ class NoticeListPresenter: NoticePresenter {
             NoticeLaw.parseListIntlLaw(page: page, keyword: keyword, completion: self.view.applyToTableView)
             break
         case DeptCode.Inmun_Korean:
-            NoticeInmun.parseListKorean(page: page, completion: self.view.applyToTableView)
+            NoticeInmun.parseListKorean(page: page, keyword: keyword, completion: self.view.applyToTableView)
             break
             //        case DeptCode.Inmun_Creative:
             //            NoticeInmun.parseListCreative(page: page, completion: self.view.applyToTableView)
         //            break
         case DeptCode.Inmun_Philosophy:
-            NoticeInmun.parseListPhilo(page: page, completion: self.view.applyToTableView)
+            NoticeInmun.parseListPhilo(page: page, keyword: keyword, completion: self.view.applyToTableView)
             break
         case DeptCode.Inmun_History:
-            NoticeInmun.parseListHistory(page: page, completion: self.view.applyToTableView)
+            NoticeInmun.parseListHistory(page: page, keyword: keyword, completion: self.view.applyToTableView)
             break
         case DeptCode.Inmun_English:
-            NoticeInmun.parseListEnglish(page: page, completion: self.view.applyToTableView)
+            NoticeInmun.parseListEnglish(page: page, keyword: keyword, completion: self.view.applyToTableView)
             break
         case DeptCode.Inmun_Japanese:
-            NoticeInmun.parseListJapanese(page: page, completion: self.view.applyToTableView)
+            NoticeInmun.parseListJapanese(page: page, keyword: keyword, completion: self.view.applyToTableView)
             break
         case DeptCode.Inmun_Chinese:
-            NoticeInmun.parseListChinese(page: page, completion: self.view.applyToTableView)
+            NoticeInmun.parseListChinese(page: page, keyword: keyword, completion: self.view.applyToTableView)
             break
         case DeptCode.Inmun_German:
-            NoticeInmun.parseListGerman(page: page, completion: self.view.applyToTableView)
+            NoticeInmun.parseListGerman(page: page, keyword: keyword, completion: self.view.applyToTableView)
             break
         case DeptCode.Inmun_French:
-            NoticeInmun.parseListFrench(page: page, completion: self.view.applyToTableView)
+            NoticeInmun.parseListFrench(page: page, keyword: keyword, completion: self.view.applyToTableView)
             break
         case DeptCode.Engineering_Chemistry:
             NoticeEngineering.parseListChemistryEngineering(page: page, completion: self.view.applyToTableView)
@@ -113,10 +113,10 @@ class NoticeListPresenter: NoticePresenter {
             NoticeBusiness.parseListFinance(page: page, completion: self.view.applyToTableView)
             break
         case DeptCode.Economy_Economics:
-            NoticeEconomy.parseListEconomics(page: page, completion: self.view.applyToTableView)
+            NoticeEconomy.parseListEconomics(page: page, keyword: keyword, completion: self.view.applyToTableView)
             break
         case DeptCode.Economy_GlobalCommerce:
-            NoticeEconomy.parseListGlobalCommerce(page: page, completion: self.view.applyToTableView)
+            NoticeEconomy.parseListGlobalCommerce(page: page, keyword: keyword, completion: self.view.applyToTableView)
             break
         case DeptCode.Social_Welfare:
             NoticeSocial.parseListWelfare(page: page, completion: self.view.applyToTableView)

@@ -109,7 +109,7 @@ class NoticeIT {
                     }
                 }
             case .failure(_):
-                print("Error message:\(response.result.error)")
+                print("Error message:\(String(describing: response.result.error))")
                 break
             }
         }
@@ -123,7 +123,6 @@ class NoticeIT {
         var dateStringList = [String]()
         var isNoticeList = [Bool]()
         var requestURL = ""
-        let searchUrl = "http://media.ssu.ac.kr/sub.php?code=XxH00AXY&mode=&category=1&searchType=title&search=\(keyword)&orderType=&orderBy=&page=\(page)"
         let noticeUrl = "http://media.ssu.ac.kr/sub.php?code=XxH00AXY&mode=&category=1&searchType=&search=&orderType=&orderBy=&page=\(page)"
 
         if keyword != nil {

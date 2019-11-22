@@ -71,7 +71,7 @@ class NoticeListPresenter: NoticePresenter {
             NoticeInmun.parseListFrench(page: page, keyword: keyword, completion: self.view.applyToTableView)
             break
         case DeptCode.Engineering_Chemistry:
-            NoticeEngineering.parseListChemistryEngineering(page: page, completion: self.view.applyToTableView)
+            NoticeEngineering.parseListChemistryEngineering(page: page, keyword: keyword, completion: self.view.applyToTableView)
             break
         case DeptCode.Engineering_Machine:
             NoticeEngineering.parseListMachine(page: page, completion: self.view.applyToTableView)

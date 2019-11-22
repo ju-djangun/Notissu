@@ -11,7 +11,7 @@ import Alamofire
 import Kanna
 
 class NoticeNaturalScience {
-    static func parseListMath(page: Int, completion: @escaping ([Notice]) -> Void) {
+    static func parseListMath(page: Int, keyword: String?, completion: @escaping ([Notice]) -> Void) {
         let noticeUrl = "\(NoticeURL.naturalScienceMathURL)\(page)"
         var noticeList = [Notice]()
         var authorList = [String]()
@@ -19,8 +19,17 @@ class NoticeNaturalScience {
         var urlList = [String]()
         var dateStringList = [String]()
         var index = 0
+        var requestURL = ""
         
-        Alamofire.request(noticeUrl).responseString(encoding: .utf8) { response in
+        if keyword != nil {
+            let keywordSearch = keyword!.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)
+            let searchUrl = "http://math.ssu.ac.kr/web/math/menu3_1?p_p_id=EXT_BBS&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&p_p_col_id=column-1&p_p_col_count=1&_EXT_BBS_struts_action=%2Fext%2Fbbs%2Fview&_EXT_BBS_sCategory=&_EXT_BBS_sTitle=\(keywordSearch ?? "")&_EXT_BBS_sWriter=&_EXT_BBS_sTag=&_EXT_BBS_sContent=&_EXT_BBS_sCategory2=&_EXT_BBS_sKeyType=title&_EXT_BBS_sKeyword=\(keywordSearch ?? "")&_EXT_BBS_curPage=\(page)"
+            requestURL = searchUrl
+        } else {
+            requestURL = noticeUrl
+        }
+        
+        Alamofire.request(requestURL).responseString(encoding: .utf8) { response in
             switch(response.result) {
             case .success(_):
                 if let data = response.result.value {
@@ -71,7 +80,7 @@ class NoticeNaturalScience {
         }
     }
     
-    static func parseListChemistry(page: Int, completion: @escaping ([Notice]) -> Void) {
+    static func parseListChemistry(page: Int, keyword: String?, completion: @escaping ([Notice]) -> Void) {
         let noticeUrl = "\(NoticeURL.naturalScienceChemistryURL)\(page)"
         var noticeList = [Notice]()
         var authorList = [String]()
@@ -79,8 +88,17 @@ class NoticeNaturalScience {
         var urlList = [String]()
         var dateStringList = [String]()
         var index = 0
+        var requestURL = ""
         
-        Alamofire.request(noticeUrl).responseString(encoding: .utf8) { response in
+        if keyword != nil {
+            let keywordSearch = keyword!.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)
+            let searchUrl = "http://chem.ssu.ac.kr/web/chem/notice_a?p_p_id=EXT_BBS&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&p_p_col_id=column-1&p_p_col_count=1&_EXT_BBS_struts_action=%2Fext%2Fbbs%2Fview&_EXT_BBS_sCategory=&_EXT_BBS_sTitle=\(keywordSearch ?? "")&_EXT_BBS_sWriter=&_EXT_BBS_sTag=&_EXT_BBS_sContent=&_EXT_BBS_sCategory2=&_EXT_BBS_sKeyType=title&_EXT_BBS_sKeyword=\(keywordSearch ?? "")&_EXT_BBS_curPage=\(page)"
+            requestURL = searchUrl
+        } else {
+            requestURL = noticeUrl
+        }
+        
+        Alamofire.request(requestURL).responseString(encoding: .utf8) { response in
             switch(response.result) {
             case .success(_):
                 if let data = response.result.value {
@@ -135,16 +153,26 @@ class NoticeNaturalScience {
         }
     }
     
-    static func parseListPhysics(page: Int, completion: @escaping ([Notice]) -> Void) {
+    static func parseListPhysics(page: Int, keyword: String?, completion: @escaping ([Notice]) -> Void) {
         let noticeUrl = "\(NoticeURL.naturalSciencePhysicsURL)\(page)"
         var noticeList = [Notice]()
         var authorList = [String]()
         var titleList  = [String]()
         var urlList = [String]()
         var dateStringList = [String]()
+        var isNoticeList = [Bool]()
         var index = 0
+        var requestURL = ""
         
-        Alamofire.request(noticeUrl).responseString(encoding: .utf8) { response in
+        if keyword != nil {
+            let keywordSearch = keyword!.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)
+            let searchUrl = "http://physics.ssu.ac.kr/web/physics/41?p_p_id=EXT_BBS&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&p_p_col_id=column-1&p_p_col_count=1&_EXT_BBS_struts_action=%2Fext%2Fbbs%2Fview&_EXT_BBS_sCategory=&_EXT_BBS_sTitle=\(keywordSearch ?? "")&_EXT_BBS_sWriter=&_EXT_BBS_sTag=&_EXT_BBS_sContent=&_EXT_BBS_sCategory2=&_EXT_BBS_sKeyType=title&_EXT_BBS_sKeyword=\(keywordSearch ?? "")&_EXT_BBS_curPage=\(page)"
+            requestURL = searchUrl
+        } else {
+            requestURL = noticeUrl
+        }
+        
+        Alamofire.request(requestURL).responseString(encoding: .utf8) { response in
             switch(response.result) {
             case .success(_):
                 if let data = response.result.value {
@@ -155,7 +183,14 @@ class NoticeNaturalScience {
                             let content = product.text!.trimmingCharacters(in: .whitespacesAndNewlines)
                             print(content)
                             switch (index % 6) {
-                            case 0: break
+                            case 0:
+                                if product.innerHTML?.contains("img") ?? false {
+                                    // isNotice
+                                    isNoticeList.append(true)
+                                } else {
+                                    isNoticeList.append(false)
+                                }
+                                break
                             case 1:
                                 // Title
                                 titleList.append(content)
@@ -185,7 +220,7 @@ class NoticeNaturalScience {
                     
                     index = 0
                     for _ in urlList {
-                        let noticeItem = Notice(author: "", title: titleList[index], url: urlList[index], date: dateStringList[index], isNotice: false)
+                        let noticeItem = Notice(author: "", title: titleList[index], url: urlList[index], date: dateStringList[index], isNotice: isNoticeList[index])
                         noticeList.append(noticeItem)
                         index += 1
                     }
@@ -199,7 +234,7 @@ class NoticeNaturalScience {
         }
     }
     
-    static func parseListActuarial(page: Int, completion: @escaping ([Notice]) -> Void) {
+    static func parseListActuarial(page: Int, keyword: String?, completion: @escaping ([Notice]) -> Void) {
         let noticeUrl = "\(NoticeURL.naturalScienceActuarialURL)\(page)"
         var noticeList = [Notice]()
         var authorList = [String]()
@@ -207,8 +242,17 @@ class NoticeNaturalScience {
         var urlList = [String]()
         var dateStringList = [String]()
         var index = 0
+        var requestURL = ""
         
-        Alamofire.request(noticeUrl).responseString(encoding: .utf8) { response in
+        if keyword != nil {
+            let keywordSearch = keyword!.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)
+            let searchUrl = "http://math.ssu.ac.kr/web/math/menu3_1?p_p_id=EXT_BBS&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&p_p_col_id=column-1&p_p_col_count=1&_EXT_BBS_struts_action=%2Fext%2Fbbs%2Fview&_EXT_BBS_sCategory=&_EXT_BBS_sTitle=\(keywordSearch ?? "")&_EXT_BBS_sWriter=&_EXT_BBS_sTag=&_EXT_BBS_sContent=&_EXT_BBS_sCategory2=&_EXT_BBS_sKeyType=title&_EXT_BBS_sKeyword=\(keywordSearch ?? "")&_EXT_BBS_curPage=\(page)"
+            requestURL = searchUrl
+        } else {
+            requestURL = noticeUrl
+        }
+        
+        Alamofire.request(requestURL).responseString(encoding: .utf8) { response in
             switch(response.result) {
             case .success(_):
                 if let data = response.result.value {
@@ -261,7 +305,7 @@ class NoticeNaturalScience {
         }
     }
     
-    static func parseListBiomedical(page: Int, completion: @escaping ([Notice]) -> Void) {
+    static func parseListBiomedical(page: Int, keyword: String?, completion: @escaping ([Notice]) -> Void) {
         let noticeUrl = "\(NoticeURL.naturalScienceBiomedicalURL)\(page)"
         var noticeList = [Notice]()
         var authorList = [String]()

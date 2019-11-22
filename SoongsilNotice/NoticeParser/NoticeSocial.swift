@@ -173,10 +173,17 @@ class NoticeSocial {
         var urlList = [String]()
         var dateStringList = [String]()
         var index = 0
+        var requestURL = ""
         
-        print(noticeUrl)
+        if keyword != nil {
+            let keywordSearch = keyword!.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)
+            let searchUrl = "http://inso.ssu.ac.kr/sub/sub04_01.php?boardid=notice&sk=\(keywordSearch ?? "")&sw=a&category=%ED%95%99%EA%B3%BC%EA%B3%B5%EC%A7%80&offset=\(offset)"
+            requestURL = searchUrl
+        } else {
+            requestURL = noticeUrl
+        }
         
-        Alamofire.request(noticeUrl).responseString(encoding: .utf8) { response in
+        Alamofire.request(requestURL).responseString(encoding: .utf8) { response in
             switch(response.result) {
             case .success(_):
                 if let data = response.result.value {

@@ -119,22 +119,22 @@ class NoticeListPresenter: NoticePresenter {
             NoticeEconomy.parseListGlobalCommerce(page: page, keyword: keyword, completion: self.view.applyToTableView)
             break
         case DeptCode.Social_Welfare:
-            NoticeSocial.parseListWelfare(page: page, completion: self.view.applyToTableView)
+            NoticeSocial.parseListWelfare(page: page, keyword: keyword, completion: self.view.applyToTableView)
             break
         case DeptCode.Social_Administration:
-            NoticeSocial.parseListAdministration(page: page, completion: self.view.applyToTableView)
+            NoticeSocial.parseListAdministration(page: page, keyword: keyword, completion: self.view.applyToTableView)
             break
         case DeptCode.Social_Sociology:
-            NoticeSocial.parseListSociology(page: page, completion: self.view.applyToTableView)
+            NoticeSocial.parseListSociology(page: page, keyword: keyword, completion: self.view.applyToTableView)
             break
         case DeptCode.Social_Journalism:
-            NoticeSocial.parseListJournalism(page: page, completion: self.view.applyToTableView)
+            NoticeSocial.parseListJournalism(page: page, keyword: keyword, completion: self.view.applyToTableView)
             break
         case DeptCode.Social_LifeLong:
-            NoticeSocial.parseListLifeLong(page: page, completion: self.view.applyToTableView)
+            NoticeSocial.parseListLifeLong(page: page, keyword: keyword, completion: self.view.applyToTableView)
             break
         case DeptCode.Social_Political:
-            NoticeSocial.parseListPolitical(page: page, completion: self.view.applyToTableView)
+            NoticeSocial.parseListPolitical(page: page, keyword: keyword, completion: self.view.applyToTableView)
             break
         case DeptCode.MIX_mix:
             NoticeConvergence.parseListConvergence(page: page, completion: self.view.applyToTableView)

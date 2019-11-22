@@ -66,8 +66,7 @@ class NoticeURL {
     // 사회과학대학
     static var socialWelfareURL = "http://pre.ssu.ac.kr/web/mysoongsil/bbs_notice?p_p_id=EXT_BBS&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&p_p_col_id=column-1&p_p_col_count=1&_EXT_BBS_struts_action=%2Fext%2Fbbs%2Fview&_EXT_BBS_sCategory=&_EXT_BBS_sTitle=&_EXT_BBS_sWriter=&_EXT_BBS_sTag=&_EXT_BBS_sContent=&_EXT_BBS_sCategory2=&_EXT_BBS_sKeyType=&_EXT_BBS_sKeyword=&_EXT_BBS_curPage="
     
-    // 행정학부 : offset 10이 1페이지, 20이 2페이지 -> (page - 1) * 10 = offset
-    static var socialAdministrationURL = "http://pubad.ssu.ac.kr/sub/sub04_01.php?boardid=notice1&sk=&sw=&category=&offset="
+    static var socialAdministrationURL = "https://pubad.ssu.ac.kr/%ec%a0%95%eb%b3%b4%ea%b4%91%ec%9e%a5/%ed%95%99%eb%b6%80-%ea%b3%b5%ec%a7%80%ec%82%ac%ed%95%ad/page/"
     
     // offset 0이 page 1, offset 10이 page 2 => (page - 1) * 10 = offset
     static var socialSociologyURL = "http://inso.ssu.ac.kr/sub/sub04_01.php?boardid=notice&sk=&sw=&category=%ED%95%99%EA%B3%BC%EA%B3%B5%EC%A7%80&offset="

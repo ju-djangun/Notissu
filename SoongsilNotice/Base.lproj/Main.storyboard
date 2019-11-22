@@ -500,18 +500,17 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jJN-TJ-gOz">
-                                <rect key="frame" x="22" y="430" width="370" height="171"/>
+                                <rect key="frame" x="22" y="430" width="370" height="155.5"/>
                                 <string key="text">학교공지(SSU:Catch)
-컴퓨터학부/글로벌미디어학부/전자정보공학부
-소프트웨어학부/스마트시스템소프트웨어학과
-국어국문학과/불어불분학과
-독어독문학과/중어중문학과
-영어영문학과/사학과
-철학과/일어일문학과
-경제학과/글로벌통상학과
-화학공학과/기계공학부
-산업정보시스템공학과/전기공학부 
-유기신소재파이버공학과</string>
+IT 대학
+법과대학
+인문대학
+공과대학
+자연과학대학
+경영대학
+경제통상대학
+사회과학대학
+융합특성화자유전공학부</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                 <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>

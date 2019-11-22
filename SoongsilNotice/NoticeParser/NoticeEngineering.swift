@@ -12,7 +12,7 @@ import Alamofire
 import Kanna
 
 class NoticeEngineering {
-    static func parseListMachine(page: Int, completion: @escaping ([Notice]) -> Void) {
+    static func parseListMachine(page: Int, keyword: String?, completion: @escaping ([Notice]) -> Void) {
         let noticeUrl = "\(NoticeURL.engineerMachineURL)\(page)"
         var noticeList = [Notice]()
         var authorList = [String]()
@@ -20,8 +20,17 @@ class NoticeEngineering {
         var urlList = [String]()
         var dateStringList = [String]()
         var index = 0
+        var requestURL = ""
         
-        Alamofire.request(noticeUrl).responseString(encoding: .utf8) { response in
+        if keyword != nil {
+            let keywordSearch = keyword!.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)
+            let searchUrl = "http://me.ssu.ac.kr/web/me/notice_a?p_p_id=EXT_BBS&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&p_p_col_id=column-1&p_p_col_count=1&_EXT_BBS_struts_action=%2Fext%2Fbbs%2Fview&_EXT_BBS_sCategory=&_EXT_BBS_sTitle=\(keywordSearch ?? "")&_EXT_BBS_sWriter=&_EXT_BBS_sTag=&_EXT_BBS_sContent=&_EXT_BBS_sCategory2=&_EXT_BBS_sKeyType=title&_EXT_BBS_sKeyword=\(keywordSearch ?? "")&_EXT_BBS_curPage=\(page)"
+            requestURL = searchUrl
+        } else {
+            requestURL = noticeUrl
+        }
+        
+        Alamofire.request(requestURL).responseString(encoding: .utf8) { response in
             switch(response.result) {
             case .success(_):
                 if let data = response.result.value {
@@ -150,7 +159,7 @@ class NoticeEngineering {
         }
     }
     
-    static func parseListElectric(page: Int, completion: @escaping ([Notice]) -> Void) {
+    static func parseListElectric(page: Int, keyword: String?, completion: @escaping ([Notice]) -> Void) {
         // offset : 0 / 10 / 20 / etc.
         // offset : 0 * 10 / 1 * 10
         let offset = (page - 1) * 10
@@ -159,15 +168,29 @@ class NoticeEngineering {
         var authorList = [String]()
         var titleList  = [String]()
         var urlList = [String]()
+        var isNoticeList = [Bool]()
         var dateStringList = [String]()
         var index = 0
+        var requestURL = ""
         
-        Alamofire.request(noticeUrl).responseString(encoding: .utf8) { response in
+        if keyword != nil {
+            let keywordSearch = keyword!.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)
+            let searchUrl = "http://ee.ssu.ac.kr/sub/sub05_01.php?boardid=notice&sk=\(keywordSearch ?? "")&sw=a&category=&offset=\(offset)"
+            requestURL = searchUrl
+        } else {
+            requestURL = noticeUrl
+        }
+        
+        Alamofire.request(requestURL).responseString(encoding: .utf8) { response in
             switch(response.result) {
             case .success(_):
                 if let data = response.result.value {
                     do {
                         let doc = try HTML(html: data, encoding: .utf8)
+                        for product in doc.css("div[class^='num']") {
+                            isNoticeList.append(!(product.text!.isNumeric()))
+                        }
+                        
                         for product in doc.css("div[class^='subject']") {
                             //print("***")
                             let content = product.text!.trimmingCharacters(in: .whitespacesAndNewlines)
@@ -203,7 +226,7 @@ class NoticeEngineering {
                     
                     index = 0
                     for _ in urlList {
-                        let noticeItem = Notice(author: authorList[index], title: titleList[index], url: urlList[index], date: dateStringList[index], isNotice: false)
+                        let noticeItem = Notice(author: authorList[index], title: titleList[index], url: urlList[index], date: dateStringList[index], isNotice: isNoticeList[index])
                         noticeList.append(noticeItem)
                         index += 1
                     }

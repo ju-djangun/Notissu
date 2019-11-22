@@ -74,10 +74,10 @@ class NoticeListPresenter: NoticePresenter {
             NoticeEngineering.parseListChemistryEngineering(page: page, keyword: keyword, completion: self.view.applyToTableView)
             break
         case DeptCode.Engineering_Machine:
-            NoticeEngineering.parseListMachine(page: page, completion: self.view.applyToTableView)
+            NoticeEngineering.parseListMachine(page: page, keyword: keyword, completion: self.view.applyToTableView)
             break
         case DeptCode.Engineering_Electonic:
-            NoticeEngineering.parseListElectric(page: page, completion: self.view.applyToTableView)
+            NoticeEngineering.parseListElectric(page: page, keyword: keyword, completion: self.view.applyToTableView)
             break
         case DeptCode.Engineering_Industrial:
             NoticeEngineering.parseListIndustry(page: page, completion: self.view.applyToTableView)

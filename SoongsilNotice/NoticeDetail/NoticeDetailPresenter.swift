@@ -50,7 +50,7 @@ class NoticeDetailPresenter: NoticeDetail {
     }
     
     func parseComputer(html: HTMLDocument, completion: @escaping ([Attachment], String) -> Void) {
-        let contentHTML = html.css("div[class|=smartOutput]").first?.innerHTML ?? ""
+        let contentHTML = html.css("td[class=content]").first?.innerHTML ?? ""
         
         let detailHTML = "\(htmlStart)\(contentHTML)\(htmlEnd)"
         var attachmentList = [Attachment]()
@@ -379,22 +379,14 @@ class NoticeDetailPresenter: NoticeDetail {
     }
     
     func parseSocialAdministration(html: HTMLDocument, host: String?, completion: @escaping ([Attachment], String) -> Void) {
-        let contentHTML = html.css("div[class^='body']").first?.innerHTML ?? ""
-        var detailHTML = "\(htmlStart)\(contentHTML)\(htmlEnd)"
-        detailHTML = detailHTML.replacingOccurrences(of: "src=\"/", with: "src=\"\(host ?? "")/")
+        let contentHTML = html.css("div[class^='td_box']").first?.innerHTML ?? ""
+        let detailHTML = "\(htmlStart)\(contentHTML)\(htmlEnd)"
         var attachmentList = [Attachment]()
         
-        for link in html.css("div[class='fileLayer'] a") {
-            let arguments = link["href"]?.getArrayAfterRegex(regex: "[(](.*?)[)]") ?? []
-            if arguments.count > 0 {
-                let params = arguments[0].replacingOccurrences(of: "(", with: "").replacingOccurrences(of: ")", with: "").replacingOccurrences(of: "'", with: "")
-                let boardId = params.split(separator: ",")[0]
-                let bIndex = params.split(separator: ",")[1]
-                let index = params.split(separator: ",")[2]
-                
-                let attachmentURL = "\(host ?? "")/module/board/download.php?boardid=\(boardId)&b_idx=\(bIndex)&idx=\(index)"
-                attachmentList.append(Attachment(fileName: link["title"] ?? "", fileURL: attachmentURL))
-            }
+        for link in html.css("ul[class='flie_list'] li a") {
+            let fileUrl = link["href"] ?? ""
+            let fileName = (link.text ?? "").trimmingCharacters(in: .whitespacesAndNewlines)
+            attachmentList.append(Attachment(fileName: fileName, fileURL: fileUrl))
         }
         completion(attachmentList, detailHTML)
     }

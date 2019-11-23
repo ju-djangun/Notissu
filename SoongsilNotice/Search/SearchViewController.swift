@@ -110,7 +110,7 @@ class SearchViewController: BaseViewController, UIPickerViewDelegate, UIPickerVi
         
         pickerFrame!.selectRow(selectedIndex, inComponent: 0, animated: true)
         
-        alert!.addAction(UIAlertAction(title: "취소", style: .default, handler: nil))
+        alert!.addAction(UIAlertAction(title: "취소", style: .cancel, handler: nil))
         alert!.addAction(UIAlertAction(title: "확인", style: .default, handler: { (UIAlertAction) in
             self.majorText.text = "선택한 전공 : \(self.selectedMajor.rawValue)"
             

@@ -403,6 +403,7 @@ class NoticeEngineering {
                     let doc = try HTML(html: utf8Text, encoding: .utf8)
                     for product in doc.css("tr[class='clickableRow']") {
                         print("URL : \(product["href"])")
+                        urlList.append(product["href"] ?? "")
                         var index = 0
                         for text in product.css("td") {
                             let content = text.text!.trimmingCharacters(in: .whitespacesAndNewlines)
@@ -433,7 +434,7 @@ class NoticeEngineering {
                 
                 index = 0
                 for _ in urlList {
-                    let noticeItem = Notice(author: authorList[index], title: titleList[index], url: urlList[index], date: dateStringList[index], isNotice: false)
+                    let noticeItem = Notice(author: "", title: titleList[index], url: urlList[index], date: dateStringList[index], isNotice: false)
                     noticeList.append(noticeItem)
                     index += 1
                 }

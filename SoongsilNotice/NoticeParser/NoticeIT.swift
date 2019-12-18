@@ -47,21 +47,24 @@ class NoticeIT {
                                 let noticeDate = product.nextSibling?.nextSibling?.text ?? ""
                                 let pageString = product.at_xpath("a")?["href"] ?? ""
                                 
-                                switch index % 2 {
-                                case 0:
-                                    let noticeTitle = product.content ?? ""
-//                                    print("product1 : \(noticeTitle)")
-//                                    print("product1 : \(noticeAuthor)")
-//                                    print("product1 : \(noticeDate)")
-//                                    print("product1 : \(pageString)")
-                                    authorList.append(noticeAuthor)
-                                    titleList.append(noticeTitle)
-                                    pageStringList.append("http://cse.ssu.ac.kr/03_sub/01_sub.htm\(pageString)")
-                                    dateStringList.append(noticeDate)
-                                    isNoticeList.append(false)
-                                    break;
-                                case 1:  break;
-                                default: break
+                                if !pageString.isEmpty {
+                                    
+                                    switch index % 2 {
+                                    case 0:
+                                        let noticeTitle = product.content ?? ""
+                                        //                                    print("product1 : \(noticeTitle)")
+                                        //                                    print("product1 : \(noticeAuthor)")
+                                        //                                    print("product1 : \(noticeDate)")
+                                        //                                    print("product1 : \(pageString)")
+                                        authorList.append(noticeAuthor)
+                                        titleList.append(noticeTitle)
+                                        pageStringList.append("http://cse.ssu.ac.kr/03_sub/01_sub.htm\(pageString)")
+                                        dateStringList.append(noticeDate)
+                                        isNoticeList.append(false)
+                                        break;
+                                    case 1:  break;
+                                    default: break
+                                    }
                                 }
                                 index += 1
                                 
@@ -72,19 +75,22 @@ class NoticeIT {
                                     let noticeAuthor = product.nextSibling?.text ?? ""
                                     let noticeDate = product.nextSibling?.nextSibling?.text ?? ""
                                     let pageString = product.css("a").first?["href"] ?? ""
-                                    pageStringList.append("http://cse.ssu.ac.kr/03_sub/01_sub.htm\(pageString)")
                                     
-                                    switch index % 2 {
-                                    case 0:
-                                        let noticeTitle = product.content ?? ""
-                                        authorList.append(noticeAuthor)
-                                        titleList.append(noticeTitle)
-                                        pageStringList.append("http://cse.ssu.ac.kr/03_sub/01_sub.htm\(pageString)")
-                                        dateStringList.append(noticeDate)
-                                        isNoticeList.append(true)
-                                        break;
-                                    case 1: break;
-                                    default: break
+                                    if !pageString.isEmpty {
+                                        //http://cse.ssu.ac.kr/03_sub/01_sub.htm
+                                        
+                                        switch index % 2 {
+                                        case 0:
+                                            let noticeTitle = product.content ?? ""
+                                            authorList.append(noticeAuthor)
+                                            titleList.append(noticeTitle)
+                                            pageStringList.append("http://cse.ssu.ac.kr/03_sub/01_sub.htm\(pageString)")
+                                            dateStringList.append(noticeDate)
+                                            isNoticeList.append(true)
+                                            break;
+                                        case 1: break;
+                                        default: break
+                                        }
                                     }
                                     index += 1
                                 }
@@ -124,15 +130,15 @@ class NoticeIT {
         var isNoticeList = [Bool]()
         var requestURL = ""
         let noticeUrl = "http://media.ssu.ac.kr/sub.php?code=XxH00AXY&mode=&category=1&searchType=&search=&orderType=&orderBy=&page=\(page)"
-
+        
         if keyword != nil {
             let keywordSearch = keyword!.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)
             let searchUrl = "http://media.ssu.ac.kr/sub.php?code=XxH00AXY&mode=&category=1&searchType=title&search=\(keywordSearch!)&orderType=&orderBy=&page=\(page)"
-                
-                requestURL = searchUrl
+            
+            requestURL = searchUrl
         } else {
-                requestURL = noticeUrl
-            }
+            requestURL = noticeUrl
+        }
         
         var index = 0
         Alamofire.request(requestURL).responseString { response in
@@ -407,7 +413,7 @@ class NoticeIT {
             }
         }
     }
-
+    
 }
 
 extension String{
@@ -427,6 +433,6 @@ extension String{
     }
     
     func isNumeric() -> Bool {
-      return Double(self) != nil
+        return Double(self) != nil
     }
 }

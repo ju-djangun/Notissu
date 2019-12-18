@@ -86,27 +86,37 @@ class SearchViewController: BaseViewController, UIPickerViewDelegate, UIPickerVi
     }
     
     func showPickerActionSheet() {
-        let alert = UIAlertController(title: "전공을 선택하세요.", message: "\n\n\n\n\n\n", preferredStyle: .actionSheet)
-        alert.isModalInPopover = true
-        let width = alert.view.frame.width
-        let pickerFrame = UIPickerView(frame: CGRect(x: 0, y: 40, width: width - 16, height: 150))
+        let alert: UIAlertController?
+        let pickerFrame: UIPickerView?
         
-        alert.view.addSubview(pickerFrame)
-        pickerFrame.dataSource = self
-        pickerFrame.delegate = self
+        if UIDevice.current.userInterfaceIdiom == .pad {
+            alert = UIAlertController(title: "전공을 선택하세요.", message: "\n\n\n\n\n\n\n\n", preferredStyle: .alert)
+            alert!.isModalInPopover = true
+            pickerFrame = UIPickerView(frame: CGRect(x: 0, y: 40, width: 270, height: 150))
+        } else {
+            alert = UIAlertController(title: "전공을 선택하세요.", message: "\n\n\n\n\n\n", preferredStyle: .actionSheet)
+            alert!.isModalInPopover = true
+            let width = alert!.view.frame.width
+            pickerFrame = UIPickerView(frame: CGRect(x: 0, y: 40, width: width - 16, height: 150))
+        }
+        
+        alert!.view.addSubview(pickerFrame!)
+        pickerFrame!.dataSource = self
+        pickerFrame!.delegate = self
         
         if self.selectedIndex < 0 {
             self.selectedIndex = 0
         }
         
-        pickerFrame.selectRow(selectedIndex, inComponent: 0, animated: true)
+        pickerFrame!.selectRow(selectedIndex, inComponent: 0, animated: true)
         
-        alert.addAction(UIAlertAction(title: "취소", style: .cancel, handler: nil))
-        alert.addAction(UIAlertAction(title: "확인", style: .default, handler: { (UIAlertAction) in
+        alert!.addAction(UIAlertAction(title: "취소", style: .cancel, handler: nil))
+        alert!.addAction(UIAlertAction(title: "확인", style: .default, handler: { (UIAlertAction) in
             self.majorText.text = "선택한 전공 : \(self.selectedMajor.rawValue)"
             
         }))
-        self.present(alert,animated: true, completion: nil )
+        
+        self.present(alert!, animated: true, completion: nil)
     }
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {

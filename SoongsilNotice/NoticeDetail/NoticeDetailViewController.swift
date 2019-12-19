@@ -115,6 +115,9 @@ class NoticeDetailViewController: BaseViewController, WKNavigationDelegate, WKUI
                     case DeptCode.Engineering_Industrial:
                         self.presenter!.parseEngineerIndustry(html: doc, host: "http://iise.ssu.ac.kr", completion: self.showWebViewPage)
                         break
+                    case DeptCode.Engineering_Architect:
+                        self.presenter!.parseEngineerArchitect(html: doc, host: "http://soar.ssu.ac.kr", completion: self.showWebViewPage)
+                        break
                     case DeptCode.Engineering_Organic:
                         self.hideProgressBar()
                         self.webView.load(URLRequest(url: URL(string: self.detailURL ?? "")!))

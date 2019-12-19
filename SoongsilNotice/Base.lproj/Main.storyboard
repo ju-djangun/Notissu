@@ -352,7 +352,7 @@
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalCompressionResistancePriority="751" text="전공이름" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Umj-4e-AJA">
                                                 <rect key="frame" x="8" y="18" width="332" height="24"/>
                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
-                                                <color key="textColor" name="nav_bg"/>
+                                                <color key="textColor" name="tab_icon_tint"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
@@ -459,7 +459,7 @@
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eCu-ob-1gX">
                                 <rect key="frame" x="22" y="322" width="370" height="56"/>
-                                <color key="backgroundColor" name="tab_icon_tint"/>
+                                <color key="backgroundColor" name="search_btn"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="56" id="Dn4-Kc-LiB"/>
                                 </constraints>
@@ -474,7 +474,7 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Dk-r8-3KZ">
                                 <rect key="frame" x="22" y="133" width="370" height="56"/>
-                                <color key="backgroundColor" name="tab_icon_tint"/>
+                                <color key="backgroundColor" name="search_btn"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="56" id="DJ6-d3-Arm"/>
                                 </constraints>
@@ -500,7 +500,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jJN-TJ-gOz">
-                                <rect key="frame" x="22" y="430" width="370" height="155.5"/>
+                                <rect key="frame" x="22" y="430" width="370" height="171"/>
                                 <string key="text">학교공지(SSU:Catch)
 IT 대학
 법과대학
@@ -510,7 +510,8 @@ IT 대학
 경영대학
 경제통상대학
 사회과학대학
-융합특성화자유전공학부</string>
+융합특성화자유전공학부
+(건축학부 제외)</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                 <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -575,7 +576,7 @@ IT 대학
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Open Source Library Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qCS-lY-CFf">
                                                     <rect key="frame" x="20" y="11" width="374" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
-                                                    <color key="textColor" name="nav_bg"/>
+                                                    <color key="textColor" name="tab_icon_tint"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="htw-Io-kMz">
@@ -1013,6 +1014,9 @@ IT 대학
         </namedColor>
         <namedColor name="nav_bg">
             <color red="0.14100000262260437" green="0.28200000524520874" blue="0.73299998044967651" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="search_btn">
+            <color red="0.14100000262260437" green="0.28299999237060547" blue="0.73299998044967651" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <namedColor name="tab_icon_tint">
             <color red="0.14100000262260437" green="0.28299999237060547" blue="0.73299998044967651" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>

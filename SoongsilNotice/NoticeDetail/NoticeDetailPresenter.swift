@@ -227,6 +227,34 @@ class NoticeDetailPresenter: NoticeDetail {
         completion(attachmentList, detailHTML)
     }
     
+    func parseEngineerArchitect(html: HTMLDocument, host: String?, completion: @escaping ([Attachment], String) -> Void) {
+        let fullHTML = html.css("table[class='table'] tr")
+        var contentHTML = ""
+        var index = 0
+        var attachmentList = [Attachment]()
+        
+        for tr in fullHTML {
+            // 마지막 제외하고 모두 첨부파일임
+            print(tr.css("td p").count)
+            if tr.css("td p").count < 1 {
+                print("attachment")
+                let fileName = tr.css("a").first?.text?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
+                let fileLink = tr.css("a").first?["href"]?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
+                print("\(host!)\(fileLink)")
+                attachmentList.append(Attachment(fileName: fileName, fileURL: "\(host!)\(fileLink)"))
+            } else {
+                print("content")
+                contentHTML = tr.innerHTML ?? ""
+                break
+            }
+        }
+        
+        let detailHTML = "\(htmlStart)\(contentHTML)\(htmlEnd)"
+        // Attachment Format
+        // http://soar.ssu.ac.kr/upload/20191008184403_붙임1-이수구분-변경-기준.hwp
+        completion(attachmentList, detailHTML)
+    }
+    
     func parseNaturalMath(html: HTMLDocument, host: String?, completion: @escaping ([Attachment], String) -> Void) {
         let contentHTML = html.css("div[class^='frame-box']").first?.innerHTML ?? ""
         var detailHTML = "\(htmlStart)\(contentHTML)\(htmlEnd)"

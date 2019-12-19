@@ -332,7 +332,7 @@ class NoticeEngineering {
         } else {
             requestURL = noticeUrl
         }
-
+        
         Alamofire.request(requestURL).responseString { response in
             switch(response.result) {
             case .success(_):
@@ -374,6 +374,72 @@ class NoticeEngineering {
                     // 17
                     completion(noticeList)
                 }
+            case .failure(_):
+                print("Error message:\(String(describing: response.result.error))")
+                break
+            }
+        }
+    }
+    
+    static func parseListArchitect(page: Int, completion: @escaping ([Notice]) -> Void) {
+        let noticeUrl = "\(NoticeURL.engineerArchitectURL)"
+        var noticeList = [Notice]()
+        var titleList  = [String]()
+        var urlList = [String]()
+        var dateStringList = [String]()
+        var index = 0
+        var requestURL = ""
+        
+        requestURL = noticeUrl
+        
+        Alamofire.request(requestURL).responseString { response in
+            switch(response.result) {
+            case .success(_):
+                guard let data = response.data else { return }
+                let utf8Text = String(data: data, encoding: .utf8) ?? String(decoding: data, as: UTF8.self)
+                
+                do {
+                    let doc = try HTML(html: utf8Text, encoding: .utf8)
+                    for product in doc.css("tr[class='clickableRow']") {
+                        print("URL : \(product["href"] ?? "")")
+                        let paramURL = product["href"] ?? ""
+                        urlList.append("http://soar.ssu.ac.kr\(paramURL)")
+                        var index = 0
+                        for text in product.css("td") {
+                            let content = text.text!.trimmingCharacters(in: .whitespacesAndNewlines)
+                            switch (index) {
+                            case 0:
+                                //Category
+                                print("TEXT : \(content)")
+                                break
+                            case 1:
+                                //title
+                                titleList.append(content)
+                                print("TITLE : \(content)")
+                                break
+                            case 2:
+                                //date
+                                dateStringList.append(content)
+                                print("DATE : \(content)")
+                                break
+                            default:
+                                break
+                            }
+                            index += 1
+                        }
+                    }
+                } catch let error {
+                    print("Error : \(error)")
+                }
+                
+                index = 0
+                for _ in urlList {
+                    let noticeItem = Notice(author: "", title: titleList[index], url: urlList[index], date: dateStringList[index], isNotice: false)
+                    noticeList.append(noticeItem)
+                    index += 1
+                }
+                // 17
+                completion(noticeList)
             case .failure(_):
                 print("Error message:\(String(describing: response.result.error))")
                 break

@@ -373,7 +373,7 @@ class NoticeSocial {
                         var boldCount = 0
                         let doc = try HTML(html: data, encoding: .utf8)
                         var isAdd = false
-                        for product in doc.css("table[class='bbs-list'] tbody td") {
+                        for product in doc.css("table[class='board_list'] td") {
                             let content = product.text!.trimmingCharacters(in: .whitespacesAndNewlines)
                             print(content)
                             switch (index % 5) {
@@ -434,6 +434,11 @@ class NoticeSocial {
                     
                     index = 0
                     for _ in urlList {
+                        print(authorList[index])
+                        print(titleList[index])
+                        print(urlList[index])
+                        print(dateStringList[index])
+                        
                         let noticeItem = Notice(author: authorList[index], title: titleList[index], url: urlList[index], date: dateStringList[index], isNotice: false)
                         noticeList.append(noticeItem)
                         index += 1

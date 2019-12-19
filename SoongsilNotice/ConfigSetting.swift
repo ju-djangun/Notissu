@@ -36,44 +36,45 @@ public enum DeptCode: Int, CaseIterable {
     case Engineering_Electonic    = 10
     case Engineering_Machine      = 11
     case Engineering_Industrial   = 12
+    case Engineering_Architect    = 13
 
     // 인문대학
-    case Inmun_Korean = 13
-    case Inmun_Chinese = 14
-    case Inmun_English = 15
-    case Inmun_French = 16
-    case Inmun_German = 17
-    case Inmun_Japanese = 18
-    case Inmun_History = 19 // 사학과
-    case Inmun_Philosophy = 20 // 철학과
+    case Inmun_Korean = 14
+    case Inmun_Chinese = 15
+    case Inmun_English = 16
+    case Inmun_French = 17
+    case Inmun_German = 18
+    case Inmun_Japanese = 19
+    case Inmun_History = 20 // 사학과
+    case Inmun_Philosophy = 21 // 철학과
     
     // 자연과학대학
-    case NaturalScience_Math = 21 // 수학과
-    case NaturalScience_Chemistry = 22 // 화학과
-    case NaturalScience_Physics = 23 // 물리학과
-    case NaturalScience_Actuarial = 24 // 정보통계 보험수리학과
-    case NaturalScience_Medical = 25 // 의생명시스템학부
+    case NaturalScience_Math = 22 // 수학과
+    case NaturalScience_Chemistry = 23 // 화학과
+    case NaturalScience_Physics = 24 // 물리학과
+    case NaturalScience_Actuarial = 25 // 정보통계 보험수리학과
+    case NaturalScience_Medical = 26 // 의생명시스템학부
     
     // 경영대학
-    case Business_biz = 26 // 경영학부
-    case Business_venture = 27 // 벤처중소기업학과
-    case Business_Account = 28 // 회계학과
-    case Business_Finance = 29 // 금융학부
+    case Business_biz = 27 // 경영학부
+    case Business_venture = 28 // 벤처중소기업학과
+    case Business_Account = 29 // 회계학과
+    case Business_Finance = 30 // 금융학부
     
     // 경제통상대학
-    case Economy_Economics = 30 // 경제학과
-    case Economy_GlobalCommerce = 31 // 글로벌통상학과
+    case Economy_Economics = 31 // 경제학과
+    case Economy_GlobalCommerce = 32 // 글로벌통상학과
     
     // 사회과학대학
-    case Social_Welfare = 32 // 사회복지학부
-    case Social_Administration = 33 // 행정학부
-    case Social_Sociology = 34 // 정보사회학과
-    case Social_Journalism = 35 // 언론홍보학과
-    case Social_LifeLong = 36 // 평생교육학과
-    case Social_Political = 37 // 정치외교학과
+    case Social_Welfare = 33 // 사회복지학부
+    case Social_Administration = 34 // 행정학부
+    case Social_Sociology = 35 // 정보사회학과
+    case Social_Journalism = 36 // 언론홍보학과
+    case Social_LifeLong = 37 // 평생교육학과
+    case Social_Political = 38 // 정치외교학과
     
     // 융합특성화 자유전공학부
-    case MIX_mix          = 38
+    case MIX_mix          = 39
     
     case Soongsil = 100
 }
@@ -95,6 +96,7 @@ public enum DeptName: String, CaseIterable {
     case Engineering_Electonic = "전기공학과"
     case Engineering_Machine = "기계공학부"
     case Engineering_Industrial = "산업정보시스템공학과"
+    case Engineering_Architect = "건축학부"
     
     // 인문대학
     case Inmun_Korean = "국어국문학과"
@@ -155,6 +157,7 @@ public enum DeptNameEng: String {
     case Engineering_Electonic = "School of Electrical Engineering"
     case Engineering_Machine = "School of Mechanical Engineering"
     case Engineering_Industrial = "Industrial & Information Systems"
+    case Engineering_Architect = "School of Architect"
     
     // 인문대학
     case Inmun_Korean = "Korean Language & Literature"

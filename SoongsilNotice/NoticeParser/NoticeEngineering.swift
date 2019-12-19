@@ -384,7 +384,6 @@ class NoticeEngineering {
     static func parseListArchitect(page: Int, completion: @escaping ([Notice]) -> Void) {
         let noticeUrl = "\(NoticeURL.engineerArchitectURL)"
         var noticeList = [Notice]()
-        var authorList = [String]()
         var titleList  = [String]()
         var urlList = [String]()
         var dateStringList = [String]()
@@ -402,8 +401,9 @@ class NoticeEngineering {
                 do {
                     let doc = try HTML(html: utf8Text, encoding: .utf8)
                     for product in doc.css("tr[class='clickableRow']") {
-                        print("URL : \(product["href"])")
-                        urlList.append(product["href"] ?? "")
+                        print("URL : \(product["href"] ?? "")")
+                        let paramURL = product["href"] ?? ""
+                        urlList.append("http://soar.ssu.ac.kr\(paramURL)")
                         var index = 0
                         for text in product.css("td") {
                             let content = text.text!.trimmingCharacters(in: .whitespacesAndNewlines)

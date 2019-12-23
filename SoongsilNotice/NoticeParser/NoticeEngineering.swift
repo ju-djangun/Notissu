@@ -393,6 +393,8 @@ class NoticeEngineering {
         var requestURL = ""
         var isAddItem = false
         
+        print("keyword : \(keyword)")
+        
         if keyword.isEmpty {
             isSearchMode = false
         } else {

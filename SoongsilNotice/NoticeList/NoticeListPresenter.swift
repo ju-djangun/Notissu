@@ -83,7 +83,7 @@ class NoticeListPresenter: NoticePresenter {
             NoticeEngineering.parseListOrganic(page: page, keyword: keyword, completion: self.view.applyToTableView)
             break
         case DeptCode.Engineering_Architect:
-            NoticeEngineering.parseListArchitect(page: page, completion: self.view.applyToTableView)
+            NoticeEngineering.parseListArchitect(page: page, keyword: keyword ?? "", completion: self.view.applyToTableView)
             break
         case DeptCode.NaturalScience_Math:
             NoticeNaturalScience.parseListMath(page: page, keyword: keyword, completion: self.view.applyToTableView)

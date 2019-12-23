@@ -391,9 +391,6 @@ class NoticeEngineering {
         var isSearchMode = false
         var index = 0
         var requestURL = ""
-        var isAddItem = false
-        
-        print("keyword : \(keyword)")
         
         if keyword.isEmpty {
             isSearchMode = false
@@ -414,7 +411,6 @@ class NoticeEngineering {
                     do {
                         let doc = try HTML(html: utf8Text, encoding: .utf8)
                         for product in doc.css("tr[class='clickableRow']") {
-                            print("URL : \(product["href"] ?? "")")
                             let paramURL = product["href"] ?? ""
                             urlList.append("http://soar.ssu.ac.kr\(paramURL)")
                             var index = 0
@@ -423,17 +419,14 @@ class NoticeEngineering {
                                 switch (index) {
                                 case 0:
                                     //Category
-                                    print("TEXT : \(content)")
                                     break
                                 case 1:
                                     //title
                                     titleList.append(content)
-                                    print("TITLE : \(content)")
                                     break
                                 case 2:
                                     //date
                                     dateStringList.append(content)
-                                    print("DATE : \(content)")
                                     break
                                 default:
                                     break

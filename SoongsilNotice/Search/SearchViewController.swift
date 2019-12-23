@@ -115,15 +115,7 @@ class SearchViewController: BaseViewController, UIPickerViewDelegate, UIPickerVi
             self.majorText.text = "선택한 전공 : \(self.selectedMajor.rawValue)"
             
         }))
-        
-//        if selectedMajor != DeptName.Engineering_Architect {
-            self.present(alert!, animated: true, completion: nil)
-//        } else {
-//            let alertA: UIAlertController?
-//            alertA = UIAlertController(title: "건축학부는 검색을 지원하지 않습니다.", message: "", preferredStyle: .alert)
-//            alertA!.addAction(UIAlertAction(title: "확인", style: .default, handler: nil))
-//            self.present(alertA!, animated: true, completion: nil)
-//        }
+        self.present(alert!, animated: true, completion: nil)
     }
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {

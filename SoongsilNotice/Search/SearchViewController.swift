@@ -8,29 +8,18 @@
 
 import UIKit
 
-class SearchViewController: BaseViewController, UIPickerViewDelegate, UIPickerViewDataSource {
+class SearchViewController: BaseViewController, SearchViewProtocol, UIPickerViewDelegate, UIPickerViewDataSource {
     
     @IBOutlet var majorText       : UILabel!
     @IBOutlet var pickerView      : UIPickerView!
     @IBOutlet var searchBtn       : UIButton!
     @IBOutlet var keywordTextField: UITextField!
     
-    private var majorList = [DeptName]()
-    private var majorCodeList = [DeptCode]()
-    
     private var selectedIndex = -1
     private var selectedMajor = DeptName.IT_Computer
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        for deptName in DeptName.allCases {
-            majorList.append(deptName)
-        }
-        
-        for deptCode in DeptCode.allCases {
-            majorCodeList.append(deptCode)
-        }
         
     }
     

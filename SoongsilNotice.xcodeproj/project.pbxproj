@@ -37,6 +37,9 @@
 		DE55424B2379340A004E01EB /* MoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE55424A2379340A004E01EB /* MoreViewController.swift */; };
 		DE72017B237A76DE00F60CEB /* NoticeConvergence.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE72017A237A76DE00F60CEB /* NoticeConvergence.swift */; };
 		DE72017F237A871B00F60CEB /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DE72017E237A871B00F60CEB /* Launch Screen.storyboard */; };
+		DE7496B123DC008C00000849 /* SearchPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE7496B023DC008C00000849 /* SearchPresenter.swift */; };
+		DE7496B323DC009500000849 /* SearchContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE7496B223DC009500000849 /* SearchContract.swift */; };
+		DE7496B523DC00D400000849 /* SearchModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE7496B423DC00D400000849 /* SearchModel.swift */; };
 		DE8C73842379BB2E008F2FE1 /* NoticeEconomy.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE8C73832379BB2E008F2FE1 /* NoticeEconomy.swift */; };
 		DE8C73862379BDF6008F2FE1 /* NoticeSocial.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE8C73852379BDF6008F2FE1 /* NoticeSocial.swift */; };
 		DEBB714E23744AC700C38812 /* Pods_SoongsilNotice.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57296D4BD235F1B361E7E590 /* Pods_SoongsilNotice.framework */; };
@@ -92,6 +95,9 @@
 		DE55424A2379340A004E01EB /* MoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreViewController.swift; sourceTree = "<group>"; };
 		DE72017A237A76DE00F60CEB /* NoticeConvergence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeConvergence.swift; sourceTree = "<group>"; };
 		DE72017E237A871B00F60CEB /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
+		DE7496B023DC008C00000849 /* SearchPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPresenter.swift; sourceTree = "<group>"; };
+		DE7496B223DC009500000849 /* SearchContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchContract.swift; sourceTree = "<group>"; };
+		DE7496B423DC00D400000849 /* SearchModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchModel.swift; sourceTree = "<group>"; };
 		DE8C73832379BB2E008F2FE1 /* NoticeEconomy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeEconomy.swift; sourceTree = "<group>"; };
 		DE8C73852379BDF6008F2FE1 /* NoticeSocial.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeSocial.swift; sourceTree = "<group>"; };
 		DEBB714C23744AC400C38812 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
@@ -251,6 +257,9 @@
 			isa = PBXGroup;
 			children = (
 				DEF56D7423837778003CA0F0 /* SearchViewController.swift */,
+				DE7496B023DC008C00000849 /* SearchPresenter.swift */,
+				DE7496B223DC009500000849 /* SearchContract.swift */,
+				DE7496B423DC00D400000849 /* SearchModel.swift */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -399,6 +408,7 @@
 				DE8C73862379BDF6008F2FE1 /* NoticeSocial.swift in Sources */,
 				DEBFDC43237E31A3003888D9 /* MoreTableCell.swift in Sources */,
 				DE29613623703F4C0074F24B /* AppDelegate.swift in Sources */,
+				DE7496B523DC00D400000849 /* SearchModel.swift in Sources */,
 				DE29615B237289D60074F24B /* NoticeDetailContract.swift in Sources */,
 				DE501C492374FD250053055A /* NoticeURL.swift in Sources */,
 				DEBFDC45237E391C003888D9 /* OpenSourceViewController.swift in Sources */,
@@ -415,11 +425,13 @@
 				DE03E9CF2379B05D002AA5AE /* NoticeBusiness.swift in Sources */,
 				DE5542422377D993004E01EB /* StartViewController.swift in Sources */,
 				DE2961592371ADEE0074F24B /* NoticeDetailViewController.swift in Sources */,
+				DE7496B323DC009500000849 /* SearchContract.swift in Sources */,
 				DE2961532370FF4E0074F24B /* Notice.swift in Sources */,
 				DEF56D7A2383BF81003CA0F0 /* SchoolPresenter.swift in Sources */,
 				DE72017B237A76DE00F60CEB /* NoticeConvergence.swift in Sources */,
 				DEBFDC47237E3950003888D9 /* OpenSourceTableViewCell.swift in Sources */,
 				DE29614D2370FCB20074F24B /* NoticeListPresenter.swift in Sources */,
+				DE7496B123DC008C00000849 /* SearchPresenter.swift in Sources */,
 				DE0F8F1D2373F346006A0B49 /* HomeCell.swift in Sources */,
 				DE2961512370FD0A0074F24B /* NoticeListViewCell.swift in Sources */,
 				DEF56D782383BF05003CA0F0 /* SchoolViewController.swift in Sources */,

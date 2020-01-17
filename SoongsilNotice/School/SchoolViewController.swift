@@ -12,7 +12,7 @@ class SchoolViewController: BaseViewController, SchoolView, UITableViewDelegate,
     @IBOutlet var noticeListView: UITableView!
     var spinnerFooter = UIActivityIndicatorView(style: .gray)
     
-    private var presenter: SchoolPresenter?
+    private var presenter: SchoolPresenter!
     private var noticeList = [Notice]()
     private var refreshControl      = UIRefreshControl()
     private var page : Int = 1
@@ -56,7 +56,7 @@ class SchoolViewController: BaseViewController, SchoolView, UITableViewDelegate,
         
         ConfigSetting.canFetchData = true
         self.noticeList.removeAll()
-        self.presenter?.parseSchoolNotice(page: 1, keyword: nil)
+        self.presenter.parseSchoolNotice(page: 1, keyword: nil)
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -102,7 +102,7 @@ class SchoolViewController: BaseViewController, SchoolView, UITableViewDelegate,
             self.noticeListView.tableFooterView?.isHidden = false
             
             self.page += 1
-            self.presenter!.parseSchoolNotice(page: page, keyword: nil)
+            self.presenter.parseSchoolNotice(page: page, keyword: nil)
         }
     }
 }

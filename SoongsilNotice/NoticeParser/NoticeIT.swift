@@ -371,7 +371,7 @@ class NoticeIT {
                         
                         for product in doc.css("table[class='ui celled padded table'] tbody td") {
                             let content = (product.text ?? "").trimmingCharacters(in: .whitespacesAndNewlines)
-                            switch(index % 3) {
+                            switch(index % 4) {
                             case 0:
                                 //title
                                 titleList.append(content)

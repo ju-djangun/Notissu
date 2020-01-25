@@ -137,7 +137,6 @@ class NoticeListPresenter: NoticePresenter {
             NoticeSocial.parseListPolitical(page: page, keyword: keyword, completion: self.view.applyToTableView)
             break
         case DeptCode.MIX_mix:
-            print("융합특성화")
             NoticeConvergence.parseListConvergence(page: page, keyword: keyword, completion: self.view.applyToTableView)
             break
         default: break

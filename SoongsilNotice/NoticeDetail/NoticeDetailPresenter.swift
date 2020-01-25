@@ -24,15 +24,11 @@ class NoticeDetailPresenter: NoticeDetail {
         var index = 0
         var contentHTML = ""
         for div in html.css("div[class^='bg-white p-4 mb-5'] div") {
-//            print(div.toHTML)
             if index == 4 {
                 contentHTML = div.toHTML ?? ""
-//                print(div.toHTML)
             }
             index += 1
         }
-//        contentHTML = html.css("div[class^='bg-white p-4 mb-5'] div").first?.toHTML ?? ""
-//        print(contentHTML)
         
         let detailHTML = "\(htmlStart)\(contentHTML)\(htmlEnd)"
         var attachmentList = [Attachment]()

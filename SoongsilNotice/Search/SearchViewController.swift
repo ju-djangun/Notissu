@@ -15,12 +15,14 @@ class SearchViewController: BaseViewController, SearchViewProtocol, UIPickerView
     @IBOutlet var searchBtn       : UIButton!
     @IBOutlet var keywordTextField: UITextField!
     
+    private var presenter: SearchPresenter!
+    
     private var selectedIndex = -1
     private var selectedMajor = DeptName.IT_Computer
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.presenter = SearchPresenter(view: self)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -55,11 +57,11 @@ class SearchViewController: BaseViewController, SearchViewProtocol, UIPickerView
             print("---")
             print(selectedIndex)
             print(selectedMajor)
-            print(majorCodeList[selectedIndex].rawValue)
-            print(majorList[selectedIndex].rawValue)
+            print(self.presenter.getMajorCodeListItem(at: selectedIndex).rawValue)
+            print(self.presenter.getMajorListItem(at: selectedIndex).rawValue)
             print("---")
             
-            noticeListViewController?.noticeDeptCode = majorCodeList[selectedIndex]
+            noticeListViewController?.noticeDeptCode = self.presenter.getMajorCodeListItem(at: selectedIndex)
             noticeListViewController?.noticeDeptName = selectedMajor
             
             noticeListViewController?.isSearchResult = true
@@ -112,17 +114,17 @@ class SearchViewController: BaseViewController, SearchViewProtocol, UIPickerView
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return self.majorList.count
+        return self.presenter.getMajorCodeListCount()
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return self.majorList[row].rawValue
+        return self.presenter.getMajorListItem(at: row).rawValue
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        print("\(row) : \(self.majorList[row].rawValue)")
+        print("\(row) : \(self.presenter.getMajorListItem(at: row))")
         selectedIndex = row
-        selectedMajor = self.majorList[row]
+        selectedMajor = self.presenter.getMajorListItem(at: row)
     }
     
 }

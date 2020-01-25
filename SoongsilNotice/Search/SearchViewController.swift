@@ -54,13 +54,6 @@ class SearchViewController: BaseViewController, SearchViewProtocol, UIPickerView
             let storyBoard = self.storyboard!
             let noticeListViewController = storyBoard.instantiateViewController(withIdentifier: "noticeListVC") as? NoticeListViewController
             
-            print("---")
-            print(selectedIndex)
-            print(selectedMajor)
-            print(self.presenter.getMajorCodeListItem(at: selectedIndex).rawValue)
-            print(self.presenter.getMajorListItem(at: selectedIndex).rawValue)
-            print("---")
-            
             noticeListViewController?.noticeDeptCode = self.presenter.getMajorCodeListItem(at: selectedIndex)
             noticeListViewController?.noticeDeptName = selectedMajor
             
@@ -109,6 +102,9 @@ class SearchViewController: BaseViewController, SearchViewProtocol, UIPickerView
         self.present(alert!, animated: true, completion: nil)
     }
     
+}
+
+extension SearchViewController {
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
@@ -126,5 +122,4 @@ class SearchViewController: BaseViewController, SearchViewProtocol, UIPickerView
         selectedIndex = row
         selectedMajor = self.presenter.getMajorListItem(at: row)
     }
-    
 }

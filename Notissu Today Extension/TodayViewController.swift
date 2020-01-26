@@ -11,9 +11,14 @@ import NotificationCenter
 
 class TodayViewController: UIViewController, NCWidgetProviding {
         
+    @IBOutlet var DebugText: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        let myDeptNameRawValue = UserDefaults(suiteName: "group.com.elliott.Notissu")?.string(forKey: "myDeptName")
+        let myDeptCodeRawValue = UserDefaults(suiteName: "group.com.elliott.Notissu")?.integer(forKey: "myDeptCode")
+        
+        self.DebugText.text = "[name_raw] : \(myDeptNameRawValue)\n[code_raw] : \(myDeptCodeRawValue)"
     }
         
     func widgetPerformUpdate(completionHandler: (@escaping (NCUpdateResult) -> Void)) {

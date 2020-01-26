@@ -9,24 +9,32 @@
 import UIKit
 import NotificationCenter
 
-class TodayViewController: UIViewController, NCWidgetProviding {
-        
+class TodayViewController: UIViewController, TodayViewProtocol, NCWidgetProviding {
+    private var presenter: TodayPresenter!
+    private var myDeptName: String?
+    
     @IBOutlet var DebugText: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        self.presenter = TodayPresenter(view: self)
         
         if let userDefaults = UserDefaults(suiteName: "group.com.elliott.Notissu") {
             let myDeptNameRawValue = userDefaults.string(forKey: "myDeptName")
-            let myDeptCodeRawValue = userDefaults.string(forKey: "myDeptCode")
-            if myDeptNameRawValue != nil && myDeptCodeRawValue != nil {
-                self.DebugText.text = "[name_raw] : \(String(describing: myDeptNameRawValue))\n[code_raw] : \(String(describing: myDeptCodeRawValue))"
+            let myDeptCodeRawValue = userDefaults.integer(forKey: "myDeptCode")
+            if myDeptNameRawValue != nil {
+                self.myDeptName = myDeptNameRawValue
+                self.presenter.loadNoticeList(page: 0, keyword: nil, deptCode: DeptCode(rawValue: myDeptCodeRawValue)!)
             } else {
                 self.DebugText.text = "불러오는 중 오류 발생"
             }
         } else {
             self.DebugText.text = "불러오는 중 오류 발생"
         }
+    }
+    
+    func applyToTableView(list: [Notice]) {
+        self.DebugText.text = "내 전공 : \(myDeptName ?? "")\n\(list[0].title ?? "")\n\(list[0].date ?? "")"
     }
         
     func widgetPerformUpdate(completionHandler: (@escaping (NCUpdateResult) -> Void)) {

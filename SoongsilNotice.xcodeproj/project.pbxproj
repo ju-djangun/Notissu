@@ -58,6 +58,8 @@
 		DE85B93823DD29E0001FB35C /* NoticeURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE501C482374FD250053055A /* NoticeURL.swift */; };
 		DE85B93923DD29FC001FB35C /* ConfigSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE296154237195CD0074F24B /* ConfigSetting.swift */; };
 		DE85B93A23DD2AF2001FB35C /* Notice.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2961522370FF4E0074F24B /* Notice.swift */; };
+		DE85B93D23DD3001001FB35C /* TodayPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE85B93C23DD3001001FB35C /* TodayPresenter.swift */; };
+		DE85B93F23DD300A001FB35C /* TodayContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE85B93E23DD300A001FB35C /* TodayContract.swift */; };
 		DE8C73842379BB2E008F2FE1 /* NoticeEconomy.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE8C73832379BB2E008F2FE1 /* NoticeEconomy.swift */; };
 		DE8C73862379BDF6008F2FE1 /* NoticeSocial.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE8C73852379BDF6008F2FE1 /* NoticeSocial.swift */; };
 		DEBB714E23744AC700C38812 /* Pods_SoongsilNotice.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57296D4BD235F1B361E7E590 /* Pods_SoongsilNotice.framework */; };
@@ -150,6 +152,8 @@
 		DE7496B423DC00D400000849 /* SearchModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchModel.swift; sourceTree = "<group>"; };
 		DE85B92D23DD28D4001FB35C /* Notissu Today Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Notissu Today Extension.entitlements"; sourceTree = "<group>"; };
 		DE85B93B23DD2DEB001FB35C /* Notissu.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Notissu.entitlements; sourceTree = "<group>"; };
+		DE85B93C23DD3001001FB35C /* TodayPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayPresenter.swift; sourceTree = "<group>"; };
+		DE85B93E23DD300A001FB35C /* TodayContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayContract.swift; sourceTree = "<group>"; };
 		DE8C73832379BB2E008F2FE1 /* NoticeEconomy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeEconomy.swift; sourceTree = "<group>"; };
 		DE8C73852379BDF6008F2FE1 /* NoticeSocial.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeSocial.swift; sourceTree = "<group>"; };
 		DEBB714C23744AC400C38812 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
@@ -325,9 +329,11 @@
 			isa = PBXGroup;
 			children = (
 				DE85B92D23DD28D4001FB35C /* Notissu Today Extension.entitlements */,
-				DE64BE8723DD253C00DF46C5 /* TodayViewController.swift */,
 				DE64BE8923DD253C00DF46C5 /* MainInterface.storyboard */,
 				DE64BE8C23DD253C00DF46C5 /* Info.plist */,
+				DE64BE8723DD253C00DF46C5 /* TodayViewController.swift */,
+				DE85B93C23DD3001001FB35C /* TodayPresenter.swift */,
+				DE85B93E23DD300A001FB35C /* TodayContract.swift */,
 			);
 			path = "Notissu Today Extension";
 			sourceTree = "<group>";
@@ -588,6 +594,7 @@
 				DE85B93523DD29CE001FB35C /* NoticeSocial.swift in Sources */,
 				DE85B93123DD29CE001FB35C /* NoticeInmun.swift in Sources */,
 				DE85B93023DD29CE001FB35C /* NoticeLaw.swift in Sources */,
+				DE85B93D23DD3001001FB35C /* TodayPresenter.swift in Sources */,
 				DE85B93A23DD2AF2001FB35C /* Notice.swift in Sources */,
 				DE85B93823DD29E0001FB35C /* NoticeURL.swift in Sources */,
 				DE85B93423DD29CE001FB35C /* NoticeEconomy.swift in Sources */,
@@ -597,6 +604,7 @@
 				DE85B93923DD29FC001FB35C /* ConfigSetting.swift in Sources */,
 				DE85B92E23DD29CE001FB35C /* NoticeIT.swift in Sources */,
 				DE85B93323DD29CE001FB35C /* NoticeBusiness.swift in Sources */,
+				DE85B93F23DD300A001FB35C /* TodayContract.swift in Sources */,
 				DE64BE8823DD253C00DF46C5 /* TodayViewController.swift in Sources */,
 				DE85B93623DD29CE001FB35C /* NoticeConvergence.swift in Sources */,
 			);

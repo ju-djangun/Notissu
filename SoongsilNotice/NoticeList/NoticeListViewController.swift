@@ -62,10 +62,6 @@ class NoticeListViewController: BaseViewController, NoticeListView, UITableViewD
         
         UserDefaults(suiteName: "group.com.elliott.Notissu")?.set(BaseViewController.noticeDeptCode!.rawValue, forKey: "myDeptCode")
         UserDefaults(suiteName: "group.com.elliott.Notissu")?.set(BaseViewController.noticeDeptName!.rawValue, forKey: "myDeptName")
-       
-        print("myDeptCode : \(UserDefaults(suiteName: "group.com.elliott.Notissu")?.integer(forKey: "myDeptCode"))")
-        
-        print("myDeptName : \(UserDefaults(suiteName: "group.com.elliott.Notissu")?.string(forKey: "myDeptName"))")
         UserDefaults.standard.setValue(BaseViewController.noticeDeptCode!.rawValue, forKey: "myDeptCode")
         UserDefaults.standard.setValue(BaseViewController.noticeDeptName!.rawValue, forKey: "myDeptName")
         

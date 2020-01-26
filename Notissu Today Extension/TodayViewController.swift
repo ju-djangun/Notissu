@@ -15,10 +15,18 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        let myDeptNameRawValue = UserDefaults(suiteName: "group.com.elliott.Notissu")?.string(forKey: "myDeptName")
-        let myDeptCodeRawValue = UserDefaults(suiteName: "group.com.elliott.Notissu")?.integer(forKey: "myDeptCode")
         
-        self.DebugText.text = "[name_raw] : \(myDeptNameRawValue)\n[code_raw] : \(myDeptCodeRawValue)"
+        if let userDefaults = UserDefaults(suiteName: "group.com.elliott.Notissu") {
+            let myDeptNameRawValue = userDefaults.string(forKey: "myDeptName")
+            let myDeptCodeRawValue = userDefaults.string(forKey: "myDeptCode")
+            if myDeptNameRawValue != nil && myDeptCodeRawValue != nil {
+                self.DebugText.text = "[name_raw] : \(String(describing: myDeptNameRawValue))\n[code_raw] : \(String(describing: myDeptCodeRawValue))"
+            } else {
+                self.DebugText.text = "불러오는 중 오류 발생"
+            }
+        } else {
+            self.DebugText.text = "불러오는 중 오류 발생"
+        }
     }
         
     func widgetPerformUpdate(completionHandler: (@escaping (NCUpdateResult) -> Void)) {

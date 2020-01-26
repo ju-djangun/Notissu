@@ -60,6 +60,8 @@ class NoticeListViewController: BaseViewController, NoticeListView, UITableViewD
         BaseViewController.noticeDeptCode = self.noticeDeptCode
         BaseViewController.noticeDeptName = self.noticeDeptName
         
+        UserDefaults(suiteName: "group.com.elliott.Notissu")?.set(BaseViewController.noticeDeptCode!.rawValue, forKey: "myDeptCode")
+        UserDefaults(suiteName: "group.com.elliott.Notissu")?.set(BaseViewController.noticeDeptName!.rawValue, forKey: "myDeptName")
         UserDefaults.standard.setValue(BaseViewController.noticeDeptCode!.rawValue, forKey: "myDeptCode")
         UserDefaults.standard.setValue(BaseViewController.noticeDeptName!.rawValue, forKey: "myDeptName")
         

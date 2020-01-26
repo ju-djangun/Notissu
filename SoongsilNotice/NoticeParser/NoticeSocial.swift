@@ -12,16 +12,26 @@ import UIKit
 import Kanna
 
 class NoticeSocial {
-    static func parseListWelfare(page: Int, completion: @escaping ([Notice]) -> Void) {
+    static func parseListWelfare(page: Int, keyword: String?, completion: @escaping ([Notice]) -> Void) {
         let noticeUrl = "\(NoticeURL.socialWelfareURL)\(page)"
         var noticeList = [Notice]()
         var authorList = [String]()
         var titleList  = [String]()
         var urlList = [String]()
         var dateStringList = [String]()
+        var isNoticeList = [Bool]()
         var index = 0
+        var requestURL = ""
         
-        Alamofire.request(noticeUrl).responseString(encoding: .utf8) { response in
+        if keyword != nil {
+            let keywordSearch = keyword!.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)
+            let searchUrl = "http://pre.ssu.ac.kr/web/mysoongsil/bbs_notice?p_p_id=EXT_BBS&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&p_p_col_id=column-1&p_p_col_count=1&_EXT_BBS_struts_action=%2Fext%2Fbbs%2Fview&_EXT_BBS_sCategory=&_EXT_BBS_sTitle=\(keywordSearch ?? "")&_EXT_BBS_sWriter=&_EXT_BBS_sTag=&_EXT_BBS_sContent=&_EXT_BBS_sCategory2=&_EXT_BBS_sKeyType=title&_EXT_BBS_sKeyword=\(keywordSearch ?? "")&_EXT_BBS_curPage=\(page)"
+            requestURL = searchUrl
+        } else {
+            requestURL = noticeUrl
+        }
+        
+        Alamofire.request(requestURL).responseString(encoding: .utf8) { response in
             switch(response.result) {
             case .success(_):
                 if let data = response.result.value {
@@ -32,7 +42,14 @@ class NoticeSocial {
                             let content = product.text!.trimmingCharacters(in: .whitespacesAndNewlines)
                             print(content)
                             switch (index % 6) {
-                            case 0: break
+                            case 0:
+                                if product.innerHTML?.contains("img") ?? false {
+                                    // isNotice
+                                    isNoticeList.append(true)
+                                } else {
+                                    isNoticeList.append(false)
+                                }
+                                break
                             case 1:
                                 // Title
                                 titleList.append(content)
@@ -62,7 +79,7 @@ class NoticeSocial {
                     
                     index = 0
                     for _ in urlList {
-                        let noticeItem = Notice(author: authorList[index], title: titleList[index], url: urlList[index], date: dateStringList[index], isNotice: false)
+                        let noticeItem = Notice(author: authorList[index], title: titleList[index], url: urlList[index], date: dateStringList[index], isNotice: isNoticeList[index])
                         noticeList.append(noticeItem)
                         index += 1
                     }
@@ -76,38 +93,43 @@ class NoticeSocial {
         }
     }
     
-    static func parseListAdministration(page: Int, completion: @escaping ([Notice]) -> Void) {
-        let offset =  (page - 1) * 10
-        let noticeUrl = "\(NoticeURL.socialAdministrationURL)\(offset)"
+    static func parseListAdministration(page: Int, keyword: String?, completion: @escaping ([Notice]) -> Void) {
+        let noticeUrl = "\(NoticeURL.socialAdministrationURL)\(page)/"
         var noticeList = [Notice]()
         var authorList = [String]()
         var titleList  = [String]()
         var urlList = [String]()
+        var isNoticeList = [Bool]()
         var dateStringList = [String]()
         var index = 0
+        var requestURL = ""
         
-        print(noticeUrl)
+        if keyword != nil {
+            let keywordSearch = keyword!.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)
+            let searchUrl = "https://pubad.ssu.ac.kr/%EC%A0%95%EB%B3%B4%EA%B4%91%EC%9E%A5/%ED%95%99%EB%B6%80-%EA%B3%B5%EC%A7%80%EC%82%AC%ED%95%AD/page/\(page)/?select=title&keyword=\(keywordSearch ?? "")#038;keyword=\(keywordSearch ?? "")"
+            requestURL = searchUrl
+        } else {
+            requestURL = noticeUrl
+        }
         
-        Alamofire.request(noticeUrl).responseString(encoding: .utf8) { response in
+        Alamofire.request(requestURL).responseString(encoding: .utf8) { response in
             switch(response.result) {
             case .success(_):
                 if let data = response.result.value {
                     do {
                         let doc = try HTML(html: data, encoding: .utf8)
-                        for product in doc.css("div[class='board-list'] td") {
+                        for product in doc.css("div[class='table_wrap baord_table'] td") {
                             //print("***")
                             let content = product.text!.trimmingCharacters(in: .whitespacesAndNewlines)
-                            print(content)
                             switch (index % 5) {
-                            case 0: break
+                            case 0:
+                                isNoticeList.append(!(product.text ?? "").isNumeric())
+                                break
                             case 1:
                                 // Title
                                 titleList.append(content)
                                 break
-                            case 2:
-                                // Author
-                                authorList.append(content)
-                                break
+                            case 2: break
                             case 3:
                                 // Date
                                 dateStringList.append(content)
@@ -118,9 +140,9 @@ class NoticeSocial {
                             index += 1
                         }
                         
-                        for product in doc.css("td[class='subject'] a") {
-                            print("http://pubad.ssu.ac.kr\(product["href"] ?? "")")
-                            urlList.append("http://pubad.ssu.ac.kr\(product["href"] ?? "")")
+                        for product in doc.css("td[class='title'] a") {
+                            print(product["href"] ?? "")
+                            urlList.append(product["href"] ?? "")
                         }
                     } catch let error {
                         print("Error : \(error)")
@@ -128,7 +150,7 @@ class NoticeSocial {
                     
                     index = 0
                     for _ in urlList {
-                        let noticeItem = Notice(author: authorList[index], title: titleList[index], url: urlList[index], date: dateStringList[index], isNotice: false)
+                        let noticeItem = Notice(author: "", title: titleList[index], url: urlList[index], date: dateStringList[index], isNotice: isNoticeList[index])
                         noticeList.append(noticeItem)
                         index += 1
                     }
@@ -142,7 +164,7 @@ class NoticeSocial {
         }
     }
     
-    static func parseListSociology(page: Int, completion: @escaping ([Notice]) -> Void) {
+    static func parseListSociology(page: Int, keyword: String?, completion: @escaping ([Notice]) -> Void) {
         let offset =  (page - 1) * 10
         let noticeUrl = "\(NoticeURL.socialSociologyURL)\(offset)"
         var noticeList = [Notice]()
@@ -151,10 +173,17 @@ class NoticeSocial {
         var urlList = [String]()
         var dateStringList = [String]()
         var index = 0
+        var requestURL = ""
         
-        print(noticeUrl)
+        if keyword != nil {
+            let keywordSearch = keyword!.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)
+            let searchUrl = "http://inso.ssu.ac.kr/sub/sub04_01.php?boardid=notice&sk=\(keywordSearch ?? "")&sw=a&category=%ED%95%99%EA%B3%BC%EA%B3%B5%EC%A7%80&offset=\(offset)"
+            requestURL = searchUrl
+        } else {
+            requestURL = noticeUrl
+        }
         
-        Alamofire.request(noticeUrl).responseString(encoding: .utf8) { response in
+        Alamofire.request(requestURL).responseString(encoding: .utf8) { response in
             switch(response.result) {
             case .success(_):
                 if let data = response.result.value {
@@ -212,18 +241,26 @@ class NoticeSocial {
         }
     }
     
-    static func parseListJournalism(page: Int, completion: @escaping ([Notice]) -> Void) {
+    static func parseListJournalism(page: Int, keyword: String?, completion: @escaping ([Notice]) -> Void) {
         let noticeUrl = "\(NoticeURL.socialJournalismURL)\(page)"
         var noticeList = [Notice]()
         var authorList = [String]()
         var titleList  = [String]()
         var urlList = [String]()
+        var isNoticeList = [Bool]()
         var dateStringList = [String]()
         var index = 0
+        var requestURL = ""
         
-        print("\(noticeUrl) : \(page)")
+        if keyword != nil {
+            let keywordSearch = keyword!.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)
+            let searchUrl = "http://pre.ssu.ac.kr/web/ssja/20?p_p_id=EXT_BBS&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&p_p_col_id=column-1&p_p_col_count=1&_EXT_BBS_struts_action=%2Fext%2Fbbs%2Fview&_EXT_BBS_sCategory=&_EXT_BBS_sTitle=\(keywordSearch ?? "")&_EXT_BBS_sWriter=&_EXT_BBS_sTag=&_EXT_BBS_sContent=&_EXT_BBS_sCategory2=&_EXT_BBS_sKeyType=title&_EXT_BBS_sKeyword=\(keywordSearch ?? "")&_EXT_BBS_curPage=\(page)"
+            requestURL = searchUrl
+        } else {
+            requestURL = noticeUrl
+        }
         
-        Alamofire.request(noticeUrl).responseString(encoding: .utf8) { response in
+        Alamofire.request(requestURL).responseString(encoding: .utf8) { response in
             switch(response.result) {
             case .success(_):
                 if let data = response.result.value {
@@ -241,6 +278,7 @@ class NoticeSocial {
                                 print(content)
                                 switch (index % 5) {
                                 case 0:
+                                    isNoticeList.append(false)
                                     // Title
                                     titleList.append(content)
                                     break
@@ -265,6 +303,7 @@ class NoticeSocial {
                                 print(content)
                                 switch (index % 5) {
                                 case 0:
+                                    isNoticeList.append(item.className == "trNotice")
                                     // Title
                                     titleList.append(content)
                                     break
@@ -294,7 +333,7 @@ class NoticeSocial {
                     
                     index = 0
                     for _ in urlList {
-                        let noticeItem = Notice(author: authorList[index], title: titleList[index], url: urlList[index], date: dateStringList[index], isNotice: false)
+                        let noticeItem = Notice(author: authorList[index], title: titleList[index], url: urlList[index], date: dateStringList[index], isNotice: isNoticeList[index])
                         noticeList.append(noticeItem)
                         index += 1
                     }
@@ -308,7 +347,7 @@ class NoticeSocial {
         }
     }
     
-    static func parseListLifeLong(page: Int, completion: @escaping ([Notice]) -> Void) {
+    static func parseListLifeLong(page: Int, keyword: String?, completion: @escaping ([Notice]) -> Void) {
         let noticeUrl = "\(NoticeURL.socialLifeLongURL)\(page)"
         var noticeList = [Notice]()
         var authorList = [String]()
@@ -316,8 +355,17 @@ class NoticeSocial {
         var urlList = [String]()
         var dateStringList = [String]()
         var index = 0
+        var requestURL = ""
         
-        Alamofire.request(noticeUrl).responseString(encoding: .utf8) { response in
+        if keyword != nil {
+            let keywordSearch = keyword!.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)
+            let searchUrl = "http://lifelongedu.ssu.ac.kr/bbs/board.php?bo_table=univ&sca=&sfl=wr_subject&stx=\(keywordSearch ?? "")&sop=and&page=\(page)"
+            requestURL = searchUrl
+        } else {
+            requestURL = noticeUrl
+        }
+        
+        Alamofire.request(requestURL).responseString(encoding: .utf8) { response in
             switch(response.result) {
             case .success(_):
                 if let data = response.result.value {
@@ -325,12 +373,12 @@ class NoticeSocial {
                         var boldCount = 0
                         let doc = try HTML(html: data, encoding: .utf8)
                         var isAdd = false
-                        for product in doc.css("table[class='board_list'] tbody td") {
+                        for product in doc.css("table[class='board_list'] td") {
                             let content = product.text!.trimmingCharacters(in: .whitespacesAndNewlines)
                             print(content)
                             switch (index % 5) {
                             case 0:
-                                if page > 1 && content == "공지" {
+                                if page > 1 && !content.isNumeric() {
                                     isAdd = false
                                     boldCount += 1
                                 } else {
@@ -386,6 +434,11 @@ class NoticeSocial {
                     
                     index = 0
                     for _ in urlList {
+                        print(authorList[index])
+                        print(titleList[index])
+                        print(urlList[index])
+                        print(dateStringList[index])
+                        
                         let noticeItem = Notice(author: authorList[index], title: titleList[index], url: urlList[index], date: dateStringList[index], isNotice: false)
                         noticeList.append(noticeItem)
                         index += 1
@@ -400,7 +453,7 @@ class NoticeSocial {
         }
     }
     
-    static func parseListPolitical(page: Int, completion: @escaping ([Notice]) -> Void) {
+    static func parseListPolitical(page: Int, keyword: String?, completion: @escaping ([Notice]) -> Void) {
         let noticeUrl = "\(NoticeURL.socialPoliticsURL)\(page)"
         var noticeList = [Notice]()
         var authorList = [String]()
@@ -408,10 +461,17 @@ class NoticeSocial {
         var urlList = [String]()
         var dateStringList = [String]()
         var index = 0
+        var requestURL = ""
         
-        print("\(noticeUrl) : \(page)")
+        if keyword != nil {
+            let keywordSearch = keyword!.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)
+            let searchUrl = "http://pre.ssu.ac.kr/web/psir/board_a?p_p_id=EXT_BBS&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&p_p_col_id=column-1&p_p_col_count=1&_EXT_BBS_struts_action=%2Fext%2Fbbs%2Fview&_EXT_BBS_sCategory=&_EXT_BBS_sTitle=\(keywordSearch ?? "")&_EXT_BBS_sWriter=&_EXT_BBS_sTag=&_EXT_BBS_sContent=&_EXT_BBS_sCategory2=&_EXT_BBS_sKeyType=title&_EXT_BBS_sKeyword=\(keywordSearch ?? "")&_EXT_BBS_curPage=\(page)"
+            requestURL = searchUrl
+        } else {
+            requestURL = noticeUrl
+        }
         
-        Alamofire.request(noticeUrl).responseString(encoding: .utf8) { response in
+        Alamofire.request(requestURL).responseString(encoding: .utf8) { response in
             switch(response.result) {
             case .success(_):
                 if let data = response.result.value {

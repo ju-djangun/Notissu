@@ -41,7 +41,7 @@ class NoticeSoongsil {
                     for item in doc.css("ul[class^='notice-lists'] li") {
                         if item.className == "start" {
                             currentDate = ""
-                            for date in item.css("div[class^='col-lg-2 text-center m-text-left m-mb-10'] div") {
+                            for date in item.css("div[class^='h2 text-info font-weight-bold']") {
                                 if currentDate.isEmpty {
                                     currentDate.append((date.text ?? "").trimmingCharacters(in: .whitespacesAndNewlines))
                                 } else {
@@ -49,11 +49,14 @@ class NoticeSoongsil {
                                 }
                             }
                         }
-                        titleList.append(item.css("span[class^='d-block d-lg-inline-block m-pt-5']").first?.text ?? "")
-                        dateStringList.append(currentDate)
-                        urlList.append(item.css("div[class^='col-lg-8'] a").first?["href"] ?? "")
-                        authorList.append(item.css("div[class^='col-lg-2 m-text-right']").first?.text?.trimmingCharacters(in: .whitespacesAndNewlines) ?? "")
-                         
+                        
+                        if item.className != "notice_head" {
+                            titleList.append(item.css("span[class^='d-inline-blcok m-pt-5']").first?.text ?? "")
+                            dateStringList.append(currentDate)
+                            print(item.css("div[class^='notice_col3-lg-8'] a").first?["href"] ?? "")
+                            urlList.append(item.css("div[class^='notice_col3'] a").first?["href"] ?? "")
+                            authorList.append(item.css("div[class^='col-lg-2 m-text-right']").first?.text?.trimmingCharacters(in: .whitespacesAndNewlines) ?? "")
+                        }
                     }
                     
                     for _ in titleList {

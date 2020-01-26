@@ -12,16 +12,26 @@ import Alamofire
 import Kanna
 
 class NoticeBusiness {
-    static func parseListBiz(page: Int, completion: @escaping ([Notice]) -> Void) {
+    static func parseListBiz(page: Int, keyword: String?, completion: @escaping ([Notice]) -> Void) {
         let noticeUrl = "\(NoticeURL.businessBizURL)\(page)"
         var noticeList = [Notice]()
         var authorList = [String]()
         var titleList  = [String]()
         var urlList = [String]()
+        var isNoticeList = [Bool]()
         var dateStringList = [String]()
         var index = 0
+        var requestURL = ""
         
-        Alamofire.request(noticeUrl).responseString(encoding: .utf8) { response in
+        if keyword != nil {
+            let keywordSearch = keyword!.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)
+            let searchUrl = "http://biz.ssu.ac.kr/bbs/list.do?&bId=BBS_03_NOTICE&sc_title=\(keywordSearch ?? "")&page=\(page)"
+            requestURL = searchUrl
+        } else {
+            requestURL = noticeUrl
+        }
+        
+        Alamofire.request(requestURL).responseString(encoding: .utf8) { response in
             switch(response.result) {
             case .success(_):
                 if let data = response.result.value {
@@ -34,6 +44,13 @@ class NoticeBusiness {
                             case 0:
                                 // Title
                                 print(content)
+                                if product.css("a").first?.className == "fixedPost" {
+                                    // isNotice
+                                    isNoticeList.append(true)
+                                } else {
+                                    // normal
+                                    isNoticeList.append(false)
+                                }
                                 titleList.append(content)
                                 break
                             case 1: break
@@ -71,7 +88,7 @@ class NoticeBusiness {
                     
                     index = 0
                     for _ in urlList {
-                        let noticeItem = Notice(author: authorList[index], title: titleList[index], url: urlList[index], date: dateStringList[index], isNotice: false)
+                        let noticeItem = Notice(author: authorList[index], title: titleList[index], url: urlList[index], date: dateStringList[index], isNotice: isNoticeList[index])
                         noticeList.append(noticeItem)
                         index += 1
                     }
@@ -85,16 +102,26 @@ class NoticeBusiness {
         }
     }
     
-    static func parseListVenture(page: Int, completion: @escaping ([Notice]) -> Void) {
+    static func parseListVenture(page: Int, keyword: String?, completion: @escaping ([Notice]) -> Void) {
         let noticeUrl = "\(NoticeURL.businessVentureURL)\(page)"
         var noticeList = [Notice]()
         var authorList = [String]()
         var titleList  = [String]()
         var urlList = [String]()
+        var isNoticeList = [Bool]()
         var dateStringList = [String]()
         var index = 0
+        var requestURL = ""
         
-        Alamofire.request(noticeUrl).responseString(encoding: .utf8) { response in
+        if keyword != nil {
+            let keywordSearch = keyword!.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)
+            let searchUrl = "http://ensb.ssu.ac.kr/web/ensb/23?p_p_id=EXT_BBS&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&p_p_col_id=column-1&p_p_col_pos=1&p_p_col_count=2&_EXT_BBS_struts_action=%2Fext%2Fbbs%2Fview&_EXT_BBS_sCategory=&_EXT_BBS_sTitle=\(keywordSearch ?? "")&_EXT_BBS_sWriter=&_EXT_BBS_sTag=&_EXT_BBS_sContent=&_EXT_BBS_sCategory2=&_EXT_BBS_sKeyType=title&_EXT_BBS_sKeyword=\(keywordSearch ?? "")&_EXT_BBS_curPage=\(page)"
+            requestURL = searchUrl
+        } else {
+            requestURL = noticeUrl
+        }
+        
+        Alamofire.request(requestURL).responseString(encoding: .utf8) { response in
             switch(response.result) {
             case .success(_):
                 if let data = response.result.value {
@@ -105,7 +132,14 @@ class NoticeBusiness {
                             let content = product.text!.trimmingCharacters(in: .whitespacesAndNewlines)
                             print(content)
                             switch (index % 6) {
-                            case 0: break
+                            case 0:
+                                if product.innerHTML?.contains("img") ?? false {
+                                    // isNotice
+                                    isNoticeList.append(true)
+                                } else {
+                                    isNoticeList.append(false)
+                                }
+                                break
                             case 1:
                                 // Title
                                 titleList.append(content)
@@ -135,7 +169,7 @@ class NoticeBusiness {
                     
                     index = 0
                     for _ in urlList {
-                        let noticeItem = Notice(author: authorList[index], title: titleList[index], url: urlList[index], date: dateStringList[index], isNotice: false)
+                        let noticeItem = Notice(author: authorList[index], title: titleList[index], url: urlList[index], date: dateStringList[index], isNotice: isNoticeList[index])
                         noticeList.append(noticeItem)
                         index += 1
                     }
@@ -149,16 +183,26 @@ class NoticeBusiness {
         }
     }
     
-    static func parseListAccount(page: Int, completion: @escaping ([Notice]) -> Void) {
+    static func parseListAccount(page: Int, keyword: String?, completion: @escaping ([Notice]) -> Void) {
         let noticeUrl = "\(NoticeURL.businessAccountURL)\(page)"
         var noticeList = [Notice]()
         var authorList = [String]()
         var titleList  = [String]()
         var urlList = [String]()
+        var isNoticeList = [Bool]()
         var dateStringList = [String]()
         var index = 0
+        var requestURL = ""
         
-        Alamofire.request(noticeUrl).responseString(encoding: .utf8) { response in
+        if keyword != nil {
+            let keywordSearch = keyword!.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)
+            let searchUrl = "http://accounting.ssu.ac.kr/web/accounting/3?p_p_id=EXT_BBS&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&p_p_col_id=column-1&p_p_col_pos=1&p_p_col_count=2&_EXT_BBS_struts_action=%2Fext%2Fbbs%2Fview&_EXT_BBS_sCategory=&_EXT_BBS_sTitle=\(keywordSearch ?? "")&_EXT_BBS_sWriter=&_EXT_BBS_sTag=&_EXT_BBS_sContent=&_EXT_BBS_sCategory2=&_EXT_BBS_sKeyType=title&_EXT_BBS_sKeyword=\(keywordSearch ?? "")&_EXT_BBS_curPage=\(page)"
+            requestURL = searchUrl
+        } else {
+            requestURL = noticeUrl
+        }
+        
+        Alamofire.request(requestURL).responseString(encoding: .utf8) { response in
             switch(response.result) {
             case .success(_):
                 if let data = response.result.value {
@@ -169,7 +213,14 @@ class NoticeBusiness {
                             let content = product.text!.trimmingCharacters(in: .whitespacesAndNewlines)
                             print(content)
                             switch (index % 6) {
-                            case 0: break
+                            case 0:
+                                if product.innerHTML?.contains("img") ?? false {
+                                    // isNotice
+                                    isNoticeList.append(true)
+                                } else {
+                                    isNoticeList.append(false)
+                                }
+                                break
                             case 1:
                                 // Title
                                 titleList.append(content)
@@ -199,7 +250,7 @@ class NoticeBusiness {
                     
                     index = 0
                     for _ in urlList {
-                        let noticeItem = Notice(author: authorList[index], title: titleList[index], url: urlList[index], date: dateStringList[index], isNotice: false)
+                        let noticeItem = Notice(author: authorList[index], title: titleList[index], url: urlList[index], date: dateStringList[index], isNotice: isNoticeList[index])
                         noticeList.append(noticeItem)
                         index += 1
                     }
@@ -213,16 +264,26 @@ class NoticeBusiness {
         }
     }
     
-    static func parseListFinance(page: Int, completion: @escaping ([Notice]) -> Void) {
+    static func parseListFinance(page: Int, keyword: String?, completion: @escaping ([Notice]) -> Void) {
         let noticeUrl = "\(NoticeURL.businessFinanceURL)\(page)"
         var noticeList = [Notice]()
         var authorList = [String]()
         var titleList  = [String]()
         var urlList = [String]()
+        var isNoticeList = [Bool]()
         var dateStringList = [String]()
         var index = 0
+        var requestURL = ""
         
-        Alamofire.request(noticeUrl).responseString(encoding: .utf8) { response in
+        if keyword != nil {
+            let keywordSearch = keyword!.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)
+            let searchUrl = "http://finance.ssu.ac.kr/web/finance/menu5_1?p_p_id=EXT_BBS&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&p_p_col_id=column-1&p_p_col_count=1&_EXT_BBS_struts_action=%2Fext%2Fbbs%2Fview&_EXT_BBS_sCategory=&_EXT_BBS_sTitle=\(keywordSearch ?? "")&_EXT_BBS_sWriter=&_EXT_BBS_sTag=&_EXT_BBS_sContent=&_EXT_BBS_sCategory2=&_EXT_BBS_sKeyType=title&_EXT_BBS_sKeyword=\(keywordSearch ?? "")&_EXT_BBS_curPage=\(page)"
+            requestURL = searchUrl
+        } else {
+            requestURL = noticeUrl
+        }
+        
+        Alamofire.request(requestURL).responseString(encoding: .utf8) { response in
             switch(response.result) {
             case .success(_):
                 if let data = response.result.value {
@@ -233,7 +294,14 @@ class NoticeBusiness {
                             let content = product.text!.trimmingCharacters(in: .whitespacesAndNewlines)
                             print(content)
                             switch (index % 5) {
-                            case 0: break
+                            case 0:
+                                if product.innerHTML?.contains("img") ?? false {
+                                    // isNotice
+                                    isNoticeList.append(true)
+                                } else {
+                                    isNoticeList.append(false)
+                                }
+                                break
                             case 1:
                                 // Title
                                 titleList.append(content)
@@ -263,7 +331,7 @@ class NoticeBusiness {
                     
                     index = 0
                     for _ in urlList {
-                        let noticeItem = Notice(author: authorList[index], title: titleList[index], url: urlList[index], date: dateStringList[index], isNotice: false)
+                        let noticeItem = Notice(author: authorList[index], title: titleList[index], url: urlList[index], date: dateStringList[index], isNotice: isNoticeList[index])
                         noticeList.append(noticeItem)
                         index += 1
                     }

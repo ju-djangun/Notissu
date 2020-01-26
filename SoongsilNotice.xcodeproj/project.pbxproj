@@ -35,8 +35,15 @@
 		DE5542442377E076004E01EB /* HomeSwticher.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE5542432377E076004E01EB /* HomeSwticher.swift */; };
 		DE55424623784879004E01EB /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE55424523784879004E01EB /* SplashViewController.swift */; };
 		DE55424B2379340A004E01EB /* MoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE55424A2379340A004E01EB /* MoreViewController.swift */; };
+		DE64BE8523DD253C00DF46C5 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE64BE8423DD253C00DF46C5 /* NotificationCenter.framework */; };
+		DE64BE8823DD253C00DF46C5 /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE64BE8723DD253C00DF46C5 /* TodayViewController.swift */; };
+		DE64BE8B23DD253C00DF46C5 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DE64BE8923DD253C00DF46C5 /* MainInterface.storyboard */; };
+		DE64BE8F23DD253C00DF46C5 /* Notissu Today Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = DE64BE8323DD253C00DF46C5 /* Notissu Today Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		DE72017B237A76DE00F60CEB /* NoticeConvergence.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE72017A237A76DE00F60CEB /* NoticeConvergence.swift */; };
 		DE72017F237A871B00F60CEB /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DE72017E237A871B00F60CEB /* Launch Screen.storyboard */; };
+		DE7496B123DC008C00000849 /* SearchPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE7496B023DC008C00000849 /* SearchPresenter.swift */; };
+		DE7496B323DC009500000849 /* SearchContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE7496B223DC009500000849 /* SearchContract.swift */; };
+		DE7496B523DC00D400000849 /* SearchModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE7496B423DC00D400000849 /* SearchModel.swift */; };
 		DE8C73842379BB2E008F2FE1 /* NoticeEconomy.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE8C73832379BB2E008F2FE1 /* NoticeEconomy.swift */; };
 		DE8C73862379BDF6008F2FE1 /* NoticeSocial.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE8C73852379BDF6008F2FE1 /* NoticeSocial.swift */; };
 		DEBB714E23744AC700C38812 /* Pods_SoongsilNotice.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57296D4BD235F1B361E7E590 /* Pods_SoongsilNotice.framework */; };
@@ -55,6 +62,30 @@
 		DEF56D902384DB1C003CA0F0 /* manual2.png in Resources */ = {isa = PBXBuildFile; fileRef = DEF56D8C2384DB1B003CA0F0 /* manual2.png */; };
 		DEF56D912384DB1C003CA0F0 /* manual0.png in Resources */ = {isa = PBXBuildFile; fileRef = DEF56D8D2384DB1B003CA0F0 /* manual0.png */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		DE64BE8D23DD253C00DF46C5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DE29612A23703F4C0074F24B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DE64BE8223DD253C00DF46C5;
+			remoteInfo = "Notissu Today Extension";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		DE64BE9023DD253C00DF46C5 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				DE64BE8F23DD253C00DF46C5 /* Notissu Today Extension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		10D362999ACAF386EBEE89E5 /* Pods-SoongsilNotice.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SoongsilNotice.debug.xcconfig"; path = "Target Support Files/Pods-SoongsilNotice/Pods-SoongsilNotice.debug.xcconfig"; sourceTree = "<group>"; };
@@ -90,8 +121,16 @@
 		DE5542432377E076004E01EB /* HomeSwticher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeSwticher.swift; sourceTree = "<group>"; };
 		DE55424523784879004E01EB /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 		DE55424A2379340A004E01EB /* MoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreViewController.swift; sourceTree = "<group>"; };
+		DE64BE8323DD253C00DF46C5 /* Notissu Today Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Notissu Today Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		DE64BE8423DD253C00DF46C5 /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
+		DE64BE8723DD253C00DF46C5 /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
+		DE64BE8A23DD253C00DF46C5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
+		DE64BE8C23DD253C00DF46C5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DE72017A237A76DE00F60CEB /* NoticeConvergence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeConvergence.swift; sourceTree = "<group>"; };
 		DE72017E237A871B00F60CEB /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
+		DE7496B023DC008C00000849 /* SearchPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPresenter.swift; sourceTree = "<group>"; };
+		DE7496B223DC009500000849 /* SearchContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchContract.swift; sourceTree = "<group>"; };
+		DE7496B423DC00D400000849 /* SearchModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchModel.swift; sourceTree = "<group>"; };
 		DE8C73832379BB2E008F2FE1 /* NoticeEconomy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeEconomy.swift; sourceTree = "<group>"; };
 		DE8C73852379BDF6008F2FE1 /* NoticeSocial.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeSocial.swift; sourceTree = "<group>"; };
 		DEBB714C23744AC400C38812 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
@@ -120,6 +159,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		DE64BE8023DD253C00DF46C5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DE64BE8523DD253C00DF46C5 /* NotificationCenter.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -137,6 +184,7 @@
 			children = (
 				DEBB714C23744AC400C38812 /* WebKit.framework */,
 				57296D4BD235F1B361E7E590 /* Pods_SoongsilNotice.framework */,
+				DE64BE8423DD253C00DF46C5 /* NotificationCenter.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -174,6 +222,7 @@
 			isa = PBXGroup;
 			children = (
 				DE29613423703F4C0074F24B /* SoongsilNotice */,
+				DE64BE8623DD253C00DF46C5 /* Notissu Today Extension */,
 				DE29613323703F4C0074F24B /* Products */,
 				8C7A827DD516122B5FDBC531 /* Pods */,
 				DD6CE84CCC08ADFCA011F42A /* Frameworks */,
@@ -184,6 +233,7 @@
 			isa = PBXGroup;
 			children = (
 				DE29613223703F4C0074F24B /* Notissu.app */,
+				DE64BE8323DD253C00DF46C5 /* Notissu Today Extension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -247,10 +297,23 @@
 			path = More;
 			sourceTree = "<group>";
 		};
+		DE64BE8623DD253C00DF46C5 /* Notissu Today Extension */ = {
+			isa = PBXGroup;
+			children = (
+				DE64BE8723DD253C00DF46C5 /* TodayViewController.swift */,
+				DE64BE8923DD253C00DF46C5 /* MainInterface.storyboard */,
+				DE64BE8C23DD253C00DF46C5 /* Info.plist */,
+			);
+			path = "Notissu Today Extension";
+			sourceTree = "<group>";
+		};
 		DEF56D732383775D003CA0F0 /* Search */ = {
 			isa = PBXGroup;
 			children = (
 				DEF56D7423837778003CA0F0 /* SearchViewController.swift */,
+				DE7496B023DC008C00000849 /* SearchPresenter.swift */,
+				DE7496B223DC009500000849 /* SearchContract.swift */,
+				DE7496B423DC00D400000849 /* SearchModel.swift */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -288,15 +351,34 @@
 				DE29612F23703F4C0074F24B /* Frameworks */,
 				DE29613023703F4C0074F24B /* Resources */,
 				863FA639D8CB8D787EBADFD5 /* [CP] Embed Pods Frameworks */,
+				DE64BE9023DD253C00DF46C5 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				DE64BE8E23DD253C00DF46C5 /* PBXTargetDependency */,
 			);
 			name = SoongsilNotice;
 			productName = SoongsilNotice;
 			productReference = DE29613223703F4C0074F24B /* Notissu.app */;
 			productType = "com.apple.product-type.application";
+		};
+		DE64BE8223DD253C00DF46C5 /* Notissu Today Extension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DE64BE9323DD253C00DF46C5 /* Build configuration list for PBXNativeTarget "Notissu Today Extension" */;
+			buildPhases = (
+				DE64BE7F23DD253C00DF46C5 /* Sources */,
+				DE64BE8023DD253C00DF46C5 /* Frameworks */,
+				DE64BE8123DD253C00DF46C5 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Notissu Today Extension";
+			productName = "Notissu Today Extension";
+			productReference = DE64BE8323DD253C00DF46C5 /* Notissu Today Extension.appex */;
+			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
 
@@ -304,12 +386,15 @@
 		DE29612A23703F4C0074F24B /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1120;
+				LastSwiftUpdateCheck = 1130;
 				LastUpgradeCheck = 1120;
 				ORGANIZATIONNAME = TaeinKim;
 				TargetAttributes = {
 					DE29613123703F4C0074F24B = {
 						CreatedOnToolsVersion = 11.2;
+					};
+					DE64BE8223DD253C00DF46C5 = {
+						CreatedOnToolsVersion = 11.3.1;
 					};
 				};
 			};
@@ -327,6 +412,7 @@
 			projectRoot = "";
 			targets = (
 				DE29613123703F4C0074F24B /* SoongsilNotice */,
+				DE64BE8223DD253C00DF46C5 /* Notissu Today Extension */,
 			);
 		};
 /* End PBXProject section */
@@ -344,6 +430,14 @@
 				DE72017F237A871B00F60CEB /* Launch Screen.storyboard in Resources */,
 				DE29613D23703F4C0074F24B /* Main.storyboard in Resources */,
 				DEF56D8F2384DB1C003CA0F0 /* manual3.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DE64BE8123DD253C00DF46C5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DE64BE8B23DD253C00DF46C5 /* MainInterface.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -399,6 +493,7 @@
 				DE8C73862379BDF6008F2FE1 /* NoticeSocial.swift in Sources */,
 				DEBFDC43237E31A3003888D9 /* MoreTableCell.swift in Sources */,
 				DE29613623703F4C0074F24B /* AppDelegate.swift in Sources */,
+				DE7496B523DC00D400000849 /* SearchModel.swift in Sources */,
 				DE29615B237289D60074F24B /* NoticeDetailContract.swift in Sources */,
 				DE501C492374FD250053055A /* NoticeURL.swift in Sources */,
 				DEBFDC45237E391C003888D9 /* OpenSourceViewController.swift in Sources */,
@@ -415,11 +510,13 @@
 				DE03E9CF2379B05D002AA5AE /* NoticeBusiness.swift in Sources */,
 				DE5542422377D993004E01EB /* StartViewController.swift in Sources */,
 				DE2961592371ADEE0074F24B /* NoticeDetailViewController.swift in Sources */,
+				DE7496B323DC009500000849 /* SearchContract.swift in Sources */,
 				DE2961532370FF4E0074F24B /* Notice.swift in Sources */,
 				DEF56D7A2383BF81003CA0F0 /* SchoolPresenter.swift in Sources */,
 				DE72017B237A76DE00F60CEB /* NoticeConvergence.swift in Sources */,
 				DEBFDC47237E3950003888D9 /* OpenSourceTableViewCell.swift in Sources */,
 				DE29614D2370FCB20074F24B /* NoticeListPresenter.swift in Sources */,
+				DE7496B123DC008C00000849 /* SearchPresenter.swift in Sources */,
 				DE0F8F1D2373F346006A0B49 /* HomeCell.swift in Sources */,
 				DE2961512370FD0A0074F24B /* NoticeListViewCell.swift in Sources */,
 				DEF56D782383BF05003CA0F0 /* SchoolViewController.swift in Sources */,
@@ -436,7 +533,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		DE64BE7F23DD253C00DF46C5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DE64BE8823DD253C00DF46C5 /* TodayViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		DE64BE8E23DD253C00DF46C5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DE64BE8223DD253C00DF46C5 /* Notissu Today Extension */;
+			targetProxy = DE64BE8D23DD253C00DF46C5 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		DE29613B23703F4C0074F24B /* Main.storyboard */ = {
@@ -445,6 +558,14 @@
 				DE29613C23703F4C0074F24B /* Base */,
 			);
 			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		DE64BE8923DD253C00DF46C5 /* MainInterface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DE64BE8A23DD253C00DF46C5 /* Base */,
+			);
+			name = MainInterface.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -568,20 +689,21 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 10D362999ACAF386EBEE89E5 /* Pods-SoongsilNotice.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = M79H9K226Y;
 				INFOPLIST_FILE = SoongsilNotice/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1.1;
+				MARKETING_VERSION = 1.2.3;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.elliott.notissu-ios";
 				PRODUCT_NAME = Notissu;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -589,20 +711,61 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 5109B6F37C7101EEB67D7049 /* Pods-SoongsilNotice.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = M79H9K226Y;
 				INFOPLIST_FILE = SoongsilNotice/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1.1;
+				MARKETING_VERSION = 1.2.3;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.elliott.notissu-ios";
 				PRODUCT_NAME = Notissu;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		DE64BE9123DD253C00DF46C5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = M79H9K226Y;
+				INFOPLIST_FILE = "Notissu Today Extension/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.elliott.notissu-ios.Notissu-Today-Extension";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		DE64BE9223DD253C00DF46C5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = M79H9K226Y;
+				INFOPLIST_FILE = "Notissu Today Extension/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.elliott.notissu-ios.Notissu-Today-Extension";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
@@ -623,6 +786,15 @@
 			buildConfigurations = (
 				DE29614723703F4D0074F24B /* Debug */,
 				DE29614823703F4D0074F24B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DE64BE9323DD253C00DF46C5 /* Build configuration list for PBXNativeTarget "Notissu Today Extension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DE64BE9123DD253C00DF46C5 /* Debug */,
+				DE64BE9223DD253C00DF46C5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

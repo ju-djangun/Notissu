@@ -24,15 +24,11 @@ class NoticeDetailPresenter: NoticeDetail {
         var index = 0
         var contentHTML = ""
         for div in html.css("div[class^='bg-white p-4 mb-5'] div") {
-//            print(div.toHTML)
             if index == 4 {
                 contentHTML = div.toHTML ?? ""
-//                print(div.toHTML)
             }
             index += 1
         }
-//        contentHTML = html.css("div[class^='bg-white p-4 mb-5'] div").first?.toHTML ?? ""
-//        print(contentHTML)
         
         let detailHTML = "\(htmlStart)\(contentHTML)\(htmlEnd)"
         var attachmentList = [Attachment]()
@@ -50,7 +46,7 @@ class NoticeDetailPresenter: NoticeDetail {
     }
     
     func parseComputer(html: HTMLDocument, completion: @escaping ([Attachment], String) -> Void) {
-        let contentHTML = html.css("div[class|=smartOutput]").first?.innerHTML ?? ""
+        let contentHTML = html.css("td[class=content]").first?.innerHTML ?? ""
         
         let detailHTML = "\(htmlStart)\(contentHTML)\(htmlEnd)"
         var attachmentList = [Attachment]()
@@ -227,6 +223,34 @@ class NoticeDetailPresenter: NoticeDetail {
         completion(attachmentList, detailHTML)
     }
     
+    func parseEngineerArchitect(html: HTMLDocument, host: String?, completion: @escaping ([Attachment], String) -> Void) {
+        let fullHTML = html.css("table[class='table'] tr")
+        var contentHTML = ""
+        var index = 0
+        var attachmentList = [Attachment]()
+        
+        for tr in fullHTML {
+            // 마지막 제외하고 모두 첨부파일임
+            print(tr.css("td p").count)
+            if tr.css("td p").count < 1 {
+                print("attachment")
+                let fileName = tr.css("a").first?.text?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
+                let fileLink = tr.css("a").first?["href"]?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
+                print("\(host!)\(fileLink)")
+                attachmentList.append(Attachment(fileName: fileName, fileURL: "\(host!)\(fileLink)"))
+            } else {
+                print("content")
+                contentHTML = tr.innerHTML ?? ""
+                break
+            }
+        }
+        
+        let detailHTML = "\(htmlStart)\(contentHTML)\(htmlEnd)"
+        // Attachment Format
+        // http://soar.ssu.ac.kr/upload/20191008184403_붙임1-이수구분-변경-기준.hwp
+        completion(attachmentList, detailHTML)
+    }
+    
     func parseNaturalMath(html: HTMLDocument, host: String?, completion: @escaping ([Attachment], String) -> Void) {
         let contentHTML = html.css("div[class^='frame-box']").first?.innerHTML ?? ""
         var detailHTML = "\(htmlStart)\(contentHTML)\(htmlEnd)"
@@ -379,22 +403,14 @@ class NoticeDetailPresenter: NoticeDetail {
     }
     
     func parseSocialAdministration(html: HTMLDocument, host: String?, completion: @escaping ([Attachment], String) -> Void) {
-        let contentHTML = html.css("div[class^='body']").first?.innerHTML ?? ""
-        var detailHTML = "\(htmlStart)\(contentHTML)\(htmlEnd)"
-        detailHTML = detailHTML.replacingOccurrences(of: "src=\"/", with: "src=\"\(host ?? "")/")
+        let contentHTML = html.css("div[class^='td_box']").first?.innerHTML ?? ""
+        let detailHTML = "\(htmlStart)\(contentHTML)\(htmlEnd)"
         var attachmentList = [Attachment]()
         
-        for link in html.css("div[class='fileLayer'] a") {
-            let arguments = link["href"]?.getArrayAfterRegex(regex: "[(](.*?)[)]") ?? []
-            if arguments.count > 0 {
-                let params = arguments[0].replacingOccurrences(of: "(", with: "").replacingOccurrences(of: ")", with: "").replacingOccurrences(of: "'", with: "")
-                let boardId = params.split(separator: ",")[0]
-                let bIndex = params.split(separator: ",")[1]
-                let index = params.split(separator: ",")[2]
-                
-                let attachmentURL = "\(host ?? "")/module/board/download.php?boardid=\(boardId)&b_idx=\(bIndex)&idx=\(index)"
-                attachmentList.append(Attachment(fileName: link["title"] ?? "", fileURL: attachmentURL))
-            }
+        for link in html.css("ul[class='flie_list'] li a") {
+            let fileUrl = link["href"] ?? ""
+            let fileName = (link.text ?? "").trimmingCharacters(in: .whitespacesAndNewlines)
+            attachmentList.append(Attachment(fileName: fileName, fileURL: fileUrl))
         }
         completion(attachmentList, detailHTML)
     }

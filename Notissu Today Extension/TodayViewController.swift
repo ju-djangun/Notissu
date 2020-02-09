@@ -26,10 +26,10 @@ class TodayViewController: UIViewController, TodayViewProtocol, NCWidgetProvidin
                 self.myDeptName = myDeptNameRawValue
                 self.presenter.loadNoticeList(page: 0, keyword: nil, deptCode: DeptCode(rawValue: myDeptCodeRawValue)!)
             } else {
-                self.DebugText.text = "불러오는 중 오류 발생"
+                self.DebugText.text = "내 전공 설정에 문제가 있습니다.\nvalue : \(myDeptNameRawValue) / \(myDeptCodeRawValue)"
             }
         } else {
-            self.DebugText.text = "불러오는 중 오류 발생"
+            self.DebugText.text = "내 전공이 없습니다."
         }
     }
     

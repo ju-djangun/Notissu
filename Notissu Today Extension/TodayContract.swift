@@ -13,5 +13,7 @@ protocol TodayViewProtocol {
 }
 
 protocol TodayPresenterProtocol {
+    func fetchCachedInfo(completion: @escaping (Result<WidgetNoticeModel, WidgetNoticeError>) -> Void)
+    
     func loadNoticeList(page: Int, keyword: String?, deptCode: DeptCode)
 }

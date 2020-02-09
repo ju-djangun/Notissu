@@ -8,11 +8,35 @@
 
 import Foundation
 
+enum WidgetNoticeError: Error {
+    case noDeptName
+    case deptNameError
+}
+
+struct WidgetNoticeModel {
+    var myDeptName: String
+    var code: DeptCode
+}
+
 class TodayPresenter: TodayPresenterProtocol {
     var view: TodayViewProtocol
     
     init(view: TodayViewProtocol) {
         self.view = view
+    }
+    
+    func fetchCachedInfo(completion: @escaping (Result<WidgetNoticeModel, WidgetNoticeError>) -> Void) {
+        if let userDefaults = UserDefaults(suiteName: "group.com.elliott.Notissu") {
+            let myDeptNameRawValue = userDefaults.string(forKey: "myDeptName")
+            let myDeptCodeRawValue = userDefaults.integer(forKey: "myDeptCode")
+            if myDeptNameRawValue != nil {
+                completion(.success(WidgetNoticeModel(myDeptName: myDeptNameRawValue ?? "", code: DeptCode(rawValue: myDeptCodeRawValue)!)))
+            } else {
+                completion(.failure(.deptNameError))
+            }
+        } else {
+            completion(.failure(.noDeptName))
+        }
     }
     
     func loadNoticeList(page: Int, keyword: String?, deptCode: DeptCode) {

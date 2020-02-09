@@ -11,40 +11,84 @@ import NotificationCenter
 
 class TodayViewController: UIViewController, TodayViewProtocol, NCWidgetProviding {
     private var presenter: TodayPresenter!
-    private var myDeptName: String?
     
-    @IBOutlet var DebugText: UILabel!
+    @IBOutlet var appButtonView: UIView!
+    @IBOutlet var myMajorLbl: UILabel!
+    @IBOutlet var noticeStackView: UIStackView!
+    @IBOutlet var noticeStackViewHeight: NSLayoutConstraint!
+    
+    @IBAction func onClickAppButton(_ sender: Any) {
+        
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
-        self.presenter = TodayPresenter(view: self)
+        self.extensionContext?.widgetLargestAvailableDisplayMode = .expanded
+        self.appButtonView.layer.masksToBounds = true
+        self.appButtonView.layer.cornerRadius = 23
         
-        if let userDefaults = UserDefaults(suiteName: "group.com.elliott.Notissu") {
-            let myDeptNameRawValue = userDefaults.string(forKey: "myDeptName")
-            let myDeptCodeRawValue = userDefaults.integer(forKey: "myDeptCode")
-            if myDeptNameRawValue != nil {
-                self.myDeptName = myDeptNameRawValue
-                self.presenter.loadNoticeList(page: 0, keyword: nil, deptCode: DeptCode(rawValue: myDeptCodeRawValue)!)
-            } else {
-                self.DebugText.text = "불러오는 중 오류 발생"
+        self.presenter = TodayPresenter(view: self)
+        self.presenter.fetchCachedInfo(completion: { result in
+            switch(result) {
+            case .success(let deptModel):
+                self.myMajorLbl.text = deptModel.myDeptName
+                self.presenter.loadNoticeList(page: 0, keyword: nil, deptCode: deptModel.code)
+            case .failure(let error):
+                break
             }
-        } else {
-            self.DebugText.text = "불러오는 중 오류 발생"
-        }
+        })
     }
     
     func applyToTableView(list: [Notice]) {
-        self.DebugText.text = "내 전공 : \(myDeptName ?? "")\n\(list[0].title ?? "")\n\(list[0].date ?? "")"
+        self.extensionContext?.widgetLargestAvailableDisplayMode = .compact
+        
+        self.noticeStackView.removeAllArrangedSubviews()
+        self.noticeStackViewHeight.constant = 0
+        if list.count > 3 {
+            self.noticeStackViewHeight.constant = 192
+        } else {
+            self.noticeStackViewHeight.constant = CGFloat(48 * list.count)
+        }
+        
+        for (index, notice) in list.enumerated() {
+            if index > 3 {
+                break
+            }
+            
+            var noticeItemView = WidgetNoticeView.viewFromNib()
+            noticeItemView.noticeItem = notice
+            self.noticeStackView.addArrangedSubview(noticeItemView)
+        }
+        self.extensionContext?.widgetLargestAvailableDisplayMode = .expanded
     }
         
     func widgetPerformUpdate(completionHandler: (@escaping (NCUpdateResult) -> Void)) {
-        // Perform any setup necessary in order to update the view.
-        
-        // If an error is encountered, use NCUpdateResult.Failed
-        // If there's no update required, use NCUpdateResult.NoData
-        // If there's an update, use NCUpdateResult.NewData
-        
         completionHandler(NCUpdateResult.newData)
     }
     
+    func widgetActiveDisplayModeDidChange(_ activeDisplayMode: NCWidgetDisplayMode, withMaximumSize maxSize: CGSize) {
+        if (activeDisplayMode == .compact) {
+            self.preferredContentSize = maxSize
+        } else {
+            self.preferredContentSize = CGSize(width: maxSize.width, height: 110 + noticeStackViewHeight.constant)
+        }
+    }
+    
+}
+
+extension UIStackView {
+    
+    func removeAllArrangedSubviews() {
+        
+        let removedSubviews = arrangedSubviews.reduce([]) { (allSubviews, subview) -> [UIView] in
+            self.removeArrangedSubview(subview)
+            return allSubviews + [subview]
+        }
+        
+        // Deactivate all constraints
+        NSLayoutConstraint.deactivate(removedSubviews.flatMap({ $0.constraints }))
+        
+        // Remove the views from self
+        removedSubviews.forEach({ $0.removeFromSuperview() })
+    }
 }

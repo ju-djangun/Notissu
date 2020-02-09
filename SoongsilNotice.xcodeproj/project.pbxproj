@@ -64,6 +64,8 @@
 		DE8C73862379BDF6008F2FE1 /* NoticeSocial.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE8C73852379BDF6008F2FE1 /* NoticeSocial.swift */; };
 		DEBB714E23744AC700C38812 /* Pods_SoongsilNotice.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57296D4BD235F1B361E7E590 /* Pods_SoongsilNotice.framework */; };
 		DEBB715123744AC800C38812 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DEBB714C23744AC400C38812 /* WebKit.framework */; };
+		DEBE386B23EFEFC2006F51AB /* WidgetNoticeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEBE386A23EFEFC2006F51AB /* WidgetNoticeView.swift */; };
+		DEBE387123EFF09A006F51AB /* WidgetNoticeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DEBE387023EFF09A006F51AB /* WidgetNoticeView.xib */; };
 		DEBFDC43237E31A3003888D9 /* MoreTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEBFDC42237E31A3003888D9 /* MoreTableCell.swift */; };
 		DEBFDC45237E391C003888D9 /* OpenSourceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEBFDC44237E391C003888D9 /* OpenSourceViewController.swift */; };
 		DEBFDC47237E3950003888D9 /* OpenSourceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEBFDC46237E3950003888D9 /* OpenSourceTableViewCell.swift */; };
@@ -157,6 +159,8 @@
 		DE8C73832379BB2E008F2FE1 /* NoticeEconomy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeEconomy.swift; sourceTree = "<group>"; };
 		DE8C73852379BDF6008F2FE1 /* NoticeSocial.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeSocial.swift; sourceTree = "<group>"; };
 		DEBB714C23744AC400C38812 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
+		DEBE386A23EFEFC2006F51AB /* WidgetNoticeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetNoticeView.swift; sourceTree = "<group>"; };
+		DEBE387023EFF09A006F51AB /* WidgetNoticeView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WidgetNoticeView.xib; sourceTree = "<group>"; };
 		DEBFDC42237E31A3003888D9 /* MoreTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreTableCell.swift; sourceTree = "<group>"; };
 		DEBFDC44237E391C003888D9 /* OpenSourceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenSourceViewController.swift; sourceTree = "<group>"; };
 		DEBFDC46237E3950003888D9 /* OpenSourceTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenSourceTableViewCell.swift; sourceTree = "<group>"; };
@@ -334,6 +338,8 @@
 				DE64BE8723DD253C00DF46C5 /* TodayViewController.swift */,
 				DE85B93C23DD3001001FB35C /* TodayPresenter.swift */,
 				DE85B93E23DD300A001FB35C /* TodayContract.swift */,
+				DEBE386A23EFEFC2006F51AB /* WidgetNoticeView.swift */,
+				DEBE387023EFF09A006F51AB /* WidgetNoticeView.xib */,
 			);
 			path = "Notissu Today Extension";
 			sourceTree = "<group>";
@@ -469,6 +475,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DEBE387123EFF09A006F51AB /* WidgetNoticeView.xib in Resources */,
 				DE64BE8B23DD253C00DF46C5 /* MainInterface.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -603,6 +610,7 @@
 				DE85B92F23DD29CE001FB35C /* NoticeEngineering.swift in Sources */,
 				DE85B93923DD29FC001FB35C /* ConfigSetting.swift in Sources */,
 				DE85B92E23DD29CE001FB35C /* NoticeIT.swift in Sources */,
+				DEBE386B23EFEFC2006F51AB /* WidgetNoticeView.swift in Sources */,
 				DE85B93323DD29CE001FB35C /* NoticeBusiness.swift in Sources */,
 				DE85B93F23DD300A001FB35C /* TodayContract.swift in Sources */,
 				DE64BE8823DD253C00DF46C5 /* TodayViewController.swift in Sources */,

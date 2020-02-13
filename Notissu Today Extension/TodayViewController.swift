@@ -12,6 +12,7 @@ import NotificationCenter
 class TodayViewController: UIViewController, TodayViewProtocol, NCWidgetProviding {
     private var presenter: TodayPresenter!
     
+    @IBOutlet var widgetTitleSection: UIView!
     @IBOutlet var appButtonView: UIView!
     @IBOutlet var myMajorLbl: UILabel!
     @IBOutlet var noticeStackView: UIStackView!
@@ -26,6 +27,9 @@ class TodayViewController: UIViewController, TodayViewProtocol, NCWidgetProvidin
         self.extensionContext?.widgetLargestAvailableDisplayMode = .expanded
         self.appButtonView.layer.masksToBounds = true
         self.appButtonView.layer.cornerRadius = 23
+        
+        self.widgetTitleSection.clipsToBounds = true
+        self.widgetTitleSection.layer.cornerRadius = 15
         
         self.presenter = TodayPresenter(view: self)
         self.presenter.fetchCachedInfo(completion: { result in

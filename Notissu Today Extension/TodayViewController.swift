@@ -12,6 +12,7 @@ import NotificationCenter
 class TodayViewController: UIViewController, TodayViewProtocol, NCWidgetProviding {
     private var presenter: TodayPresenter!
     
+    @IBOutlet var widgetTitleSection: UIView!
     @IBOutlet var appButtonView: UIView!
     @IBOutlet var myMajorLbl: UILabel!
     @IBOutlet var noticeStackView: UIStackView!
@@ -25,41 +26,46 @@ class TodayViewController: UIViewController, TodayViewProtocol, NCWidgetProvidin
         super.viewDidLoad()
         self.extensionContext?.widgetLargestAvailableDisplayMode = .expanded
         self.appButtonView.layer.masksToBounds = true
-        self.appButtonView.layer.cornerRadius = 23
+        self.appButtonView.layer.cornerRadius = self.appButtonView.bounds.height * 0.5
+        
+        self.widgetTitleSection.clipsToBounds = true
+        self.widgetTitleSection.layer.cornerRadius = 15
+        
+        self.noticeStackViewHeight.constant = 144
         
         self.presenter = TodayPresenter(view: self)
+        
+        self.applyToTableView(list: self.presenter.fetchCachedNotice())
+        
         self.presenter.fetchCachedInfo(completion: { result in
             switch(result) {
             case .success(let deptModel):
                 self.myMajorLbl.text = deptModel.myDeptName
                 self.presenter.loadNoticeList(page: 0, keyword: nil, deptCode: deptModel.code)
-            case .failure(let error):
+            case .failure(_):
                 break
             }
         })
     }
     
     func applyToTableView(list: [Notice]) {
-        self.extensionContext?.widgetLargestAvailableDisplayMode = .compact
         
         self.noticeStackView.removeAllArrangedSubviews()
-        self.noticeStackViewHeight.constant = 0
+        self.noticeStackViewHeight.constant = 144
         if list.count > 3 {
-            self.noticeStackViewHeight.constant = 192
+            self.noticeStackViewHeight.constant = 144
         } else {
-            self.noticeStackViewHeight.constant = CGFloat(48 * list.count)
+            self.noticeStackViewHeight.constant = CGFloat(36 * list.count)
         }
         
         for (index, notice) in list.enumerated() {
             if index > 3 {
                 break
             }
-            
-            var noticeItemView = WidgetNoticeView.viewFromNib()
+            let noticeItemView = WidgetNoticeView.viewFromNib()
             noticeItemView.noticeItem = notice
             self.noticeStackView.addArrangedSubview(noticeItemView)
         }
-        self.extensionContext?.widgetLargestAvailableDisplayMode = .expanded
     }
         
     func widgetPerformUpdate(completionHandler: (@escaping (NCUpdateResult) -> Void)) {
@@ -69,8 +75,10 @@ class TodayViewController: UIViewController, TodayViewProtocol, NCWidgetProvidin
     func widgetActiveDisplayModeDidChange(_ activeDisplayMode: NCWidgetDisplayMode, withMaximumSize maxSize: CGSize) {
         if (activeDisplayMode == .compact) {
             self.preferredContentSize = maxSize
+            self.noticeStackView.isHidden = true
         } else {
-            self.preferredContentSize = CGSize(width: maxSize.width, height: 110 + noticeStackViewHeight.constant)
+            self.preferredContentSize = CGSize(width: maxSize.width, height: 110 + self.noticeStackViewHeight.constant + 15)
+            self.noticeStackView.isHidden = false
         }
     }
     

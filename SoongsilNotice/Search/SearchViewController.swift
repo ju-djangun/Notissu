@@ -10,10 +10,12 @@ import UIKit
 
 class SearchViewController: BaseViewController, SearchViewProtocol, UIPickerViewDelegate, UIPickerViewDataSource {
     
-    @IBOutlet var majorText       : UILabel!
-    @IBOutlet var pickerView      : UIPickerView!
-    @IBOutlet var searchBtn       : UIButton!
-    @IBOutlet var keywordTextField: UITextField!
+    @IBOutlet weak var majorText         : UILabel!
+    @IBOutlet weak var lblSelectedMajor  : UILabel!
+    @IBOutlet weak var pickerView        : UIPickerView!
+    @IBOutlet weak var searchBtn         : UIButton!
+    @IBOutlet weak var majorSelectionBtn: UIButton!
+    @IBOutlet weak var keywordTextField  : UITextField!
     
     private var presenter: SearchPresenter!
     
@@ -23,6 +25,19 @@ class SearchViewController: BaseViewController, SearchViewProtocol, UIPickerView
     override func viewDidLoad() {
         super.viewDidLoad()
         self.presenter = SearchPresenter(view: self)
+        
+        self.searchBtn.clipsToBounds = true
+        self.searchBtn.layer.cornerRadius = self.searchBtn.bounds.height * 0.5
+        
+        self.majorSelectionBtn.clipsToBounds = true
+        self.majorSelectionBtn.layer.cornerRadius = self.majorSelectionBtn.bounds.height * 0.5
+        
+        self.keywordTextField.clipsToBounds = true
+        self.keywordTextField.layer.cornerRadius = self.keywordTextField.bounds.height * 0.5
+        self.keywordTextField.layer.borderWidth = 1
+        self.keywordTextField.layer.borderColor = NotiSSU_ColorSet.notissuGrayLight.cgColor
+        
+        self.lblSelectedMajor.textColor = NotiSSU_ColorSet.notissuGray
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -96,7 +111,7 @@ class SearchViewController: BaseViewController, SearchViewProtocol, UIPickerView
         
         alert!.addAction(UIAlertAction(title: "취소", style: .cancel, handler: nil))
         alert!.addAction(UIAlertAction(title: "확인", style: .default, handler: { (UIAlertAction) in
-            self.majorText.text = "선택한 전공 : \(self.selectedMajor.rawValue)"
+            self.lblSelectedMajor.text = "선택한 전공 : \(self.selectedMajor.rawValue)"
             
         }))
         self.present(alert!, animated: true, completion: nil)

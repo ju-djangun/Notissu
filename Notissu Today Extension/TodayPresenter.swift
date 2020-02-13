@@ -18,11 +18,34 @@ struct WidgetNoticeModel {
     var code: DeptCode
 }
 
+class TodayModel: TodayModelProtocol {
+    var cachedNoticeList: [Notice]?
+}
+
 class TodayPresenter: TodayPresenterProtocol {
     var view: TodayViewProtocol
+    var model: TodayModel
     
     init(view: TodayViewProtocol) {
         self.view = view
+        self.model = TodayModel()
+    }
+    
+    func getCachedNoticeFromModel() -> [Notice] {
+        return self.model.cachedNoticeList ?? [Notice]()
+    }
+    
+    func fetchCachedNotice() -> [Notice] {
+        if let noticeData = UserDefaults.standard.data(forKey: "widgetNotice") {
+            do {
+                let noticeList = try JSONDecoder().decode([Notice].self, from: noticeData)
+                self.model.cachedNoticeList = noticeList
+                return noticeList
+            } catch {
+                
+            }
+        }
+        return [Notice]()
     }
     
     func fetchCachedInfo(completion: @escaping (Result<WidgetNoticeModel, WidgetNoticeError>) -> Void) {

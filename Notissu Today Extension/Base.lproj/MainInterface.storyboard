@@ -17,13 +17,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Koz-5t-HGm">
-                                <rect key="frame" x="0.0" y="-15" width="320" height="110"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="110"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xrD-OL-D36">
                                         <rect key="frame" x="14" y="16" width="292" height="72"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="k6i-fx-Giw">
-                                                <rect key="frame" x="19" y="21" width="198" height="30"/>
+                                                <rect key="frame" x="19" y="21" width="204" height="30"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="내 전공" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T6I-dK-WKA">
                                                         <rect key="frame" x="0.0" y="0.0" width="31.5" height="13"/>
@@ -31,11 +31,11 @@
                                                             <constraint firstAttribute="height" constant="13" id="3rq-bf-VDI"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="11"/>
-                                                        <color key="textColor" name="notissuExtensionBlack100s"/>
+                                                        <color key="textColor" name="notissuExtensionBlack90s"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gbe-3W-coK">
-                                                        <rect key="frame" x="0.0" y="14" width="34" height="16"/>
+                                                        <rect key="frame" x="0.0" y="16" width="34" height="16"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="16" id="51i-Cr-Wd5"/>
                                                         </constraints>
@@ -47,24 +47,25 @@
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstItem="T6I-dK-WKA" firstAttribute="top" secondItem="k6i-fx-Giw" secondAttribute="top" id="7r6-Xd-xOu"/>
-                                                    <constraint firstItem="gbe-3W-coK" firstAttribute="top" secondItem="T6I-dK-WKA" secondAttribute="bottom" constant="1" id="YFd-BD-eXG"/>
+                                                    <constraint firstItem="gbe-3W-coK" firstAttribute="top" secondItem="T6I-dK-WKA" secondAttribute="bottom" constant="3" id="YFd-BD-eXG"/>
                                                     <constraint firstItem="gbe-3W-coK" firstAttribute="leading" secondItem="k6i-fx-Giw" secondAttribute="leading" id="caQ-Yx-ndd"/>
                                                     <constraint firstAttribute="height" constant="30" id="obm-BU-h38"/>
                                                     <constraint firstItem="T6I-dK-WKA" firstAttribute="leading" secondItem="k6i-fx-Giw" secondAttribute="leading" id="yu7-g7-c4f"/>
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="t3t-fQ-dAo">
-                                                <rect key="frame" x="227" y="13" width="46" height="46"/>
+                                                <rect key="frame" x="233" y="16" width="40" height="40"/>
                                                 <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ee4-No-l0X">
-                                                        <rect key="frame" x="0.0" y="0.0" width="46" height="46"/>
+                                                    <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ee4-No-l0X">
+                                                        <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
                                                         <color key="backgroundColor" name="launch_bg"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" secondItem="ee4-No-l0X" secondAttribute="height" multiplier="1:1" id="7Oz-1S-9KU"/>
-                                                            <constraint firstAttribute="width" constant="46" id="pvg-nf-Cyx"/>
+                                                            <constraint firstAttribute="width" constant="40" id="pvg-nf-Cyx"/>
                                                         </constraints>
-                                                        <color key="tintColor" name="launch_bg"/>
-                                                        <state key="normal" title="Button">
+                                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                        <color key="tintColor" name="notissuExtensionBlack10s"/>
+                                                        <state key="normal" title="홈">
                                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </state>
                                                         <connections>
@@ -76,14 +77,13 @@
                                                 <constraints>
                                                     <constraint firstItem="ee4-No-l0X" firstAttribute="top" secondItem="t3t-fQ-dAo" secondAttribute="top" id="4n9-nI-z2b"/>
                                                     <constraint firstAttribute="width" secondItem="t3t-fQ-dAo" secondAttribute="height" multiplier="1:1" id="HYl-jJ-6TR"/>
-                                                    <constraint firstAttribute="width" constant="46" id="MQk-6X-a0L"/>
                                                     <constraint firstItem="ee4-No-l0X" firstAttribute="leading" secondItem="t3t-fQ-dAo" secondAttribute="leading" id="bUu-kU-vo1"/>
                                                     <constraint firstAttribute="trailing" secondItem="ee4-No-l0X" secondAttribute="trailing" id="bhC-s3-gVM"/>
                                                     <constraint firstAttribute="bottom" secondItem="ee4-No-l0X" secondAttribute="bottom" id="cjO-bQ-Dcf"/>
                                                 </constraints>
                                             </view>
                                         </subviews>
-                                        <color key="backgroundColor" name="notissuExtensionBlack10s"/>
+                                        <color key="backgroundColor" name="notissuExtensionBlack05s"/>
                                         <constraints>
                                             <constraint firstItem="t3t-fQ-dAo" firstAttribute="leading" secondItem="k6i-fx-Giw" secondAttribute="trailing" constant="10" id="2Ie-Hr-2Yo"/>
                                             <constraint firstAttribute="height" constant="72" id="EhB-4M-39V"/>
@@ -103,9 +103,9 @@
                                 </constraints>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="Er1-pn-tde">
-                                <rect key="frame" x="14" y="95" width="292" height="100"/>
+                                <rect key="frame" x="14" y="110" width="292" height="144"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="100" id="uOt-gb-j1U"/>
+                                    <constraint firstAttribute="height" constant="144" id="uOt-gb-j1U"/>
                                 </constraints>
                             </stackView>
                         </subviews>
@@ -114,7 +114,6 @@
                             <constraint firstItem="Er1-pn-tde" firstAttribute="leading" secondItem="ssy-KU-ocm" secondAttribute="leading" constant="14" id="CD2-pw-soI"/>
                             <constraint firstItem="Er1-pn-tde" firstAttribute="top" secondItem="Koz-5t-HGm" secondAttribute="bottom" id="Cv3-V1-jJ2"/>
                             <constraint firstItem="ssy-KU-ocm" firstAttribute="trailing" secondItem="Er1-pn-tde" secondAttribute="trailing" constant="14" id="LR3-oV-7Td"/>
-                            <constraint firstItem="ssy-KU-ocm" firstAttribute="bottom" secondItem="Er1-pn-tde" secondAttribute="bottom" constant="15" id="W48-t8-ZVv"/>
                             <constraint firstItem="Koz-5t-HGm" firstAttribute="top" secondItem="S3S-Oj-5AN" secondAttribute="top" id="t6g-8l-rzL"/>
                             <constraint firstItem="ssy-KU-ocm" firstAttribute="trailing" secondItem="Koz-5t-HGm" secondAttribute="trailing" id="tnX-CZ-xUf"/>
                         </constraints>
@@ -140,11 +139,17 @@
         <namedColor name="launch_bg">
             <color red="0.18509295906300477" green="0.3097553746415041" blue="0.57826380076142136" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
+        <namedColor name="notissuExtensionBlack05s">
+            <color red="0.0" green="0.0" blue="0.0" alpha="0.050000000000000003" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="notissuExtensionBlack100s">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="notissuExtensionBlack10s">
             <color red="0.0" green="0.0" blue="0.0" alpha="0.10000000000000001" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="notissuExtensionBlack90s">
+            <color red="0.0" green="0.0" blue="0.0" alpha="0.90000000000000002" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>

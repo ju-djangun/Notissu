@@ -11,10 +11,35 @@ import UIKit
 
 struct NotiSSU_ColorSet {
     // From Assets.xcassets
-    var navBackgroundColor = UIColor(named: "")
-    var tabIconTintColor = UIColor(named: "")
-    var detailBGColor = UIColor(named: "")
-    var homeMajorColor = UIColor(named: "")
+    public static var notissuBlue = UIColor.hexStringToUIColor(hex: "#2F4F93")
+    public static var notissuGrayLight = UIColor.hexStringToUIColor(hex: "#E4E4E4")
+    public static var notissuGray = UIColor.hexStringToUIColor(hex: "#9B9B9B")
+    public static var notissuWhite = UIColor.hexStringToUIColor(hex: "#FFFFFF")
+    public static var notissuTextDark = UIColor.hexStringToUIColor(hex: "#191919")
+}
+
+extension UIColor {
+    static func hexStringToUIColor (hex:String) -> UIColor {
+        var cString:String = hex.trimmingCharacters(in: .whitespacesAndNewlines).uppercased()
+
+        if (cString.hasPrefix("#")) {
+            cString.remove(at: cString.startIndex)
+        }
+
+        if ((cString.count) != 6) {
+            return UIColor.gray
+        }
+
+        var rgbValue:UInt64 = 0
+        Scanner(string: cString).scanHexInt64(&rgbValue)
+
+        return UIColor(
+            red: CGFloat((rgbValue & 0xFF0000) >> 16) / 255.0,
+            green: CGFloat((rgbValue & 0x00FF00) >> 8) / 255.0,
+            blue: CGFloat(rgbValue & 0x0000FF) / 255.0,
+            alpha: CGFloat(1.0)
+        )
+    }
 }
 
 public enum DeptCode: Int, CaseIterable {

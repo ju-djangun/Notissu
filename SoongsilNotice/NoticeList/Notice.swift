@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Notice {
+class Notice: Codable {
     var author   : String?
     var title    : String?
     var url      : String?

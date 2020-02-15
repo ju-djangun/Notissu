@@ -24,9 +24,15 @@ class SchoolViewController: BaseViewController, SchoolView, UITableViewDelegate,
             self.noticeListView.refreshControl = refreshControl
         } else { noticeListView.addSubview(refreshControl) }
         refreshControl.addTarget(self, action: #selector(refresh), for: .valueChanged)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(onLoadFromWidget),
+                                               name: NSNotification.Name("widget"),
+                                               object: nil)
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
         self.navigationController?.navigationBar.topItem?.title = "SSU:Catch"
         self.presenter = SchoolPresenter(view: self)
         self.noticeListView.delegate = self
@@ -34,6 +40,21 @@ class SchoolViewController: BaseViewController, SchoolView, UITableViewDelegate,
         self.noticeListView.tableFooterView = UIView()
         self.noticeListView.reloadData()
         self.refresh()
+        
+        self.checkURLScheme()
+    }
+    
+    @objc func onLoadFromWidget() {
+        self.checkURLScheme()
+    }
+    
+    private func checkURLScheme() {
+        if let index = NotissuProperty.openIndex {
+            print("change to Tab \(index)...")
+            if index != self.tabBarController?.selectedIndex {
+                self.tabBarController?.selectedIndex = index
+            }
+        }
     }
     
     func applyTableView(list: [Notice]) -> Void {

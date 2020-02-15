@@ -46,10 +46,14 @@ class StartViewController: BaseViewController, UIPickerViewDelegate, UIPickerVie
         BaseViewController.noticeDeptCode = myCode
         BaseViewController.noticeDeptName = myName
         
-//        UserDefaults.standard.set(myCode, forKey: "myDeptCode")
         UserDefaults.standard.setValue(myCode.rawValue, forKey: "myDeptCode")
-//        UserDefaults.standard.set(myName, forKey: "myDeptName")
         UserDefaults.standard.setValue(myName.rawValue, forKey: "myDeptName")
+        
+        UserDefaults(suiteName: "group.com.elliott.Notissu")?.set(myCode.rawValue, forKey: "myDeptCode")
+        UserDefaults(suiteName: "group.com.elliott.Notissu")?.set(myName.rawValue, forKey: "myDeptName")
+        
+//        print("START : \(UserDefaults(suiteName: "group.com.elliott.Notissu")?.integer(forKey: "myDeptCode"))")
+//        print("START : \(UserDefaults(suiteName: "group.com.elliott.Notissu")?.string(forKey: "myDeptName"))")
         
         let storyBoard = self.storyboard!
         let manualViewController = storyBoard.instantiateViewController(withIdentifier: "manualVC") as? ManualViewController

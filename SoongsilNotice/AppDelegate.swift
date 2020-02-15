@@ -23,13 +23,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                      options: [UIApplication.OpenURLOptionsKey : Any] = [:] ) -> Bool {
         
         guard let components = NSURLComponents(url: url, resolvingAgainstBaseURL: true),
-            let urlPath = components.path,
+            let _ = components.path,
             let params = components.queryItems else {
                 return false
         }
         
+        NotissuProperty.openIndex = nil
+        
         if let tabIndex = params.first(where: { $0.name == "index" })?.value {
             NotissuProperty.openIndex = Int(tabIndex) ?? 0
+            NotificationCenter.default.post(Notification(name: Notification.Name(rawValue: "widget")))
             return true
         } else {
             return false

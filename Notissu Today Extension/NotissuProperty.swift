@@ -16,5 +16,5 @@ struct NotissuProperty {
         return (UIImage(named: self.shortcutImage[tag])?.withRenderingMode(.alwaysTemplate))
     }
     
-    public static var openIndex: Int = 0
+    public static var openIndex: Int?
 }

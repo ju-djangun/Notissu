@@ -34,6 +34,9 @@ class TodayViewController: UIViewController, TodayViewProtocol, NCWidgetProvidin
     }
     
     private func generateURLScheme(index: Int) -> String {
+        if index == 3 {
+            return "notissu://?index=4"
+        }
         return "notissu://?index=\(index)"
     }
     

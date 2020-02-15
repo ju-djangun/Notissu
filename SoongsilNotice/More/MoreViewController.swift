@@ -19,11 +19,31 @@ class MoreViewController : BaseViewController, UITableViewDelegate, UITableViewD
         self.moreTableView.dataSource = self
         self.moreTableView.separatorInset  = .zero
         self.moreTableView.tableFooterView = UIView(frame: .zero)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(onLoadFromWidget),
+        name: NSNotification.Name("widget"),
+        object: nil)
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         self.navigationController?.navigationBar.topItem?.title = "더보기"
         self.majorLbl.text = BaseViewController.noticeDeptName?.rawValue ?? ""
+        
+        self.checkURLScheme()
+    }
+    
+    @objc func onLoadFromWidget() {
+        self.checkURLScheme()
+    }
+    
+    private func checkURLScheme() {
+        if let index = NotissuProperty.openIndex {
+            print("change to Tab \(index)...")
+            if index != self.tabBarController?.selectedIndex {
+                self.tabBarController?.selectedIndex = index
+            }
+        }
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

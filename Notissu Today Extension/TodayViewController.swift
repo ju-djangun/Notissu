@@ -12,25 +12,49 @@ import NotificationCenter
 class TodayViewController: UIViewController, TodayViewProtocol, NCWidgetProviding {
     private var presenter: TodayPresenter!
     
-    @IBOutlet var widgetTitleSection: UIView!
-    @IBOutlet var appButtonView: UIView!
-    @IBOutlet var myMajorLbl: UILabel!
-    @IBOutlet var noticeStackView: UIStackView!
-    @IBOutlet var noticeStackViewHeight: NSLayoutConstraint!
+    @IBOutlet var shortcutImageViews: [UIImageView]!
+    @IBOutlet var shortcutButtons: [UIButton]!
+    @IBOutlet var shortcutLabels: [UILabel]!
     
-    @IBAction func onClickAppButton(_ sender: Any) {
-        
+    @IBOutlet weak var noticeStackView: UIStackView!
+    @IBOutlet weak var noticeStackViewHeight: NSLayoutConstraint!
+    
+    @IBAction func onClickShortcutButton(_ sender: UIButton) {
+        self.openAppByScheme(tag: sender.tag)
+    }
+    
+    private func openAppByScheme(tag: Int) {
+        if let url = URL(string: generateURLScheme(index: tag)) {
+            self.extensionContext?.open(url) { _ in
+                print("shortcuts button")
+            }
+        } else {
+            print("shortcuts error 0x02")
+        }
+    }
+    
+    private func generateURLScheme(index: Int) -> String {
+        if index == 3 {
+            return "notissu://?index=4"
+        }
+        return "notissu://?index=\(index)"
+    }
+    
+    private func setInitialViewStyle() {
+        for (index, imageView) in shortcutImageViews.enumerated() {
+            imageView.clipsToBounds = true
+            imageView.layer.cornerRadius = 10
+            
+            imageView.tintColor = .white
+            imageView.image = NotissuProperty.getImage(tag: index)
+        }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.extensionContext?.widgetLargestAvailableDisplayMode = .expanded
-        self.appButtonView.layer.masksToBounds = true
-        self.appButtonView.layer.cornerRadius = self.appButtonView.bounds.height * 0.5
         
-        self.widgetTitleSection.clipsToBounds = true
-        self.widgetTitleSection.layer.cornerRadius = 15
-        
+        self.setInitialViewStyle()
         self.noticeStackViewHeight.constant = 144
         
         self.presenter = TodayPresenter(view: self)
@@ -40,7 +64,6 @@ class TodayViewController: UIViewController, TodayViewProtocol, NCWidgetProvidin
         self.presenter.fetchCachedInfo(completion: { result in
             switch(result) {
             case .success(let deptModel):
-                self.myMajorLbl.text = deptModel.myDeptName
                 self.presenter.loadNoticeList(page: 0, keyword: nil, deptCode: deptModel.code)
             case .failure(_):
                 break

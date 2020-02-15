@@ -8,6 +8,7 @@
 
 import UIKit
 import Lottie
+import NotificationCenter
 
 class NoticeListViewController: BaseViewController, NoticeListView, UITableViewDelegate, UITableViewDataSource {
     
@@ -26,6 +27,9 @@ class NoticeListViewController: BaseViewController, NoticeListView, UITableViewD
     private var page : Int = 1
     
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        print("viewWillAppear...NoticeListVC")
         if isMyList {
             self.noticeDeptCode = BaseViewController.noticeDeptCode
             self.noticeDeptName = BaseViewController.noticeDeptName
@@ -48,7 +52,22 @@ class NoticeListViewController: BaseViewController, NoticeListView, UITableViewD
         self.noticeListView.tableFooterView = UIView()
         self.noticeListView.reloadData()
         
+        self.checkURLScheme()
+        
         self.refresh()
+    }
+    
+    @objc func onLoadFromWidget() {
+        self.checkURLScheme()
+    }
+    
+    private func checkURLScheme() {
+        if let index = NotissuProperty.openIndex {
+            print("change to Tab \(index)...")
+            if index != self.tabBarController?.selectedIndex {
+                self.tabBarController?.selectedIndex = index
+            }
+        }
     }
     
     @objc func onFavoriteClick(sender: UIBarButtonItem) {
@@ -79,6 +98,10 @@ class NoticeListViewController: BaseViewController, NoticeListView, UITableViewD
             noticeListView.refreshControl = refreshControl
         } else { noticeListView.addSubview(refreshControl) }
         refreshControl.addTarget(self, action: #selector(refresh), for: .valueChanged)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(onLoadFromWidget),
+        name: NSNotification.Name("widget"),
+        object: nil)
     }
     
     @objc func refresh() {

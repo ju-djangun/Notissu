@@ -65,11 +65,31 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     @IBOutlet var majorListView: UITableView!
     
+    @objc func onLoadFromWidget() {
+        self.checkURLScheme()
+    }
+    
+    private func checkURLScheme() {
+        if let index = NotissuProperty.openIndex {
+            print("change to Tab \(index)...")
+            if index != self.tabBarController?.selectedIndex {
+                self.tabBarController?.selectedIndex = index
+            }
+        }
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         self.navigationController?.navigationBar.topItem?.title = "전공 목록"
+        
+        self.checkURLScheme()
     }
     
     override func viewDidLoad() {
+        NotificationCenter.default.addObserver(self, selector: #selector(onLoadFromWidget),
+        name: NSNotification.Name("widget"),
+        object: nil)
+        
         for index in 0..<majorCodeListIT.count {
             majorListIT.append(Major(majorCode: majorCodeListIT[index], majorName: majorNameListIT[index], majorNameEng: majorEngNameListIT[index]))
         }

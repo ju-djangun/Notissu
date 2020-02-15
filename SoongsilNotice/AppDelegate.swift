@@ -15,8 +15,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-//        Thread.sleep(forTimeInterval: 2.0)
         return true
+    }
+    
+    func application(_ application: UIApplication,
+                     open url: URL,
+                     options: [UIApplication.OpenURLOptionsKey : Any] = [:] ) -> Bool {
+        
+        guard let components = NSURLComponents(url: url, resolvingAgainstBaseURL: true),
+            let urlPath = components.path,
+            let params = components.queryItems else {
+                return false
+        }
+        
+        if let tabIndex = params.first(where: { $0.name == "index" })?.value {
+            NotissuProperty.openIndex = Int(tabIndex) ?? 0
+            return true
+        } else {
+            return false
+        }
     }
     
     func applicationWillResignActive(_ application: UIApplication) {

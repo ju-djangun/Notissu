@@ -75,6 +75,8 @@ class NoticeListViewController: BaseViewController, NoticeListView, UITableViewD
         self.noticeListView.tableFooterView = UIView()
         self.noticeListView.reloadData()
         
+        
+        
         if #available(iOS 10.0, *) {
             noticeListView.refreshControl = refreshControl
         } else { noticeListView.addSubview(refreshControl) }

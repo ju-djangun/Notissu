@@ -50,16 +50,25 @@ class TodayViewController: UIViewController, TodayViewProtocol, NCWidgetProvidin
         }
     }
     
+    private var expandedHeight: CGFloat = 269 {
+        didSet {
+            self.updateWidgetLayout()
+        }
+    }
+    
+    private func updateWidgetLayout() {
+        
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.extensionContext?.widgetLargestAvailableDisplayMode = .expanded
         
         self.setInitialViewStyle()
-        self.noticeStackViewHeight.constant = 144
-        
+        self.updateWidgetLayout()
         self.presenter = TodayPresenter(view: self)
         
-        self.applyToTableView(list: self.presenter.fetchCachedNotice())
+        self.presenter.fetchCachedNotice()
         
         self.presenter.fetchCachedInfo(completion: { result in
             switch(result) {
@@ -72,13 +81,13 @@ class TodayViewController: UIViewController, TodayViewProtocol, NCWidgetProvidin
     }
     
     func applyToTableView(list: [Notice]) {
-        
         self.noticeStackView.removeAllArrangedSubviews()
-        self.noticeStackViewHeight.constant = 144
+        
         if list.count > 3 {
             self.noticeStackViewHeight.constant = 144
         } else {
             self.noticeStackViewHeight.constant = CGFloat(36 * list.count)
+            self.expandedHeight = 110 + CGFloat(36 * list.count) + 15
         }
         
         for (index, notice) in list.enumerated() {
@@ -100,7 +109,7 @@ class TodayViewController: UIViewController, TodayViewProtocol, NCWidgetProvidin
             self.preferredContentSize = maxSize
             self.noticeStackView.isHidden = true
         } else {
-            self.preferredContentSize = CGSize(width: maxSize.width, height: 110 + self.noticeStackViewHeight.constant + 15)
+            self.preferredContentSize = CGSize(width: maxSize.width, height: 269)
             self.noticeStackView.isHidden = false
         }
     }

@@ -35,17 +35,17 @@ class TodayPresenter: TodayPresenterProtocol {
         return self.model.cachedNoticeList ?? [Notice]()
     }
     
-    func fetchCachedNotice() -> [Notice] {
+    func fetchCachedNotice() {
         if let noticeData = UserDefaults.standard.data(forKey: "widgetNotice") {
             do {
                 let noticeList = try JSONDecoder().decode([Notice].self, from: noticeData)
                 self.model.cachedNoticeList = noticeList
-                return noticeList
+                self.view.applyToTableView(list: noticeList)
             } catch {
                 
             }
         }
-        return [Notice]()
+        self.view.applyToTableView(list: [Notice]())
     }
     
     func fetchCachedInfo(completion: @escaping (Result<WidgetNoticeModel, WidgetNoticeError>) -> Void) {

@@ -15,7 +15,7 @@ protocol TodayViewProtocol {
 protocol TodayPresenterProtocol {
     func getCachedNoticeFromModel() -> [Notice]
     
-    func fetchCachedNotice() -> [Notice]
+    func fetchCachedNotice()
     
     func fetchCachedInfo(completion: @escaping (Result<WidgetNoticeModel, WidgetNoticeError>) -> Void)
     

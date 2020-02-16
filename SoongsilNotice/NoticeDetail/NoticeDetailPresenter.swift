@@ -20,6 +20,11 @@ class NoticeDetailPresenter: NoticeDetail {
         self.view = view
     }
     
+    func fetchNoticeDetail(title: String, date: String, major: DeptCode) {
+        // Retrieve Data From Core Data
+        // Favorite 여부를 확인하여 View 에 적용하기 위한 함수
+    }
+    
     func parseSoongsil(html: HTMLDocument, completion: @escaping ([Attachment], String) -> Void) {
         var index = 0
         var contentHTML = ""

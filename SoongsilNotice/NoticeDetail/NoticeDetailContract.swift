@@ -23,6 +23,8 @@ protocol NoticeDetailView {
 // Presenter
 protocol NoticeDetail {
     // Attachment : 첨부파일, String : 내용이 담긴 HTML
+    func fetchNoticeDetail(title: String, date: String, major: DeptCode)
+    
     func parseSoongsil(html: HTMLDocument, completion: @escaping ([Attachment], String) -> Void)
     
     func parseComputer(html: HTMLDocument, completion: @escaping ([Attachment], String) -> Void)

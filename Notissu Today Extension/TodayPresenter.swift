@@ -7,20 +7,7 @@
 //
 
 import Foundation
-
-enum WidgetNoticeError: Error {
-    case noDeptName
-    case deptNameError
-}
-
-struct WidgetNoticeModel {
-    var myDeptName: String
-    var code: DeptCode
-}
-
-class TodayModel: TodayModelProtocol {
-    var cachedNoticeList: [Notice]?
-}
+import CoreData
 
 class TodayPresenter: TodayPresenterProtocol {
     var view: TodayViewProtocol
@@ -46,6 +33,28 @@ class TodayPresenter: TodayPresenterProtocol {
             }
         }
         return [Notice]()
+    }
+    
+    func fetchFavoriteNotice() -> [Notice] {
+        let context = CoreDataUtil.shared.persistentContainer.viewContext
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Favorite")
+        self.model.removeAllFavoriteNotice()
+        
+        do {
+            let result = try context.fetch(fetchRequest)
+            for data in result as! [NSManagedObject] {
+                let author = data.value(forKey: "author") as! String
+                let title = data.value(forKey: "title") as! String
+                let url = data.value(forKey: "url") as! String
+                let date = data.value(forKey: "date") as! String
+                let isNotice = data.value(forKey: "isNotice") as! Bool
+                
+                self.model.appendFavoriteNotice(notice: Notice(author: author, title: title, url: url, date: date, isNotice: isNotice))
+            }
+        } catch {
+            print("ERROR")
+        }
+        return self.model.favoriteNoticeList
     }
     
     func fetchCachedInfo(completion: @escaping (Result<WidgetNoticeModel, WidgetNoticeError>) -> Void) {

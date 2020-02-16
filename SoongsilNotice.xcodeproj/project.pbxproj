@@ -33,6 +33,9 @@
 		DE501C4B23750DCB0053055A /* notissu_anim.json in Resources */ = {isa = PBXBuildFile; fileRef = DE501C4A23750DCA0053055A /* notissu_anim.json */; };
 		DE53D0B023F8E9B100AEFCE2 /* FavoriteNotice.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DE53D0AE23F8E9B100AEFCE2 /* FavoriteNotice.xcdatamodeld */; };
 		DE53D0B123F8E9B100AEFCE2 /* FavoriteNotice.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DE53D0AE23F8E9B100AEFCE2 /* FavoriteNotice.xcdatamodeld */; };
+		DE53D0B323F8EA4E00AEFCE2 /* CoreDataUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE53D0B223F8EA4E00AEFCE2 /* CoreDataUtil.swift */; };
+		DE53D0B423F8EA4E00AEFCE2 /* CoreDataUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE53D0B223F8EA4E00AEFCE2 /* CoreDataUtil.swift */; };
+		DE53D0B623F92B3600AEFCE2 /* TodayModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE53D0B523F92B3600AEFCE2 /* TodayModel.swift */; };
 		DE5542402377CC31004E01EB /* NoticeNaturalScience.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE55423F2377CC31004E01EB /* NoticeNaturalScience.swift */; };
 		DE5542422377D993004E01EB /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE5542412377D993004E01EB /* StartViewController.swift */; };
 		DE5542442377E076004E01EB /* HomeSwticher.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE5542432377E076004E01EB /* HomeSwticher.swift */; };
@@ -144,6 +147,8 @@
 		DE501C482374FD250053055A /* NoticeURL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeURL.swift; sourceTree = "<group>"; };
 		DE501C4A23750DCA0053055A /* notissu_anim.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = notissu_anim.json; sourceTree = SOURCE_ROOT; };
 		DE53D0AF23F8E9B100AEFCE2 /* FavoriteNotice.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FavoriteNotice.xcdatamodel; sourceTree = "<group>"; };
+		DE53D0B223F8EA4E00AEFCE2 /* CoreDataUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataUtil.swift; sourceTree = "<group>"; };
+		DE53D0B523F92B3600AEFCE2 /* TodayModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayModel.swift; sourceTree = "<group>"; };
 		DE55423F2377CC31004E01EB /* NoticeNaturalScience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeNaturalScience.swift; sourceTree = "<group>"; };
 		DE5542412377D993004E01EB /* StartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
 		DE5542432377E076004E01EB /* HomeSwticher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeSwticher.swift; sourceTree = "<group>"; };
@@ -261,7 +266,6 @@
 		DE29612923703F4C0074F24B = {
 			isa = PBXGroup;
 			children = (
-				DE53D0AE23F8E9B100AEFCE2 /* FavoriteNotice.xcdatamodeld */,
 				DE29613423703F4C0074F24B /* SoongsilNotice */,
 				DE64BE8623DD253C00DF46C5 /* Notissu Today Extension */,
 				DE29613323703F4C0074F24B /* Products */,
@@ -301,6 +305,7 @@
 				DE501C482374FD250053055A /* NoticeURL.swift */,
 				DE5542432377E076004E01EB /* HomeSwticher.swift */,
 				DE72017E237A871B00F60CEB /* Launch Screen.storyboard */,
+				DE53D0B223F8EA4E00AEFCE2 /* CoreDataUtil.swift */,
 			);
 			path = SoongsilNotice;
 			sourceTree = "<group>";
@@ -352,6 +357,7 @@
 				DEBE387023EFF09A006F51AB /* WidgetNoticeView.xib */,
 				DEBE387223F578C6006F51AB /* TodayExtensionColor.xcassets */,
 				DEC1684923F7A1FF00DE2D84 /* NotissuProperty.swift */,
+				DE53D0B523F92B3600AEFCE2 /* TodayModel.swift */,
 			);
 			path = "Notissu Today Extension";
 			sourceTree = "<group>";
@@ -380,6 +386,7 @@
 		DEF56D812384DA05003CA0F0 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				DE53D0AE23F8E9B100AEFCE2 /* FavoriteNotice.xcdatamodeld */,
 				DEF56D8D2384DB1B003CA0F0 /* manual0.png */,
 				DEF56D8A2384DB1B003CA0F0 /* manual1.png */,
 				DEF56D8C2384DB1B003CA0F0 /* manual2.png */,
@@ -579,6 +586,7 @@
 				DEF56D7523837778003CA0F0 /* SearchViewController.swift in Sources */,
 				DE0F8F1A2373A222006A0B49 /* BaseViewController.swift in Sources */,
 				DEF56D7C2383C002003CA0F0 /* SchoolContract.swift in Sources */,
+				DE53D0B323F8EA4E00AEFCE2 /* CoreDataUtil.swift in Sources */,
 				DEF56D802384D547003CA0F0 /* ManualViewController.swift in Sources */,
 				DEC1684C23F7A84500DE2D84 /* NotissuProperty.swift in Sources */,
 				DE0F8F2323740041006A0B49 /* NoticeLaw.swift in Sources */,
@@ -625,6 +633,7 @@
 				DE85B93223DD29CE001FB35C /* NoticeNaturalScience.swift in Sources */,
 				DE85B93723DD29CE001FB35C /* NoticeSoongsil.swift in Sources */,
 				DE85B92F23DD29CE001FB35C /* NoticeEngineering.swift in Sources */,
+				DE53D0B623F92B3600AEFCE2 /* TodayModel.swift in Sources */,
 				DE85B93923DD29FC001FB35C /* ConfigSetting.swift in Sources */,
 				DE53D0B123F8E9B100AEFCE2 /* FavoriteNotice.xcdatamodeld in Sources */,
 				DE85B92E23DD29CE001FB35C /* NoticeIT.swift in Sources */,
@@ -632,6 +641,7 @@
 				DE85B93323DD29CE001FB35C /* NoticeBusiness.swift in Sources */,
 				DE85B93F23DD300A001FB35C /* TodayContract.swift in Sources */,
 				DE64BE8823DD253C00DF46C5 /* TodayViewController.swift in Sources */,
+				DE53D0B423F8EA4E00AEFCE2 /* CoreDataUtil.swift in Sources */,
 				DE85B93623DD29CE001FB35C /* NoticeConvergence.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

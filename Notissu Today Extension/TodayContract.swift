@@ -23,5 +23,9 @@ protocol TodayPresenterProtocol {
 }
 
 protocol TodayModelProtocol {
+    func appendFavoriteNotice(notice: Notice)
     
+    func removeAllFavoriteNotice()
+    
+    func getFavoriteNoticeList() -> [Notice]
 }

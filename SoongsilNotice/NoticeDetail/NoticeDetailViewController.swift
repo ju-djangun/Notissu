@@ -20,6 +20,8 @@ class NoticeDetailViewController: BaseViewController, WKNavigationDelegate, WKUI
     @IBOutlet var dateLabel                 : UILabel!
     @IBOutlet var attachViewHeightConstraint: NSLayoutConstraint!
     
+    private var isFavorite: Bool?
+    
     var attachments   = [Attachment]()
     var detailURL     : String?
     var departmentCode: DeptCode?
@@ -41,6 +43,8 @@ class NoticeDetailViewController: BaseViewController, WKNavigationDelegate, WKUI
         self.titleLabel.text = noticeTitle ?? ""
         self.dateLabel.text = noticeDay ?? ""
         self.presenter = NoticeDetailPresenter(view: self)
+        
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: (isFavorite ?? false) ? "즐겨찾기 해제" : "즐겨찾기 추가", style: .plain, target: self, action: #selector(favoriteTapped))
         
         self.showProgressBar()
         
@@ -186,6 +190,12 @@ class NoticeDetailViewController: BaseViewController, WKNavigationDelegate, WKUI
             default: break
             }
         }
+    }
+    
+    @objc func favoriteTapped() {
+        print("FavoriteTapped")
+        // UPDATE Core Data
+        // Retrieve New Core Data
     }
     
     func showWebViewPage(attachments: [Attachment], html: String) {

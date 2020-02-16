@@ -120,6 +120,7 @@ class NoticeListViewController: BaseViewController, NoticeListView, UITableViewD
         let storyBoard = self.storyboard!
         let noticeDetailController = storyBoard.instantiateViewController(withIdentifier: "noticeDetailVC") as? NoticeDetailViewController
         
+        noticeDetailController?.noticeItem = noticeList[indexPath.row]
         noticeDetailController?.detailURL = noticeList[indexPath.row].url
         noticeDetailController?.departmentCode = self.noticeDeptCode
         noticeDetailController?.noticeTitle = self.noticeList[indexPath.row].title

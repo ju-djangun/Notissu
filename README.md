@@ -6,7 +6,7 @@ Soongsil University Notice application by major.
 ### License
 Apache 2.0 License
 
-### App Store Version : 1.0.1   
+### App Store Version : 1.2.3   
 ### Supported Version : iOS 11.0 or newer   
 
 작성중

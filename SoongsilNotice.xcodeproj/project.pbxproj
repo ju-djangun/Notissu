@@ -31,6 +31,8 @@
 		DE501C472374FC9D0053055A /* NoticeInmun.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE501C462374FC9D0053055A /* NoticeInmun.swift */; };
 		DE501C492374FD250053055A /* NoticeURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE501C482374FD250053055A /* NoticeURL.swift */; };
 		DE501C4B23750DCB0053055A /* notissu_anim.json in Resources */ = {isa = PBXBuildFile; fileRef = DE501C4A23750DCA0053055A /* notissu_anim.json */; };
+		DE53D0B023F8E9B100AEFCE2 /* FavoriteNotice.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DE53D0AE23F8E9B100AEFCE2 /* FavoriteNotice.xcdatamodeld */; };
+		DE53D0B123F8E9B100AEFCE2 /* FavoriteNotice.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DE53D0AE23F8E9B100AEFCE2 /* FavoriteNotice.xcdatamodeld */; };
 		DE5542402377CC31004E01EB /* NoticeNaturalScience.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE55423F2377CC31004E01EB /* NoticeNaturalScience.swift */; };
 		DE5542422377D993004E01EB /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE5542412377D993004E01EB /* StartViewController.swift */; };
 		DE5542442377E076004E01EB /* HomeSwticher.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE5542432377E076004E01EB /* HomeSwticher.swift */; };
@@ -141,6 +143,7 @@
 		DE501C462374FC9D0053055A /* NoticeInmun.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeInmun.swift; sourceTree = "<group>"; };
 		DE501C482374FD250053055A /* NoticeURL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeURL.swift; sourceTree = "<group>"; };
 		DE501C4A23750DCA0053055A /* notissu_anim.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = notissu_anim.json; sourceTree = SOURCE_ROOT; };
+		DE53D0AF23F8E9B100AEFCE2 /* FavoriteNotice.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FavoriteNotice.xcdatamodel; sourceTree = "<group>"; };
 		DE55423F2377CC31004E01EB /* NoticeNaturalScience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeNaturalScience.swift; sourceTree = "<group>"; };
 		DE5542412377D993004E01EB /* StartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
 		DE5542432377E076004E01EB /* HomeSwticher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeSwticher.swift; sourceTree = "<group>"; };
@@ -258,6 +261,7 @@
 		DE29612923703F4C0074F24B = {
 			isa = PBXGroup;
 			children = (
+				DE53D0AE23F8E9B100AEFCE2 /* FavoriteNotice.xcdatamodeld */,
 				DE29613423703F4C0074F24B /* SoongsilNotice */,
 				DE64BE8623DD253C00DF46C5 /* Notissu Today Extension */,
 				DE29613323703F4C0074F24B /* Products */,
@@ -588,6 +592,7 @@
 				DE72017B237A76DE00F60CEB /* NoticeConvergence.swift in Sources */,
 				DEBFDC47237E3950003888D9 /* OpenSourceTableViewCell.swift in Sources */,
 				DE29614D2370FCB20074F24B /* NoticeListPresenter.swift in Sources */,
+				DE53D0B023F8E9B100AEFCE2 /* FavoriteNotice.xcdatamodeld in Sources */,
 				DE7496B123DC008C00000849 /* SearchPresenter.swift in Sources */,
 				DE0F8F1D2373F346006A0B49 /* HomeCell.swift in Sources */,
 				DE2961512370FD0A0074F24B /* NoticeListViewCell.swift in Sources */,
@@ -621,6 +626,7 @@
 				DE85B93723DD29CE001FB35C /* NoticeSoongsil.swift in Sources */,
 				DE85B92F23DD29CE001FB35C /* NoticeEngineering.swift in Sources */,
 				DE85B93923DD29FC001FB35C /* ConfigSetting.swift in Sources */,
+				DE53D0B123F8E9B100AEFCE2 /* FavoriteNotice.xcdatamodeld in Sources */,
 				DE85B92E23DD29CE001FB35C /* NoticeIT.swift in Sources */,
 				DEBE386B23EFEFC2006F51AB /* WidgetNoticeView.swift in Sources */,
 				DE85B93323DD29CE001FB35C /* NoticeBusiness.swift in Sources */,
@@ -895,6 +901,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		DE53D0AE23F8E9B100AEFCE2 /* FavoriteNotice.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				DE53D0AF23F8E9B100AEFCE2 /* FavoriteNotice.xcdatamodel */,
+			);
+			currentVersion = DE53D0AF23F8E9B100AEFCE2 /* FavoriteNotice.xcdatamodel */;
+			path = FavoriteNotice.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = DE29612A23703F4C0074F24B /* Project object */;
 }

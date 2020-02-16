@@ -16,10 +16,10 @@ class Notice: Codable {
     var isNotice : Bool?
     
     init(author: String, title: String, url: String, date: String, isNotice: Bool) {
-        self.author   = author
-        self.title    = title
-        self.url      = url
-        self.date     = date
-        self.isNotice = isNotice
+        self.author    = author
+        self.title     = title
+        self.url       = url
+        self.date      = date
+        self.isNotice  = isNotice
     }
 }

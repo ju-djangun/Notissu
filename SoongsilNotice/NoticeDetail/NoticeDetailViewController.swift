@@ -20,15 +20,24 @@ class NoticeDetailViewController: BaseViewController, WKNavigationDelegate, WKUI
     @IBOutlet var dateLabel                 : UILabel!
     @IBOutlet var attachViewHeightConstraint: NSLayoutConstraint!
     
-    private var isFavorite: Bool?
+    private var isFavorite: Bool = false {
+        didSet {
+            self.setFavoriteButton(favorite: isFavorite)
+        }
+    }
     
     var attachments   = [Attachment]()
     var detailURL     : String?
     var departmentCode: DeptCode?
     var noticeTitle   : String?
     var noticeDay     : String?
+    var noticeItem    : Notice?
     var presenter     : NoticeDetailPresenter!
     var docController : UIDocumentInteractionController!
+    
+    private func setFavoriteButton(favorite: Bool) {
+        self.navigationItem.rightBarButtonItem?.title = favorite ? "즐겨찾기 해제" : "즐겨찾기 추가"
+    }
     
     override func viewDidLoad() {
         self.webView.uiDelegate = self
@@ -44,14 +53,20 @@ class NoticeDetailViewController: BaseViewController, WKNavigationDelegate, WKUI
         self.dateLabel.text = noticeDay ?? ""
         self.presenter = NoticeDetailPresenter(view: self)
         
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: (isFavorite ?? false) ? "즐겨찾기 해제" : "즐겨찾기 추가", style: .plain, target: self, action: #selector(favoriteTapped))
-        
         self.showProgressBar()
         
         // Retrieve Favorite Information
         if let title = noticeTitle, let day = noticeDay, let code = departmentCode {
-            self.presenter.fetchNoticeDetail(title: title, date: day, major: code)
+            if self.presenter.isNoticeFavorite(title: title, date: day, major: code) {
+                // Favorite Notice
+                isFavorite = true
+            } else {
+                // Non-Favorite Notice
+                isFavorite = false
+            }
         }
+        
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: isFavorite ? "즐겨찾기 해제" : "즐겨찾기 추가", style: .plain, target: self, action: #selector(favoriteTapped))
         
         Alamofire.request(detailURL!).responseString { response in
             switch(response.result) {
@@ -183,7 +198,6 @@ class NoticeDetailViewController: BaseViewController, WKNavigationDelegate, WKUI
                     case DeptCode.MIX_mix:
                         self.presenter.parseConvergence(html: doc, host: "http://pre.ssu.ac.kr", completion: self.showWebViewPage)
                         break
-                    default: break
                     }
                 } catch let error {
                     print("ERROR : \(error)")
@@ -199,6 +213,8 @@ class NoticeDetailViewController: BaseViewController, WKNavigationDelegate, WKUI
         print("FavoriteTapped")
         // UPDATE Core Data
         // Retrieve New Core Data
+        self.isFavorite = !self.isFavorite
+        self.presenter.setFavorite(notice: self.noticeItem!, majorCode: self.departmentCode!, favorite: self.isFavorite)
     }
     
     func showWebViewPage(attachments: [Attachment], html: String) {

@@ -10,11 +10,7 @@ import Foundation
 import CoreData
 
 struct FavoriteNotice {
-    var title: String
-    var url: String
-    var date: String
-    var author: String
-    var isNotice: Bool
+    var notice: Notice
     var deptCode: DeptCode
 }
 

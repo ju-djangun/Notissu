@@ -168,8 +168,8 @@ class NoticeListPresenter: NoticePresenter {
         case DeptCode.MIX_mix:
             NoticeConvergence.parseListConvergence(page: page, keyword: keyword, completion: self.view.applyToTableView)
             break
-        default: break
         }
     }
     
 }
+

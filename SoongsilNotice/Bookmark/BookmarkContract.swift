@@ -19,6 +19,8 @@ protocol BookmarkPresenterProtocol {
     
     func fetchBookmarkNotice()
     
+    func removeBookmark(at: Int)
+    
     func removeBookmark(bookmark: FavoriteNotice)
 }
 

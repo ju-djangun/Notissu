@@ -70,6 +70,10 @@ class BookmarkPresenter: BookmarkPresenterProtocol {
         }
     }
     
+    func removeBookmark(at: Int) {
+        self.removeBookmark(bookmark: self.getBookmark(at: at))
+    }
+    
     func getBookmark(at: Int) -> FavoriteNotice {
         return self.model.getBookmark(at: at)
     }

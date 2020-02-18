@@ -77,4 +77,18 @@ extension BookmarkViewController {
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         // Do Nothing
     }
+    
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        
+        let delete = UIContextualAction(style: .destructive, title: "삭제") { [weak self] action, view, completion in
+            self?.presenter.removeBookmark(at: indexPath.row)
+            self?.noticeListView.deleteRows(at: [indexPath], with: UITableView.RowAnimation.automatic)
+            completion(true)
+        }
+
+//        delete.image = #imageLiteral(resourceName: "trash")
+        delete.title = "삭제"
+
+        return UISwipeActionsConfiguration(actions: [delete])
+    }
 }

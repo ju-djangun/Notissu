@@ -65,9 +65,8 @@ class MoreViewController : BaseViewController, UITableViewDelegate, UITableViewD
         case 0:
             print("0")
             let storyBoard = self.storyboard!
-            let noticeListController = storyBoard.instantiateViewController(withIdentifier: "noticeListVC") as? NoticeListViewController
-            noticeListController?.listType = .favoriteList
-            self.navigationController?.pushViewController(noticeListController!, animated: true)
+            let bookmarkController = storyBoard.instantiateViewController(withIdentifier: "bookmarkVC") as? BookmarkViewController
+            self.navigationController?.pushViewController(bookmarkController!, animated: true)
             break
         case 1:
             let storyBoard = self.storyboard!

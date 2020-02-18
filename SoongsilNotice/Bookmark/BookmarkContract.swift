@@ -13,12 +13,20 @@ protocol BookmarkViewProtocol {
 }
 
 protocol BookmarkPresenterProtocol {
+    func getBookmark(at: Int) -> FavoriteNotice
+    
+    func getBookmarkCount() -> Int
+    
     func fetchBookmarkNotice()
     
     func removeBookmark(bookmark: FavoriteNotice)
 }
 
 protocol BookmarkModelProtocol {
+    func getBookmark(at: Int) -> FavoriteNotice
+    
+    func getBookmarkCount() -> Int
+    
     func removeBookmarkAll()
     
     func appendBookmarkList(list: [FavoriteNotice])

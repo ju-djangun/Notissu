@@ -51,10 +51,6 @@ class NoticeListViewController: BaseViewController, NoticeListView, UITableViewD
                 self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(onFavoriteClick))
                 //                UIBarButtonItem(title: "내 전공 등록", style: .plain, target: self, action: #selector(onFavoriteClick))
             }
-        } else {
-            // Favorite List
-            self.navigationItem.title = "북마크"
-            self.noticeList.removeAll()
         }
         
         self.presenter = NoticeListPresenter(view: self)
@@ -116,19 +112,15 @@ class NoticeListViewController: BaseViewController, NoticeListView, UITableViewD
     }
     
     @objc func refresh() {
-        if listType == .favoriteList {
-            self.presenter?.fetchFavoriteNoticeList()
-        } else {
-            self.page = 1
-            
-            if !self.refreshControl.isRefreshing {
-                self.showProgressBar()
-            }
-            
-            ConfigSetting.canFetchData = true
-            self.noticeList.removeAll()
-            self.presenter?.loadNoticeList(page: page, keyword: searchKeyword, deptCode: noticeDeptCode!)
+        self.page = 1
+        
+        if !self.refreshControl.isRefreshing {
+            self.showProgressBar()
         }
+        
+        ConfigSetting.canFetchData = true
+        self.noticeList.removeAll()
+        self.presenter?.loadNoticeList(page: page, keyword: searchKeyword, deptCode: noticeDeptCode!)
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -166,7 +158,7 @@ class NoticeListViewController: BaseViewController, NoticeListView, UITableViewD
     }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        if listType != .favoriteList && self.noticeList.count - indexPath.row == 5 && ConfigSetting.canFetchData {
+        if self.noticeList.count - indexPath.row == 5 && ConfigSetting.canFetchData {
             // LOAD MORE
             self.spinnerFooter.startAnimating()
             self.spinnerFooter.frame = CGRect(x: CGFloat(0), y: CGFloat(0), width: tableView.bounds.width, height: CGFloat(44))

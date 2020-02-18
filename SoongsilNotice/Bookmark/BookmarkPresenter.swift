@@ -59,11 +59,22 @@ class BookmarkPresenter: BookmarkPresenterProtocol {
 
             do {
                 try managedContext.save()
+                self.model.removeBookmark(bookmark: bookmark)
             } catch {
                 print(error)
+                return
             }
         } catch {
             print(error)
+            return
         }
+    }
+    
+    func getBookmark(at: Int) -> FavoriteNotice {
+        return self.model.getBookmark(at: at)
+    }
+    
+    func getBookmarkCount() -> Int {
+        return self.model.getBookmarkCount()
     }
 }

@@ -14,4 +14,6 @@ protocol NoticeListView {
 
 protocol NoticePresenter {
     func loadNoticeList(page: Int, keyword: String?, deptCode: DeptCode)
+    
+    func fetchFavoriteNoticeList()
 }

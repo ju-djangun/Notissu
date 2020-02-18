@@ -10,7 +10,7 @@ import UIKit
 import SafariServices
 
 class MoreViewController : BaseViewController, UITableViewDelegate, UITableViewDataSource {
-    let moreMenu = ["오픈소스 사용 정보", "개발자 정보", "개발자 GitHub 방문하기", "추천 앱 사용하기"]
+    let moreMenu = ["북마크", "오픈소스 사용 정보", "개발자 정보", "개발자 GitHub 방문하기", "추천 앱 사용하기"]
     @IBOutlet var moreTableView: UITableView!
     @IBOutlet var majorLbl: UILabel!
     
@@ -65,16 +65,22 @@ class MoreViewController : BaseViewController, UITableViewDelegate, UITableViewD
         case 0:
             print("0")
             let storyBoard = self.storyboard!
+            let noticeListController = storyBoard.instantiateViewController(withIdentifier: "noticeListVC") as? NoticeListViewController
+            noticeListController?.listType = .favoriteList
+            self.navigationController?.pushViewController(noticeListController!, animated: true)
+            break
+        case 1:
+            let storyBoard = self.storyboard!
             let noticeDetailController = storyBoard.instantiateViewController(withIdentifier: "OpenSourceVC") as? OpenSourceViewController
             self.navigationController?.pushViewController(noticeDetailController!, animated: true)
             break
-        case 1:
+        case 2:
             showAlert(title: "개발자 정보", msg: "숭실대학교 컴퓨터학부\n14학번 김태인\n\n메일 전송을 위해 메일 앱을 실행합니다.", handler: onClickMailButton(_:))
             break
-        case 2:
+        case 3:
             showAlert(title: "개발자 GitHub", msg: "개발자의 GitHub 사이트에 접속합니다.", handler: onClickDevelopGitHub(_:))
             break
-        case 3:
+        case 4:
             showAlert(title: "그라운드 설치", msg: "숭실대 커뮤니티 그라운드를 설치합니다.", handler: onClickRecommendApp(_:))
             break
         default: break

@@ -61,6 +61,8 @@ class TodayViewController: UIViewController, TodayViewProtocol, NCWidgetProvidin
         
         self.applyToTableView(list: self.presenter.fetchCachedNotice())
         
+        self.presenter.fetchCachedFavoriteNotice()
+        
         self.presenter.fetchCachedInfo(completion: { result in
             switch(result) {
             case .success(let deptModel):

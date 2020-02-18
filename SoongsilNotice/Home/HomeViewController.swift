@@ -163,7 +163,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             noticeListViewController?.noticeDeptName = majorConvergence.majorName
         }
         noticeListViewController?.isSearchResult = false
-        noticeListViewController?.isMyList = false
+        noticeListViewController?.listType = .normalList
         
         self.navigationController?.pushViewController(noticeListViewController!, animated: true)
     }

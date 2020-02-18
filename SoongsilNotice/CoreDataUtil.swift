@@ -9,6 +9,11 @@
 import Foundation
 import CoreData
 
+struct FavoriteNotice {
+    var notice: Notice
+    var deptCode: DeptCode
+}
+
 class CoreDataUtil {
     static let shared = CoreDataUtil()
     
@@ -76,6 +81,4 @@ class CoreDataUtil {
             }
         }
     }
-    
-    
 }

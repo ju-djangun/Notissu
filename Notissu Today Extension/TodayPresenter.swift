@@ -22,6 +22,33 @@ class TodayPresenter: TodayPresenterProtocol {
         return self.model.cachedNoticeList ?? [Notice]()
     }
     
+    func fetchCachedFavoriteNotice() -> [FavoriteNotice] {
+        let managedContext = CoreDataUtil.shared.persistentContainer.viewContext
+        let fetchRequest:NSFetchRequest<NSFetchRequestResult> = NSFetchRequest.init(entityName: "Favorite")
+        do {
+            let result = try managedContext.fetch(fetchRequest)
+            var favoriteNotices = [FavoriteNotice]()
+            
+            for noticeManagedObject in result as! [NSManagedObject] {
+                // author, date, url, isNotice (Bool), deptCode (Int16)
+                let title = noticeManagedObject.value(forKey: "title") as! String
+                let date = noticeManagedObject.value(forKey: "date") as! String
+                let url = noticeManagedObject.value(forKey: "url") as! String
+                let author = noticeManagedObject.value(forKey: "author") as! String
+                let isNotice = noticeManagedObject.value(forKey: "isNotice") as! Bool
+                let deptCode = noticeManagedObject.value(forKey: "deptCode") as! Int
+                
+                favoriteNotices.append(FavoriteNotice(notice: Notice(author: author, title: title, url: url, date: date, isNotice: isNotice), deptCode: DeptCode(rawValue: deptCode)!))
+                
+            }
+            print("Retrieve Notice : \(favoriteNotices.count)")
+        } catch {
+            print("ERROR")
+        }
+        
+        return [FavoriteNotice]()
+    }
+    
     func fetchCachedNotice() -> [Notice] {
         if let noticeData = UserDefaults.standard.data(forKey: "widgetNotice") {
             do {

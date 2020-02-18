@@ -36,6 +36,10 @@
 		DE53D0B323F8EA4E00AEFCE2 /* CoreDataUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE53D0B223F8EA4E00AEFCE2 /* CoreDataUtil.swift */; };
 		DE53D0B423F8EA4E00AEFCE2 /* CoreDataUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE53D0B223F8EA4E00AEFCE2 /* CoreDataUtil.swift */; };
 		DE53D0B623F92B3600AEFCE2 /* TodayModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE53D0B523F92B3600AEFCE2 /* TodayModel.swift */; };
+		DE53D14B23FC21D300AEFCE2 /* BookmarkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE53D14A23FC21D300AEFCE2 /* BookmarkViewController.swift */; };
+		DE53D14D23FC21DB00AEFCE2 /* BookmarkContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE53D14C23FC21DB00AEFCE2 /* BookmarkContract.swift */; };
+		DE53D14F23FC21E400AEFCE2 /* BookmarkPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE53D14E23FC21E400AEFCE2 /* BookmarkPresenter.swift */; };
+		DE53D15123FC21ED00AEFCE2 /* BookmarkModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE53D15023FC21ED00AEFCE2 /* BookmarkModel.swift */; };
 		DE5542402377CC31004E01EB /* NoticeNaturalScience.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE55423F2377CC31004E01EB /* NoticeNaturalScience.swift */; };
 		DE5542422377D993004E01EB /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE5542412377D993004E01EB /* StartViewController.swift */; };
 		DE5542442377E076004E01EB /* HomeSwticher.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE5542432377E076004E01EB /* HomeSwticher.swift */; };
@@ -149,6 +153,10 @@
 		DE53D0AF23F8E9B100AEFCE2 /* FavoriteNotice.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FavoriteNotice.xcdatamodel; sourceTree = "<group>"; };
 		DE53D0B223F8EA4E00AEFCE2 /* CoreDataUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataUtil.swift; sourceTree = "<group>"; };
 		DE53D0B523F92B3600AEFCE2 /* TodayModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayModel.swift; sourceTree = "<group>"; };
+		DE53D14A23FC21D300AEFCE2 /* BookmarkViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkViewController.swift; sourceTree = "<group>"; };
+		DE53D14C23FC21DB00AEFCE2 /* BookmarkContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkContract.swift; sourceTree = "<group>"; };
+		DE53D14E23FC21E400AEFCE2 /* BookmarkPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkPresenter.swift; sourceTree = "<group>"; };
+		DE53D15023FC21ED00AEFCE2 /* BookmarkModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkModel.swift; sourceTree = "<group>"; };
 		DE55423F2377CC31004E01EB /* NoticeNaturalScience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeNaturalScience.swift; sourceTree = "<group>"; };
 		DE5542412377D993004E01EB /* StartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
 		DE5542432377E076004E01EB /* HomeSwticher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeSwticher.swift; sourceTree = "<group>"; };
@@ -286,6 +294,7 @@
 		DE29613423703F4C0074F24B /* SoongsilNotice */ = {
 			isa = PBXGroup;
 			children = (
+				DE53D14923FC21BA00AEFCE2 /* Bookmark */,
 				DE85B93B23DD2DEB001FB35C /* Notissu.entitlements */,
 				DEF56D812384DA05003CA0F0 /* Resources */,
 				DEF56D762383BECD003CA0F0 /* School */,
@@ -331,6 +340,17 @@
 				DE0F8F1723739C8A006A0B49 /* NoticeAttachmentCell.swift */,
 			);
 			path = NoticeDetail;
+			sourceTree = "<group>";
+		};
+		DE53D14923FC21BA00AEFCE2 /* Bookmark */ = {
+			isa = PBXGroup;
+			children = (
+				DE53D14A23FC21D300AEFCE2 /* BookmarkViewController.swift */,
+				DE53D14C23FC21DB00AEFCE2 /* BookmarkContract.swift */,
+				DE53D14E23FC21E400AEFCE2 /* BookmarkPresenter.swift */,
+				DE53D15023FC21ED00AEFCE2 /* BookmarkModel.swift */,
+			);
+			path = Bookmark;
 			sourceTree = "<group>";
 		};
 		DE554249237933FA004E01EB /* More */ = {
@@ -572,7 +592,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DE53D14B23FC21D300AEFCE2 /* BookmarkViewController.swift in Sources */,
 				DE8C73862379BDF6008F2FE1 /* NoticeSocial.swift in Sources */,
+				DE53D14F23FC21E400AEFCE2 /* BookmarkPresenter.swift in Sources */,
 				DEBFDC43237E31A3003888D9 /* MoreTableCell.swift in Sources */,
 				DE29613623703F4C0074F24B /* AppDelegate.swift in Sources */,
 				DE7496B523DC00D400000849 /* SearchModel.swift in Sources */,
@@ -580,6 +602,7 @@
 				DE501C492374FD250053055A /* NoticeURL.swift in Sources */,
 				DEBFDC45237E391C003888D9 /* OpenSourceViewController.swift in Sources */,
 				DE5542442377E076004E01EB /* HomeSwticher.swift in Sources */,
+				DE53D14D23FC21DB00AEFCE2 /* BookmarkContract.swift in Sources */,
 				DE296155237195CD0074F24B /* ConfigSetting.swift in Sources */,
 				DE55424623784879004E01EB /* SplashViewController.swift in Sources */,
 				DE29614F2370FCD20074F24B /* NoticeListContract.swift in Sources */,
@@ -611,6 +634,7 @@
 				DE0F8F1823739C8A006A0B49 /* NoticeAttachmentCell.swift in Sources */,
 				DE5542402377CC31004E01EB /* NoticeNaturalScience.swift in Sources */,
 				DE29614B2370FC720074F24B /* NoticeListViewController.swift in Sources */,
+				DE53D15123FC21ED00AEFCE2 /* BookmarkModel.swift in Sources */,
 				DE55424B2379340A004E01EB /* MoreViewController.swift in Sources */,
 				DE29615E23728A330074F24B /* NoticeDetailPresenter.swift in Sources */,
 				DE0F8F212373FDD7006A0B49 /* NoticeEngineering.swift in Sources */,

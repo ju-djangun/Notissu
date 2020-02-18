@@ -115,10 +115,10 @@
             </objects>
             <point key="canvasLocation" x="4312" y="-601"/>
         </scene>
-        <!--Notice List View Controller-->
+        <!--Bookmark View Controller-->
         <scene sceneID="h2e-gb-5RE">
             <objects>
-                <viewController storyboardIdentifier="noticeListVC" id="4wj-vb-Pte" customClass="NoticeListViewController" customModule="Notissu" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="bookmarkVC" id="4wj-vb-Pte" customClass="BookmarkViewController" customModule="Notissu" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="7Fz-YE-dex">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -183,10 +183,85 @@
                         <viewLayoutGuide key="safeArea" id="yqb-zc-DwJ"/>
                     </view>
                     <connections>
-                        <outlet property="noticeListView" destination="Cev-oP-pXq" id="siy-3V-jIh"/>
+                        <outlet property="noticeListView" destination="Cev-oP-pXq" id="EzT-DO-YoS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="65n-bp-4kh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="6658" y="-1238"/>
+        </scene>
+        <!--Notice List View Controller-->
+        <scene sceneID="RYz-G0-rz4">
+            <objects>
+                <viewController storyboardIdentifier="noticeListVC" id="HhG-bv-qou" customClass="NoticeListViewController" customModule="Notissu" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5GF-Y6-rd1">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="sEB-wU-zgL">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="noticeListCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="noticeListCell" rowHeight="66" id="a9x-5p-4uk" customClass="NoticeListViewCell" customModule="Notissu" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="66"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="a9x-5p-4uk" id="5bs-6S-Qp1">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="66"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Notice Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N3U-kX-tal">
+                                                    <rect key="frame" x="56" y="11" width="338" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2019.11.05" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xZf-6W-3BQ">
+                                                    <rect key="frame" x="20" y="36" width="374" height="16"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                    <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="공지" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JZz-zv-tJC">
+                                                    <rect key="frame" x="20" y="11" width="36" height="21"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="36" id="kIa-qK-90s"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                                                    <color key="textColor" name="launch_bg"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="xZf-6W-3BQ" firstAttribute="top" secondItem="N3U-kX-tal" secondAttribute="bottom" constant="4" id="2Xa-03-8YV"/>
+                                                <constraint firstItem="JZz-zv-tJC" firstAttribute="leading" secondItem="5bs-6S-Qp1" secondAttribute="leading" constant="20" id="4NC-Cl-OGW"/>
+                                                <constraint firstAttribute="bottom" secondItem="xZf-6W-3BQ" secondAttribute="bottom" constant="14" id="9vk-04-2Jp"/>
+                                                <constraint firstItem="JZz-zv-tJC" firstAttribute="top" secondItem="5bs-6S-Qp1" secondAttribute="top" constant="11" id="FTl-MU-FAx"/>
+                                                <constraint firstAttribute="trailing" secondItem="N3U-kX-tal" secondAttribute="trailing" constant="20" id="SAH-r5-iNA"/>
+                                                <constraint firstItem="xZf-6W-3BQ" firstAttribute="leading" secondItem="5bs-6S-Qp1" secondAttribute="leading" constant="20" id="SmL-rr-aIm"/>
+                                                <constraint firstAttribute="trailing" secondItem="xZf-6W-3BQ" secondAttribute="trailing" constant="20" id="Tdl-wB-I3k"/>
+                                                <constraint firstItem="N3U-kX-tal" firstAttribute="top" secondItem="JZz-zv-tJC" secondAttribute="top" id="hh2-Ru-gC1"/>
+                                                <constraint firstItem="N3U-kX-tal" firstAttribute="leading" secondItem="JZz-zv-tJC" secondAttribute="trailing" id="jBR-bQ-DKs"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="noticeBadge" destination="JZz-zv-tJC" id="Uva-JC-lr6"/>
+                                            <outlet property="noticeBadgeWidthConstraint" destination="kIa-qK-90s" id="IOh-wp-eZS"/>
+                                            <outlet property="noticeDate" destination="xZf-6W-3BQ" id="fBf-4y-OB5"/>
+                                            <outlet property="noticeTitle" destination="N3U-kX-tal" id="M4q-Pt-c3i"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="yXH-br-lGl"/>
+                    </view>
+                    <connections>
+                        <outlet property="noticeListView" destination="sEB-wU-zgL" id="GYk-4B-Yd8"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mSA-17-iok" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3349" y="-601"/>
         </scene>

@@ -10,6 +10,12 @@ import UIKit
 import Lottie
 import NotificationCenter
 
+enum ListType: Int {
+    case myList
+    case normalList
+    case favoriteList
+}
+
 class NoticeListViewController: BaseViewController, NoticeListView, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet var noticeListView: UITableView!
@@ -18,7 +24,7 @@ class NoticeListViewController: BaseViewController, NoticeListView, UITableViewD
     private var noticeList = [Notice]()
     
     var spinnerFooter = UIActivityIndicatorView(style: .gray)
-    var isMyList = true
+    var listType: ListType = .myList
     var searchKeyword: String?
     var isSearchResult = false
     var noticeDeptCode = BaseViewController.noticeDeptCode
@@ -30,19 +36,20 @@ class NoticeListViewController: BaseViewController, NoticeListView, UITableViewD
         super.viewWillAppear(animated)
         
         print("viewWillAppear...NoticeListVC")
-        if isMyList {
+        
+        if listType == .myList {
             self.noticeDeptCode = BaseViewController.noticeDeptCode
             self.noticeDeptName = BaseViewController.noticeDeptName
         }
         
         self.navigationItem.title = self.noticeDeptName!.rawValue
         
-        if isMyList {
+        if listType == .myList {
             self.navigationController?.navigationBar.topItem?.title = self.noticeDeptName!.rawValue
-        } else {
+        } else if listType == .normalList {
             if self.noticeDeptCode != BaseViewController.noticeDeptCode && self.searchKeyword == nil {
                 self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(onFavoriteClick))
-//                UIBarButtonItem(title: "내 전공 등록", style: .plain, target: self, action: #selector(onFavoriteClick))
+                //                UIBarButtonItem(title: "내 전공 등록", style: .plain, target: self, action: #selector(onFavoriteClick))
             }
         }
         
@@ -75,7 +82,7 @@ class NoticeListViewController: BaseViewController, NoticeListView, UITableViewD
     }
     
     func doRegisterFavorite(_ action: UIAlertAction) {
-        // 즐겨찾기 등록
+        // 메인 전공 등록
         BaseViewController.noticeDeptCode = self.noticeDeptCode
         BaseViewController.noticeDeptName = self.noticeDeptName
         
@@ -100,8 +107,8 @@ class NoticeListViewController: BaseViewController, NoticeListView, UITableViewD
         refreshControl.addTarget(self, action: #selector(refresh), for: .valueChanged)
         
         NotificationCenter.default.addObserver(self, selector: #selector(onLoadFromWidget),
-        name: NSNotification.Name("widget"),
-        object: nil)
+                                               name: NSNotification.Name("widget"),
+                                               object: nil)
     }
     
     @objc func refresh() {
@@ -139,10 +146,10 @@ class NoticeListViewController: BaseViewController, NoticeListView, UITableViewD
             cell.noticeTitle.text = noticeList[indexPath.row].title
             cell.noticeDate.text = noticeList[indexPath.row].date
             if noticeList[indexPath.row].isNotice ?? false {
-//                cell.noticeTitle.textColor = UIColor(named: "launch_bg")
+                //                cell.noticeTitle.textColor = UIColor(named: "launch_bg")
                 cell.noticeBadgeWidthConstraint.constant = 36
             } else {
-//                cell.noticeTitle.textColor = UIColor.black
+                //                cell.noticeTitle.textColor = UIColor.black
                 cell.noticeBadgeWidthConstraint.constant = 0
             }
         }

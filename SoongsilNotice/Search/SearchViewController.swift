@@ -73,7 +73,7 @@ class SearchViewController: BaseViewController, SearchViewProtocol, UIPickerView
             noticeListViewController?.noticeDeptName = selectedMajor
             
             noticeListViewController?.isSearchResult = true
-            noticeListViewController?.isMyList = false
+            noticeListViewController?.listType = .normalList
             noticeListViewController?.searchKeyword = self.keywordTextField.text
             
             self.navigationController?.pushViewController(noticeListViewController!, animated: true)

@@ -84,6 +84,7 @@ class SchoolViewController: BaseViewController, SchoolView, UITableViewDelegate,
         let storyBoard = self.storyboard!
         let noticeDetailController = storyBoard.instantiateViewController(withIdentifier: "noticeDetailVC") as? NoticeDetailViewController
         
+        noticeDetailController?.noticeItem = noticeList[indexPath.row]
         noticeDetailController?.detailURL = noticeList[indexPath.row].url
         noticeDetailController?.departmentCode = DeptCode.Soongsil
         noticeDetailController?.noticeTitle = self.noticeList[indexPath.row].title

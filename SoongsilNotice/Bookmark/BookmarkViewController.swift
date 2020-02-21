@@ -17,6 +17,10 @@ class BookmarkViewController: UIViewController, UITableViewDelegate, UITableView
         super.viewDidLoad()
         self.presenter = BookmarkPresenter(view: self)
         self.initVC()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         
         self.presenter.fetchBookmarkNotice()
     }

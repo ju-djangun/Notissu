@@ -61,9 +61,6 @@ class NoticeAttachmentCell: UITableViewCell {
         } else {
             encodedUrl = self.fileDownloadURL.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
         }
-        
-        print("download : \(encodedUrl)")
-        
         self.cellDelegate?.showIndicator()
         let destination: DownloadRequest.DownloadFileDestination = { _, _ in
             let documentsURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
@@ -72,7 +69,7 @@ class NoticeAttachmentCell: UITableViewCell {
             return (fileURL, [.removePreviousFile, .createIntermediateDirectories])
         }
         
-        Alamofire.download(encodedUrl ?? "", to: destination)
+        Alamofire.download(encodedUrl, to: destination)
             .downloadProgress { progress in
                 print("Download Progress: \(progress.fractionCompleted)")
         }
@@ -80,8 +77,7 @@ class NoticeAttachmentCell: UITableViewCell {
             debugPrint(response)
             
             if let filePath = response.destinationURL?.path {
-                print("Downloaded File Path : " + filePath)
-            self.cellDelegate?.showDocumentInteractionController(filePath: filePath)
+                self.cellDelegate?.showDocumentInteractionController(filePath: filePath)
             }
         }
         print("B")

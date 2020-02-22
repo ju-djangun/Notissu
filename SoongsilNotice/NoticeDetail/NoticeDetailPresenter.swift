@@ -303,7 +303,6 @@ class NoticeDetailPresenter: NoticeDetail {
     func parseEngineerArchitect(html: HTMLDocument, host: String?, completion: @escaping ([Attachment], String) -> Void) {
         let fullHTML = html.css("table[class='table'] tr")
         var contentHTML = ""
-        var index = 0
         var attachmentList = [Attachment]()
         
         for tr in fullHTML {

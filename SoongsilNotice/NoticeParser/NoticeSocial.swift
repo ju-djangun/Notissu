@@ -96,7 +96,6 @@ class NoticeSocial {
     static func parseListAdministration(page: Int, keyword: String?, completion: @escaping ([Notice]) -> Void) {
         let noticeUrl = "\(NoticeURL.socialAdministrationURL)\(page)/"
         var noticeList = [Notice]()
-        var authorList = [String]()
         var titleList  = [String]()
         var urlList = [String]()
         var isNoticeList = [Bool]()

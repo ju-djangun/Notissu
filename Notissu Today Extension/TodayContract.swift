@@ -13,8 +13,6 @@ protocol TodayViewProtocol {
 }
 
 protocol TodayPresenterProtocol {
-    func fetchCachedFavoriteNotice() -> [FavoriteNotice]
-    
     func getCachedNoticeFromModel() -> [Notice]
     
     func fetchCachedNotice() -> [Notice]

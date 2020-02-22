@@ -58,10 +58,7 @@ class TodayViewController: UIViewController, TodayViewProtocol, NCWidgetProvidin
         self.noticeStackViewHeight.constant = 144
         
         self.presenter = TodayPresenter(view: self)
-        
         self.applyToTableView(list: self.presenter.fetchCachedNotice())
-        
-        self.presenter.fetchCachedFavoriteNotice()
         
         self.presenter.fetchCachedInfo(completion: { result in
             switch(result) {

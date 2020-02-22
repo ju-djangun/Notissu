@@ -42,6 +42,7 @@
 		DE53D14F23FC21E400AEFCE2 /* BookmarkPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE53D14E23FC21E400AEFCE2 /* BookmarkPresenter.swift */; };
 		DE53D15123FC21ED00AEFCE2 /* BookmarkModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE53D15023FC21ED00AEFCE2 /* BookmarkModel.swift */; };
 		DE53D1542400142000AEFCE2 /* TodayExtensionColor.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DEBE387223F578C6006F51AB /* TodayExtensionColor.xcassets */; };
+		DE53D1562400F54B00AEFCE2 /* NotissuColorSet.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DE53D1552400F54B00AEFCE2 /* NotissuColorSet.xcassets */; };
 		DE5542402377CC31004E01EB /* NoticeNaturalScience.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE55423F2377CC31004E01EB /* NoticeNaturalScience.swift */; };
 		DE5542422377D993004E01EB /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE5542412377D993004E01EB /* StartViewController.swift */; };
 		DE5542442377E076004E01EB /* HomeSwticher.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE5542432377E076004E01EB /* HomeSwticher.swift */; };
@@ -160,6 +161,7 @@
 		DE53D14C23FC21DB00AEFCE2 /* BookmarkContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkContract.swift; sourceTree = "<group>"; };
 		DE53D14E23FC21E400AEFCE2 /* BookmarkPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkPresenter.swift; sourceTree = "<group>"; };
 		DE53D15023FC21ED00AEFCE2 /* BookmarkModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkModel.swift; sourceTree = "<group>"; };
+		DE53D1552400F54B00AEFCE2 /* NotissuColorSet.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = NotissuColorSet.xcassets; sourceTree = "<group>"; };
 		DE55423F2377CC31004E01EB /* NoticeNaturalScience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeNaturalScience.swift; sourceTree = "<group>"; };
 		DE5542412377D993004E01EB /* StartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
 		DE5542432377E076004E01EB /* HomeSwticher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeSwticher.swift; sourceTree = "<group>"; };
@@ -310,7 +312,6 @@
 				DE2961492370FC620074F24B /* NoticeList */,
 				DE29613523703F4C0074F24B /* AppDelegate.swift */,
 				DE29613B23703F4C0074F24B /* Main.storyboard */,
-				DE29613E23703F4D0074F24B /* Assets.xcassets */,
 				DE29614323703F4D0074F24B /* Info.plist */,
 				DE296154237195CD0074F24B /* ConfigSetting.swift */,
 				DE0F8F192373A222006A0B49 /* BaseViewController.swift */,
@@ -410,6 +411,8 @@
 		DEF56D812384DA05003CA0F0 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				DE29613E23703F4D0074F24B /* Assets.xcassets */,
+				DE53D1552400F54B00AEFCE2 /* NotissuColorSet.xcassets */,
 				DE53D0AE23F8E9B100AEFCE2 /* FavoriteNotice.xcdatamodeld */,
 				DEF56D8D2384DB1B003CA0F0 /* manual0.png */,
 				DEF56D8A2384DB1B003CA0F0 /* manual1.png */,
@@ -503,6 +506,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DE53D1562400F54B00AEFCE2 /* NotissuColorSet.xcassets in Resources */,
 				DEF56D8E2384DB1C003CA0F0 /* manual1.png in Resources */,
 				DE53D1542400142000AEFCE2 /* TodayExtensionColor.xcassets in Resources */,
 				DE29613F23703F4D0074F24B /* Assets.xcassets in Resources */,

@@ -243,7 +243,6 @@ class NoticeEngineering {
     static func parseListIndustry(page: Int, keyword: String?, completion: @escaping ([Notice]) -> Void) {
         let noticeUrl = "\(NoticeURL.engineerIndustryURL)\(page)"
         var noticeList = [Notice]()
-        var authorList = [String]()
         var titleList  = [String]()
         var urlList = [String]()
         var isNoticeList = [Bool]()

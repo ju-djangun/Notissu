@@ -534,7 +534,7 @@
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eCu-ob-1gX">
                                 <rect key="frame" x="22" y="749" width="370" height="48"/>
-                                <color key="backgroundColor" name="search_btn"/>
+                                <color key="backgroundColor" name="notissuButton1000s"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="48" id="Dn4-Kc-LiB"/>
                                 </constraints>
@@ -549,7 +549,7 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Dk-r8-3KZ">
                                 <rect key="frame" x="22" y="129" width="370" height="48"/>
-                                <color key="backgroundColor" name="search_btn"/>
+                                <color key="backgroundColor" name="notissuButton1000s"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="48" id="DJ6-d3-Arm"/>
                                 </constraints>
@@ -749,7 +749,7 @@
                             </pickerView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EoW-CB-vD3">
                                 <rect key="frame" x="20" y="686" width="374" height="56"/>
-                                <color key="backgroundColor" red="0.15686274509803921" green="0.26132941250000002" blue="0.73337453600000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="backgroundColor" name="notissuButton1000s"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="56" id="XZd-HW-WnW"/>
                                 </constraints>
@@ -764,7 +764,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="앱을 시작하기 위해" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xya-fz-zbV">
                                 <rect key="frame" x="20" y="351.5" width="374" height="19.5"/>
                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="16"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" name="notissuGray900s"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Copyright (C) 2019 Taein Kim All Rights Reserved." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="haR-vh-TI2">
@@ -776,7 +776,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="전공을 선택해주세요" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YXG-Sx-rtX">
                                 <rect key="frame" x="20" y="375" width="374" height="29"/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="24"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" name="notissuGray900s"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -834,7 +834,7 @@
                             </pageControl>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2CT-cX-UqO">
                                 <rect key="frame" x="20" y="796" width="374" height="56"/>
-                                <color key="backgroundColor" red="0.15686274510000001" green="0.26132941250000002" blue="0.73337453600000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="backgroundColor" name="notissuBlue1000s"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="56" id="3bh-W8-QG4"/>
                                 </constraints>
@@ -1081,11 +1081,17 @@
         <namedColor name="nav_bg">
             <color red="0.14100000262260437" green="0.28200000524520874" blue="0.73299998044967651" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
+        <namedColor name="notissuBlue1000s">
+            <color red="0.15686274509803921" green="0.2627450980392157" blue="0.73333333333333328" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="notissuButton1000s">
+            <color red="0.15686274509803921" green="0.2627450980392157" blue="0.73333333333333328" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="notissuColorWhite100s">
             <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <namedColor name="search_btn">
-            <color red="0.14100000262260437" green="0.28299999237060547" blue="0.73299998044967651" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        <namedColor name="notissuGray900s">
+            <color red="0.0" green="0.0" blue="0.0" alpha="0.90000000000000002" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="tab_icon_tint">
             <color red="0.14100000262260437" green="0.28299999237060547" blue="0.73299998044967651" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>

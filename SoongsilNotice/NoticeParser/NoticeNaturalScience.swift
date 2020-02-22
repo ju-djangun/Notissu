@@ -14,7 +14,6 @@ class NoticeNaturalScience {
     static func parseListMath(page: Int, keyword: String?, completion: @escaping ([Notice]) -> Void) {
         let noticeUrl = "\(NoticeURL.naturalScienceMathURL)\(page)"
         var noticeList = [Notice]()
-        var authorList = [String]()
         var titleList  = [String]()
         var urlList = [String]()
         var dateStringList = [String]()
@@ -308,7 +307,6 @@ class NoticeNaturalScience {
     static func parseListBiomedical(page: Int, keyword: String?, completion: @escaping ([Notice]) -> Void) {
         let noticeUrl = "\(NoticeURL.naturalScienceBiomedicalURL)\(page)"
         var noticeList = [Notice]()
-        var authorList = [String]()
         var titleList  = [String]()
         var urlList = [String]()
         var dateStringList = [String]()

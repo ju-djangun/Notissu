@@ -14,7 +14,7 @@ class HomeSwitcher {
         var rootVC : StartViewController?
         var navigationVC : UINavigationController?
         
-        if(BaseViewController.noticeDeptCode != nil) {
+        if(BaseViewController.noticeDeptCode != nil && BaseViewController.noticeDeptName != nil && !BaseViewController.noticeDeptName!.rawValue.isEmpty) {
             navigationVC = (UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "HomeNavVC") as! UINavigationController)
         } else {
             rootVC = (UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "StartVC") as! StartViewController)

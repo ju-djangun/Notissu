@@ -12,6 +12,7 @@ import CoreData
 struct FavoriteNotice {
     var notice: Notice
     var deptCode: DeptCode
+    var deptName: DeptName
 }
 
 class CoreDataUtil {

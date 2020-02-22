@@ -43,8 +43,10 @@ class StartViewController: BaseViewController, UIPickerViewDelegate, UIPickerVie
         
         print(myCode.rawValue)
         print(myName.rawValue)
+        
         BaseViewController.noticeDeptCode = myCode
         BaseViewController.noticeDeptName = myName
+        BaseViewController.noticeMajor    = Major(majorCode: myCode, majorName: myName)
         
         UserDefaults.standard.setValue(myCode.rawValue, forKey: "myDeptCode")
         UserDefaults.standard.setValue(myName.rawValue, forKey: "myDeptName")

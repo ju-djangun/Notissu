@@ -34,8 +34,9 @@ class BookmarkPresenter: BookmarkPresenterProtocol {
                 let author = notice.value(forKey: "author") as! String
                 let isNotice = notice.value(forKey: "isNotice") as! Bool
                 let deptCode = notice.value(forKey: "deptCode") as! Int
+                let deptName = notice.value(forKey: "deptName") as! String
                 
-                favoriteList.append(FavoriteNotice(notice: Notice(author: author, title: title, url: url, date: date, isNotice: isNotice), deptCode: DeptCode(rawValue: deptCode) ?? DeptCode.IT_Computer))
+                favoriteList.append(FavoriteNotice(notice: Notice(author: author, title: title, url: url, date: date, isNotice: isNotice), deptCode: DeptCode(rawValue: deptCode) ?? DeptCode.IT_Computer, deptName: DeptName(rawValue: deptName) ?? DeptName.IT_Computer))
             }
             self.model.appendBookmarkList(list: favoriteList)
             self.view.applyListToTableView(list: favoriteList)

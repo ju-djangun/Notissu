@@ -17,6 +17,16 @@ struct Major {
 class HomeCell: UITableViewCell {
     @IBOutlet var majorTitle: UILabel!
     @IBOutlet var majorTitleEng: UILabel!
-    var majorCode: DeptCode?
-    var majorName: DeptName?
+    private var majorCode: DeptCode?
+    private var majorName: DeptName?
+    
+    var major: Major = Major() {
+        didSet {
+            majorTitle.text = major.majorName.map { $0.rawValue }
+            majorTitleEng.text = major.majorNameEng.map { $0.rawValue }
+            
+            majorCode = major.majorCode
+            majorName = major.majorName
+        }
+    }
 }

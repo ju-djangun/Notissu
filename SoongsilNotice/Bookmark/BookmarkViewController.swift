@@ -17,6 +17,10 @@ class BookmarkViewController: UIViewController, UITableViewDelegate, UITableView
         super.viewDidLoad()
         self.presenter = BookmarkPresenter(view: self)
         self.initVC()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         
         self.presenter.fetchBookmarkNotice()
     }
@@ -44,7 +48,7 @@ extension BookmarkViewController {
         
         noticeDetailController?.noticeItem     = bookmark.notice
         noticeDetailController?.detailURL      = bookmark.notice.url
-        noticeDetailController?.departmentCode = bookmark.deptCode
+        noticeDetailController?.department     = Major(majorCode: bookmark.deptCode, majorName: bookmark.deptName)
         noticeDetailController?.noticeTitle    = bookmark.notice.title
         noticeDetailController?.noticeDay      = bookmark.notice.date
         
@@ -60,15 +64,9 @@ extension BookmarkViewController {
         
         if self.presenter.getBookmarkCount() > 0 {
             let bookmark = self.presenter.getBookmark(at: indexPath.row)
-            cell.noticeTitle.text = bookmark.notice.title
-            cell.noticeDate.text = bookmark.notice.date
-            if bookmark.notice.isNotice ?? false {
-                //                cell.noticeTitle.textColor = UIColor(named: "launch_bg")
-                cell.noticeBadgeWidthConstraint.constant = 36
-            } else {
-                //                cell.noticeTitle.textColor = UIColor.black
-                cell.noticeBadgeWidthConstraint.constant = 0
-            }
+            cell.deptName   = bookmark.deptName
+            cell.isBookmark = true
+            cell.notice     = bookmark.notice
         }
         cell.selectionStyle  = .none
         return cell

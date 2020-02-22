@@ -27,6 +27,12 @@ class NoticeListViewController: BaseViewController, NoticeListView, UITableViewD
     var listType: ListType = .myList
     var searchKeyword: String?
     var isSearchResult = false
+    var department     = BaseViewController.noticeMajor {
+        didSet {
+            self.noticeDeptCode = self.department?.majorCode
+            self.noticeDeptName = self.department?.majorName
+        }
+    }
     var noticeDeptCode = BaseViewController.noticeDeptCode
     var noticeDeptName = BaseViewController.noticeDeptName
     
@@ -38,14 +44,15 @@ class NoticeListViewController: BaseViewController, NoticeListView, UITableViewD
         print("viewWillAppear...NoticeListVC")
         
         if listType == .myList {
+            self.department     = BaseViewController.noticeMajor
             self.noticeDeptCode = BaseViewController.noticeDeptCode
             self.noticeDeptName = BaseViewController.noticeDeptName
         }
         
-        self.navigationItem.title = self.noticeDeptName!.rawValue
+        self.navigationItem.title = self.noticeDeptName?.rawValue
         
         if listType == .myList {
-            self.navigationController?.navigationBar.topItem?.title = self.noticeDeptName!.rawValue
+            self.navigationController?.navigationBar.topItem?.title = self.noticeDeptName?.rawValue
         } else if listType == .normalList {
             if self.noticeDeptCode != BaseViewController.noticeDeptCode && self.searchKeyword == nil {
                 self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(onFavoriteClick))
@@ -85,6 +92,7 @@ class NoticeListViewController: BaseViewController, NoticeListView, UITableViewD
         // 메인 전공 등록
         BaseViewController.noticeDeptCode = self.noticeDeptCode
         BaseViewController.noticeDeptName = self.noticeDeptName
+        BaseViewController.noticeMajor    = self.department
         
         UserDefaults(suiteName: "group.com.elliott.Notissu")?.set(BaseViewController.noticeDeptCode!.rawValue, forKey: "myDeptCode")
         UserDefaults(suiteName: "group.com.elliott.Notissu")?.set(BaseViewController.noticeDeptName!.rawValue, forKey: "myDeptName")
@@ -127,11 +135,8 @@ class NoticeListViewController: BaseViewController, NoticeListView, UITableViewD
         let storyBoard = self.storyboard!
         let noticeDetailController = storyBoard.instantiateViewController(withIdentifier: "noticeDetailVC") as? NoticeDetailViewController
         
+        noticeDetailController?.department = self.department
         noticeDetailController?.noticeItem = noticeList[indexPath.row]
-        noticeDetailController?.detailURL = noticeList[indexPath.row].url
-        noticeDetailController?.departmentCode = self.noticeDeptCode
-        noticeDetailController?.noticeTitle = self.noticeList[indexPath.row].title
-        noticeDetailController?.noticeDay = self.noticeList[indexPath.row].date
         self.navigationController?.pushViewController(noticeDetailController!, animated: true)
     }
     
@@ -141,17 +146,9 @@ class NoticeListViewController: BaseViewController, NoticeListView, UITableViewD
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "noticeListCell", for: indexPath) as! NoticeListViewCell
-        
         if noticeList.count > 0 {
-            cell.noticeTitle.text = noticeList[indexPath.row].title
-            cell.noticeDate.text = noticeList[indexPath.row].date
-            if noticeList[indexPath.row].isNotice ?? false {
-                //                cell.noticeTitle.textColor = UIColor(named: "launch_bg")
-                cell.noticeBadgeWidthConstraint.constant = 36
-            } else {
-                //                cell.noticeTitle.textColor = UIColor.black
-                cell.noticeBadgeWidthConstraint.constant = 0
-            }
+            cell.notice = noticeList[indexPath.row]
+            cell.deptName = noticeDeptName
         }
         cell.selectionStyle  = .none
         return cell

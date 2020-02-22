@@ -20,21 +20,32 @@ class NoticeListViewCell: UITableViewCell {
     
     var notice  : Notice? {
         didSet {
-            self.noticeTitle.text = notice?.title
-            
-            if isBookmark {
-                self.noticeDate.text = "\(notice?.date ?? "") | \(deptName?.rawValue ?? "")"
-            } else {
-                self.noticeDate.text = notice?.date
-            }
-            
-            self.noticeBadge.isHidden = !(notice?.isNotice ?? false) && !isBookmark
-            
-            if notice?.isNotice ?? false && !isBookmark {
-                noticeBadgeWidthConstraint.constant = 36
-            } else {
-                noticeBadgeWidthConstraint.constant = 0
-            }
+            self.applyDataToView()
+        }
+    }
+    
+    private func applyDataToView() {
+        self.noticeTitle.text = notice?.title
+        
+        guard let strongNotice = notice else {
+            return
+        }
+        
+        if isBookmark {
+            self.noticeDate.text = "\(strongNotice.date ?? "") | \(deptName?.rawValue ?? "")"
+        } else {
+            self.noticeDate.text = strongNotice.date ?? ""
+        }
+        
+        if !isBookmark {
+            self.noticeBadge.text = "공지"
+            self.noticeBadge.isHidden = !(strongNotice.isNotice ?? false)
+        }
+        
+        if !isBookmark && strongNotice.isNotice ?? false {
+            noticeBadgeWidthConstraint.constant = 36
+        } else {
+            noticeBadgeWidthConstraint.constant = 0
         }
     }
 }

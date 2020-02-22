@@ -32,9 +32,7 @@ class WidgetNoticeView: UIView {
     class func viewFromNib() -> Self {
         
         guard let view = Bundle.main.loadNibNamed(String(describing: Self.self), owner: nil, options: nil)?[0] as? Self else {
-            
             fatalError("\(String(describing: Self.self)) viewFromNib fail")
-            
         }
         
         return view

@@ -110,7 +110,7 @@ class NoticeDetailPresenter: NoticeDetail {
         let detailHTML = "\(htmlStart)\(contentHTML)\(htmlEnd)"
         var attachmentList = [Attachment]()
         
-        for attachment in html.css("div[class^='bg-white p-4 mb-5'] ul li") {
+        for attachment in html.css("ul[class^='download-list mt-5'] li") {
             let link = "https://scatch.ssu.ac.kr/\(attachment.css("a").first?["href"] ?? "")"
             let title = (attachment.css("a span").first?.text ?? "").trimmingCharacters(in: .whitespacesAndNewlines)
             

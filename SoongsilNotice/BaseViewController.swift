@@ -14,6 +14,7 @@ class BaseViewController: UIViewController {
     
     static var noticeDeptCode: DeptCode?
     static var noticeDeptName: DeptName?
+    static var noticeMajor   : Major?
     
     override func viewDidLoad() {
         super.viewDidLoad()

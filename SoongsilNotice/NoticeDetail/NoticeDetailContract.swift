@@ -25,7 +25,7 @@ protocol NoticeDetail {
     // Attachment : 첨부파일, String : 내용이 담긴 HTML
     func isNoticeFavorite(title: String, date: String, major: DeptCode) -> Bool
     
-    func setFavorite(notice: Notice, majorCode: DeptCode, favorite: Bool)
+    func setFavorite(notice: Notice, majorCode: DeptCode, majorName: DeptName, favorite: Bool)
     
     func parseSoongsil(html: HTMLDocument, completion: @escaping ([Attachment], String) -> Void)
     

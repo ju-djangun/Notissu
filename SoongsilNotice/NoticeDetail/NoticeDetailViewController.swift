@@ -28,10 +28,21 @@ class NoticeDetailViewController: BaseViewController, WKNavigationDelegate, WKUI
     
     var attachments   = [Attachment]()
     var detailURL     : String?
+    var department    : Major? {
+        didSet {
+            self.departmentCode = department?.majorCode
+        }
+    }
     var departmentCode: DeptCode?
     var noticeTitle   : String?
     var noticeDay     : String?
-    var noticeItem    : Notice?
+    var noticeItem    : Notice? {
+        didSet {
+            self.noticeTitle = self.noticeItem?.title
+            self.noticeDay = self.noticeItem?.date
+            self.detailURL = self.noticeItem?.url
+        }
+    }
     var presenter     : NoticeDetailPresenter!
     var docController : UIDocumentInteractionController!
     
@@ -214,7 +225,7 @@ class NoticeDetailViewController: BaseViewController, WKNavigationDelegate, WKUI
         // UPDATE Core Data
         // Retrieve New Core Data
         self.isFavorite = !self.isFavorite
-        self.presenter.setFavorite(notice: self.noticeItem!, majorCode: self.departmentCode!, favorite: self.isFavorite)
+        self.presenter.setFavorite(notice: self.noticeItem!, majorCode: self.departmentCode!, majorName: self.department!.majorName!, favorite: self.isFavorite)
     }
     
     func showWebViewPage(attachments: [Attachment], html: String) {

@@ -37,8 +37,9 @@ class TodayPresenter: TodayPresenterProtocol {
                 let author = noticeManagedObject.value(forKey: "author") as! String
                 let isNotice = noticeManagedObject.value(forKey: "isNotice") as! Bool
                 let deptCode = noticeManagedObject.value(forKey: "deptCode") as! Int
+                let deptName = noticeManagedObject.value(forKey: "deptName") as! String
                 
-                favoriteNotices.append(FavoriteNotice(notice: Notice(author: author, title: title, url: url, date: date, isNotice: isNotice), deptCode: DeptCode(rawValue: deptCode)!))
+                favoriteNotices.append(FavoriteNotice(notice: Notice(author: author, title: title, url: url, date: date, isNotice: isNotice), deptCode: DeptCode(rawValue: deptCode)!, deptName: DeptName(rawValue: deptName)!))
                 
             }
             print("Retrieve Notice : \(favoriteNotices.count)")

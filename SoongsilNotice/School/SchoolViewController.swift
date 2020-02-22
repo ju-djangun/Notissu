@@ -84,11 +84,11 @@ class SchoolViewController: BaseViewController, SchoolView, UITableViewDelegate,
         let storyBoard = self.storyboard!
         let noticeDetailController = storyBoard.instantiateViewController(withIdentifier: "noticeDetailVC") as? NoticeDetailViewController
         
-        noticeDetailController?.noticeItem = noticeList[indexPath.row]
-        noticeDetailController?.detailURL = noticeList[indexPath.row].url
-        noticeDetailController?.departmentCode = DeptCode.Soongsil
+        noticeDetailController?.noticeItem  = noticeList[indexPath.row]
+        noticeDetailController?.detailURL   = noticeList[indexPath.row].url
+        noticeDetailController?.department  = Major(majorCode: DeptCode.Soongsil, majorName: DeptName.Soongsil)
         noticeDetailController?.noticeTitle = self.noticeList[indexPath.row].title
-        noticeDetailController?.noticeDay = self.noticeList[indexPath.row].date
+        noticeDetailController?.noticeDay   = self.noticeList[indexPath.row].date
         self.navigationController?.pushViewController(noticeDetailController!, animated: true)
     }
     
@@ -128,3 +128,4 @@ class SchoolViewController: BaseViewController, SchoolView, UITableViewDelegate,
         }
     }
 }
+

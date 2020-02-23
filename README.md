@@ -19,3 +19,6 @@ Notice Bookmark
 
 ### Will be updated Shortly  
 Application Notice Push Notification (To share Important Information with users)  
+
+### iOS App Store Link  
+![App Store Link](https://apps.apple.com/us/app/notissu/id1488050194)  

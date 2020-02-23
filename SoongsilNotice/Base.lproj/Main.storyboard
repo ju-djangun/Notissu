@@ -525,51 +525,69 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MAp-09-ztT">
-                                <rect key="frame" x="20" y="222" width="374" height="48"/>
+                                <rect key="frame" x="20" y="220" width="374" height="48"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="48" id="hEf-Sl-EXb"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.clipsToBounds" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="4"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eCu-ob-1gX">
-                                <rect key="frame" x="22" y="749" width="370" height="48"/>
+                                <rect key="frame" x="22" y="751" width="370" height="46"/>
                                 <color key="backgroundColor" name="notissuButton1000s"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="48" id="Dn4-Kc-LiB"/>
+                                    <constraint firstAttribute="height" constant="46" id="Dn4-Kc-LiB"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-SemiBold" family="Apple SD Gothic Neo" pointSize="16"/>
+                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="16"/>
                                 <state key="normal" title="검색하기">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.clipsToBounds" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="4"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="onClickNext:" destination="5cQ-Xb-nyz" eventType="touchUpInside" id="OEs-nQ-4Wn"/>
                                     <action selector="searchAction:" destination="9PT-IW-mSw" eventType="touchUpInside" id="7hp-ZC-OZ9"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Dk-r8-3KZ">
-                                <rect key="frame" x="22" y="129" width="370" height="48"/>
+                                <rect key="frame" x="22" y="129" width="370" height="46"/>
                                 <color key="backgroundColor" name="notissuButton1000s"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="48" id="DJ6-d3-Arm"/>
+                                    <constraint firstAttribute="height" constant="46" id="DJ6-d3-Arm"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-SemiBold" family="Apple SD Gothic Neo" pointSize="16"/>
+                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="16"/>
                                 <state key="normal" title="전공 선택">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.clipsToBounds" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="4"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="onClickNext:" destination="5cQ-Xb-nyz" eventType="touchUpInside" id="UyL-sP-2h5"/>
                                     <action selector="selectMajorAction:" destination="9PT-IW-mSw" eventType="touchUpInside" id="Q7W-lM-SKA"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="검색어 입력" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gL2-ln-dNO">
-                                <rect key="frame" x="20" y="197" width="64.5" height="17"/>
+                                <rect key="frame" x="20" y="195" width="64.5" height="17"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
                                 <color key="textColor" name="tab_icon_tint"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="선택한 전공 : 전공을 선택해주세요." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2je-1i-G8l">
-                                <rect key="frame" x="20" y="288" width="374" height="17"/>
+                                <rect key="frame" x="20" y="286" width="374" height="17"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="17" id="0zJ-ye-49a"/>
                                 </constraints>
@@ -742,27 +760,33 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mIY-6h-4eW">
-                                <rect key="frame" x="0.0" y="434" width="414" height="216"/>
+                                <rect key="frame" x="0.0" y="444" width="414" height="216"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="216" id="vkp-bO-V1X"/>
                                 </constraints>
                             </pickerView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EoW-CB-vD3">
-                                <rect key="frame" x="20" y="686" width="374" height="56"/>
+                                <rect key="frame" x="16" y="696" width="382" height="46"/>
                                 <color key="backgroundColor" name="notissuButton1000s"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="56" id="XZd-HW-WnW"/>
+                                    <constraint firstAttribute="height" constant="46" id="XZd-HW-WnW"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="19"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <state key="normal" title="시작하기">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="4"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.clipsToBounds" value="YES"/>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="onClickNext:" destination="5cQ-Xb-nyz" eventType="touchUpInside" id="W4g-It-JXw"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="앱을 시작하기 위해" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xya-fz-zbV">
-                                <rect key="frame" x="20" y="351.5" width="374" height="19.5"/>
+                                <rect key="frame" x="20" y="361.5" width="374" height="19.5"/>
                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="16"/>
                                 <color key="textColor" name="notissuGray900s"/>
                                 <nil key="highlightedColor"/>
@@ -774,7 +798,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="전공을 선택해주세요" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YXG-Sx-rtX">
-                                <rect key="frame" x="20" y="375" width="374" height="29"/>
+                                <rect key="frame" x="20" y="385" width="374" height="29"/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="24"/>
                                 <color key="textColor" name="notissuGray900s"/>
                                 <nil key="highlightedColor"/>
@@ -796,9 +820,9 @@
                             <constraint firstItem="mIY-6h-4eW" firstAttribute="centerX" secondItem="JOP-5Y-g5a" secondAttribute="centerX" id="bDd-Zd-Zkk"/>
                             <constraint firstItem="mIY-6h-4eW" firstAttribute="leading" secondItem="JOP-5Y-g5a" secondAttribute="leading" id="cPH-i0-rKE"/>
                             <constraint firstItem="JOP-5Y-g5a" firstAttribute="trailing" secondItem="haR-vh-TI2" secondAttribute="trailing" id="fpb-S0-wTa"/>
-                            <constraint firstItem="EoW-CB-vD3" firstAttribute="leading" secondItem="JOP-5Y-g5a" secondAttribute="leading" constant="20" id="gZt-e3-k0B"/>
+                            <constraint firstItem="EoW-CB-vD3" firstAttribute="leading" secondItem="JOP-5Y-g5a" secondAttribute="leading" constant="16" id="gZt-e3-k0B"/>
                             <constraint firstItem="YXG-Sx-rtX" firstAttribute="leading" secondItem="JOP-5Y-g5a" secondAttribute="leading" constant="20" id="mSx-RL-a9N"/>
-                            <constraint firstItem="JOP-5Y-g5a" firstAttribute="trailing" secondItem="EoW-CB-vD3" secondAttribute="trailing" constant="20" id="oAk-5s-UCh"/>
+                            <constraint firstItem="JOP-5Y-g5a" firstAttribute="trailing" secondItem="EoW-CB-vD3" secondAttribute="trailing" constant="16" id="oAk-5s-UCh"/>
                             <constraint firstItem="mIY-6h-4eW" firstAttribute="top" secondItem="YXG-Sx-rtX" secondAttribute="bottom" constant="30" id="sZd-qZ-Ycc"/>
                             <constraint firstItem="Xya-fz-zbV" firstAttribute="leading" secondItem="JOP-5Y-g5a" secondAttribute="leading" constant="20" id="syg-YF-DvI"/>
                             <constraint firstItem="JOP-5Y-g5a" firstAttribute="trailing" secondItem="Xya-fz-zbV" secondAttribute="trailing" constant="20" id="vuZ-dW-NMa"/>
@@ -833,12 +857,12 @@
                                 <color key="currentPageIndicatorTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </pageControl>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2CT-cX-UqO">
-                                <rect key="frame" x="20" y="796" width="374" height="56"/>
+                                <rect key="frame" x="16" y="806" width="382" height="46"/>
                                 <color key="backgroundColor" name="notissuBlue1000s"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="56" id="3bh-W8-QG4"/>
+                                    <constraint firstAttribute="height" constant="46" id="3bh-W8-QG4"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="19"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <state key="normal" title="Notissu 시작하기">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
@@ -852,8 +876,8 @@
                         <constraints>
                             <constraint firstItem="U7J-Nn-Ygr" firstAttribute="centerX" secondItem="oaV-fx-D4W" secondAttribute="centerX" id="0fs-3G-WSO"/>
                             <constraint firstItem="oaV-fx-D4W" firstAttribute="trailing" secondItem="aRK-gv-885" secondAttribute="trailing" id="3Md-iU-tcm"/>
-                            <constraint firstItem="2CT-cX-UqO" firstAttribute="leading" secondItem="oaV-fx-D4W" secondAttribute="leading" constant="20" id="DnL-kd-Jmp"/>
-                            <constraint firstItem="oaV-fx-D4W" firstAttribute="trailing" secondItem="2CT-cX-UqO" secondAttribute="trailing" constant="20" id="Nri-Jt-rdU"/>
+                            <constraint firstItem="2CT-cX-UqO" firstAttribute="leading" secondItem="oaV-fx-D4W" secondAttribute="leading" constant="16" id="DnL-kd-Jmp"/>
+                            <constraint firstItem="oaV-fx-D4W" firstAttribute="trailing" secondItem="2CT-cX-UqO" secondAttribute="trailing" constant="16" id="Nri-Jt-rdU"/>
                             <constraint firstItem="U7J-Nn-Ygr" firstAttribute="leading" secondItem="oaV-fx-D4W" secondAttribute="leading" constant="20" id="Ogn-yB-ghB"/>
                             <constraint firstItem="2CT-cX-UqO" firstAttribute="centerX" secondItem="oaV-fx-D4W" secondAttribute="centerX" id="Sb2-4b-zeq"/>
                             <constraint firstItem="oaV-fx-D4W" firstAttribute="bottom" secondItem="2CT-cX-UqO" secondAttribute="bottom" constant="10" id="ZBW-DV-8i7"/>
@@ -1082,16 +1106,16 @@
             <color red="0.14100000262260437" green="0.28200000524520874" blue="0.73299998044967651" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="notissuBlue1000s">
-            <color red="0.15686274509803921" green="0.2627450980392157" blue="0.73333333333333328" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.15700000524520874" green="0.2630000114440918" blue="0.73299998044967651" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="notissuButton1000s">
-            <color red="0.15686274509803921" green="0.2627450980392157" blue="0.73333333333333328" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.15700000524520874" green="0.2630000114440918" blue="0.73299998044967651" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="notissuColorWhite100s">
             <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="notissuGray900s">
-            <color red="0.0" green="0.0" blue="0.0" alpha="0.90000000000000002" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.0" green="0.0" blue="0.0" alpha="0.89999997615814209" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="tab_icon_tint">
             <color red="0.14100000262260437" green="0.28299999237060547" blue="0.73299998044967651" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>

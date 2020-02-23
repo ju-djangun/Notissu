@@ -8,6 +8,9 @@
 
 import UIKit
 import CoreData
+import Firebase
+import FirebaseMessaging
+import UserNotifications
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -17,12 +20,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     lazy var persistentContainer: NSPersistentContainer = {
         let container = NSPersistentContainer(name: "SoongsilNotice")
         let storeURL = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: "group.com.elliott.Notissu")!.appendingPathComponent("SoongsilNotice.sqlite")
-
+        
         var defaultURL: URL?
         if let storeDescription = container.persistentStoreDescriptions.first, let url = storeDescription.url {
             defaultURL = FileManager.default.fileExists(atPath: url.path) ? url : nil
         }
-
+        
         if defaultURL == nil {
             container.persistentStoreDescriptions = [NSPersistentStoreDescription(url: storeURL)]
         }
@@ -30,7 +33,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             if let error = error as NSError? {
                 fatalError("Unresolved error \(error), \(error.userInfo)")
             }
-
+            
             if let url = defaultURL, url.absoluteString != storeURL.absoluteString {
                 let coordinator = container.persistentStoreCoordinator
                 if let oldStore = coordinator.persistentStore(for: url) {
@@ -39,7 +42,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                     } catch {
                         print(error.localizedDescription)
                     }
-
+                    
                     // delete old store
                     let fileCoordinator = NSFileCoordinator(filePresenter: nil)
                     fileCoordinator.coordinate(writingItemAt: url, options: .forDeleting, error: nil, byAccessor: { url in
@@ -59,6 +62,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         // Major Initialization
         MajorModel.initializeMajor()
+        
+        // Push Setting
+        FirebaseApp.configure()
+        Messaging.messaging().delegate = self
+        UNUserNotificationCenter.current().delegate = self
+        let authOptions: UNAuthorizationOptions = [.alert, .badge, .sound]
+        UNUserNotificationCenter.current().requestAuthorization(options: authOptions,completionHandler: {_, _ in })
+        application.registerForRemoteNotifications()
+        
         return true
     }
     
@@ -105,7 +117,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
     
-    
-    
+    func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+        Messaging.messaging().apnsToken = deviceToken
+    }
+
 }
 
+extension AppDelegate: UNUserNotificationCenterDelegate {
+    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        print("\(#function)")
+    }
+}
+
+extension AppDelegate: MessagingDelegate {
+    func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String) {
+        print("Firebase registration token: \(fcmToken)")
+        let dataDict:[String: String] = ["token": fcmToken]
+        NotificationCenter.default.post(name: Notification.Name("FCMToken"), object: nil, userInfo: dataDict)
+    }
+}

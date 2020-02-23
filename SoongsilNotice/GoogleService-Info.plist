@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>1068746627305-hd3fa2at2eqfcte7jrfenjvehal5pv5i.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.1068746627305-hd3fa2at2eqfcte7jrfenjvehal5pv5i</string>
+	<key>API_KEY</key>
+	<string>AIzaSyD_bxjS2vUAWQF_Re7VJb-9tCYjtgCojbw</string>
+	<key>GCM_SENDER_ID</key>
+	<string>1068746627305</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.elliott.notissu-ios</string>
+	<key>PROJECT_ID</key>
+	<string>notissu-ios</string>
+	<key>STORAGE_BUCKET</key>
+	<string>notissu-ios.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:1068746627305:ios:89f0c6365a5a097179b878</string>
+	<key>DATABASE_URL</key>
+	<string>https://notissu-ios.firebaseio.com</string>
+</dict>
+</plist>

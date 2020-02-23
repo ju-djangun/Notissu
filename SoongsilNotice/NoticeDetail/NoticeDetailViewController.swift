@@ -26,11 +26,6 @@ class NoticeDetailViewController: BaseViewController, WKNavigationDelegate, WKUI
         }
     }
     
-    //change to play
-    lazy var favoriteButtonON = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.bookmarks, target: self, action: #selector(favoriteTapped))
-    //change to pause
-    lazy var favoriteButtonOFF = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.bookmarks, target: self, action: #selector(favoriteTapped))
-    
     var attachments   = [Attachment]()
     var detailURL     : String?
     var department    : Major? {
@@ -85,10 +80,28 @@ class NoticeDetailViewController: BaseViewController, WKNavigationDelegate, WKUI
                 isFavorite = false
             }
         }
-        let bookmarkButton = UIBarButtonItem(image: isFavorite ? NotissuImage.favoriteNavigationImageON : NotissuImage.favoriteNavigationImageOFF, style: .done, target: self, action: #selector(favoriteTapped))
-        self.navigationItem.setRightBarButtonItems([bookmarkButton], animated: false)
+        let bookmarkButton = UIBarButtonItem(image: isFavorite ? NotissuImage.favoriteNavigationImageON : NotissuImage.favoriteNavigationImageOFF, style: .plain, target: self, action: #selector(favoriteTapped))
+        
+        let linkCopyButton = UIBarButtonItem(image: NotissuImage.noticeLinkCopyImage, style: .plain, target: self, action: #selector(linkButtonTapped))
+        
+        self.navigationItem.setRightBarButtonItems([bookmarkButton, linkCopyButton], animated: false)
         
         self.loadContentFromURL(string: detailURL!)
+    }
+    
+    @objc func linkButtonTapped() {
+        print("linkButton Tapped")
+        
+        guard let url = detailURL?.decodeUrl()?.encodeUrl() else {
+            return
+        }
+        
+        let textToShare = [url]
+        // VC Setup
+        let activityVC = UIActivityViewController(activityItems: textToShare, applicationActivities: nil)
+        // Set Types which you want to exclude
+        activityVC.excludedActivityTypes = [ UIActivity.ActivityType.airDrop ]
+        self.present(activityVC, animated: true, completion: nil)
     }
     
     @objc func favoriteTapped() {

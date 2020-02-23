@@ -9,6 +9,8 @@ target 'SoongsilNotice' do
   pod 'Kanna', '~> 5.0.0'
   pod 'lottie-ios'
   pod 'Alamofire'
+  pod 'Firebase/Core'
+  pod 'Firebase/Messaging'
   
   target 'Notissu Today Extension' do
     inherit! :search_paths

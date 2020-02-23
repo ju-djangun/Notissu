@@ -249,16 +249,15 @@ class NoticeDetailPresenter: NoticeDetail {
     
     // 기계공학과
     func parseEngineerMachine(html: HTMLDocument, host: String?, completion: @escaping ([Attachment], String) -> Void) {
-        let contentHTML = html.css("div[class^='frame-box']").first?.innerHTML ?? ""
+        let contentHTML = html.css("div[class^='td_box']").first?.innerHTML ?? ""
         var detailHTML = "\(htmlStart)\(contentHTML)\(htmlEnd)"
         detailHTML = detailHTML.replacingOccurrences(of: "src=\"/", with: "src=\"\(host ?? "")/")
         var attachmentList = [Attachment]()
         
-        for link in html.css("table[class='bbs-view'] a") {
-            //            print(link["href"])
-            //            print(link.content)
-            attachmentList.append(Attachment(fileName: link.content ?? "", fileURL: link["href"] ?? ""))
-        }
+        // MARK: Needs to be updated
+//        for link in html.css("table[class='bbs-view'] a") {
+//            attachmentList.append(Attachment(fileName: link.content ?? "", fileURL: link["href"] ?? ""))
+//        }
         
         completion(attachmentList, detailHTML)
     }

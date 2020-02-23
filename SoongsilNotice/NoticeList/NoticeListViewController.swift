@@ -55,8 +55,8 @@ class NoticeListViewController: BaseViewController, NoticeListView, UITableViewD
             self.navigationController?.navigationBar.topItem?.title = self.noticeDeptName?.rawValue
         } else if listType == .normalList {
             if self.noticeDeptCode != BaseViewController.noticeDeptCode && self.searchKeyword == nil {
-                self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(onFavoriteClick))
-                //                UIBarButtonItem(title: "내 전공 등록", style: .plain, target: self, action: #selector(onFavoriteClick))
+                self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(onClickAddMajor))
+                //                UIBarButtonItem(title: "내 전공 등록", style: .plain, target: self, action: #selector(onClickAddMajor))
             }
         }
         
@@ -84,7 +84,7 @@ class NoticeListViewController: BaseViewController, NoticeListView, UITableViewD
         }
     }
     
-    @objc func onFavoriteClick(sender: UIBarButtonItem) {
+    @objc func onClickAddMajor(sender: UIBarButtonItem) {
         self.showAlert(title: "메인 전공 등록", msg: "메인 전공으로 등록하면 첫 화면에 해당 전공 공지사항이 나옵니다.", handler: self.doRegisterFavorite(_:))
     }
     

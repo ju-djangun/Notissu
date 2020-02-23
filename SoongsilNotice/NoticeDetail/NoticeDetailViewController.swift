@@ -26,6 +26,11 @@ class NoticeDetailViewController: BaseViewController, WKNavigationDelegate, WKUI
         }
     }
     
+    //change to play
+    lazy var favoriteButtonON = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.bookmarks, target: self, action: #selector(favoriteTapped))
+    //change to pause
+    lazy var favoriteButtonOFF = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.bookmarks, target: self, action: #selector(favoriteTapped))
+    
     var attachments   = [Attachment]()
     var detailURL     : String?
     var department    : Major? {
@@ -46,8 +51,12 @@ class NoticeDetailViewController: BaseViewController, WKNavigationDelegate, WKUI
     var presenter     : NoticeDetailPresenter!
     var docController : UIDocumentInteractionController!
     
+    private func getBookmarkImage(favorite: Bool) -> UIImage? {
+        return favorite ? NotissuImage.favoriteNavigationImageON : NotissuImage.favoriteNavigationImageOFF
+    }
+    
     private func setFavoriteButton(favorite: Bool) {
-        self.navigationItem.rightBarButtonItem?.title = favorite ? "즐겨찾기 해제" : "즐겨찾기 추가"
+        self.navigationItem.rightBarButtonItems?[0].image = isFavorite ? NotissuImage.favoriteNavigationImageON : NotissuImage.favoriteNavigationImageOFF
     }
     
     override func viewDidLoad() {
@@ -76,10 +85,26 @@ class NoticeDetailViewController: BaseViewController, WKNavigationDelegate, WKUI
                 isFavorite = false
             }
         }
+        let bookmarkButton = UIBarButtonItem(image: isFavorite ? NotissuImage.favoriteNavigationImageON : NotissuImage.favoriteNavigationImageOFF, style: .done, target: self, action: #selector(favoriteTapped))
+        self.navigationItem.setRightBarButtonItems([bookmarkButton], animated: false)
         
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: isFavorite ? "즐겨찾기 해제" : "즐겨찾기 추가", style: .plain, target: self, action: #selector(favoriteTapped))
+        self.loadContentFromURL(string: detailURL!)
+    }
+    
+    @objc func favoriteTapped() {
+        print("FavoriteTapped")
+        // UPDATE Core Data
+        // Retrieve New Core Data
+        self.isFavorite = !self.isFavorite
+        self.presenter.setFavorite(notice: self.noticeItem!, majorCode: self.departmentCode!, majorName: self.department!.majorName!, favorite: self.isFavorite)
+    }
+    
+    func loadContentFromURL(string: String) {
+        guard let url = string.decodeUrl()?.encodeUrl() else {
+            return
+        }
         
-        Alamofire.request(detailURL!).responseString { response in
+        Alamofire.request(url).responseString { response in
             switch(response.result) {
             case .success(_):
                 guard let text = response.data else { return }
@@ -213,19 +238,10 @@ class NoticeDetailViewController: BaseViewController, WKNavigationDelegate, WKUI
                 } catch let error {
                     print("ERROR : \(error)")
                 }
-                //            }
-                break
-            default: break
+            case .failure(let error):
+                print(error)
             }
         }
-    }
-    
-    @objc func favoriteTapped() {
-        print("FavoriteTapped")
-        // UPDATE Core Data
-        // Retrieve New Core Data
-        self.isFavorite = !self.isFavorite
-        self.presenter.setFavorite(notice: self.noticeItem!, majorCode: self.departmentCode!, majorName: self.department!.majorName!, favorite: self.isFavorite)
     }
     
     func showWebViewPage(attachments: [Attachment], html: String) {
@@ -287,3 +303,4 @@ class NoticeDetailViewController: BaseViewController, WKNavigationDelegate, WKUI
         self.showProgressBar()
     }
 }
+

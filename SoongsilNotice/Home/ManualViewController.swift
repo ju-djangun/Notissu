@@ -20,6 +20,8 @@ class ManualViewController : BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.startButton.isHidden = true
+        self.startButton.layer.masksToBounds = true
+        self.startButton.layer.cornerRadius = 4
         
         for index in 0..<manualImageList.count {
             let subView = UIImageView()

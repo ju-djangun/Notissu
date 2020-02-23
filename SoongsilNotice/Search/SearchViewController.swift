@@ -26,15 +26,7 @@ class SearchViewController: BaseViewController, SearchViewProtocol, UIPickerView
         super.viewDidLoad()
         self.presenter = SearchPresenter(view: self)
         
-        self.searchBtn.clipsToBounds = true
-        self.searchBtn.layer.cornerRadius = self.searchBtn.bounds.height * 0.5
-        
-        self.majorSelectionBtn.clipsToBounds = true
-        self.majorSelectionBtn.layer.cornerRadius = self.majorSelectionBtn.bounds.height * 0.5
-        
-        self.keywordTextField.clipsToBounds = true
-        self.keywordTextField.layer.cornerRadius = self.keywordTextField.bounds.height * 0.5
-        self.keywordTextField.layer.borderWidth = 1
+        self.keywordTextField.layer.borderWidth = 0.5
         self.keywordTextField.layer.borderColor = NotiSSU_ColorSet.notissuGrayLight.cgColor
         
         self.lblSelectedMajor.textColor = NotiSSU_ColorSet.notissuGray
@@ -69,8 +61,7 @@ class SearchViewController: BaseViewController, SearchViewProtocol, UIPickerView
             let storyBoard = self.storyboard!
             let noticeListViewController = storyBoard.instantiateViewController(withIdentifier: "noticeListVC") as? NoticeListViewController
             
-            noticeListViewController?.noticeDeptCode = self.presenter.getMajorCodeListItem(at: selectedIndex)
-            noticeListViewController?.noticeDeptName = selectedMajor
+            noticeListViewController?.department = Major(majorCode: self.presenter.getMajorCodeListItem(at: selectedIndex), majorName: selectedMajor, majorNameEng: nil)
             
             noticeListViewController?.isSearchResult = true
             noticeListViewController?.listType = .normalList

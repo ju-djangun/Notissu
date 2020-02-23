@@ -15,7 +15,6 @@ class NoticeEngineering {
     static func parseListMachine(page: Int, keyword: String?, completion: @escaping ([Notice]) -> Void) {
         let noticeUrl = "\(NoticeURL.engineerMachineURL)\(page)"
         var noticeList = [Notice]()
-        var authorList = [String]()
         var titleList  = [String]()
         var urlList = [String]()
         var dateStringList = [String]()
@@ -24,7 +23,7 @@ class NoticeEngineering {
         
         if keyword != nil {
             let keywordSearch = keyword!.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)
-            let searchUrl = "http://me.ssu.ac.kr/web/me/notice_a?p_p_id=EXT_BBS&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&p_p_col_id=column-1&p_p_col_count=1&_EXT_BBS_struts_action=%2Fext%2Fbbs%2Fview&_EXT_BBS_sCategory=&_EXT_BBS_sTitle=\(keywordSearch ?? "")&_EXT_BBS_sWriter=&_EXT_BBS_sTag=&_EXT_BBS_sContent=&_EXT_BBS_sCategory2=&_EXT_BBS_sKeyType=title&_EXT_BBS_sKeyword=\(keywordSearch ?? "")&_EXT_BBS_curPage=\(page)"
+            let searchUrl = "https://me.ssu.ac.kr/https://me.ssu.ac.kr/%EA%B2%8C%EC%8B%9C%ED%8C%90-%EC%9E%90%EB%A3%8C%EC%8B%A4/%EA%B3%B5%EC%A7%80%EC%82%AC%ED%95%AD/page/\(page)/?select=title&keyword=\(keywordSearch ?? "")"
             requestURL = searchUrl
         } else {
             requestURL = noticeUrl
@@ -36,7 +35,7 @@ class NoticeEngineering {
                 if let data = response.result.value {
                     do {
                         let doc = try HTML(html: data, encoding: .utf8)
-                        for product in doc.css("table[class^='bbs-list'] td") {
+                        for product in doc.css("table[class^='t_list hover'] td") {
                             let content = product.text!.trimmingCharacters(in: .whitespacesAndNewlines)
                             //                            print(content)
                             switch (index % 5) {
@@ -46,8 +45,7 @@ class NoticeEngineering {
                                 titleList.append(content)
                                 break
                             case 2:
-                                // Author
-                                authorList.append(content)
+                                // File
                                 break
                             case 3:
                                 // Date
@@ -60,7 +58,7 @@ class NoticeEngineering {
                             index += 1
                         }
                         
-                        for product in doc.css("table[class^='bbs-list'] td a") {
+                        for product in doc.css("table[class^='t_list hover'] td a") {
                             urlList.append(product["href"] ?? "")
                         }
                     } catch let error {
@@ -69,7 +67,7 @@ class NoticeEngineering {
                     
                     index = 0
                     for _ in urlList {
-                        let noticeItem = Notice(author: authorList[index], title: titleList[index], url: urlList[index], date: dateStringList[index], isNotice: false)
+                        let noticeItem = Notice(author: "", title: titleList[index], url: urlList[index], date: dateStringList[index], isNotice: false)
                         noticeList.append(noticeItem)
                         index += 1
                     }

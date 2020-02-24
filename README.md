@@ -3,6 +3,12 @@ Soongsil University Notice application by major.
 ![Version](https://img.shields.io/badge/license-Apache%202.0-red.svg?style=flat)
 ![Version](https://img.shields.io/badge/version-v1.3.1-blue.svg?style=flat)
 ![Version](https://img.shields.io/badge/ios-11.0-green.svg?style=flat)   
+  
+## Developer  
+*Kim Tae In*  
+( Soongsil University School of Computer Science & Engineering )  
+Email : [della.kimko@gmail.com](della.kimko@gmail.com)  
+  
 ## License  
 Apache 2.0 License
 

@@ -20,6 +20,7 @@ class NoticeBusiness {
         var urlList = [String]()
         var isNoticeList = [Bool]()
         var dateStringList = [String]()
+        var attachmentCheckList = [Bool]()
         var index = 0
         var requestURL = ""
         
@@ -52,9 +53,20 @@ class NoticeBusiness {
                                     isNoticeList.append(false)
                                 }
                                 titleList.append(content)
+                                
+                                // Attachment
+                                var hasAttachment = false
+                                if let innerProduct = product.innerHTML {
+                                    if innerProduct.contains("img_incFile.png") {
+                                        hasAttachment = true
+                                    }
+                                }
+                                attachmentCheckList.append(hasAttachment)
                                 break
-                            case 1: break
-                            case 2: break
+                            case 1:
+                                break
+                            case 2:
+                                break
                             default: break
                             }
                             index += 1
@@ -88,7 +100,7 @@ class NoticeBusiness {
                     
                     index = 0
                     for _ in urlList {
-                        let noticeItem = Notice(author: authorList[index], title: titleList[index], url: urlList[index], date: dateStringList[index], isNotice: isNoticeList[index])
+                        let noticeItem = Notice(author: authorList[index], title: titleList[index], url: urlList[index], date: dateStringList[index], isNotice: isNoticeList[index], hasAttachment: attachmentCheckList[index])
                         noticeList.append(noticeItem)
                         index += 1
                     }

@@ -264,6 +264,7 @@ class NoticeNaturalScience {
         var titleList  = [String]()
         var urlList = [String]()
         var dateStringList = [String]()
+        var attachmentCheckList = [Bool]()
         var index = 0
         var requestURL = ""
         
@@ -289,6 +290,15 @@ class NoticeNaturalScience {
                             case 1:
                                 // Title
                                 titleList.append(content)
+                                
+                                // Attachment
+                                var hasAttachment = false
+                                if let innerProduct = product.innerHTML {
+                                    if innerProduct.contains("icon_file.gif") {
+                                        hasAttachment = true
+                                    }
+                                }
+                                attachmentCheckList.append(hasAttachment)
                                 break
                             case 2:
                                 // Author
@@ -314,7 +324,7 @@ class NoticeNaturalScience {
                     
                     index = 0
                     for _ in urlList {
-                        let noticeItem = Notice(author: "", title: titleList[index], url: urlList[index], date: dateStringList[index], isNotice: false)
+                        let noticeItem = Notice(author: "", title: titleList[index], url: urlList[index], date: dateStringList[index], isNotice: false, hasAttachment: attachmentCheckList[index])
                         noticeList.append(noticeItem)
                         index += 1
                     }

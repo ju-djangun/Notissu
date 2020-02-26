@@ -19,6 +19,7 @@ class NoticeIT {
         var pageStringList = [String]()
         var dateStringList = [String]()
         var isNoticeList = [Bool]()
+        var attachmentCheckList = [Bool]()
         var requestURL = ""
         let noticeUrl = "http://cse.ssu.ac.kr/03_sub/01_sub.htm?page=\(page)&key=&keyfield=&category=&bbs_code=Ti_BBS_1"
         
@@ -51,11 +52,18 @@ class NoticeIT {
                                     
                                     switch index % 2 {
                                     case 0:
+                                        // Attachment
+                                        var hasAttachment = false
+                                        if let inner = product.innerHTML {
+                                            if inner.contains("ico_file_chk.gif") {
+                                                // Attachment
+                                                hasAttachment = true
+                                            }
+                                        }
+                                        attachmentCheckList.append(hasAttachment)
+                                        
+                                        // Title & Author
                                         let noticeTitle = product.content ?? ""
-                                        //                                    print("product1 : \(noticeTitle)")
-                                        //                                    print("product1 : \(noticeAuthor)")
-                                        //                                    print("product1 : \(noticeDate)")
-                                        //                                    print("product1 : \(pageString)")
                                         authorList.append(noticeAuthor)
                                         titleList.append(noticeTitle)
                                         pageStringList.append("http://cse.ssu.ac.kr/03_sub/01_sub.htm\(pageString)")
@@ -81,6 +89,16 @@ class NoticeIT {
                                         
                                         switch index % 2 {
                                         case 0:
+                                            // Attachment
+                                            var hasAttachment = false
+                                            if let inner = product.innerHTML {
+                                                if inner.contains("ico_file_chk.gif") {
+                                                    // Attachment
+                                                    hasAttachment = true
+                                                }
+                                            }
+                                            attachmentCheckList.append(hasAttachment)
+                                            
                                             let noticeTitle = product.content ?? ""
                                             authorList.append(noticeAuthor)
                                             titleList.append(noticeTitle)
@@ -103,7 +121,7 @@ class NoticeIT {
                         }
                         
                         for _ in authorList {
-                            let noticeItem = Notice(author: authorList[index], title: titleList[index], url: pageStringList[index], date: dateStringList[index], isNotice: isNoticeList[index])
+                            let noticeItem = Notice(author: authorList[index], title: titleList[index], url: pageStringList[index], date: dateStringList[index], isNotice: isNoticeList[index], hasAttachment: attachmentCheckList[index])
                             
                             noticeList.append(noticeItem)
                             index += 1

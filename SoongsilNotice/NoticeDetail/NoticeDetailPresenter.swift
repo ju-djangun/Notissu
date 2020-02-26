@@ -89,6 +89,7 @@ class NoticeDetailPresenter: NoticeDetail {
         noticeObject.setValue(notice.isNotice, forKey: "isNotice")
         noticeObject.setValue(notice.title, forKey: "title")
         noticeObject.setValue(notice.url, forKey: "url")
+        noticeObject.setValue(notice.hasAttachment, forKey: "hasAttachment")
         
         do {
             try managedContext.save()

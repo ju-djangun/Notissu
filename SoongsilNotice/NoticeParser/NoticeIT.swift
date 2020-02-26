@@ -19,6 +19,7 @@ class NoticeIT {
         var pageStringList = [String]()
         var dateStringList = [String]()
         var isNoticeList = [Bool]()
+        var attachmentCheckList = [Bool]()
         var requestURL = ""
         let noticeUrl = "http://cse.ssu.ac.kr/03_sub/01_sub.htm?page=\(page)&key=&keyfield=&category=&bbs_code=Ti_BBS_1"
         
@@ -51,11 +52,18 @@ class NoticeIT {
                                     
                                     switch index % 2 {
                                     case 0:
+                                        // Attachment
+                                        var hasAttachment = false
+                                        if let inner = product.innerHTML {
+                                            if inner.contains("ico_file_chk.gif") {
+                                                // Attachment
+                                                hasAttachment = true
+                                            }
+                                        }
+                                        attachmentCheckList.append(hasAttachment)
+                                        
+                                        // Title & Author
                                         let noticeTitle = product.content ?? ""
-                                        //                                    print("product1 : \(noticeTitle)")
-                                        //                                    print("product1 : \(noticeAuthor)")
-                                        //                                    print("product1 : \(noticeDate)")
-                                        //                                    print("product1 : \(pageString)")
                                         authorList.append(noticeAuthor)
                                         titleList.append(noticeTitle)
                                         pageStringList.append("http://cse.ssu.ac.kr/03_sub/01_sub.htm\(pageString)")
@@ -81,6 +89,16 @@ class NoticeIT {
                                         
                                         switch index % 2 {
                                         case 0:
+                                            // Attachment
+                                            var hasAttachment = false
+                                            if let inner = product.innerHTML {
+                                                if inner.contains("ico_file_chk.gif") {
+                                                    // Attachment
+                                                    hasAttachment = true
+                                                }
+                                            }
+                                            attachmentCheckList.append(hasAttachment)
+                                            
                                             let noticeTitle = product.content ?? ""
                                             authorList.append(noticeAuthor)
                                             titleList.append(noticeTitle)
@@ -103,7 +121,7 @@ class NoticeIT {
                         }
                         
                         for _ in authorList {
-                            let noticeItem = Notice(author: authorList[index], title: titleList[index], url: pageStringList[index], date: dateStringList[index], isNotice: isNoticeList[index])
+                            let noticeItem = Notice(author: authorList[index], title: titleList[index], url: pageStringList[index], date: dateStringList[index], isNotice: isNoticeList[index], hasAttachment: attachmentCheckList[index])
                             
                             noticeList.append(noticeItem)
                             index += 1
@@ -206,6 +224,7 @@ class NoticeIT {
         var urlList = [String]()
         var dateStringList = [String]()
         var isNoticeList = [Bool]()
+        var attachmentCheckList = [Bool]()
         var index = 0
         
         var requestURL = ""
@@ -235,6 +254,17 @@ class NoticeIT {
                             }
                         }
                         
+                        for product in doc.css("td[class^=subject]") {
+                            var hasAttachment = false
+                            for image in product.css("img") {
+                                let imageSrc = image["src"] ?? ""
+                                if imageSrc.contains("icon_file.gif") {
+                                    hasAttachment = true
+                                }
+                            }
+                            attachmentCheckList.append(hasAttachment)
+                        }
+                        
                         for product in doc.css("td[class^=subject] a") {
                             var url = product["href"] ?? ""
                             url = url.replacingOccurrences(of: "..", with: "https://sw.ssu.ac.kr")
@@ -259,7 +289,7 @@ class NoticeIT {
                     }
                     
                     for _ in authorList {
-                        let noticeItem = Notice(author: authorList[index], title: titleList[index], url: urlList[index], date: dateStringList[index], isNotice: isNoticeList[index])
+                        let noticeItem = Notice(author: authorList[index], title: titleList[index], url: urlList[index], date: dateStringList[index], isNotice: isNoticeList[index], hasAttachment: attachmentCheckList[index])
                         
                         noticeList.append(noticeItem)
                         index += 1
@@ -282,6 +312,7 @@ class NoticeIT {
         var urlList = [String]()
         var dateStringList = [String]()
         var isNoticeList = [Bool]()
+        var attachmentCheckList = [Bool]()
         var index = 0
         var requestURL = ""
         
@@ -304,6 +335,15 @@ class NoticeIT {
                         let doc = try HTML(html: data, encoding: .utf8)
                         for product in doc.css("div[class^='list']") {
                             let url = "http://infocom.ssu.ac.kr\((product.toHTML?.getArrayAfterRegex(regex: "(?=')\\S+(?=')")[0].split(separator: "'")[0] ?? "")!.replacingOccurrences(of: "&amp;", with: "&"))"
+                            
+                            // Attachment
+                            var hasAttachment = false
+                            if let imgSrc = product.css("div[class^='info'] img").first?["src"] {
+                                if imgSrc.contains("ico_file.gif") {
+                                    hasAttachment = true
+                                }
+                            }
+                            attachmentCheckList.append(hasAttachment)
                             
                             let strs = (product.css("div[class^='info']").first?.text ?? "")!.split(separator: "|")
                             
@@ -331,7 +371,7 @@ class NoticeIT {
                 
                 index = 0
                 for _ in authorList {
-                    let noticeItem = Notice(author: authorList[index], title: titleList[index], url: urlList[index], date: dateStringList[index], isNotice: isNoticeList[index])
+                    let noticeItem = Notice(author: authorList[index], title: titleList[index], url: urlList[index], date: dateStringList[index], isNotice: isNoticeList[index], hasAttachment: attachmentCheckList[index])
                     noticeList.append(noticeItem)
                     index += 1
                 }

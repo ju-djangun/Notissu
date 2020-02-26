@@ -9,17 +9,28 @@
 import Foundation
 
 class Notice: Codable {
-    var author   : String?
-    var title    : String?
-    var url      : String?
-    var date     : String?
-    var isNotice : Bool?
+    var author        : String?
+    var title         : String?
+    var url           : String?
+    var date          : String?
+    var isNotice      : Bool?
+    var hasAttachment : Bool?
     
     init(author: String, title: String, url: String, date: String, isNotice: Bool) {
-        self.author    = author
-        self.title     = title
-        self.url       = url
-        self.date      = date
-        self.isNotice  = isNotice
+        self.author        = author
+        self.title         = title
+        self.url           = url
+        self.date          = date
+        self.isNotice      = isNotice
+        self.hasAttachment = false
+    }
+    
+    init(author: String, title: String, url: String, date: String, isNotice: Bool, hasAttachment: Bool) {
+        self.author        = author
+        self.title         = title
+        self.url           = url
+        self.date          = date
+        self.isNotice      = isNotice
+        self.hasAttachment = hasAttachment
     }
 }

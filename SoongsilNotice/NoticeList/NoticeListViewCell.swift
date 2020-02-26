@@ -10,9 +10,11 @@ import UIKit
 
 class NoticeListViewCell: UITableViewCell {
 
-    @IBOutlet var noticeBadge: UILabel!
-    @IBOutlet var noticeTitle: UILabel!
-    @IBOutlet var noticeDate: UILabel!
+    @IBOutlet var attachmentWidthConstraint: NSLayoutConstraint!
+    @IBOutlet var attachmentSymbol: UIView!
+    @IBOutlet var noticeBadge     : UILabel!
+    @IBOutlet var noticeTitle     : UILabel!
+    @IBOutlet var noticeDate      : UILabel!
     @IBOutlet var noticeBadgeWidthConstraint: NSLayoutConstraint!
     
     var deptName: DeptName?
@@ -30,6 +32,8 @@ class NoticeListViewCell: UITableViewCell {
         guard let strongNotice = notice else {
             return
         }
+        
+        self.attachmentWidthConstraint.constant = (strongNotice.hasAttachment ?? false) ? 50 : 0
         
         if isBookmark {
             self.noticeDate.text = "\(strongNotice.date ?? "") | \(deptName?.rawValue ?? "")"

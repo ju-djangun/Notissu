@@ -10,8 +10,8 @@
 		43C7B2F80E459CCCF0FD26CF /* Pods_Notissu_Today_Extension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C3F7DC8F67539D51717B753 /* Pods_Notissu_Today_Extension.framework */; };
 		B0B67AEB2400BB060027D038 /* MajorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B67AEA2400BB060027D038 /* MajorModel.swift */; };
 		DE03E9CF2379B05D002AA5AE /* NoticeBusiness.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE03E9CE2379B05D002AA5AE /* NoticeBusiness.swift */; };
-		DE04186024021BCA00486BF3 /* NotissuImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE04185F24021BCA00486BF3 /* NotissuImage.swift */; };
-		DE04186124021BCA00486BF3 /* NotissuImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE04185F24021BCA00486BF3 /* NotissuImage.swift */; };
+		DE04186024021BCA00486BF3 /* NotissuResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE04185F24021BCA00486BF3 /* NotissuResource.swift */; };
+		DE04186124021BCA00486BF3 /* NotissuResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE04185F24021BCA00486BF3 /* NotissuResource.swift */; };
 		DE0418B12402412F00486BF3 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DE0418B02402412E00486BF3 /* GoogleService-Info.plist */; };
 		DE0418B22402412F00486BF3 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DE0418B02402412E00486BF3 /* GoogleService-Info.plist */; };
 		DE0F8F1823739C8A006A0B49 /* NoticeAttachmentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE0F8F1723739C8A006A0B49 /* NoticeAttachmentCell.swift */; };
@@ -136,7 +136,7 @@
 		57296D4BD235F1B361E7E590 /* Pods_SoongsilNotice.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SoongsilNotice.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0B67AEA2400BB060027D038 /* MajorModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MajorModel.swift; sourceTree = "<group>"; };
 		DE03E9CE2379B05D002AA5AE /* NoticeBusiness.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeBusiness.swift; sourceTree = "<group>"; };
-		DE04185F24021BCA00486BF3 /* NotissuImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotissuImage.swift; sourceTree = "<group>"; };
+		DE04185F24021BCA00486BF3 /* NotissuResource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotissuResource.swift; sourceTree = "<group>"; };
 		DE0418B02402412E00486BF3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		DE0F8F1723739C8A006A0B49 /* NoticeAttachmentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeAttachmentCell.swift; sourceTree = "<group>"; };
 		DE0F8F192373A222006A0B49 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
@@ -439,7 +439,7 @@
 				DEF56D8A2384DB1B003CA0F0 /* manual1.png */,
 				DEF56D8C2384DB1B003CA0F0 /* manual2.png */,
 				DEF56D8B2384DB1B003CA0F0 /* manual3.png */,
-				DE04185F24021BCA00486BF3 /* NotissuImage.swift */,
+				DE04185F24021BCA00486BF3 /* NotissuResource.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -639,7 +639,7 @@
 				DE5542442377E076004E01EB /* HomeSwticher.swift in Sources */,
 				DE53D14D23FC21DB00AEFCE2 /* BookmarkContract.swift in Sources */,
 				DE296155237195CD0074F24B /* ConfigSetting.swift in Sources */,
-				DE04186024021BCA00486BF3 /* NotissuImage.swift in Sources */,
+				DE04186024021BCA00486BF3 /* NotissuResource.swift in Sources */,
 				DE55424623784879004E01EB /* SplashViewController.swift in Sources */,
 				DE29614F2370FCD20074F24B /* NoticeListContract.swift in Sources */,
 				DEF56D7523837778003CA0F0 /* SearchViewController.swift in Sources */,
@@ -698,7 +698,7 @@
 				DE85B93923DD29FC001FB35C /* ConfigSetting.swift in Sources */,
 				DE53D0B123F8E9B100AEFCE2 /* FavoriteNotice.xcdatamodeld in Sources */,
 				DE85B92E23DD29CE001FB35C /* NoticeIT.swift in Sources */,
-				DE04186124021BCA00486BF3 /* NotissuImage.swift in Sources */,
+				DE04186124021BCA00486BF3 /* NotissuResource.swift in Sources */,
 				DEBE386B23EFEFC2006F51AB /* WidgetNoticeView.swift in Sources */,
 				DE85B93323DD29CE001FB35C /* NoticeBusiness.swift in Sources */,
 				DE85B93F23DD300A001FB35C /* TodayContract.swift in Sources */,

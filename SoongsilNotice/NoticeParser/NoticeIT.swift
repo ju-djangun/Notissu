@@ -224,6 +224,7 @@ class NoticeIT {
         var urlList = [String]()
         var dateStringList = [String]()
         var isNoticeList = [Bool]()
+        var attachmentCheckList = [Bool]()
         var index = 0
         
         var requestURL = ""
@@ -253,6 +254,17 @@ class NoticeIT {
                             }
                         }
                         
+                        for product in doc.css("td[class^=subject]") {
+                            var hasAttachment = false
+                            for image in product.css("img") {
+                                let imageSrc = image["src"] ?? ""
+                                if imageSrc.contains("icon_file.gif") {
+                                    hasAttachment = true
+                                }
+                            }
+                            attachmentCheckList.append(hasAttachment)
+                        }
+                        
                         for product in doc.css("td[class^=subject] a") {
                             var url = product["href"] ?? ""
                             url = url.replacingOccurrences(of: "..", with: "https://sw.ssu.ac.kr")
@@ -277,7 +289,7 @@ class NoticeIT {
                     }
                     
                     for _ in authorList {
-                        let noticeItem = Notice(author: authorList[index], title: titleList[index], url: urlList[index], date: dateStringList[index], isNotice: isNoticeList[index])
+                        let noticeItem = Notice(author: authorList[index], title: titleList[index], url: urlList[index], date: dateStringList[index], isNotice: isNoticeList[index], hasAttachment: attachmentCheckList[index])
                         
                         noticeList.append(noticeItem)
                         index += 1

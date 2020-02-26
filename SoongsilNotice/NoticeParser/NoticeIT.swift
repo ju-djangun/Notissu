@@ -312,6 +312,7 @@ class NoticeIT {
         var urlList = [String]()
         var dateStringList = [String]()
         var isNoticeList = [Bool]()
+        var attachmentCheckList = [Bool]()
         var index = 0
         var requestURL = ""
         
@@ -334,6 +335,15 @@ class NoticeIT {
                         let doc = try HTML(html: data, encoding: .utf8)
                         for product in doc.css("div[class^='list']") {
                             let url = "http://infocom.ssu.ac.kr\((product.toHTML?.getArrayAfterRegex(regex: "(?=')\\S+(?=')")[0].split(separator: "'")[0] ?? "")!.replacingOccurrences(of: "&amp;", with: "&"))"
+                            
+                            // Attachment
+                            var hasAttachment = false
+                            if let imgSrc = product.css("div[class^='info'] img").first?["src"] {
+                                if imgSrc.contains("ico_file.gif") {
+                                    hasAttachment = true
+                                }
+                            }
+                            attachmentCheckList.append(hasAttachment)
                             
                             let strs = (product.css("div[class^='info']").first?.text ?? "")!.split(separator: "|")
                             
@@ -361,7 +371,7 @@ class NoticeIT {
                 
                 index = 0
                 for _ in authorList {
-                    let noticeItem = Notice(author: authorList[index], title: titleList[index], url: urlList[index], date: dateStringList[index], isNotice: isNoticeList[index])
+                    let noticeItem = Notice(author: authorList[index], title: titleList[index], url: urlList[index], date: dateStringList[index], isNotice: isNoticeList[index], hasAttachment: attachmentCheckList[index])
                     noticeList.append(noticeItem)
                     index += 1
                 }

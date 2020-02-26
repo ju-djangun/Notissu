@@ -61,6 +61,8 @@
 		DE7496B123DC008C00000849 /* SearchPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE7496B023DC008C00000849 /* SearchPresenter.swift */; };
 		DE7496B323DC009500000849 /* SearchContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE7496B223DC009500000849 /* SearchContract.swift */; };
 		DE7496B523DC00D400000849 /* SearchModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE7496B423DC00D400000849 /* SearchModel.swift */; };
+		DE75F91424064F2E00510E78 /* VersionInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE75F91324064F2E00510E78 /* VersionInfoView.swift */; };
+		DE75F916240651BC00510E78 /* VersionInfoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DE75F915240651BC00510E78 /* VersionInfoView.xib */; };
 		DE85B92E23DD29CE001FB35C /* NoticeIT.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE296156237198070074F24B /* NoticeIT.swift */; };
 		DE85B92F23DD29CE001FB35C /* NoticeEngineering.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE0F8F202373FDD7006A0B49 /* NoticeEngineering.swift */; };
 		DE85B93023DD29CE001FB35C /* NoticeLaw.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE0F8F2223740041006A0B49 /* NoticeLaw.swift */; };
@@ -183,6 +185,8 @@
 		DE7496B023DC008C00000849 /* SearchPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPresenter.swift; sourceTree = "<group>"; };
 		DE7496B223DC009500000849 /* SearchContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchContract.swift; sourceTree = "<group>"; };
 		DE7496B423DC00D400000849 /* SearchModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchModel.swift; sourceTree = "<group>"; };
+		DE75F91324064F2E00510E78 /* VersionInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VersionInfoView.swift; sourceTree = "<group>"; };
+		DE75F915240651BC00510E78 /* VersionInfoView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VersionInfoView.xib; sourceTree = "<group>"; };
 		DE85B92D23DD28D4001FB35C /* Notissu Today Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Notissu Today Extension.entitlements"; sourceTree = "<group>"; };
 		DE85B93B23DD2DEB001FB35C /* Notissu.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Notissu.entitlements; sourceTree = "<group>"; };
 		DE85B93C23DD3001001FB35C /* TodayPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayPresenter.swift; sourceTree = "<group>"; };
@@ -354,6 +358,16 @@
 			path = NoticeDetail;
 			sourceTree = "<group>";
 		};
+		DE3A90A72406448E00C453E2 /* MoreCell */ = {
+			isa = PBXGroup;
+			children = (
+				DEBFDC42237E31A3003888D9 /* MoreTableCell.swift */,
+				DE75F91324064F2E00510E78 /* VersionInfoView.swift */,
+				DE75F915240651BC00510E78 /* VersionInfoView.xib */,
+			);
+			path = MoreCell;
+			sourceTree = "<group>";
+		};
 		DE53D14923FC21BA00AEFCE2 /* Bookmark */ = {
 			isa = PBXGroup;
 			children = (
@@ -368,8 +382,8 @@
 		DE554249237933FA004E01EB /* More */ = {
 			isa = PBXGroup;
 			children = (
+				DE3A90A72406448E00C453E2 /* MoreCell */,
 				DE55424A2379340A004E01EB /* MoreViewController.swift */,
-				DEBFDC42237E31A3003888D9 /* MoreTableCell.swift */,
 				DEBFDC44237E391C003888D9 /* OpenSourceViewController.swift */,
 				DEBFDC46237E3950003888D9 /* OpenSourceTableViewCell.swift */,
 			);
@@ -519,6 +533,7 @@
 				DE53D1542400142000AEFCE2 /* TodayExtensionColor.xcassets in Resources */,
 				DE29613F23703F4D0074F24B /* Assets.xcassets in Resources */,
 				DEF56D902384DB1C003CA0F0 /* manual2.png in Resources */,
+				DE75F916240651BC00510E78 /* VersionInfoView.xib in Resources */,
 				DE501C4B23750DCB0053055A /* notissu_anim.json in Resources */,
 				DEF56D912384DB1C003CA0F0 /* manual0.png in Resources */,
 				DE72017F237A871B00F60CEB /* Launch Screen.storyboard in Resources */,
@@ -618,6 +633,7 @@
 				DE29613623703F4C0074F24B /* AppDelegate.swift in Sources */,
 				DE7496B523DC00D400000849 /* SearchModel.swift in Sources */,
 				DE29615B237289D60074F24B /* NoticeDetailContract.swift in Sources */,
+				DE75F91424064F2E00510E78 /* VersionInfoView.swift in Sources */,
 				DE501C492374FD250053055A /* NoticeURL.swift in Sources */,
 				DEBFDC45237E391C003888D9 /* OpenSourceViewController.swift in Sources */,
 				DE5542442377E076004E01EB /* HomeSwticher.swift in Sources */,
@@ -844,14 +860,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = SoongsilNotice/Notissu.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = M79H9K226Y;
 				INFOPLIST_FILE = SoongsilNotice/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.3.1;
+				MARKETING_VERSION = 1.3.3;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.elliott.notissu-ios";
 				PRODUCT_NAME = Notissu;
 				SWIFT_VERSION = 5.0;
@@ -867,14 +883,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = SoongsilNotice/Notissu.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = M79H9K226Y;
 				INFOPLIST_FILE = SoongsilNotice/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.3.1;
+				MARKETING_VERSION = 1.3.3;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.elliott.notissu-ios";
 				PRODUCT_NAME = Notissu;
 				SWIFT_VERSION = 5.0;
@@ -888,7 +904,7 @@
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = "Notissu Today Extension/Notissu Today Extension.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = M79H9K226Y;
 				INFOPLIST_FILE = "Notissu Today Extension/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
@@ -897,7 +913,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.3.1;
+				MARKETING_VERSION = 1.3.3;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.elliott.notissu-ios.Notissu-Today-Extension";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -912,7 +928,7 @@
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = "Notissu Today Extension/Notissu Today Extension.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = M79H9K226Y;
 				INFOPLIST_FILE = "Notissu Today Extension/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
@@ -921,7 +937,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.3.1;
+				MARKETING_VERSION = 1.3.3;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.elliott.notissu-ios.Notissu-Today-Extension";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;

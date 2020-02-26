@@ -86,7 +86,7 @@ class BaseViewController: UIViewController {
         NotissuProperty.currentVersion = version
         NotissuProperty.recentVersion = appStoreVersion
         
-        if !(version == appStoreVersion) {
+        if appStoreVersion.compare(version, options: .numeric) == .orderedDescending {
             NotissuProperty.isUpdateRequired = true
             return true
         } else {

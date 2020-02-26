@@ -385,6 +385,7 @@ class NoticeSocial {
         var titleList  = [String]()
         var urlList = [String]()
         var dateStringList = [String]()
+        var attachmentCheckList = [Bool]()
         var index = 0
         var requestURL = ""
         
@@ -420,6 +421,15 @@ class NoticeSocial {
                                 // Title
                                 if isAdd {
                                     titleList.append(content)
+                                    
+                                    // Attachment
+                                    var hasAttachment = false
+                                    if let innerProduct = product.innerHTML {
+                                        if innerProduct.contains("icon_file.gif") {
+                                            hasAttachment = true
+                                        }
+                                    }
+                                    attachmentCheckList.append(hasAttachment)
                                 }
                                 break
                             case 2:
@@ -470,7 +480,7 @@ class NoticeSocial {
                         print(urlList[index])
                         print(dateStringList[index])
                         
-                        let noticeItem = Notice(author: authorList[index], title: titleList[index], url: urlList[index], date: dateStringList[index], isNotice: false)
+                        let noticeItem = Notice(author: authorList[index], title: titleList[index], url: urlList[index], date: dateStringList[index], isNotice: false, hasAttachment: attachmentCheckList[index])
                         noticeList.append(noticeItem)
                         index += 1
                     }

@@ -455,8 +455,15 @@
                                     <constraint firstItem="Jim-FZ-dKd" firstAttribute="centerY" secondItem="oIQ-yd-rFH" secondAttribute="centerY" id="rb9-Yc-0cN"/>
                                 </constraints>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uTK-ht-Fhx">
+                                <rect key="frame" x="0.0" y="160" width="414" height="80"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="80" id="7AT-u8-MyG"/>
+                                </constraints>
+                            </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="LkB-wq-hEc">
-                                <rect key="frame" x="0.0" y="168" width="414" height="645"/>
+                                <rect key="frame" x="0.0" y="248" width="414" height="565"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="moreListCell" rowHeight="62" id="fFC-Lm-flJ" customClass="MoreTableCell" customModule="Notissu" customModuleProvider="target">
@@ -484,19 +491,30 @@
                                             <outlet property="lblTitle" destination="kdZ-2m-c4j" id="hla-hy-e51"/>
                                         </connections>
                                     </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="versionCell" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="versionCell" rowHeight="80" id="mWt-iv-lcu" customClass="VersionInfoCell" customModule="Notissu" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="90" width="414" height="80"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="mWt-iv-lcu" id="JBt-Ch-B5A">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="80"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
                                 </prototypes>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="LkB-wq-hEc" firstAttribute="top" secondItem="oIQ-yd-rFH" secondAttribute="bottom" constant="8" id="2Ef-qA-Old"/>
+                            <constraint firstItem="uTK-ht-Fhx" firstAttribute="leading" secondItem="ZKz-3V-8NV" secondAttribute="leading" id="2he-bQ-8tn"/>
                             <constraint firstItem="LkB-wq-hEc" firstAttribute="leading" secondItem="ZKz-3V-8NV" secondAttribute="leading" id="3m7-Xi-3zI"/>
                             <constraint firstItem="ZKz-3V-8NV" firstAttribute="trailing" secondItem="oIQ-yd-rFH" secondAttribute="trailing" id="5zR-DQ-44A"/>
+                            <constraint firstItem="LkB-wq-hEc" firstAttribute="top" secondItem="uTK-ht-Fhx" secondAttribute="bottom" constant="8" id="8B6-Cc-UJo"/>
                             <constraint firstItem="oIQ-yd-rFH" firstAttribute="leading" secondItem="ZKz-3V-8NV" secondAttribute="leading" id="9Ct-08-w01"/>
                             <constraint firstItem="ZKz-3V-8NV" firstAttribute="trailing" secondItem="LkB-wq-hEc" secondAttribute="trailing" id="HPl-i6-r8l"/>
                             <constraint firstItem="ZKz-3V-8NV" firstAttribute="bottom" secondItem="LkB-wq-hEc" secondAttribute="bottom" id="P2e-T7-0Xr"/>
                             <constraint firstItem="oIQ-yd-rFH" firstAttribute="top" secondItem="ZKz-3V-8NV" secondAttribute="top" id="TkF-Vh-qPi"/>
+                            <constraint firstItem="uTK-ht-Fhx" firstAttribute="top" secondItem="oIQ-yd-rFH" secondAttribute="bottom" id="kcg-Yi-gn8"/>
                             <constraint firstItem="oIQ-yd-rFH" firstAttribute="centerX" secondItem="ZKz-3V-8NV" secondAttribute="centerX" id="lwt-Ae-DL3"/>
+                            <constraint firstItem="ZKz-3V-8NV" firstAttribute="trailing" secondItem="uTK-ht-Fhx" secondAttribute="trailing" id="xlT-hp-aus"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ZKz-3V-8NV"/>
                     </view>
@@ -504,11 +522,12 @@
                     <connections>
                         <outlet property="majorLbl" destination="Umj-4e-AJA" id="oe1-Pi-Gby"/>
                         <outlet property="moreTableView" destination="LkB-wq-hEc" id="VnR-bp-oGW"/>
+                        <outlet property="versionContainerView" destination="uTK-ht-Fhx" id="5Bd-on-VuF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SUp-Dj-id1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="519" y="951"/>
+            <point key="canvasLocation" x="518.84057971014499" y="950.89285714285711"/>
         </scene>
         <!--검색-->
         <scene sceneID="YQy-Pz-Yzv">

@@ -19,6 +19,15 @@ class StartViewController: BaseViewController, UIPickerViewDelegate, UIPickerVie
     private var selectedIndex = 0
     private var selectedMajor = DeptName.IT_Computer
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        self.checkUpdate()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -53,9 +62,6 @@ class StartViewController: BaseViewController, UIPickerViewDelegate, UIPickerVie
         
         UserDefaults(suiteName: "group.com.elliott.Notissu")?.set(myCode.rawValue, forKey: "myDeptCode")
         UserDefaults(suiteName: "group.com.elliott.Notissu")?.set(myName.rawValue, forKey: "myDeptName")
-        
-//        print("START : \(UserDefaults(suiteName: "group.com.elliott.Notissu")?.integer(forKey: "myDeptCode"))")
-//        print("START : \(UserDefaults(suiteName: "group.com.elliott.Notissu")?.string(forKey: "myDeptName"))")
         
         let storyBoard = self.storyboard!
         let manualViewController = storyBoard.instantiateViewController(withIdentifier: "manualVC") as? ManualViewController

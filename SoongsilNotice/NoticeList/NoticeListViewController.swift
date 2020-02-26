@@ -40,9 +40,6 @@ class NoticeListViewController: BaseViewController, NoticeListView, UITableViewD
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
-        print("viewWillAppear...NoticeListVC")
-        
         if listType == .myList {
             self.department     = BaseViewController.noticeMajor
             self.noticeDeptCode = BaseViewController.noticeDeptCode
@@ -56,7 +53,6 @@ class NoticeListViewController: BaseViewController, NoticeListView, UITableViewD
         } else if listType == .normalList {
             if self.noticeDeptCode != BaseViewController.noticeDeptCode && self.searchKeyword == nil {
                 self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(onClickAddMajor))
-                //                UIBarButtonItem(title: "내 전공 등록", style: .plain, target: self, action: #selector(onClickAddMajor))
             }
         }
         
@@ -67,7 +63,7 @@ class NoticeListViewController: BaseViewController, NoticeListView, UITableViewD
         self.noticeListView.reloadData()
         
         self.checkURLScheme()
-        
+        self.checkUpdate()
         self.refresh()
     }
     
@@ -117,6 +113,11 @@ class NoticeListViewController: BaseViewController, NoticeListView, UITableViewD
         NotificationCenter.default.addObserver(self, selector: #selector(onLoadFromWidget),
                                                name: NSNotification.Name("widget"),
                                                object: nil)
+        
+        if self.isUpdateAvailable() {
+            print("New Version Update")
+            self.showAlertOKWithHandler(title: "업데이트가 필요합니다.", msg: "원활한 서비스 이용을 위해 업데이트가 필요합니다. '확인'을 누르면 스토어로 이동합니다.", handler: onClickUpdateApp(_:))
+        }
     }
     
     @objc func refresh() {
@@ -177,26 +178,5 @@ class NoticeListViewController: BaseViewController, NoticeListView, UITableViewD
         self.hideProgressBar()
         self.noticeList.append(contentsOf: list)
         self.noticeListView.reloadData()
-    }
-    
-    func showAlert(title: String, msg: String, handler: ((UIAlertAction) -> Swift.Void)?){
-        let alertController = UIAlertController(title: title, message: msg, preferredStyle: .alert)
-        
-        let yesButton = UIAlertAction(title: "예", style: .default, handler: handler)
-        alertController.addAction(yesButton)
-        
-        let noButton = UIAlertAction(title: "아니요", style:.destructive, handler: nil)
-        alertController.addAction(noButton)
-        
-        self.present(alertController, animated: true, completion: nil)
-    }
-    
-    func showAlertOK(title: String){
-        let alertController = UIAlertController(title: title, message: "", preferredStyle: .alert)
-        
-        let yesButton = UIAlertAction(title: "확인", style: .default, handler: nil)
-        alertController.addAction(yesButton)
-        
-        self.present(alertController, animated: true, completion: nil)
     }
 }

@@ -71,8 +71,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UNUserNotificationCenter.current().requestAuthorization(options: authOptions,completionHandler: {_, _ in })
         application.registerForRemoteNotifications()
         
-        let _ = isUpdateAvailable()
-        
         return true
     }
     
@@ -128,24 +126,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 extension AppDelegate: UNUserNotificationCenterDelegate {
     func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
         print("\(#function)")
-    }
-    
-    func isUpdateAvailable() -> Bool {
-        guard
-            let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String,
-            let url = URL(string: "http://itunes.apple.com/lookup?bundleId=com.elliott.notissu-ios"),
-            let data = try? Data(contentsOf: url),
-            let json = try? JSONSerialization.jsonObject(with: data, options: .allowFragments) as? [String: Any],
-            let results = json["results"] as? [[String: Any]],
-            results.count > 0,
-            let appStoreVersion = results[0]["version"] as? String
-            else { return false }
-        
-        print("Current Version : \(version)")
-        print("App Store Version : \(appStoreVersion)")
-        
-        if !(version == appStoreVersion) { return true }
-        else{ return false }
     }
 }
 

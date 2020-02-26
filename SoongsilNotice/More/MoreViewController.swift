@@ -14,15 +14,23 @@ class MoreViewController : BaseViewController, UITableViewDelegate, UITableViewD
     @IBOutlet var moreTableView: UITableView!
     @IBOutlet var majorLbl: UILabel!
     
+    @IBOutlet weak var versionContainerView: UIView!
+    
     override func viewDidLoad() {
         self.moreTableView.delegate = self
         self.moreTableView.dataSource = self
         self.moreTableView.separatorInset  = .zero
         self.moreTableView.tableFooterView = UIView(frame: .zero)
         
+        let versionView = VersionInfoView.viewFromNib()
+        
+        versionView.version = Version(currentVersion: NotissuProperty.currentVersion, recentVersion: NotissuProperty.recentVersion, isUpdateRequired: NotissuProperty.isUpdateRequired)
+        
+        versionContainerView.addSubview(versionView)
+        
         NotificationCenter.default.addObserver(self, selector: #selector(onLoadFromWidget),
-        name: NSNotification.Name("widget"),
-        object: nil)
+                                               name: NSNotification.Name("widget"),
+                                               object: nil)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -51,12 +59,10 @@ class MoreViewController : BaseViewController, UITableViewDelegate, UITableViewD
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "moreListCell", for: indexPath) as! MoreTableCell
         
+        let cell = tableView.dequeueReusableCell(withIdentifier: "moreListCell", for: indexPath) as! MoreTableCell
         cell.lblTitle.text = moreMenu[indexPath.row]
         cell.selectionStyle  = .none
-        
-        
         return cell
     }
     
@@ -84,7 +90,7 @@ class MoreViewController : BaseViewController, UITableViewDelegate, UITableViewD
             break
         default: break
         }
-
+        
     }
     
     @objc func onClickDevelopGitHub(_ action: UIAlertAction) {
@@ -102,20 +108,6 @@ class MoreViewController : BaseViewController, UITableViewDelegate, UITableViewD
     @objc func onClickRecommendApp(_ action: UIAlertAction) {
         if let url = URL(string: "itms-apps://apps.apple.com/kr/app/%EA%B7%B8%EB%9D%BC%EC%9A%B4%EB%93%9C/id1483838254") {
             UIApplication.shared.open(url, options: [:], completionHandler: nil)
-        }
-    }
-    
-    func showAlert(title: String, msg: String, handler: ((UIAlertAction) -> Swift.Void)?){
-        let alertController = UIAlertController(title: title, message: msg, preferredStyle: .alert)
-        
-        let yesButton = UIAlertAction(title: "확인", style: .default, handler: handler)
-        alertController.addAction(yesButton)
-        
-        let noButton = UIAlertAction(title: "취소", style:.cancel, handler: nil)
-        alertController.addAction(noButton)
-        
-        DispatchQueue.main.async {
-            self.present(alertController, animated: true, completion: nil)
         }
     }
 }

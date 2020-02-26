@@ -108,6 +108,7 @@ class NoticeSocial {
         var urlList = [String]()
         var isNoticeList = [Bool]()
         var dateStringList = [String]()
+        var attachmentCheckList = [Bool]()
         var index = 0
         var requestURL = ""
         
@@ -136,7 +137,13 @@ class NoticeSocial {
                                 // Title
                                 titleList.append(content)
                                 break
-                            case 2: break
+                            case 2:
+                                if content.isEmpty {
+                                    attachmentCheckList.append(false)
+                                } else {
+                                    attachmentCheckList.append(true)
+                                }
+                                break
                             case 3:
                                 // Date
                                 dateStringList.append(content)
@@ -157,7 +164,7 @@ class NoticeSocial {
                     
                     index = 0
                     for _ in urlList {
-                        let noticeItem = Notice(author: "", title: titleList[index], url: urlList[index], date: dateStringList[index], isNotice: isNoticeList[index])
+                        let noticeItem = Notice(author: "", title: titleList[index], url: urlList[index], date: dateStringList[index], isNotice: isNoticeList[index], hasAttachment: attachmentCheckList[index])
                         noticeList.append(noticeItem)
                         index += 1
                     }

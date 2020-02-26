@@ -17,6 +17,7 @@ class NoticeNaturalScience {
         var titleList  = [String]()
         var urlList = [String]()
         var dateStringList = [String]()
+        var attachmentCheckList = [Bool]()
         var index = 0
         var requestURL = ""
         
@@ -44,7 +45,14 @@ class NoticeNaturalScience {
                                 // Title
                                 titleList.append(content)
                                 break
-                            case 2: break
+                            case 2:
+                                var hasAttachment = false
+                                let imgHTML = product.toHTML ?? ""
+                                if imgHTML.contains("ico_file.gif") {
+                                    hasAttachment = true
+                                }
+                                attachmentCheckList.append(hasAttachment)
+                                break
                             case 3:
                                 // Date
                                 dateStringList.append(content)
@@ -65,7 +73,7 @@ class NoticeNaturalScience {
                     
                     index = 0
                     for _ in urlList {
-                        let noticeItem = Notice(author: "", title: titleList[index], url: urlList[index], date: dateStringList[index], isNotice: false)
+                        let noticeItem = Notice(author: "", title: titleList[index], url: urlList[index], date: dateStringList[index], isNotice: false, hasAttachment: attachmentCheckList[index])
                         noticeList.append(noticeItem)
                         index += 1
                     }

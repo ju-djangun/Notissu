@@ -60,7 +60,7 @@ class NoticeSoongsil {
                     }
                     
                     for _ in titleList {
-                        noticeList.append(Notice(author: authorList[index], title: titleList[index], url: urlList[index], date: dateStringList[index], isNotice: false))
+                        noticeList.append(Notice(author: authorList[index], title: titleList[index], url: urlList[index], date: dateStringList[index], isNotice: false, hasAttachment: false))
                         index += 1
                     }
                     

@@ -49,7 +49,6 @@ class NoticeLaw {
                         for product in doc.css("table[class='bbs-list']") {
                             var isAppendNotice = false
                             var title = ""
-                            var author = ""
                             var date = ""
                             var url = ""
                             var isNotice = false
@@ -95,7 +94,7 @@ class NoticeLaw {
                                 case 3:
                                     date = content
                                     if isAppendNotice {
-                                        authorList.append(author)
+                                        authorList.append("")
                                         dateStringList.append(date)
                                     }
                                 case 4: break

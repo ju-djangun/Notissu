@@ -379,23 +379,18 @@ class NoticeEngineering {
     
     // 건축학부 (검색을 위한 작업이 필요할듯)
     static func parseListArchitect(page: Int, keyword: String, completion: @escaping ([Notice]) -> Void) {
-        let noticeUrl = "\(NoticeURL.engineerArchitectURL)"
-        var noticeList = [Notice]()
-        var titleList  = [String]()
-        var urlList = [String]()
-        var dateStringList = [String]()
         var isSearchMode = false
+        
         var index = 0
-        var requestURL = ""
+        let requestURL = NoticeRequestURL.engineerArchitectURL()
+        
+        self.cleanList()
         
         if keyword.isEmpty {
             isSearchMode = false
         } else {
             isSearchMode = true
         }
-        
-        
-        requestURL = noticeUrl
         
         if page < 2 {
             Alamofire.request(requestURL).responseString { response in

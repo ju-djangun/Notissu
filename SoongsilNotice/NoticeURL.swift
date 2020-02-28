@@ -36,6 +36,27 @@ struct NoticeRequestURL {
         return "https://scatch.ssu.ac.kr/%EA%B3%B5%EC%A7%80%EC%82%AC%ED%95%AD/page/\(page)/?f=all&keyword=\(keyword ?? "")"
     }
     
+    // 공과대학
+    static func engineerMachineURL(page: Int, keyword: String?) -> String {
+        return "https://me.ssu.ac.kr/https://me.ssu.ac.kr/%EA%B2%8C%EC%8B%9C%ED%8C%90-%EC%9E%90%EB%A3%8C%EC%8B%A4/%EA%B3%B5%EC%A7%80%EC%82%AC%ED%95%AD/page/\(page)/?select=title&keyword=\(keyword ?? "")"
+    }
+    
+    static func engineerChemistryURL(offset: Int, keyword: String?) -> String {
+        return "http://chemeng.ssu.ac.kr/sub/sub03_01.php?boardid=notice1&sk=\(keyword ?? "")&sw=a&category=&offset=\(offset)"
+    }
+    
+    static func engineerElectricURL(offset: Int, keyword: String?) -> String {
+        return "http://ee.ssu.ac.kr/sub/sub05_01.php?boardid=notice&sk=\(keyword ?? "")&sw=a&category=&offset=\(offset)"
+    }
+    
+    static func engineerIndustryURL(page: Int, keyword: String?) -> String {
+        return "http://iise.ssu.ac.kr/web/iise/notice?p_p_id=EXT_BBS&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&p_p_col_id=column-1&p_p_col_count=1&_EXT_BBS_struts_action=%2Fext%2Fbbs%2Fview&_EXT_BBS_sCategory=&_EXT_BBS_sTitle=\(keyword ?? "")&_EXT_BBS_sWriter=&_EXT_BBS_sTag=&_EXT_BBS_sContent=&_EXT_BBS_sCategory2=&_EXT_BBS_sKeyType=title&_EXT_BBS_sKeyword=\(keyword ?? "")&_EXT_BBS_curPage=\(page)"
+    }
+    
+    static func engineerOrganicURL(page: Int, keyword: String?) -> String {
+        return "http://materials.ssu.ac.kr/bbs/board.php?tbl=notice&&category=&findType=&findWord=\(keyword ?? "")&sort1=&sort2=&it_id=&shop_flag=&mobile_flag=&page=\(page)"
+    }
+    
     // 법과대학
     static func lawURL(page: Int, keyword: String?) -> String {
         return "http://law.ssu.ac.kr/web/law/board1?p_p_id=EXT_BBS&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&p_p_col_id=column-1&p_p_col_count=1&_EXT_BBS_struts_action=%2Fext%2Fbbs%2Fview&_EXT_BBS_sCategory=&_EXT_BBS_sTitle=\(keyword ?? "")&_EXT_BBS_sWriter=&_EXT_BBS_sTag=&_EXT_BBS_sContent=&_EXT_BBS_sCategory2=&_EXT_BBS_sKeyType=title&_EXT_BBS_sKeyword=\(keyword ?? "")&_EXT_BBS_curPage=\(page)"

@@ -12,29 +12,33 @@ import Alamofire
 import Kanna
 
 class NoticeIT {
+    static var noticeList = [Notice]()
+    static var authorList = [String]()
+    static var titleList  = [String]()
+    static var pageStringList = [String]()
+    static var dateStringList = [String]()
+    static var isNoticeList = [Bool]()
+    static var urlList    = [String]()
+    static var attachmentCheckList = [Bool]()
+    
+    static func cleanList() {
+        noticeList.removeAll()
+        authorList.removeAll()
+        titleList.removeAll()
+        pageStringList.removeAll()
+        dateStringList.removeAll()
+        isNoticeList.removeAll()
+        urlList.removeAll()
+        attachmentCheckList.removeAll()
+    }
+    
     static func parseListComputer(page: Int, keyword: String?, completion: @escaping ([Notice]) -> Void) {
-        var noticeList = [Notice]()
-        var authorList = [String]()
-        var titleList  = [String]()
-        var pageStringList = [String]()
-        var dateStringList = [String]()
-        var isNoticeList = [Bool]()
-        var attachmentCheckList = [Bool]()
-        var requestURL = ""
-        let noticeUrl = "http://cse.ssu.ac.kr/03_sub/01_sub.htm?page=\(page)&key=&keyfield=&category=&bbs_code=Ti_BBS_1"
-        
         var index = 0
         
-        if keyword != nil {
-            let keywordSearch = keyword!.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)
-            let searchUrl = "http://cse.ssu.ac.kr/03_sub/01_sub.htm?page=\(page)&key=\(keywordSearch!)&keyfield=subject&category=&bbs_code=Ti_BBS_1"
-            
-            requestURL = searchUrl
-        } else {
-            requestURL = noticeUrl
-        }
+        let keywordSearch = keyword?.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)
+        let requestURL = NoticeRequestURL.IT_computer(page: page, keyword: keywordSearch)
         
-        print(requestURL)
+        self.cleanList()
         
         Alamofire.request(requestURL).responseString(encoding: .utf8) { response in
             switch(response.result) {
@@ -140,25 +144,13 @@ class NoticeIT {
     }
     
     static func parseListMedia(page: Int, keyword: String?, completion: @escaping ([Notice]) -> Void) {
-        var noticeList = [Notice]()
-        var authorList = [String]()
-        var titleList  = [String]()
-        var urlList    = [String]()
-        var dateStringList = [String]()
-        var isNoticeList = [Bool]()
-        var requestURL = ""
-        let noticeUrl = "http://media.ssu.ac.kr/sub.php?code=XxH00AXY&mode=&category=1&searchType=&search=&orderType=&orderBy=&page=\(page)"
-        
-        if keyword != nil {
-            let keywordSearch = keyword!.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)
-            let searchUrl = "http://media.ssu.ac.kr/sub.php?code=XxH00AXY&mode=&category=1&searchType=title&search=\(keywordSearch!)&orderType=&orderBy=&page=\(page)"
-            
-            requestURL = searchUrl
-        } else {
-            requestURL = noticeUrl
-        }
-        
         var index = 0
+        
+        let keywordSearch = keyword?.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)
+        let requestURL = NoticeRequestURL.IT_media(page: page, keyword: keywordSearch)
+        
+        self.cleanList()
+        
         Alamofire.request(requestURL).responseString { response in
             switch(response.result) {
             case .success(_):
@@ -217,25 +209,12 @@ class NoticeIT {
     }
     
     static func parseListSoftware(page: Int, keyword: String?, completion: @escaping ([Notice]) -> Void) {
-        let noticeUrl = "https://sw.ssu.ac.kr/bbs/board.php?bo_table=sub6_1&page=\(page)"
-        var noticeList = [Notice]()
-        var authorList = [String]()
-        var titleList  = [String]()
-        var urlList = [String]()
-        var dateStringList = [String]()
-        var isNoticeList = [Bool]()
-        var attachmentCheckList = [Bool]()
         var index = 0
         
-        var requestURL = ""
+        let keywordSearch = keyword?.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)
+        let requestURL = NoticeRequestURL.IT_software(page: page, keyword: keywordSearch)
         
-        if keyword != nil {
-            let keywordSearch = keyword!.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)
-            let searchUrl = "https://sw.ssu.ac.kr/bbs/board.php?bo_table=sub6_1&sca=&stx=\(keywordSearch ?? "")&sop=and&page=\(page)"
-            requestURL = searchUrl
-        } else {
-            requestURL = noticeUrl
-        }
+        self.cleanList()
         
         Alamofire.request(requestURL).responseString(encoding: .utf8) { response in
             switch(response.result) {
@@ -305,24 +284,12 @@ class NoticeIT {
     }
     
     static func parseListElectric(page: Int, keyword: String?, completion: @escaping ([Notice]) -> Void) {
-        let noticeUrl = "http://infocom.ssu.ac.kr/rb/?c=2/38&p=\(page)"
-        var noticeList = [Notice]()
-        var authorList = [String]()
-        var titleList  = [String]()
-        var urlList = [String]()
-        var dateStringList = [String]()
-        var isNoticeList = [Bool]()
-        var attachmentCheckList = [Bool]()
         var index = 0
-        var requestURL = ""
         
-        if keyword != nil {
-            let keywordSearch = keyword!.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)
-            let searchUrl = "http://infocom.ssu.ac.kr/rb/?c=2/38&where=subject%7Ctag&keyword=\(keywordSearch ?? "")&p=\(page)"
-            requestURL = searchUrl
-        } else {
-            requestURL = noticeUrl
-        }
+        let keywordSearch = keyword?.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)
+        let requestURL = NoticeRequestURL.IT_electric(page: page, keyword: keywordSearch)
+        
+        self.cleanList()
         
         Alamofire.request(requestURL).responseString { response in
             //            print("\(response.result.isSuccess)")
@@ -385,22 +352,12 @@ class NoticeIT {
     }
     
     static func parseListSmartSystem(page: Int, keyword: String?, completion: @escaping ([Notice]) -> Void) {
-        let noticeUrl = "http://smartsw.ssu.ac.kr/board/notice/\(page)"
-        var noticeList = [Notice]()
-        var authorList = [String]()
-        var titleList  = [String]()
-        var urlList = [String]()
-        var dateStringList = [String]()
         var index = 0
-        var requestURL = ""
         
-        if keyword != nil {
-            let keywordSearch = keyword!.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)
-            let searchUrl = "http://smartsw.ssu.ac.kr/board/notice/\(page)?search=\(keywordSearch ?? "")"
-            requestURL = searchUrl
-        } else {
-            requestURL = noticeUrl
-        }
+        let keywordSearch = keyword?.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)
+        let requestURL = NoticeRequestURL.IT_smartsw(page: page, keyword: keywordSearch)
+        
+        self.cleanList()
         
         Alamofire.request(requestURL).responseString(encoding: .utf8) { response in
             switch(response.result) {
@@ -476,3 +433,4 @@ extension String{
         return Double(self) != nil
     }
 }
+

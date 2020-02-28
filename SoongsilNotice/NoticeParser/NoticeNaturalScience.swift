@@ -194,48 +194,65 @@ class NoticeNaturalScience {
                 if let data = response.result.value {
                     do {
                         let doc = try HTML(html: data, encoding: .utf8)
-                        for product in doc.css("table[class='bbs-list'] td") {
-                            //print("***")
-                            let content = product.text!.trimmingCharacters(in: .whitespacesAndNewlines)
-                            print(content)
-                            switch (index % 6) {
-                            case 0:
-                                if product.innerHTML?.contains("img") ?? false {
-                                    // isNotice
-                                    isNoticeList.append(true)
-                                } else {
-                                    isNoticeList.append(false)
+                        for product in doc.css("table[class='bbs-list']") {
+                            var isAppendNotice = false
+                            var title = ""
+                            var author = ""
+                            var date = ""
+                            var url = ""
+                            var isNotice = false
+                            var hasAttachment = false
+                            
+                            for (index, td) in product.css("td").enumerated() {
+                                let content = td.text!.trimmingCharacters(in: .whitespacesAndNewlines)
+                                
+                                switch (index % 6) {
+                                case 0:
+                                    isAppendNotice = false
+                                    if td.innerHTML?.contains("img") ?? false {
+                                        isNotice = true
+                                        if page < 2 {
+                                            isAppendNotice = true
+                                        }
+                                    } else {
+                                        isNotice = false
+                                        isAppendNotice = true
+                                    }
+                                    
+                                    if isAppendNotice {
+                                        isNoticeList.append(isNotice)
+                                    }
+                                case 1:
+                                    title = content
+                                    url = td.css("a").first?["href"] ?? ""
+                                    
+                                    if isAppendNotice {
+                                        titleList.append(title)
+                                        urlList.append(url)
+                                    }
+                                case 2:
+                                    hasAttachment = false
+                                    let imgHTML = product.toHTML ?? ""
+                                    if imgHTML.contains("ico_file.gif") {
+                                        hasAttachment = true
+                                    }
+                                    
+                                    if isAppendNotice {
+                                        attachmentCheckList.append(hasAttachment)
+                                    }
+                                case 3:
+                                    author = content
+                                    if isAppendNotice {
+                                        authorList.append(author)
+                                    }
+                                case 4:
+                                    date = content
+                                    if isAppendNotice {
+                                        dateStringList.append(date)
+                                    }
+                                default: break
                                 }
-                                break
-                            case 1:
-                                // Title
-                                titleList.append(content)
-                                break
-                            case 2:
-                                var hasAttachment = false
-                                let imgHTML = product.toHTML ?? ""
-                                if imgHTML.contains("ico_file.gif") {
-                                    hasAttachment = true
-                                }
-                                attachmentCheckList.append(hasAttachment)
-                                break
-                            case 3:
-                                // Author
-                                authorList.append(content)
-                                break
-                            case 4:
-                                // Date
-                                dateStringList.append(content)
-                                break
-                            case 5: break
-                            default: break
                             }
-                            index += 1
-                        }
-                        
-                        for product in doc.css("table[class='bbs-list'] a") {
-                            print(product["href"] ?? "")
-                            urlList.append(product["href"] ?? "")
                         }
                     } catch let error {
                         print("Error : \(error)")

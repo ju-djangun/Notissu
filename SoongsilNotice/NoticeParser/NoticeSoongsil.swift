@@ -18,16 +18,8 @@ class NoticeSoongsil {
         var urlList    = [String]()
         var dateStringList = [String]()
         
-        var requestURL = ""
-        let noticeUrl = "https://scatch.ssu.ac.kr/%ea%b3%b5%ec%a7%80%ec%82%ac%ed%95%ad/page/\(page)/"
-        
-        if keyword != nil {
-            let keywordSearch = keyword!.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)
-            let searchUrl = "https://scatch.ssu.ac.kr/%EA%B3%B5%EC%A7%80%EC%82%AC%ED%95%AD/page/\(page)/?f=all&keyword=\(keywordSearch ?? "")"
-            requestURL = searchUrl
-        } else {
-            requestURL = noticeUrl
-        }
+        let keywordSearch = keyword?.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)
+        let requestURL = NoticeRequestURL.SSU_Catch(page: page, keyword: keywordSearch)
         
         var index = 0
         Alamofire.request(requestURL).responseString { response in

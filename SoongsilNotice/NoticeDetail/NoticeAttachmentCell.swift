@@ -17,6 +17,7 @@ protocol AttachmentDelegate : class {
 class NoticeAttachmentCell: UITableViewCell {
     @IBOutlet var attachmentTitle: UILabel!
     @IBOutlet var btnDownload: UIButton!
+    @IBOutlet var fileTypeIcon: UIImageView!
     
     weak var cellDelegate : AttachmentDelegate?
     var majorCode: DeptCode?
@@ -24,8 +25,21 @@ class NoticeAttachmentCell: UITableViewCell {
     var fileDownloadURL = String()
     var viewController: BaseViewController?
     
+    var attachment: Attachment? {
+        didSet {
+            self.applyAttachmentToView()
+        }
+    }
+    
     @IBAction func onClickDownload(_ sender: Any) {
         showAlert(title: "파일 다운로드", msg: "파일을 다운로드하시겠습니까?", handler: doDownloadFile(_:))
+    }
+    
+    private func applyAttachmentToView() {
+        self.fileName = self.attachment?.fileName ?? ""
+        self.attachmentTitle.text = self.attachment?.fileName ?? ""
+        self.fileTypeIcon.image = attachment?.fileName.fileTypeIcon.iconImage
+        self.fileDownloadURL = self.attachment?.fileURL ?? ""
     }
     
     func doDownloadFile(_ action: UIAlertAction) {

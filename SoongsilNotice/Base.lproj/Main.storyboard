@@ -45,20 +45,28 @@
                                 </constraints>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="noticeAttachmentCell" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="noticeAttachmentCell" id="YB3-D2-wio" customClass="NoticeAttachmentCell" customModule="Notissu" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="44"/>
+                                        <rect key="frame" x="0.0" y="28" width="414" height="53"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="YB3-D2-wio" id="wut-Sy-te4">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="53"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fzu-OP-aRB">
-                                                    <rect key="frame" x="20" y="22" width="306" height="0.0"/>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="HXa-8J-ujT">
+                                                    <rect key="frame" x="4" y="4" width="45" height="45"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="44.5" id="Nkp-oY-cQg"/>
+                                                        <constraint firstAttribute="width" secondItem="HXa-8J-ujT" secondAttribute="height" multiplier="1:1" id="hYB-Q4-8bS"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="middleTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fzu-OP-aRB">
+                                                    <rect key="frame" x="53" y="26.5" width="273" height="0.0"/>
                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3QO-NX-Ndh">
-                                                    <rect key="frame" x="334" y="7" width="60" height="30"/>
+                                                    <rect key="frame" x="334" y="8" width="60" height="37"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="60" id="NdM-MR-qea"/>
                                                     </constraints>
@@ -69,10 +77,13 @@
                                                 </button>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="Fzu-OP-aRB" firstAttribute="leading" secondItem="wut-Sy-te4" secondAttribute="leading" constant="20" id="KaL-Lt-c3W"/>
+                                                <constraint firstItem="HXa-8J-ujT" firstAttribute="top" secondItem="wut-Sy-te4" secondAttribute="top" constant="4" id="1bh-9Z-J7t"/>
                                                 <constraint firstItem="3QO-NX-Ndh" firstAttribute="centerY" secondItem="wut-Sy-te4" secondAttribute="centerY" id="U8b-Tu-Sh2"/>
                                                 <constraint firstItem="3QO-NX-Ndh" firstAttribute="height" secondItem="wut-Sy-te4" secondAttribute="height" multiplier="0.689655" id="UAL-1f-PmZ"/>
+                                                <constraint firstItem="Fzu-OP-aRB" firstAttribute="leading" secondItem="HXa-8J-ujT" secondAttribute="trailing" constant="4" id="Wuw-zP-2wZ"/>
+                                                <constraint firstAttribute="bottom" secondItem="HXa-8J-ujT" secondAttribute="bottom" constant="4" id="jOM-9F-vrg"/>
                                                 <constraint firstAttribute="trailing" secondItem="3QO-NX-Ndh" secondAttribute="trailing" constant="20" id="rbY-vk-t28"/>
+                                                <constraint firstItem="HXa-8J-ujT" firstAttribute="leading" secondItem="wut-Sy-te4" secondAttribute="leading" constant="4" id="vBX-hT-4TN"/>
                                                 <constraint firstItem="Fzu-OP-aRB" firstAttribute="centerY" secondItem="wut-Sy-te4" secondAttribute="centerY" id="yDi-wo-2Qv"/>
                                                 <constraint firstItem="3QO-NX-Ndh" firstAttribute="leading" secondItem="Fzu-OP-aRB" secondAttribute="trailing" constant="8" id="yuS-vV-O4D"/>
                                             </constraints>
@@ -80,6 +91,7 @@
                                         <connections>
                                             <outlet property="attachmentTitle" destination="Fzu-OP-aRB" id="f2T-G3-IaV"/>
                                             <outlet property="btnDownload" destination="3QO-NX-Ndh" id="pA1-AC-QZX"/>
+                                            <outlet property="fileTypeIcon" destination="HXa-8J-ujT" id="vht-5e-gDR"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -139,7 +151,7 @@
                                                     <rect key="frame" x="364" y="0.0" width="50" height="66"/>
                                                     <subviews>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="attachmennt" translatesAutoresizingMaskIntoConstraints="NO" id="kcI-u9-qg2">
-                                                            <rect key="frame" x="12" y="15" width="26" height="36"/>
+                                                            <rect key="frame" x="12" y="24" width="26" height="18"/>
                                                         </imageView>
                                                     </subviews>
                                                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -234,7 +246,7 @@
                                                     <rect key="frame" x="364" y="0.0" width="50" height="66"/>
                                                     <subviews>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="attachmennt" translatesAutoresizingMaskIntoConstraints="NO" id="787-4J-qfD">
-                                                            <rect key="frame" x="12" y="15" width="26" height="36"/>
+                                                            <rect key="frame" x="12" y="24" width="26" height="18"/>
                                                         </imageView>
                                                     </subviews>
                                                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -390,7 +402,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="main_ios_arrow" translatesAutoresizingMaskIntoConstraints="NO" id="Gm7-qo-TUO">
-                                                    <rect key="frame" x="393" y="-17" width="11" height="104"/>
+                                                    <rect key="frame" x="393" y="9" width="11" height="52"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="11" id="QnV-lr-yhf"/>
                                                     </constraints>
@@ -977,7 +989,7 @@
                                                     <rect key="frame" x="364" y="0.0" width="50" height="50"/>
                                                     <subviews>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="attachmennt" translatesAutoresizingMaskIntoConstraints="NO" id="B0t-nV-Fg1">
-                                                            <rect key="frame" x="12" y="7" width="26" height="36"/>
+                                                            <rect key="frame" x="12" y="16" width="26" height="18"/>
                                                         </imageView>
                                                     </subviews>
                                                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -1102,7 +1114,7 @@
                                                     <rect key="frame" x="364" y="0.0" width="50" height="50"/>
                                                     <subviews>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="attachmennt" translatesAutoresizingMaskIntoConstraints="NO" id="AAQ-tm-Qnf">
-                                                            <rect key="frame" x="12" y="7" width="26" height="36"/>
+                                                            <rect key="frame" x="12" y="16" width="26" height="18"/>
                                                         </imageView>
                                                     </subviews>
                                                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>

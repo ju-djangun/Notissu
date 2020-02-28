@@ -63,6 +63,9 @@
 		DE7496B523DC00D400000849 /* SearchModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE7496B423DC00D400000849 /* SearchModel.swift */; };
 		DE75F91424064F2E00510E78 /* VersionInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE75F91324064F2E00510E78 /* VersionInfoView.swift */; };
 		DE75F916240651BC00510E78 /* VersionInfoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DE75F915240651BC00510E78 /* VersionInfoView.xib */; };
+		DE7E5DB124093555007F0DF2 /* String+FileType.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE7E5DB024093555007F0DF2 /* String+FileType.swift */; };
+		DE7E5DB324093779007F0DF2 /* FileTypeIcon.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DE7E5DB224093779007F0DF2 /* FileTypeIcon.xcassets */; };
+		DE7E5DB42409377D007F0DF2 /* FileTypeIcon.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DE7E5DB224093779007F0DF2 /* FileTypeIcon.xcassets */; };
 		DE85B92E23DD29CE001FB35C /* NoticeIT.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE296156237198070074F24B /* NoticeIT.swift */; };
 		DE85B92F23DD29CE001FB35C /* NoticeEngineering.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE0F8F202373FDD7006A0B49 /* NoticeEngineering.swift */; };
 		DE85B93023DD29CE001FB35C /* NoticeLaw.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE0F8F2223740041006A0B49 /* NoticeLaw.swift */; };
@@ -187,6 +190,8 @@
 		DE7496B423DC00D400000849 /* SearchModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchModel.swift; sourceTree = "<group>"; };
 		DE75F91324064F2E00510E78 /* VersionInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VersionInfoView.swift; sourceTree = "<group>"; };
 		DE75F915240651BC00510E78 /* VersionInfoView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VersionInfoView.xib; sourceTree = "<group>"; };
+		DE7E5DB024093555007F0DF2 /* String+FileType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+FileType.swift"; sourceTree = "<group>"; };
+		DE7E5DB224093779007F0DF2 /* FileTypeIcon.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = FileTypeIcon.xcassets; sourceTree = "<group>"; };
 		DE85B92D23DD28D4001FB35C /* Notissu Today Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Notissu Today Extension.entitlements"; sourceTree = "<group>"; };
 		DE85B93B23DD2DEB001FB35C /* Notissu.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Notissu.entitlements; sourceTree = "<group>"; };
 		DE85B93C23DD3001001FB35C /* TodayPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayPresenter.swift; sourceTree = "<group>"; };
@@ -331,6 +336,7 @@
 				DE72017E237A871B00F60CEB /* Launch Screen.storyboard */,
 				DE53D0B223F8EA4E00AEFCE2 /* CoreDataUtil.swift */,
 				B0B67AEA2400BB060027D038 /* MajorModel.swift */,
+				DE7E5DB024093555007F0DF2 /* String+FileType.swift */,
 			);
 			path = SoongsilNotice;
 			sourceTree = "<group>";
@@ -432,6 +438,7 @@
 		DEF56D812384DA05003CA0F0 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				DE7E5DB224093779007F0DF2 /* FileTypeIcon.xcassets */,
 				DE29613E23703F4D0074F24B /* Assets.xcassets */,
 				DE53D1552400F54B00AEFCE2 /* NotissuColorSet.xcassets */,
 				DE53D0AE23F8E9B100AEFCE2 /* FavoriteNotice.xcdatamodeld */,
@@ -529,6 +536,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DE53D1562400F54B00AEFCE2 /* NotissuColorSet.xcassets in Resources */,
+				DE7E5DB324093779007F0DF2 /* FileTypeIcon.xcassets in Resources */,
 				DEF56D8E2384DB1C003CA0F0 /* manual1.png in Resources */,
 				DE53D1542400142000AEFCE2 /* TodayExtensionColor.xcassets in Resources */,
 				DE29613F23703F4D0074F24B /* Assets.xcassets in Resources */,
@@ -551,6 +559,7 @@
 				DEBE387323F578C6006F51AB /* TodayExtensionColor.xcassets in Resources */,
 				DE0418B22402412F00486BF3 /* GoogleService-Info.plist in Resources */,
 				DEC1684B23F7A3B900DE2D84 /* Assets.xcassets in Resources */,
+				DE7E5DB42409377D007F0DF2 /* FileTypeIcon.xcassets in Resources */,
 				DE64BE8B23DD253C00DF46C5 /* MainInterface.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -638,6 +647,7 @@
 				DEBFDC45237E391C003888D9 /* OpenSourceViewController.swift in Sources */,
 				DE5542442377E076004E01EB /* HomeSwticher.swift in Sources */,
 				DE53D14D23FC21DB00AEFCE2 /* BookmarkContract.swift in Sources */,
+				DE7E5DB124093555007F0DF2 /* String+FileType.swift in Sources */,
 				DE296155237195CD0074F24B /* ConfigSetting.swift in Sources */,
 				DE04186024021BCA00486BF3 /* NotissuResource.swift in Sources */,
 				DE55424623784879004E01EB /* SplashViewController.swift in Sources */,

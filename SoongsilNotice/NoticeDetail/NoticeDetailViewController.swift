@@ -73,10 +73,8 @@ class NoticeDetailViewController: BaseViewController, WKNavigationDelegate, WKUI
         // Retrieve Favorite Information
         if let title = noticeTitle, let day = noticeDay, let code = departmentCode {
             if self.presenter.isNoticeFavorite(title: title, date: day, major: code) {
-                // Favorite Notice
                 isFavorite = true
             } else {
-                // Non-Favorite Notice
                 isFavorite = false
             }
         }
@@ -288,13 +286,8 @@ class NoticeDetailViewController: BaseViewController, WKNavigationDelegate, WKUI
         if self.attachments.count > 0 {
             cell.viewController = self
             cell.cellDelegate = self
-            cell.fileName = attachments[indexPath.row].fileName
-            cell.attachmentTitle.text = attachments[indexPath.row].fileName
-            cell.fileDownloadURL = attachments[indexPath.row].fileURL
+            cell.attachment = attachments[indexPath.row]
             cell.majorCode = self.departmentCode
-            
-            print("FINAL")
-            print(attachments[indexPath.row].fileURL)
         }
         cell.selectionStyle  = .none
         

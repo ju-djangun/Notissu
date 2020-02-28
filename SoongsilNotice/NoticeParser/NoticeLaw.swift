@@ -83,7 +83,7 @@ class NoticeLaw {
                                     }
                                 case 2:
                                     hasAttachment = false
-                                    let imgHTML = product.toHTML ?? ""
+                                    let imgHTML = td.toHTML ?? ""
                                     if imgHTML.contains("ico_file.gif") {
                                         hasAttachment = true
                                     }
@@ -174,7 +174,7 @@ class NoticeLaw {
                                     }
                                 case 2:
                                     hasAttachment = false
-                                    let imgHTML = product.toHTML ?? ""
+                                    let imgHTML = td.toHTML ?? ""
                                     if imgHTML.contains("ico_file.gif") {
                                         hasAttachment = true
                                     }

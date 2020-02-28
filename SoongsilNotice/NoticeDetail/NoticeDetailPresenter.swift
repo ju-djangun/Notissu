@@ -171,8 +171,6 @@ class NoticeDetailPresenter: NoticeDetail {
             let wr_id = url.replacingOccurrences(of: "&", with: "").replacingOccurrences(of: "=", with: "")
             
             let realUrl = "https://sw.ssu.ac.kr/bbs/download.php?bo_table=sub6_1&wr_id=\(wr_id)&no=\(index)"
-//            attachmentList.append(Attachment(fileName: link.content ?? "", fileURL: realUrl))
-            
             attachmentList.append(Attachment(fileName: fileName.replacingOccurrences(of: "'", with: ""), fileURL: realUrl))
             index += 1
         }

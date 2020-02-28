@@ -241,22 +241,12 @@ class NoticeInmun {
     }
     
     static func parseListFrench(page: Int, keyword: String?, completion: @escaping ([Notice]) -> Void) {
-        let noticeUrl = "\(NoticeURL.frenchURL)\(page)"
-        var noticeList = [Notice]()
-        var authorList = [String]()
-        var titleList  = [String]()
-        var urlList = [String]()
-        var dateStringList = [String]()
         var index = 0
-        var requestURL = ""
         
-        if keyword != nil {
-            let keywordSearch = keyword!.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)
-            let searchUrl = "http://france.ssu.ac.kr/web/france/21?p_p_id=EXT_BBS&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&p_p_col_id=column-1&p_p_col_count=1&_EXT_BBS_struts_action=%2Fext%2Fbbs%2Fview&_EXT_BBS_sCategory=&_EXT_BBS_sTitle=\(keywordSearch ?? "")&_EXT_BBS_sWriter=&_EXT_BBS_sTag=&_EXT_BBS_sContent=&_EXT_BBS_sCategory2=&_EXT_BBS_sKeyType=title&_EXT_BBS_sKeyword=\(keywordSearch ?? "")&_EXT_BBS_curPage=\(page)"
-            requestURL = searchUrl
-        } else {
-            requestURL = noticeUrl
-        }
+        let keywordSearch = keyword?.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)
+        let requestURL = NoticeRequestURL.frenchURL(page: page, keyword: keywordSearch)
+        
+        self.cleanList()
         
         Alamofire.request(requestURL).responseString(encoding: .utf8) { response in
             switch(response.result) {
@@ -313,23 +303,12 @@ class NoticeInmun {
     }
     
     static func parseListChinese(page: Int, keyword: String?, completion: @escaping ([Notice]) -> Void) {
-        let noticeUrl = "\(NoticeURL.chineseURL)\(page)"
-        var noticeList = [Notice]()
-        var titleList  = [String]()
-        var urlList = [String]()
-        var isNoticeList = [Bool]()
-        var dateStringList = [String]()
-        var attachmentCheckList = [Bool]()
         var index = 0
-        var requestURL = ""
         
-        if keyword != nil {
-            let keywordSearch = keyword!.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)
-            let searchUrl = "http://chilan.ssu.ac.kr/web/chilan/notice_a?p_p_id=EXT_BBS&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&p_p_col_id=column-1&p_p_col_count=1&_EXT_BBS_struts_action=%2Fext%2Fbbs%2Fview&_EXT_BBS_sCategory=&_EXT_BBS_sTitle=\(keywordSearch ?? "")&_EXT_BBS_sWriter=&_EXT_BBS_sTag=&_EXT_BBS_sContent=&_EXT_BBS_sCategory2=&_EXT_BBS_sKeyType=title&_EXT_BBS_sKeyword=\(keywordSearch ?? "")&_EXT_BBS_curPage=\(page)"
-            requestURL = searchUrl
-        } else {
-            requestURL = noticeUrl
-        }
+        let keywordSearch = keyword?.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)
+        let requestURL = NoticeRequestURL.chineseURL(page: page, keyword: keywordSearch)
+        
+        self.cleanList()
         
         Alamofire.request(requestURL).responseString(encoding: .utf8) { response in
             switch(response.result) {
@@ -345,7 +324,11 @@ class NoticeInmun {
                             case 0:
                                 if product.innerHTML?.contains("img") ?? false {
                                     // isNotice
-                                    isNoticeList.append(true)
+                                    if page < 2 {
+                                        isNoticeList.append(true)
+                                    } else {
+                                        isNoticeList.append(false)
+                                    }
                                 } else {
                                     isNoticeList.append(false)
                                 }
@@ -397,24 +380,12 @@ class NoticeInmun {
     }
     
     static func parseListJapanese(page: Int, keyword: String?, completion: @escaping ([Notice]) -> Void) {
-        let noticeUrl = "\(NoticeURL.japaneseURL)\(page)"
-        var noticeList = [Notice]()
-        var authorList = [String]()
-        var titleList  = [String]()
-        var urlList = [String]()
-        var isNoticeList = [Bool]()
-        var dateStringList = [String]()
-        var attachmentCheckList = [Bool]()
         var index = 0
-        var requestURL = ""
         
-        if keyword != nil {
-            let keywordSearch = keyword!.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)
-            let searchUrl = "http://japanstu.ssu.ac.kr/web/japanstu/notice?p_p_id=EXT_BBS&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&p_p_col_id=column-1&p_p_col_count=1&_EXT_BBS_struts_action=%2Fext%2Fbbs%2Fview&_EXT_BBS_sCategory=&_EXT_BBS_sTitle=\(keywordSearch ?? "")&_EXT_BBS_sWriter=&_EXT_BBS_sTag=&_EXT_BBS_sContent=&_EXT_BBS_sCategory2=&_EXT_BBS_sKeyType=title&_EXT_BBS_sKeyword=\(keywordSearch ?? "")&_EXT_BBS_curPage=\(page)"
-            requestURL = searchUrl
-        } else {
-            requestURL = noticeUrl
-        }
+        let keywordSearch = keyword?.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)
+        let requestURL = NoticeRequestURL.japaneseURL(page: page, keyword: keywordSearch)
+        
+        self.cleanList()
         
         Alamofire.request(requestURL).responseString(encoding: .utf8) { response in
             switch(response.result) {
@@ -430,7 +401,11 @@ class NoticeInmun {
                             case 0:
                                 if product.innerHTML?.contains("img") ?? false {
                                     // isNotice
-                                    isNoticeList.append(true)
+                                    if page < 2 {
+                                        isNoticeList.append(true)
+                                    } else {
+                                        isNoticeList.append(false)
+                                    }
                                 } else {
                                     isNoticeList.append(false)
                                 }
@@ -486,23 +461,12 @@ class NoticeInmun {
     }
     
     static func parseListPhilo(page: Int, keyword: String?, completion: @escaping ([Notice]) -> Void) {
-        let noticeUrl = "\(NoticeURL.phillosophyURL)\(page)"
-        var noticeList = [Notice]()
-        var authorList = [String]()
-        var titleList  = [String]()
-        var urlList = [String]()
-        var dateStringList = [String]()
-        var attachmentCheckList = [Bool]()
         var index = 0
-        var requestURL = ""
         
-        if keyword != nil {
-            let keywordSearch = keyword!.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)
-            let searchUrl = "http://pre.ssu.ac.kr/web/phil/13?p_p_id=EXT_BBS&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&p_p_col_id=column-1&p_p_col_count=1&_EXT_BBS_struts_action=%2Fext%2Fbbs%2Fview&_EXT_BBS_sCategory=&_EXT_BBS_sTitle=\(keywordSearch ?? "")&_EXT_BBS_sWriter=&_EXT_BBS_sTag=&_EXT_BBS_sContent=&_EXT_BBS_sCategory2=&_EXT_BBS_sKeyType=title&_EXT_BBS_sKeyword=\(keywordSearch ?? "")&_EXT_BBS_curPage=\(page)"
-            requestURL = searchUrl
-        } else {
-            requestURL = noticeUrl
-        }
+        let keywordSearch = keyword?.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)
+        let requestURL = NoticeRequestURL.philoURL(page: page, keyword: keywordSearch)
+        
+        self.cleanList()
         
         Alamofire.request(requestURL).responseString(encoding: .utf8) { response in
             switch(response.result) {
@@ -567,23 +531,12 @@ class NoticeInmun {
     }
     
     static func parseListHistory(page: Int, keyword: String?, completion: @escaping ([Notice]) -> Void) {
-        let noticeUrl = "\(NoticeURL.historyURL)\(page)"
-        var noticeList = [Notice]()
-        var authorList = [String]()
-        var titleList  = [String]()
-        var urlList = [String]()
-        var dateStringList = [String]()
-        var attachmentCheckList = [Bool]()
         var index = 0
-        var requestURL = ""
         
-        if keyword != nil {
-            let keywordSearch = keyword!.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)
-            let searchUrl = "http://history.ssu.ac.kr/web/history/community_a?p_p_id=EXT_BBS&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&p_p_col_id=column-1&p_p_col_count=1&_EXT_BBS_struts_action=%2Fext%2Fbbs%2Fview&_EXT_BBS_sCategory=&_EXT_BBS_sTitle=\(keywordSearch ?? "")&_EXT_BBS_sWriter=&_EXT_BBS_sTag=&_EXT_BBS_sContent=&_EXT_BBS_sCategory2=&_EXT_BBS_sKeyType=title&_EXT_BBS_sKeyword=\(keywordSearch ?? "")&_EXT_BBS_curPage=\(page)"
-            requestURL = searchUrl
-        } else {
-            requestURL = noticeUrl
-        }
+        let keywordSearch = keyword?.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)
+        let requestURL = NoticeRequestURL.historyURL(page: page, keyword: keywordSearch)
+        
+        self.cleanList()
         
         Alamofire.request(requestURL).responseString(encoding: .utf8) { response in
             switch(response.result) {

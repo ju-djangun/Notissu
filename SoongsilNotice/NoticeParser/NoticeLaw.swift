@@ -48,7 +48,11 @@ class NoticeLaw {
                                 // notice, normal
                                 if product.innerHTML?.contains("img") ?? false {
                                     // isNotice
-                                    isNoticeList.append(true)
+                                    if page < 2 {
+                                        isNoticeList.append(true)
+                                    } else {
+                                        isNoticeList.append(false)
+                                    }
                                 } else {
                                     isNoticeList.append(false)
                                 }

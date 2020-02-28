@@ -13,6 +13,10 @@ struct NoticeSearchURL {
     static func IT_computer(page: Int, keyword: String) -> String {
         return "http://cse.ssu.ac.kr/03_sub/01_sub.htm?page=\(page)&key=\(keyword)&keyfield=subject&category=&bbs_code=Ti_BBS_1"
     }
+    
+    static func IT_media(page: Int, keyword: String) -> String {
+        return "http://media.ssu.ac.kr/sub.php?code=XxH00AXY&mode=&category=1&searchType=title&search=\(keyword)&orderType=&orderBy=&page=\(page)"
+    }
 }
 
 class NoticeURL {

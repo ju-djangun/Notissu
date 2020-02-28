@@ -171,6 +171,10 @@ class NoticeListViewController: BaseViewController, NoticeListView, UITableViewD
     }
     
     func applyToTableView(list: [Notice]) {
+        if list.count < 10 {
+            ConfigSetting.canFetchData = false
+        }
+        
         self.refreshControl.endRefreshing()
         
         self.spinnerFooter.stopAnimating()

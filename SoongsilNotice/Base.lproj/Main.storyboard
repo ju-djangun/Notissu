@@ -1155,7 +1155,10 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="noticeBadgeWidthConstraint" destination="RyV-4Y-Eik" id="84B-Xj-Hi6"/>
+                                            <outlet property="attachmentSymbol" destination="AAQ-tm-Qnf" id="7gk-o4-8NQ"/>
+                                            <outlet property="attachmentWidthConstraint" destination="Ie0-a5-xYE" id="X4c-nY-P1o"/>
+                                            <outlet property="noticeBadge" destination="pJZ-GO-Zdo" id="HkB-JT-5KI"/>
+                                            <outlet property="noticeBadgeWidthConstraint" destination="RyV-4Y-Eik" id="dHT-he-XYl"/>
                                             <outlet property="noticeDate" destination="Rce-fu-6A5" id="l3C-uW-a2M"/>
                                             <outlet property="noticeTitle" destination="eaC-Dq-eEb" id="orl-jF-Tg9"/>
                                         </connections>

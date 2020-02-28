@@ -99,17 +99,17 @@ class SchoolViewController: BaseViewController, SchoolView, UITableViewDelegate,
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "noticeListCell", for: indexPath) as! NoticeListViewCell
-        
         if noticeList.count > 0 {
-            cell.noticeTitle.text = noticeList[indexPath.row].title
-            cell.noticeDate.text = noticeList[indexPath.row].date
-            if noticeList[indexPath.row].isNotice ?? false {
-                //                cell.noticeTitle.textColor = UIColor(named: "launch_bg")
-                cell.noticeBadgeWidthConstraint.constant = 36
-            } else {
-                //                cell.noticeTitle.textColor = UIColor.black
-                cell.noticeBadgeWidthConstraint.constant = 0
-            }
+            cell.notice = noticeList[indexPath.row]
+//            cell.noticeTitle.text = noticeList[indexPath.row].title
+//            cell.noticeDate.text = noticeList[indexPath.row].date
+//            if noticeList[indexPath.row].isNotice ?? false {
+//                //                cell.noticeTitle.textColor = UIColor(named: "launch_bg")
+//                cell.noticeBadgeWidthConstraint.constant = 36
+//            } else {
+//                //                cell.noticeTitle.textColor = UIColor.black
+//                cell.noticeBadgeWidthConstraint.constant = 0
+//            }
         }
         cell.selectionStyle  = .none
         return cell

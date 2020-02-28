@@ -9,6 +9,16 @@
 import Foundation
 import Alamofire
 
+struct NoticeSearchURL {
+    static func IT_computer(page: Int, keyword: String) -> String {
+        return "http://cse.ssu.ac.kr/03_sub/01_sub.htm?page=\(page)&key=\(keyword)&keyfield=subject&category=&bbs_code=Ti_BBS_1"
+    }
+    
+    static func IT_media(page: Int, keyword: String) -> String {
+        return "http://media.ssu.ac.kr/sub.php?code=XxH00AXY&mode=&category=1&searchType=title&search=\(keyword)&orderType=&orderBy=&page=\(page)"
+    }
+}
+
 class NoticeURL {
     // URL + page변수 형태로 사용
     static var korlanURL = "http://korlan.ssu.ac.kr/web/korlan/notice_a?p_p_id=EXT_BBS&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&p_p_col_id=column-1&p_p_col_count=1&_EXT_BBS_struts_action=%2Fext%2Fbbs%2Fview&_EXT_BBS_sCategory=&_EXT_BBS_sTitle=&_EXT_BBS_sWriter=&_EXT_BBS_sTag=&_EXT_BBS_sContent=&_EXT_BBS_sCategory2=&_EXT_BBS_sKeyType=&_EXT_BBS_sKeyword=&_EXT_BBS_curPage="

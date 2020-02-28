@@ -167,10 +167,13 @@ class NoticeDetailPresenter: NoticeDetail {
         var index = 0
         for link in html.css("div[class^='bo_view_1'] a") {
             let url = link["href"]?.getArrayAfterRegex(regex: "[=](.*?)[&]")[1] ?? ""
+            let fileName = link["href"]?.getArrayAfterRegex(regex: "['](.*?)[']")[1].decodeUrl() ?? ""
             let wr_id = url.replacingOccurrences(of: "&", with: "").replacingOccurrences(of: "=", with: "")
             
             let realUrl = "https://sw.ssu.ac.kr/bbs/download.php?bo_table=sub6_1&wr_id=\(wr_id)&no=\(index)"
-            attachmentList.append(Attachment(fileName: link.content ?? "", fileURL: realUrl))
+//            attachmentList.append(Attachment(fileName: link.content ?? "", fileURL: realUrl))
+            
+            attachmentList.append(Attachment(fileName: fileName.replacingOccurrences(of: "'", with: ""), fileURL: realUrl))
             index += 1
         }
         

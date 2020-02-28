@@ -9,13 +9,29 @@
 import Foundation
 import Alamofire
 
-struct NoticeSearchURL {
-    static func IT_computer(page: Int, keyword: String) -> String {
-        return "http://cse.ssu.ac.kr/03_sub/01_sub.htm?page=\(page)&key=\(keyword)&keyfield=subject&category=&bbs_code=Ti_BBS_1"
+struct NoticeRequestURL {
+    static func IT_computer(page: Int, keyword: String?) -> String {
+        return "http://cse.ssu.ac.kr/03_sub/01_sub.htm?page=\(page)&key=\(keyword ?? "")&keyfield=subject&category=&bbs_code=Ti_BBS_1"
     }
     
-    static func IT_media(page: Int, keyword: String) -> String {
-        return "http://media.ssu.ac.kr/sub.php?code=XxH00AXY&mode=&category=1&searchType=title&search=\(keyword)&orderType=&orderBy=&page=\(page)"
+    static func IT_media(page: Int, keyword: String?) -> String {
+        return "http://media.ssu.ac.kr/sub.php?code=XxH00AXY&mode=&category=1&searchType=title&search=\(keyword ?? "")&orderType=&orderBy=&page=\(page)"
+    }
+    
+    static func IT_electric(page: Int, keyword: String?) -> String {
+        return "http://infocom.ssu.ac.kr/rb/?c=2/38&where=subject%7Ctag&keyword=\(keyword ?? "")&p=\(page)"
+    }
+    
+    static func IT_smartsw(page: Int, keyword: String?) -> String {
+        return "http://smartsw.ssu.ac.kr/board/notice/\(page)?search=\(keyword ?? "")"
+    }
+    
+    static func IT_software(page: Int, keyword: String?) -> String {
+        return "https://sw.ssu.ac.kr/bbs/board.php?bo_table=sub6_1&sca=&stx=\(keyword ?? "")&sop=and&page=\(page)"
+    }
+    
+    static func korlanURL(page: Int, keyword: String?) -> String {
+        return "http://korlan.ssu.ac.kr/web/korlan/notice_a?p_p_id=EXT_BBS&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&p_p_col_id=column-1&p_p_col_count=1&_EXT_BBS_struts_action=%2Fext%2Fbbs%2Fview&_EXT_BBS_sCategory=&_EXT_BBS_sTitle=\(keyword ?? "")&_EXT_BBS_sWriter=&_EXT_BBS_sTag=&_EXT_BBS_sContent=&_EXT_BBS_sCategory2=&_EXT_BBS_sKeyType=title&_EXT_BBS_sKeyword=\(keyword ?? "")&_EXT_BBS_curPage=\(page)"
     }
 }
 

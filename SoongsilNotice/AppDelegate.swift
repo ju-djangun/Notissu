@@ -10,6 +10,7 @@ import UIKit
 import CoreData
 import Firebase
 import FirebaseMessaging
+import GoogleMobileAds
 import UserNotifications
 
 @UIApplicationMain
@@ -62,6 +63,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         // Major Initialization
         MajorModel.initializeMajor()
+        
+        // Google AdMob Setting
+        GADMobileAds.sharedInstance().start(completionHandler: nil)
         
         // Push Setting
         FirebaseApp.configure()

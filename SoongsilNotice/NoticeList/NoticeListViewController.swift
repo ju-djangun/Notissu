@@ -8,6 +8,7 @@
 
 import UIKit
 import Lottie
+import GoogleMobileAds
 import NotificationCenter
 
 enum ListType: Int {
@@ -18,10 +19,13 @@ enum ListType: Int {
 
 class NoticeListViewController: BaseViewController, NoticeListView, UITableViewDelegate, UITableViewDataSource {
     
-    @IBOutlet var noticeListView: UITableView!
+    @IBOutlet weak var noticeListView: UITableView!
     private var refreshControl      = UIRefreshControl()
     private var presenter  : NoticeListPresenter?
     private var noticeList = [Notice]()
+    
+    // Googld Ad
+    private var bannerView: GADBannerView!
     
     var spinnerFooter = UIActivityIndicatorView(style: .gray)
     var listType: ListType = .myList
@@ -71,6 +75,40 @@ class NoticeListViewController: BaseViewController, NoticeListView, UITableViewD
         self.checkURLScheme()
     }
     
+    private func setupBannerView() {
+        let adSize = GADAdSizeFromCGSize(CGSize(width: self.view.frame.width, height: 50))
+        bannerView = GADBannerView(adSize: adSize)
+        
+        bannerView.backgroundColor = UIColor(named: "notissuWhite1000s")!
+        addBannerViewToView(bannerView)
+        
+        bannerView.adUnitID = "ca-app-pub-8965771939775493~2136715506"
+        bannerView.rootViewController = self
+        bannerView.load(GADRequest())
+        bannerView.delegate = self
+    }
+    
+    func addBannerViewToView(_ bannerView: GADBannerView) {
+        bannerView.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(bannerView)
+        view.addConstraints(
+            [NSLayoutConstraint(item: bannerView,
+                                attribute: .bottom,
+                                relatedBy: .equal,
+                                toItem: view.safeAreaLayoutGuide,
+                                attribute: .bottom,
+                                multiplier: 1,
+                                constant: 0),
+             NSLayoutConstraint(item: bannerView,
+                                attribute: .centerX,
+                                relatedBy: .equal,
+                                toItem: view,
+                                attribute: .centerX,
+                                multiplier: 1,
+                                constant: 0)
+        ])
+    }
+    
     private func checkURLScheme() {
         if let index = NotissuProperty.openIndex {
             print("change to Tab \(index)...")
@@ -115,6 +153,8 @@ class NoticeListViewController: BaseViewController, NoticeListView, UITableViewD
                                                name: NSNotification.Name("widget"),
                                                object: nil)
         
+        self.setupBannerView()
+        
         if self.isUpdateAvailable() {
             print("New Version Update")
             self.showAlertOKWithHandler(title: "업데이트가 필요합니다.", msg: "원활한 서비스 이용을 위해 업데이트가 필요합니다. '확인'을 누르면 스토어로 이동합니다.", handler: onClickUpdateApp(_:))
@@ -132,6 +172,8 @@ class NoticeListViewController: BaseViewController, NoticeListView, UITableViewD
         self.noticeList.removeAll()
         self.presenter?.loadNoticeList(page: page, keyword: searchKeyword, deptCode: noticeDeptCode!)
     }
+    
+    
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let storyBoard = self.storyboard!
@@ -183,5 +225,40 @@ class NoticeListViewController: BaseViewController, NoticeListView, UITableViewD
         self.hideProgressBar()
         self.noticeList.append(contentsOf: list)
         self.noticeListView.reloadData()
+    }
+}
+
+extension NoticeListViewController: GADBannerViewDelegate {
+    /// Tells the delegate an ad request loaded an ad.
+    func adViewDidReceiveAd(_ bannerView: GADBannerView) {
+        print("adViewDidReceiveAd")
+    }
+    
+    /// Tells the delegate an ad request failed.
+    func adView(_ bannerView: GADBannerView,
+                didFailToReceiveAdWithError error: GADRequestError) {
+        print("adView:didFailToReceiveAdWithError: \(error.localizedDescription)")
+    }
+    
+    /// Tells the delegate that a full-screen view will be presented in response
+    /// to the user clicking on an ad.
+    func adViewWillPresentScreen(_ bannerView: GADBannerView) {
+        print("adViewWillPresentScreen")
+    }
+    
+    /// Tells the delegate that the full-screen view will be dismissed.
+    func adViewWillDismissScreen(_ bannerView: GADBannerView) {
+        print("adViewWillDismissScreen")
+    }
+    
+    /// Tells the delegate that the full-screen view has been dismissed.
+    func adViewDidDismissScreen(_ bannerView: GADBannerView) {
+        print("adViewDidDismissScreen")
+    }
+    
+    /// Tells the delegate that a user click will open another app (such as
+    /// the App Store), backgrounding the current app.
+    func adViewWillLeaveApplication(_ bannerView: GADBannerView) {
+        print("adViewWillLeaveApplication")
     }
 }

@@ -136,7 +136,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Cev-oP-pXq">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="862"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
@@ -220,7 +220,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="65n-bp-4kh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6658" y="-1238"/>
+            <point key="canvasLocation" x="6657.971014492754" y="-1238.1696428571429"/>
         </scene>
         <!--Notice List View Controller-->
         <scene sceneID="RYz-G0-rz4">
@@ -231,7 +231,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="sEB-wU-zgL">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="862"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
@@ -315,7 +315,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mSA-17-iok" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3349" y="-601"/>
+            <point key="canvasLocation" x="3347.826086956522" y="-601.33928571428567"/>
         </scene>
         <!--컴퓨터학부-->
         <scene sceneID="8gs-px-APh">
@@ -514,8 +514,15 @@
                                     <constraint firstAttribute="height" constant="80" id="7AT-u8-MyG"/>
                                 </constraints>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hrV-2K-VhU" userLabel="Ad View">
+                                <rect key="frame" x="0.0" y="240" width="414" height="83"/>
+                                <color key="backgroundColor" name="notissuGray500s"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="hrV-2K-VhU" secondAttribute="height" multiplier="5:1" id="6FK-bR-Z2R"/>
+                                </constraints>
+                            </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="LkB-wq-hEc">
-                                <rect key="frame" x="0.0" y="248" width="414" height="565"/>
+                                <rect key="frame" x="0.0" y="323" width="414" height="490"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="moreListCell" rowHeight="62" id="fFC-Lm-flJ" customClass="MoreTableCell" customModule="Notissu" customModuleProvider="target">
@@ -548,16 +555,19 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="hrV-2K-VhU" firstAttribute="top" secondItem="uTK-ht-Fhx" secondAttribute="bottom" id="2Ni-SW-8Ga"/>
                             <constraint firstItem="uTK-ht-Fhx" firstAttribute="leading" secondItem="ZKz-3V-8NV" secondAttribute="leading" id="2he-bQ-8tn"/>
                             <constraint firstItem="LkB-wq-hEc" firstAttribute="leading" secondItem="ZKz-3V-8NV" secondAttribute="leading" id="3m7-Xi-3zI"/>
                             <constraint firstItem="ZKz-3V-8NV" firstAttribute="trailing" secondItem="oIQ-yd-rFH" secondAttribute="trailing" id="5zR-DQ-44A"/>
-                            <constraint firstItem="LkB-wq-hEc" firstAttribute="top" secondItem="uTK-ht-Fhx" secondAttribute="bottom" constant="8" id="8B6-Cc-UJo"/>
                             <constraint firstItem="oIQ-yd-rFH" firstAttribute="leading" secondItem="ZKz-3V-8NV" secondAttribute="leading" id="9Ct-08-w01"/>
                             <constraint firstItem="ZKz-3V-8NV" firstAttribute="trailing" secondItem="LkB-wq-hEc" secondAttribute="trailing" id="HPl-i6-r8l"/>
+                            <constraint firstItem="LkB-wq-hEc" firstAttribute="top" secondItem="hrV-2K-VhU" secondAttribute="bottom" id="Nux-lK-06W"/>
                             <constraint firstItem="ZKz-3V-8NV" firstAttribute="bottom" secondItem="LkB-wq-hEc" secondAttribute="bottom" id="P2e-T7-0Xr"/>
+                            <constraint firstItem="hrV-2K-VhU" firstAttribute="leading" secondItem="ZKz-3V-8NV" secondAttribute="leading" id="QzJ-Ra-1mC"/>
                             <constraint firstItem="oIQ-yd-rFH" firstAttribute="top" secondItem="ZKz-3V-8NV" secondAttribute="top" id="TkF-Vh-qPi"/>
                             <constraint firstItem="uTK-ht-Fhx" firstAttribute="top" secondItem="oIQ-yd-rFH" secondAttribute="bottom" id="kcg-Yi-gn8"/>
                             <constraint firstItem="oIQ-yd-rFH" firstAttribute="centerX" secondItem="ZKz-3V-8NV" secondAttribute="centerX" id="lwt-Ae-DL3"/>
+                            <constraint firstItem="ZKz-3V-8NV" firstAttribute="trailing" secondItem="hrV-2K-VhU" secondAttribute="trailing" id="wuw-nf-1y3"/>
                             <constraint firstItem="ZKz-3V-8NV" firstAttribute="trailing" secondItem="uTK-ht-Fhx" secondAttribute="trailing" id="xlT-hp-aus"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ZKz-3V-8NV"/>
@@ -1220,6 +1230,9 @@
         </namedColor>
         <namedColor name="notissuColorWhite100s">
             <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="notissuGray500s">
+            <color red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="notissuGray900s">
             <color red="0.0" green="0.0" blue="0.0" alpha="0.89999997615814209" colorSpace="custom" customColorSpace="sRGB"/>

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import GoogleMobileAds
 
 class SchoolViewController: BaseViewController, SchoolView, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet var noticeListView: UITableView!
@@ -17,8 +18,13 @@ class SchoolViewController: BaseViewController, SchoolView, UITableViewDelegate,
     private var refreshControl      = UIRefreshControl()
     private var page : Int = 1
     
+    // Googld Ad
+    private var bannerView: GADBannerView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.setupBannerView()
         
         if #available(iOS 10.0, *) {
             self.noticeListView.refreshControl = refreshControl
@@ -47,6 +53,40 @@ class SchoolViewController: BaseViewController, SchoolView, UITableViewDelegate,
     
     @objc func onLoadFromWidget() {
         self.checkURLScheme()
+    }
+    
+    private func setupBannerView() {
+        let adSize = GADAdSizeFromCGSize(CGSize(width: self.view.frame.width, height: 50))
+        bannerView = GADBannerView(adSize: adSize)
+        
+        bannerView.backgroundColor = UIColor(named: "notissuWhite1000s")!
+        addBannerViewToView(bannerView)
+        
+        bannerView.adUnitID = "ca-app-pub-8965771939775493/8407428627"
+        bannerView.rootViewController = self
+        bannerView.load(GADRequest())
+        bannerView.delegate = self
+    }
+    
+    func addBannerViewToView(_ bannerView: GADBannerView) {
+        bannerView.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(bannerView)
+        view.addConstraints(
+            [NSLayoutConstraint(item: bannerView,
+                                attribute: .bottom,
+                                relatedBy: .equal,
+                                toItem: view.safeAreaLayoutGuide,
+                                attribute: .bottom,
+                                multiplier: 1,
+                                constant: 0),
+             NSLayoutConstraint(item: bannerView,
+                                attribute: .centerX,
+                                relatedBy: .equal,
+                                toItem: view,
+                                attribute: .centerX,
+                                multiplier: 1,
+                                constant: 0)
+        ])
     }
     
     private func checkURLScheme() {
@@ -124,3 +164,37 @@ class SchoolViewController: BaseViewController, SchoolView, UITableViewDelegate,
     }
 }
 
+extension SchoolViewController: GADBannerViewDelegate {
+    /// Tells the delegate an ad request loaded an ad.
+    func adViewDidReceiveAd(_ bannerView: GADBannerView) {
+        print("adViewDidReceiveAd")
+    }
+    
+    /// Tells the delegate an ad request failed.
+    func adView(_ bannerView: GADBannerView,
+                didFailToReceiveAdWithError error: GADRequestError) {
+        print("adView:didFailToReceiveAdWithError: \(error.localizedDescription)")
+    }
+    
+    /// Tells the delegate that a full-screen view will be presented in response
+    /// to the user clicking on an ad.
+    func adViewWillPresentScreen(_ bannerView: GADBannerView) {
+        print("adViewWillPresentScreen")
+    }
+    
+    /// Tells the delegate that the full-screen view will be dismissed.
+    func adViewWillDismissScreen(_ bannerView: GADBannerView) {
+        print("adViewWillDismissScreen")
+    }
+    
+    /// Tells the delegate that the full-screen view has been dismissed.
+    func adViewDidDismissScreen(_ bannerView: GADBannerView) {
+        print("adViewDidDismissScreen")
+    }
+    
+    /// Tells the delegate that a user click will open another app (such as
+    /// the App Store), backgrounding the current app.
+    func adViewWillLeaveApplication(_ bannerView: GADBannerView) {
+        print("adViewWillLeaveApplication")
+    }
+}

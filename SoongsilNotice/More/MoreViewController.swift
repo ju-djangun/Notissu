@@ -11,7 +11,7 @@ import GoogleMobileAds
 import SafariServices
 
 class MoreViewController : BaseViewController, UITableViewDelegate, UITableViewDataSource {
-    let moreMenu = ["북마크", "오픈소스 사용 정보", "개발자 정보", "개발자 GitHub 방문하기", "추천 앱 사용하기"]
+    let moreMenu = ["북마크", "오픈소스 사용 정보", "개발자 정보", "개발자 GitHub 방문하기", "추천 앱 사용하기", "광고 문의하기"]
     @IBOutlet var moreTableView: UITableView!
     @IBOutlet var majorLbl: UILabel!
     
@@ -127,6 +127,9 @@ class MoreViewController : BaseViewController, UITableViewDelegate, UITableViewD
             break
         case 4:
             showAlert(title: "그라운드 설치", msg: "숭실대 커뮤니티 그라운드를 설치합니다.", handler: onClickRecommendApp(_:))
+            break
+        case 5:
+            showAlert(title: "광고 문의하기", msg: "메일을 통해 광고 문의를 넣어주세요.\ndella.kimko@gmail.com\n메일 앱을 실행합니다.", handler: onClickMailButton(_:))
             break
         default: break
         }

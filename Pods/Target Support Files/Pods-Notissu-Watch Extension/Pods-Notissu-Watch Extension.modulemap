@@ -1,0 +1,6 @@
+module Pods_Notissu_Watch_Extension {
+  umbrella header "Pods-Notissu-Watch Extension-umbrella.h"
+
+  export *
+  module * { export * }
+}

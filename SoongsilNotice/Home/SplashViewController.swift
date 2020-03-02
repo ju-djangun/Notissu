@@ -9,6 +9,7 @@
 import UIKit
 
 class SplashViewController : BaseViewController {
+    
     override func viewDidLoad() {
         BaseViewController.noticeDeptCode = DeptCode(rawValue: UserDefaults.standard.integer(forKey: "myDeptCode"))
         BaseViewController.noticeDeptName = DeptName(rawValue: UserDefaults.standard.string(forKey: "myDeptName") ?? "")

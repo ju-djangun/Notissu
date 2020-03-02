@@ -8,6 +8,7 @@
 
 import UIKit
 import Lottie
+import WatchConnectivity
 
 class BaseViewController: UIViewController {
     let animationView = AnimationView(name: "notissu_anim")
@@ -141,6 +142,4 @@ extension UIColor {
         
         return nil
     }
-    
-    
 }

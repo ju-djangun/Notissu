@@ -9,14 +9,16 @@
 import UIKit
 import GoogleMobileAds
 import SafariServices
+import WatchConnectivity
 
 class MoreViewController : BaseViewController, UITableViewDelegate, UITableViewDataSource {
-    let moreMenu = ["북마크", "오픈소스 사용 정보", "개발자 정보", "개발자 GitHub 방문하기", "추천 앱 사용하기", "광고 문의하기"]
+    let moreMenu = ["북마크", "오픈소스 사용 정보", "개발자 정보", "개발자 GitHub 방문하기", "추천 앱 사용하기", "광고 문의하기", "애플워치 동기화"]
     @IBOutlet var moreTableView: UITableView!
     @IBOutlet var majorLbl: UILabel!
     
     @IBOutlet weak var versionContainerView: UIView!
     
+    var session: WCSession?
     // Googld Ad
     private var bannerView: GADBannerView!
     
@@ -25,6 +27,8 @@ class MoreViewController : BaseViewController, UITableViewDelegate, UITableViewD
         self.moreTableView.dataSource = self
         self.moreTableView.separatorInset  = .zero
         self.moreTableView.tableFooterView = UIView(frame: .zero)
+        
+        self.configureWatchKitSesstion()
         
         let versionView = VersionInfoView.viewFromNib()
         
@@ -51,11 +55,20 @@ class MoreViewController : BaseViewController, UITableViewDelegate, UITableViewD
         self.checkURLScheme()
     }
     
+    private func configureWatchKitSesstion() {
+        
+        if WCSession.isSupported() {
+            session = WCSession.default
+            session?.delegate = self
+            session?.activate()
+        }
+    }
+    
     private func setupBannerView() {
         let adSize = GADAdSizeFromCGSize(CGSize(width: self.view.frame.width, height: 50))
         bannerView = GADBannerView(adSize: adSize)
-        
         bannerView.backgroundColor = UIColor(named: "notissuWhite1000s")!
+        
         addBannerViewToView(bannerView)
         
         bannerView.adUnitID = "ca-app-pub-8965771939775493/8407428627"
@@ -131,6 +144,9 @@ class MoreViewController : BaseViewController, UITableViewDelegate, UITableViewD
         case 5:
             showAlert(title: "광고 문의하기", msg: "메일을 통해 광고 문의를 넣어주세요.\ndella.kimko@gmail.com\n메일 앱을 실행합니다.", handler: onClickMailButton(_:))
             break
+        case 6:
+            showAlert(title: "애플워치 동기화", msg: "애플 워치에 내 전공 정보를 동기화합니다.\n동기화 하시겠어요?", handler: onClickAppleWatchSync(_:))
+            break
         default: break
         }
         
@@ -139,6 +155,13 @@ class MoreViewController : BaseViewController, UITableViewDelegate, UITableViewD
     @objc func onClickDevelopGitHub(_ action: UIAlertAction) {
         let viewController = SFSafariViewController(url: URL(string: "https://github.com/della-padula")!)
         self.present(viewController, animated: true, completion: nil)
+    }
+    
+    @objc func onClickAppleWatchSync(_ action: UIAlertAction) {
+        if let validSession = self.session {
+            let data: [String: Any] = ["myDeptName": UserDefaults.standard.string(forKey: "myDeptName") ?? "" as Any, "myDeptCode": UserDefaults.standard.integer(forKey: "myDeptCode") as Any]
+            validSession.transferUserInfo(data)
+        }
     }
     
     @objc func onClickMailButton(_ action: UIAlertAction) {
@@ -187,5 +210,28 @@ extension MoreViewController: GADBannerViewDelegate {
     /// the App Store), backgrounding the current app.
     func adViewWillLeaveApplication(_ bannerView: GADBannerView) {
         print("adViewWillLeaveApplication")
+    }
+}
+
+extension MoreViewController: WCSessionDelegate {
+    func sessionDidBecomeInactive(_ session: WCSession) {
+        
+    }
+    
+    func sessionDidDeactivate(_ session: WCSession) {
+        
+    }
+    
+    func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {
+        
+    }
+    
+    func session(_ session: WCSession, didReceiveUserInfo userInfo: [String : Any] = [:]) {
+        print("received data: \(userInfo)")
+        DispatchQueue.main.async {
+            if let value = userInfo["watch"] as? String {
+                print("received value : \(value)")
+            }
+        }
     }
 }

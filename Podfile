@@ -1,5 +1,6 @@
 # Uncomment the next line to define a global platform for your project
 # platform :ios, '9.0'
+# platform :watchos, '5.0'
 
 target 'SoongsilNotice' do
   # Comment the next line if you don't want to use dynamic frameworks
@@ -16,4 +17,13 @@ target 'SoongsilNotice' do
   target 'Notissu Today Extension' do
     inherit! :search_paths
   end
+
+#  target 'Notissu-Watch Extension' do
+#  	pod 'Alamofire'
+#  end
+end
+
+target 'Notissu-Watch Extension' do
+  pod 'Alamofire'
+  pod 'Kanna'
 end

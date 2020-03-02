@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		43C7B2F80E459CCCF0FD26CF /* Pods_Notissu_Today_Extension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C3F7DC8F67539D51717B753 /* Pods_Notissu_Today_Extension.framework */; };
+		6AB32A1E90827F4CEB6E0688 /* libPods-Notissu-Watch Extension.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 43AE74AC12E92E07EEB58FD4 /* libPods-Notissu-Watch Extension.a */; };
 		B0B67AEB2400BB060027D038 /* MajorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B67AEA2400BB060027D038 /* MajorModel.swift */; };
 		DE03E9CF2379B05D002AA5AE /* NoticeBusiness.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE03E9CE2379B05D002AA5AE /* NoticeBusiness.swift */; };
 		DE04186024021BCA00486BF3 /* NotissuResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE04185F24021BCA00486BF3 /* NotissuResource.swift */; };
@@ -102,6 +103,15 @@
 		DEE38C8C240CAC9200DA5A10 /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE38C8B240CAC9200DA5A10 /* NotificationController.swift */; };
 		DEE38C8E240CAC9300DA5A10 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DEE38C8D240CAC9300DA5A10 /* Assets.xcassets */; };
 		DEE38C93240CAC9300DA5A10 /* Notissu-Watch.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = DEE38C76240CAC9200DA5A10 /* Notissu-Watch.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		DEE38C9E240CEF6500DA5A10 /* WatchConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE38C9D240CEF6500DA5A10 /* WatchConfig.swift */; };
+		DEE38C9F240CEF7E00DA5A10 /* ConfigSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE296154237195CD0074F24B /* ConfigSetting.swift */; };
+		DEE38CF7240D278F00DA5A10 /* InterfacePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE38CF6240D278F00DA5A10 /* InterfacePresenter.swift */; };
+		DEE38CF9240D279900DA5A10 /* InterfaceContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE38CF8240D279900DA5A10 /* InterfaceContract.swift */; };
+		DEE38CFB240D27A300DA5A10 /* InterfaceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE38CFA240D27A300DA5A10 /* InterfaceModel.swift */; };
+		DEE38D01240D285100DA5A10 /* WatchNoticeListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE38D00240D285100DA5A10 /* WatchNoticeListViewController.swift */; };
+		DEE38D03240D287700DA5A10 /* WatchNoticeListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE38D02240D287700DA5A10 /* WatchNoticeListPresenter.swift */; };
+		DEE38D05240D288A00DA5A10 /* WatchNoticeListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE38D04240D288A00DA5A10 /* WatchNoticeListModel.swift */; };
+		DEE38D07240D289900DA5A10 /* WatchNoticeListContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE38D06240D289900DA5A10 /* WatchNoticeListContract.swift */; };
 		DEF56D7523837778003CA0F0 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEF56D7423837778003CA0F0 /* SearchViewController.swift */; };
 		DEF56D782383BF05003CA0F0 /* SchoolViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEF56D772383BF05003CA0F0 /* SchoolViewController.swift */; };
 		DEF56D7A2383BF81003CA0F0 /* SchoolPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEF56D792383BF81003CA0F0 /* SchoolPresenter.swift */; };
@@ -112,6 +122,18 @@
 		DEF56D8F2384DB1C003CA0F0 /* manual3.png in Resources */ = {isa = PBXBuildFile; fileRef = DEF56D8B2384DB1B003CA0F0 /* manual3.png */; };
 		DEF56D902384DB1C003CA0F0 /* manual2.png in Resources */ = {isa = PBXBuildFile; fileRef = DEF56D8C2384DB1B003CA0F0 /* manual2.png */; };
 		DEF56D912384DB1C003CA0F0 /* manual0.png in Resources */ = {isa = PBXBuildFile; fileRef = DEF56D8D2384DB1B003CA0F0 /* manual0.png */; };
+		DEFEAF81240D29CD007EDFB2 /* NoticeIT.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE296156237198070074F24B /* NoticeIT.swift */; };
+		DEFEAF82240D29D2007EDFB2 /* NoticeEngineering.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE0F8F202373FDD7006A0B49 /* NoticeEngineering.swift */; };
+		DEFEAF83240D29D2007EDFB2 /* NoticeLaw.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE0F8F2223740041006A0B49 /* NoticeLaw.swift */; };
+		DEFEAF84240D29D2007EDFB2 /* NoticeInmun.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE501C462374FC9D0053055A /* NoticeInmun.swift */; };
+		DEFEAF85240D29D2007EDFB2 /* NoticeNaturalScience.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE55423F2377CC31004E01EB /* NoticeNaturalScience.swift */; };
+		DEFEAF86240D29D2007EDFB2 /* NoticeBusiness.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE03E9CE2379B05D002AA5AE /* NoticeBusiness.swift */; };
+		DEFEAF87240D29D2007EDFB2 /* NoticeEconomy.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE8C73832379BB2E008F2FE1 /* NoticeEconomy.swift */; };
+		DEFEAF88240D29D2007EDFB2 /* NoticeSocial.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE8C73852379BDF6008F2FE1 /* NoticeSocial.swift */; };
+		DEFEAF89240D29D2007EDFB2 /* NoticeConvergence.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE72017A237A76DE00F60CEB /* NoticeConvergence.swift */; };
+		DEFEAF8A240D29D2007EDFB2 /* NoticeSoongsil.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEF56D7D238425D7003CA0F0 /* NoticeSoongsil.swift */; };
+		DEFEAF8B240D29DB007EDFB2 /* NoticeURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE501C482374FD250053055A /* NoticeURL.swift */; };
+		DEFEAF8C240D2A23007EDFB2 /* Notice.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2961522370FF4E0074F24B /* Notice.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -175,13 +197,17 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		0F93DEDDE3DAB2EFE758C5D6 /* Pods-Notissu-Watch Extension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Notissu-Watch Extension.release.xcconfig"; path = "Target Support Files/Pods-Notissu-Watch Extension/Pods-Notissu-Watch Extension.release.xcconfig"; sourceTree = "<group>"; };
 		10D362999ACAF386EBEE89E5 /* Pods-SoongsilNotice.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SoongsilNotice.debug.xcconfig"; path = "Target Support Files/Pods-SoongsilNotice/Pods-SoongsilNotice.debug.xcconfig"; sourceTree = "<group>"; };
 		3C3F7DC8F67539D51717B753 /* Pods_Notissu_Today_Extension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Notissu_Today_Extension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		43AE74AC12E92E07EEB58FD4 /* libPods-Notissu-Watch Extension.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Notissu-Watch Extension.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4535F29D71ABF781F832B319 /* Pods-Notissu Today Extension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Notissu Today Extension.debug.xcconfig"; path = "Target Support Files/Pods-Notissu Today Extension/Pods-Notissu Today Extension.debug.xcconfig"; sourceTree = "<group>"; };
 		5109B6F37C7101EEB67D7049 /* Pods-SoongsilNotice.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SoongsilNotice.release.xcconfig"; path = "Target Support Files/Pods-SoongsilNotice/Pods-SoongsilNotice.release.xcconfig"; sourceTree = "<group>"; };
 		550CAE3A9D2DBDE403D9BE3F /* Pods-Notissu Today Extension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Notissu Today Extension.release.xcconfig"; path = "Target Support Files/Pods-Notissu Today Extension/Pods-Notissu Today Extension.release.xcconfig"; sourceTree = "<group>"; };
 		57296D4BD235F1B361E7E590 /* Pods_SoongsilNotice.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SoongsilNotice.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		90414B9DF20CF22441FFF574 /* Pods-SoongsilNotice-Notissu-Watch Extension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SoongsilNotice-Notissu-Watch Extension.debug.xcconfig"; path = "Target Support Files/Pods-SoongsilNotice-Notissu-Watch Extension/Pods-SoongsilNotice-Notissu-Watch Extension.debug.xcconfig"; sourceTree = "<group>"; };
 		B0B67AEA2400BB060027D038 /* MajorModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MajorModel.swift; sourceTree = "<group>"; };
+		D7D51A6E1417CF69431DF616 /* Pods-Notissu-Watch Extension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Notissu-Watch Extension.debug.xcconfig"; path = "Target Support Files/Pods-Notissu-Watch Extension/Pods-Notissu-Watch Extension.debug.xcconfig"; sourceTree = "<group>"; };
 		DE03E9CE2379B05D002AA5AE /* NoticeBusiness.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeBusiness.swift; sourceTree = "<group>"; };
 		DE04185F24021BCA00486BF3 /* NotissuResource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotissuResource.swift; sourceTree = "<group>"; };
 		DE0418B02402412E00486BF3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -261,6 +287,15 @@
 		DEE38C8D240CAC9300DA5A10 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DEE38C8F240CAC9300DA5A10 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DEE38C90240CAC9300DA5A10 /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
+		DEE38C9C240CED8100DA5A10 /* Notissu-Watch Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Notissu-Watch Extension.entitlements"; sourceTree = "<group>"; };
+		DEE38C9D240CEF6500DA5A10 /* WatchConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchConfig.swift; sourceTree = "<group>"; };
+		DEE38CF6240D278F00DA5A10 /* InterfacePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterfacePresenter.swift; sourceTree = "<group>"; };
+		DEE38CF8240D279900DA5A10 /* InterfaceContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterfaceContract.swift; sourceTree = "<group>"; };
+		DEE38CFA240D27A300DA5A10 /* InterfaceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterfaceModel.swift; sourceTree = "<group>"; };
+		DEE38D00240D285100DA5A10 /* WatchNoticeListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchNoticeListViewController.swift; sourceTree = "<group>"; };
+		DEE38D02240D287700DA5A10 /* WatchNoticeListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchNoticeListPresenter.swift; sourceTree = "<group>"; };
+		DEE38D04240D288A00DA5A10 /* WatchNoticeListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchNoticeListModel.swift; sourceTree = "<group>"; };
+		DEE38D06240D289900DA5A10 /* WatchNoticeListContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchNoticeListContract.swift; sourceTree = "<group>"; };
 		DEF56D7423837778003CA0F0 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		DEF56D772383BF05003CA0F0 /* SchoolViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchoolViewController.swift; sourceTree = "<group>"; };
 		DEF56D792383BF81003CA0F0 /* SchoolPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchoolPresenter.swift; sourceTree = "<group>"; };
@@ -271,9 +306,17 @@
 		DEF56D8B2384DB1B003CA0F0 /* manual3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = manual3.png; sourceTree = "<group>"; };
 		DEF56D8C2384DB1B003CA0F0 /* manual2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = manual2.png; sourceTree = "<group>"; };
 		DEF56D8D2384DB1B003CA0F0 /* manual0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = manual0.png; sourceTree = "<group>"; };
+		F749762CEDDE4D582A22A89A /* Pods-SoongsilNotice-Notissu-Watch Extension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SoongsilNotice-Notissu-Watch Extension.release.xcconfig"; path = "Target Support Files/Pods-SoongsilNotice-Notissu-Watch Extension/Pods-SoongsilNotice-Notissu-Watch Extension.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		7846DCA90C0C8A55894B3F8E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		DE29612F23703F4C0074F24B /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -296,6 +339,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6AB32A1E90827F4CEB6E0688 /* libPods-Notissu-Watch Extension.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -309,6 +353,10 @@
 				5109B6F37C7101EEB67D7049 /* Pods-SoongsilNotice.release.xcconfig */,
 				4535F29D71ABF781F832B319 /* Pods-Notissu Today Extension.debug.xcconfig */,
 				550CAE3A9D2DBDE403D9BE3F /* Pods-Notissu Today Extension.release.xcconfig */,
+				D7D51A6E1417CF69431DF616 /* Pods-Notissu-Watch Extension.debug.xcconfig */,
+				0F93DEDDE3DAB2EFE758C5D6 /* Pods-Notissu-Watch Extension.release.xcconfig */,
+				90414B9DF20CF22441FFF574 /* Pods-SoongsilNotice-Notissu-Watch Extension.debug.xcconfig */,
+				F749762CEDDE4D582A22A89A /* Pods-SoongsilNotice-Notissu-Watch Extension.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -320,6 +368,7 @@
 				57296D4BD235F1B361E7E590 /* Pods_SoongsilNotice.framework */,
 				DE64BE8423DD253C00DF46C5 /* NotificationCenter.framework */,
 				3C3F7DC8F67539D51717B753 /* Pods_Notissu_Today_Extension.framework */,
+				43AE74AC12E92E07EEB58FD4 /* libPods-Notissu-Watch Extension.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -493,14 +542,39 @@
 		DEE38C86240CAC9200DA5A10 /* Notissu-Watch Extension */ = {
 			isa = PBXGroup;
 			children = (
-				DEE38C87240CAC9200DA5A10 /* InterfaceController.swift */,
+				DEE38CFD240D282C00DA5A10 /* WatchNoticeList */,
+				DEE38CFC240D27AB00DA5A10 /* InterfaceView */,
+				DEE38C9C240CED8100DA5A10 /* Notissu-Watch Extension.entitlements */,
 				DEE38C89240CAC9200DA5A10 /* ExtensionDelegate.swift */,
 				DEE38C8B240CAC9200DA5A10 /* NotificationController.swift */,
 				DEE38C8D240CAC9300DA5A10 /* Assets.xcassets */,
 				DEE38C8F240CAC9300DA5A10 /* Info.plist */,
 				DEE38C90240CAC9300DA5A10 /* PushNotificationPayload.apns */,
+				DEE38C9D240CEF6500DA5A10 /* WatchConfig.swift */,
 			);
 			path = "Notissu-Watch Extension";
+			sourceTree = "<group>";
+		};
+		DEE38CFC240D27AB00DA5A10 /* InterfaceView */ = {
+			isa = PBXGroup;
+			children = (
+				DEE38C87240CAC9200DA5A10 /* InterfaceController.swift */,
+				DEE38CF6240D278F00DA5A10 /* InterfacePresenter.swift */,
+				DEE38CF8240D279900DA5A10 /* InterfaceContract.swift */,
+				DEE38CFA240D27A300DA5A10 /* InterfaceModel.swift */,
+			);
+			path = InterfaceView;
+			sourceTree = "<group>";
+		};
+		DEE38CFD240D282C00DA5A10 /* WatchNoticeList */ = {
+			isa = PBXGroup;
+			children = (
+				DEE38D00240D285100DA5A10 /* WatchNoticeListViewController.swift */,
+				DEE38D02240D287700DA5A10 /* WatchNoticeListPresenter.swift */,
+				DEE38D04240D288A00DA5A10 /* WatchNoticeListModel.swift */,
+				DEE38D06240D289900DA5A10 /* WatchNoticeListContract.swift */,
+			);
+			path = WatchNoticeList;
 			sourceTree = "<group>";
 		};
 		DEF56D732383775D003CA0F0 /* Search */ = {
@@ -590,6 +664,7 @@
 			buildPhases = (
 				DEE38C74240CAC9200DA5A10 /* Resources */,
 				DEE38C97240CAC9300DA5A10 /* Embed App Extensions */,
+				7846DCA90C0C8A55894B3F8E /* Frameworks */,
 			);
 			buildRules = (
 			);
@@ -605,6 +680,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = DEE38C9A240CAC9300DA5A10 /* Build configuration list for PBXNativeTarget "Notissu-Watch Extension" */;
 			buildPhases = (
+				488984E08AA5A9A977A0FE92 /* [CP] Check Pods Manifest.lock */,
 				DEE38C7E240CAC9200DA5A10 /* Sources */,
 				DEE38C7F240CAC9200DA5A10 /* Frameworks */,
 				DEE38C80240CAC9200DA5A10 /* Resources */,
@@ -717,6 +793,28 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		488984E08AA5A9A977A0FE92 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Notissu-Watch Extension-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
 		863FA639D8CB8D787EBADFD5 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -872,8 +970,29 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DEFEAF81240D29CD007EDFB2 /* NoticeIT.swift in Sources */,
+				DEE38D05240D288A00DA5A10 /* WatchNoticeListModel.swift in Sources */,
 				DEE38C8C240CAC9200DA5A10 /* NotificationController.swift in Sources */,
+				DEE38CFB240D27A300DA5A10 /* InterfaceModel.swift in Sources */,
+				DEE38D03240D287700DA5A10 /* WatchNoticeListPresenter.swift in Sources */,
+				DEFEAF8A240D29D2007EDFB2 /* NoticeSoongsil.swift in Sources */,
+				DEFEAF84240D29D2007EDFB2 /* NoticeInmun.swift in Sources */,
+				DEFEAF87240D29D2007EDFB2 /* NoticeEconomy.swift in Sources */,
+				DEE38C9E240CEF6500DA5A10 /* WatchConfig.swift in Sources */,
+				DEFEAF8C240D2A23007EDFB2 /* Notice.swift in Sources */,
+				DEFEAF83240D29D2007EDFB2 /* NoticeLaw.swift in Sources */,
+				DEE38D01240D285100DA5A10 /* WatchNoticeListViewController.swift in Sources */,
+				DEE38CF7240D278F00DA5A10 /* InterfacePresenter.swift in Sources */,
+				DEE38D07240D289900DA5A10 /* WatchNoticeListContract.swift in Sources */,
+				DEFEAF8B240D29DB007EDFB2 /* NoticeURL.swift in Sources */,
+				DEFEAF85240D29D2007EDFB2 /* NoticeNaturalScience.swift in Sources */,
 				DEE38C8A240CAC9200DA5A10 /* ExtensionDelegate.swift in Sources */,
+				DEFEAF88240D29D2007EDFB2 /* NoticeSocial.swift in Sources */,
+				DEFEAF86240D29D2007EDFB2 /* NoticeBusiness.swift in Sources */,
+				DEE38CF9240D279900DA5A10 /* InterfaceContract.swift in Sources */,
+				DEFEAF89240D29D2007EDFB2 /* NoticeConvergence.swift in Sources */,
+				DEFEAF82240D29D2007EDFB2 /* NoticeEngineering.swift in Sources */,
+				DEE38C9F240CEF7E00DA5A10 /* ConfigSetting.swift in Sources */,
 				DEE38C88240CAC9200DA5A10 /* InterfaceController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1149,7 +1268,7 @@
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 6.1;
+				WATCHOS_DEPLOYMENT_TARGET = 5.0;
 			};
 			name = Debug;
 		};
@@ -1168,14 +1287,16 @@
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 6.1;
+				WATCHOS_DEPLOYMENT_TARGET = 5.0;
 			};
 			name = Release;
 		};
 		DEE38C98240CAC9300DA5A10 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D7D51A6E1417CF69431DF616 /* Pods-Notissu-Watch Extension.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CODE_SIGN_ENTITLEMENTS = "Notissu-Watch Extension/Notissu-Watch Extension.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = M79H9K226Y;
 				INFOPLIST_FILE = "Notissu-Watch Extension/Info.plist";
@@ -1184,20 +1305,23 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
+				MARKETING_VERSION = 1.3.3;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.elliott.notissu-ios.watchkitapp.watchkitextension";
 				PRODUCT_NAME = "${TARGET_NAME}";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 6.1;
+				WATCHOS_DEPLOYMENT_TARGET = 5.0;
 			};
 			name = Debug;
 		};
 		DEE38C99240CAC9300DA5A10 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0F93DEDDE3DAB2EFE758C5D6 /* Pods-Notissu-Watch Extension.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CODE_SIGN_ENTITLEMENTS = "Notissu-Watch Extension/Notissu-Watch Extension.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = M79H9K226Y;
 				INFOPLIST_FILE = "Notissu-Watch Extension/Info.plist";
@@ -1206,13 +1330,14 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
+				MARKETING_VERSION = 1.3.3;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.elliott.notissu-ios.watchkitapp.watchkitextension";
 				PRODUCT_NAME = "${TARGET_NAME}";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 6.1;
+				WATCHOS_DEPLOYMENT_TARGET = 5.0;
 			};
 			name = Release;
 		};

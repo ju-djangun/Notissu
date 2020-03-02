@@ -11,9 +11,18 @@
             <objects>
                 <controller id="AgC-eL-Hgc" customClass="InterfaceController" customModule="Notissu_Watch" customModuleProvider="target">
                     <items>
-                        <label width="136" alignment="left" text="Notissu Watch" textAlignment="center" id="quP-TH-Iv5"/>
-                        <button width="1" alignment="left" title="Button" id="Xhz-jv-bTs"/>
+                        <label width="136" alignment="left" text="내 전공 공지" textAlignment="center" id="quP-TH-Iv5"/>
+                        <label alignment="left" text="(MyMajor)" id="nnw-Oh-DOa"/>
+                        <table alignment="left" id="b87-mn-u74"/>
+                        <button width="1" alignment="left" title="Button" id="ayY-rW-30S">
+                            <connections>
+                                <action selector="onClickSend" destination="AgC-eL-Hgc" id="Ljf-h6-1V8"/>
+                            </connections>
+                        </button>
                     </items>
+                    <connections>
+                        <outlet property="lblMyMajor" destination="nnw-Oh-DOa" id="EY7-3E-DOs"/>
+                    </connections>
                 </controller>
             </objects>
             <point key="canvasLocation" x="220" y="345"/>

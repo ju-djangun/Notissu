@@ -121,6 +121,9 @@ class TodayPresenter: TodayPresenterProtocol {
         case DeptCode.Inmun_French:
             NoticeInmun.parseListFrench(page: page, keyword: keyword, completion: self.view.applyToTableView(list:))
             break
+        case DeptCode.Inmun_Writing:
+            NoticeInmun.parseListWriting(page: page, keyword: keyword, completion: self.view.applyToTableView(list:))
+            break
         case DeptCode.Engineering_Chemistry:
             NoticeEngineering.parseListChemistryEngineering(page: page, keyword: keyword, completion: self.view.applyToTableView(list:))
             break

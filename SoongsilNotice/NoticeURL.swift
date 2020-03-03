@@ -175,6 +175,14 @@ struct NoticeRequestURL {
         return "http://history.ssu.ac.kr/web/history/community_a?p_p_id=EXT_BBS&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&p_p_col_id=column-1&p_p_col_count=1&_EXT_BBS_struts_action=%2Fext%2Fbbs%2Fview&_EXT_BBS_sCategory=&_EXT_BBS_sTitle=\(keyword ?? "")&_EXT_BBS_sWriter=&_EXT_BBS_sTag=&_EXT_BBS_sContent=&_EXT_BBS_sCategory2=&_EXT_BBS_sKeyType=title&_EXT_BBS_sKeyword=\(keyword ?? "")&_EXT_BBS_curPage=\(page)"
     }
     
+    static func writingURL(page: Int, keyword: String?) -> String {
+        if keyword != nil {
+            return "http://writing.ssu.ac.kr/bbs/bbs.php?table=board_notice&where=ALL&keyword=\(keyword ?? "")&search_sql=BB_NAME%20LIKE%20%27|||\(keyword ?? "")|||%27%20OR%20BB_SUBJECT%20LIKE%20%27|||\(keyword ?? "")|||%27%20OR%20BB_CONTENT%20LIKE%20%27|||\(keyword ?? "")|||%27&where=ALL&keyword=UCC&search_step=1&search_sql=BB_NAME%20LIKE%20%27|||\(keyword ?? "")|||%27%20OR%20BB_SUBJECT%20LIKE%20%27|||\(keyword ?? "")|||%27%20OR%20BB_CONTENT%20LIKE%20%27|||\(keyword ?? "")|||%27&p=\(page)"
+        } else {
+            return "http://writing.ssu.ac.kr/bbs/bbs.php?table=board_notice&p=\(page)"
+        }
+    }
+    
     // 융합특성화 자유전공학부
     static func convergenceURL(page: Int, keyword: String?) -> String {
         return "http://pre.ssu.ac.kr/web/convergence/32?p_p_id=EXT_BBS&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&p_p_col_id=column-1&p_p_col_count=1&_EXT_BBS_struts_action=%2Fext%2Fbbs%2Fview&_EXT_BBS_sCategory=&_EXT_BBS_sTitle=\(keyword ?? "")&_EXT_BBS_sWriter=&_EXT_BBS_sTag=&_EXT_BBS_sContent=&_EXT_BBS_sCategory2=&_EXT_BBS_sKeyType=title&_EXT_BBS_sKeyword=\(keyword ?? "")&_EXT_BBS_curPage=\(page)"

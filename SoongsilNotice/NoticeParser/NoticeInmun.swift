@@ -638,4 +638,69 @@ class NoticeInmun {
             }
         }
     }
+    
+    static func parseListWriting(page: Int, keyword: String?, completion: @escaping ([Notice]) -> Void) {
+        var index = 0
+        
+        let keywordSearch = keyword?.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)
+        let requestURL = NoticeRequestURL.writingURL(page: page, keyword: keywordSearch)
+        
+        self.cleanList()
+        
+        Alamofire.request(requestURL).responseData { response in
+            switch(response.result) {
+            case .success(_):
+                guard let data = response.data else { return }
+                let responseString = NSString(data: data, encoding:CFStringConvertEncodingToNSStringEncoding(0x0422))
+                
+                do {
+                    let doc = try HTML(html: responseString as String? ?? "", encoding: .utf8)
+                    for product in doc.css("table tbody tr a") {
+                        let noticeId = product["onclick"]?.getArrayAfterRegex(regex: "['](.*?)[']")[0] ?? ""
+                        let url = "http://media.ssu.ac.kr/sub.php?code=XxH00AXY&mode=view&board_num=\(noticeId)&category=1"
+                        urlList.append(url)
+                        titleList.append(product.content ?? "")
+                    }
+                    
+                    index = 0
+                    for product in doc.css("td[align='center']") {
+                        if index % 4 == 0 {
+                            let isNotice = product.text ?? ""
+                            if !isNotice.isNumeric() {
+                                isNoticeList.append(true)
+                            } else {
+                                isNoticeList.append(false)
+                            }
+                        }
+                        
+                        if index % 4 == 1 {
+                            authorList.append(product.content ?? "")
+                        } else if index % 4 == 2 {
+                            dateStringList.append(product.content ?? "")
+                        }
+                        index += 1
+                    }
+                    
+                    index = 0
+                    if authorList.count < 1 {
+                        ConfigSetting.canFetchData = false
+                    }
+                    
+                    for _ in authorList {
+                        let noticeItem = Notice(author: authorList[index], title: titleList[index], url: urlList[index], date: dateStringList[index], isNotice: isNoticeList[index])
+                        
+                        noticeList.append(noticeItem)
+                        index += 1
+                    }
+                    
+                    completion(noticeList)
+                } catch let error {
+                    print("Error : \(error)")
+                }
+            case .failure(_):
+                print("Error message:\(String(describing: response.result.error))")
+                break
+            }
+        }
+    }
 }

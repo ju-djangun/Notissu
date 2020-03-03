@@ -65,6 +65,9 @@ class WatchNoticeListPresenter: WatchNoticeListPresenterProtocol {
         case DeptCode.Inmun_French:
             NoticeInmun.parseListFrench(page: page, keyword: keyword, completion: self.view.applyListToInterface)
             break
+        case DeptCode.Inmun_Writing:
+            NoticeInmun.parseListWriting(page: page, keyword: keyword, completion: self.view.applyListToInterface)
+            break
         case DeptCode.Engineering_Chemistry:
             NoticeEngineering.parseListChemistryEngineering(page: page, keyword: keyword, completion: self.view.applyListToInterface)
             break

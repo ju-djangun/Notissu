@@ -36,7 +36,33 @@
         <!--Notice List-->
         <scene sceneID="LjU-hF-LjG">
             <objects>
-                <controller title="Notice List" id="A2N-MZ-6ak"/>
+                <controller title="Notice List" id="A2N-MZ-6ak" customClass="WatchNoticeListViewController" customModule="Notissu_Watch_Extension">
+                    <items>
+                        <table alignment="left" id="e7M-BG-Gf4">
+                            <items>
+                                <tableRow identifier="watchNoticeCell" id="Jz4-Go-9Hy" customClass="WatchNoticeListCell" customModule="Notissu_Watch_Extension">
+                                    <group key="rootItem" width="1" height="47" alignment="left" layout="vertical" id="E3X-AT-WH8">
+                                        <items>
+                                            <label width="123" alignment="left" text="제목" id="7af-w8-kBG">
+                                                <fontDescription key="font" type="boldSystem" pointSize="16"/>
+                                            </label>
+                                            <label width="126" alignment="left" text="날짜" id="UpX-Es-O4C">
+                                                <fontDescription key="font" type="system" pointSize="13"/>
+                                            </label>
+                                        </items>
+                                    </group>
+                                    <connections>
+                                        <outlet property="lblDate" destination="UpX-Es-O4C" id="Mef-Js-MtB"/>
+                                        <outlet property="lblTitle" destination="7af-w8-kBG" id="1aS-rr-Nma"/>
+                                    </connections>
+                                </tableRow>
+                            </items>
+                        </table>
+                    </items>
+                    <connections>
+                        <outlet property="noticeListView" destination="e7M-BG-Gf4" id="MYW-ee-kKr"/>
+                    </connections>
+                </controller>
             </objects>
             <point key="canvasLocation" x="532" y="-164"/>
         </scene>

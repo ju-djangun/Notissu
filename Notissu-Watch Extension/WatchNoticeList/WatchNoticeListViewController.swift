@@ -13,27 +13,33 @@ class WatchNoticeListViewController: WKInterfaceController, WatchNoticeListViewP
     private var presenter: WatchNoticeListPresenter!
     private var page: Int = 0
     
+    @IBOutlet weak var noticeListView: WKInterfaceTable!
+    
     override func awake(withContext context: Any?) {
         super.awake(withContext: context)
         
         self.presenter = WatchNoticeListPresenter(view: self)
-        
-        if let deptCode = WatchConfig.myDeptCode {
-            self.presenter.loadNoticeList(page: 0, keyword: nil, deptCode: deptCode)
-        }
     }
     
     override func willActivate() {
-        // This method is called when watch view controller is about to be visible to user
         super.willActivate()
+        
+        if let deptCode = WatchConfig.myDeptCode {
+            self.presenter.loadNoticeList(page: 1, keyword: nil, deptCode: deptCode)
+        }
     }
-    
+
     override func didDeactivate() {
-        // This method is called when watch view controller is no longer visible
         super.didDeactivate()
     }
     
     func applyListToInterface(list: [Notice]) {
+        self.noticeListView.setNumberOfRows(list.count, withRowType: "watchNoticeCell")
         
+        for (index, item) in list.enumerated() {
+            let row = self.noticeListView.rowController(at: index) as! WatchNoticeListCell
+            
+            row.item = item
+        }
     }
 }

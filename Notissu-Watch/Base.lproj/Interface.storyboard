@@ -2,14 +2,15 @@
 <document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="15705" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="AgC-eL-Hgc">
     <device id="watch38"/>
     <dependencies>
+        <deployment identifier="watchOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="15501"/>
     </dependencies>
     <scenes>
-        <!--Interface Controller-->
+        <!--Home-->
         <scene sceneID="aou-V4-d1y">
             <objects>
-                <controller id="AgC-eL-Hgc" customClass="InterfaceController" customModule="Notissu_Watch" customModuleProvider="target">
+                <controller title="Home" id="AgC-eL-Hgc" customClass="InterfaceController" customModule="Notissu_Watch" customModuleProvider="target">
                     <items>
                         <label width="136" alignment="left" text="내 전공 공지" textAlignment="center" id="quP-TH-Iv5"/>
                         <label alignment="left" text="(MyMajor)" id="nnw-Oh-DOa"/>
@@ -19,13 +20,51 @@
                                 <action selector="onClickSend" destination="AgC-eL-Hgc" id="Ljf-h6-1V8"/>
                             </connections>
                         </button>
+                        <button width="1" alignment="left" title="Move To" id="mEv-J4-P5w">
+                            <connections>
+                                <segue destination="A2N-MZ-6ak" kind="push" id="zWO-QK-S05"/>
+                            </connections>
+                        </button>
                     </items>
                     <connections>
                         <outlet property="lblMyMajor" destination="nnw-Oh-DOa" id="EY7-3E-DOs"/>
                     </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="220" y="345"/>
+            <point key="canvasLocation" x="220" y="-164"/>
+        </scene>
+        <!--Notice List-->
+        <scene sceneID="LjU-hF-LjG">
+            <objects>
+                <controller title="Notice List" id="A2N-MZ-6ak" customClass="WatchNoticeListViewController" customModule="Notissu_Watch_Extension">
+                    <items>
+                        <table alignment="left" id="e7M-BG-Gf4">
+                            <items>
+                                <tableRow identifier="watchNoticeCell" id="Jz4-Go-9Hy" customClass="WatchNoticeListCell" customModule="Notissu_Watch_Extension">
+                                    <group key="rootItem" width="1" height="47" alignment="left" layout="vertical" id="E3X-AT-WH8">
+                                        <items>
+                                            <label width="123" alignment="left" text="제목" id="7af-w8-kBG">
+                                                <fontDescription key="font" type="boldSystem" pointSize="16"/>
+                                            </label>
+                                            <label width="126" alignment="left" text="날짜" id="UpX-Es-O4C">
+                                                <fontDescription key="font" type="system" pointSize="13"/>
+                                            </label>
+                                        </items>
+                                    </group>
+                                    <connections>
+                                        <outlet property="lblDate" destination="UpX-Es-O4C" id="Mef-Js-MtB"/>
+                                        <outlet property="lblTitle" destination="7af-w8-kBG" id="1aS-rr-Nma"/>
+                                    </connections>
+                                </tableRow>
+                            </items>
+                        </table>
+                    </items>
+                    <connections>
+                        <outlet property="noticeListView" destination="e7M-BG-Gf4" id="MYW-ee-kKr"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="532" y="-164"/>
         </scene>
         <!--Static Notification Interface Controller-->
         <scene sceneID="AEw-b0-oYE">

@@ -638,4 +638,76 @@ class NoticeInmun {
             }
         }
     }
+    
+    static func parseListWriting(page: Int, keyword: String?, completion: @escaping ([Notice]) -> Void) {
+        var index = 0
+        
+        let keywordSearch = keyword?.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)
+        let requestURL = NoticeRequestURL.writingURL(page: page, keyword: keywordSearch)
+        
+        self.cleanList()
+        
+        Alamofire.request(requestURL).responseData { response in
+            switch(response.result) {
+            case .success(_):
+                guard let data = response.data else { return }
+                let responseString = NSString(data: data, encoding:CFStringConvertEncodingToNSStringEncoding(0x0422))
+                
+                do {
+                    let doc = try HTML(html: responseString as String? ?? "", encoding: .utf8)
+                    if let product = doc.css("div[id='subTable'] table").first {
+                        let table = product.css("table").makeIterator()
+                        let _ = table.next()
+                        if let tableSection = table.next() {
+                            for noticeRow in tableSection.css("table tr[height='30']") {
+                                for (index, noticeColumn) in noticeRow.css("td").enumerated() {
+                                    switch(index) {
+                                    case 0:
+                                        if page < 2 {
+                                            // 공지 표시
+                                            if (noticeColumn.text ?? "").isEmpty {
+                                                // 공지 표시 있는 부분 (배지 표시)
+                                                isNoticeList.append(true)
+                                            } else {
+                                                isNoticeList.append(false)
+                                            }
+                                        } else {
+                                            isNoticeList.append(false)
+                                        }
+                                    case 1:
+                                        titleList.append(noticeColumn.text ?? "")
+                                        // URL 추출
+                                        let noticeId = (noticeColumn.at_css("a")?["onclick"]?.getArrayAfterRegex(regex: "[(](.*?)[,]")[0] ?? "").replacingOccurrences(of: "(", with: "").replacingOccurrences(of: ",", with: "")
+                                        urlList.append("http://writing.ssu.ac.kr/bbs/bbs.php?table=board_notice&query=view&uid=\(noticeId)&p=1")
+                                    case 2:
+                                        authorList.append(noticeColumn.text ?? "")
+                                    case 3:
+                                        // 조회수
+                                        break
+                                    case 4:
+                                        dateStringList.append(noticeColumn.text ?? "")
+                                    default:
+                                        break
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    
+                    for (index, _) in urlList.enumerated() {
+                        let noticeItem = Notice(author: authorList[index], title: titleList[index], url: urlList[index], date: dateStringList[index], isNotice: isNoticeList[index])
+                        noticeList.append(noticeItem)
+                    }
+                    
+                    completion(noticeList)
+                } catch let error {
+                    print("Error : \(error)")
+                }
+            case .failure(_):
+                print("Error message:\(String(describing: response.result.error))")
+                break
+            }
+        }
+    }
 }
+

@@ -112,6 +112,7 @@
 		DEE38D03240D287700DA5A10 /* WatchNoticeListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE38D02240D287700DA5A10 /* WatchNoticeListPresenter.swift */; };
 		DEE38D05240D288A00DA5A10 /* WatchNoticeListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE38D04240D288A00DA5A10 /* WatchNoticeListModel.swift */; };
 		DEE38D07240D289900DA5A10 /* WatchNoticeListContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE38D06240D289900DA5A10 /* WatchNoticeListContract.swift */; };
+		DEE737F7240E137600522EBA /* WatchNoticeListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE737F6240E137600522EBA /* WatchNoticeListCell.swift */; };
 		DEF56D7523837778003CA0F0 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEF56D7423837778003CA0F0 /* SearchViewController.swift */; };
 		DEF56D782383BF05003CA0F0 /* SchoolViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEF56D772383BF05003CA0F0 /* SchoolViewController.swift */; };
 		DEF56D7A2383BF81003CA0F0 /* SchoolPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEF56D792383BF81003CA0F0 /* SchoolPresenter.swift */; };
@@ -296,6 +297,7 @@
 		DEE38D02240D287700DA5A10 /* WatchNoticeListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchNoticeListPresenter.swift; sourceTree = "<group>"; };
 		DEE38D04240D288A00DA5A10 /* WatchNoticeListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchNoticeListModel.swift; sourceTree = "<group>"; };
 		DEE38D06240D289900DA5A10 /* WatchNoticeListContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchNoticeListContract.swift; sourceTree = "<group>"; };
+		DEE737F6240E137600522EBA /* WatchNoticeListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchNoticeListCell.swift; sourceTree = "<group>"; };
 		DEF56D7423837778003CA0F0 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		DEF56D772383BF05003CA0F0 /* SchoolViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchoolViewController.swift; sourceTree = "<group>"; };
 		DEF56D792383BF81003CA0F0 /* SchoolPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchoolPresenter.swift; sourceTree = "<group>"; };
@@ -573,6 +575,7 @@
 				DEE38D02240D287700DA5A10 /* WatchNoticeListPresenter.swift */,
 				DEE38D04240D288A00DA5A10 /* WatchNoticeListModel.swift */,
 				DEE38D06240D289900DA5A10 /* WatchNoticeListContract.swift */,
+				DEE737F6240E137600522EBA /* WatchNoticeListCell.swift */,
 			);
 			path = WatchNoticeList;
 			sourceTree = "<group>";
@@ -976,6 +979,7 @@
 				DEE38CFB240D27A300DA5A10 /* InterfaceModel.swift in Sources */,
 				DEE38D03240D287700DA5A10 /* WatchNoticeListPresenter.swift in Sources */,
 				DEFEAF8A240D29D2007EDFB2 /* NoticeSoongsil.swift in Sources */,
+				DEE737F7240E137600522EBA /* WatchNoticeListCell.swift in Sources */,
 				DEFEAF84240D29D2007EDFB2 /* NoticeInmun.swift in Sources */,
 				DEFEAF87240D29D2007EDFB2 /* NoticeEconomy.swift in Sources */,
 				DEE38C9E240CEF6500DA5A10 /* WatchConfig.swift in Sources */,

@@ -172,6 +172,8 @@ class NoticeDetailViewController: BaseViewController, WKNavigationDelegate, WKUI
                     case DeptCode.Inmun_Japanese:
                         self.presenter.parseInmun(html: doc, host: "http://japanstu.ssu.ac.kr", completion: self.showWebViewPage)
                         break
+                    case DeptCode.Inmun_Writing:
+                        break
                     case DeptCode.Engineering_Chemistry:
                         self.presenter.parseEngineerChemistry(html: doc, completion: self.showWebViewPage)
                         break

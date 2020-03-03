@@ -655,42 +655,48 @@ class NoticeInmun {
                 
                 do {
                     let doc = try HTML(html: responseString as String? ?? "", encoding: .utf8)
-                    for product in doc.css("table tbody tr a") {
-                        let noticeId = product["onclick"]?.getArrayAfterRegex(regex: "['](.*?)[']")[0] ?? ""
-                        let url = "http://media.ssu.ac.kr/sub.php?code=XxH00AXY&mode=view&board_num=\(noticeId)&category=1"
-                        urlList.append(url)
-                        titleList.append(product.content ?? "")
-                    }
-                    
-                    index = 0
-                    for product in doc.css("td[align='center']") {
-                        if index % 4 == 0 {
-                            let isNotice = product.text ?? ""
-                            if !isNotice.isNumeric() {
-                                isNoticeList.append(true)
-                            } else {
-                                isNoticeList.append(false)
+                    if let product = doc.css("div[id='subTable'] table").first {
+                        let table = product.css("table").makeIterator()
+                        let _ = table.next()
+                        if let tableSection = table.next() {
+                            for noticeRow in tableSection.css("table tr[height='30']") {
+                                for (index, noticeColumn) in noticeRow.css("td").enumerated() {
+                                    switch(index) {
+                                    case 0:
+                                        if page < 2 {
+                                            // 공지 표시
+                                            if (noticeColumn.text ?? "").isEmpty {
+                                                // 공지 표시 있는 부분 (배지 표시)
+                                                isNoticeList.append(true)
+                                            } else {
+                                                isNoticeList.append(false)
+                                            }
+                                        } else {
+                                            isNoticeList.append(false)
+                                        }
+                                    case 1:
+                                        titleList.append(noticeColumn.text ?? "")
+                                        // URL 추출
+                                        let noticeId = (noticeColumn.at_css("a")?["onclick"]?.getArrayAfterRegex(regex: "[(](.*?)[,]")[0] ?? "").replacingOccurrences(of: "(", with: "").replacingOccurrences(of: ",", with: "")
+                                        urlList.append("http://writing.ssu.ac.kr/bbs/bbs.php?table=board_notice&query=view&uid=\(noticeId)&p=1")
+                                    case 2:
+                                        authorList.append(noticeColumn.text ?? "")
+                                    case 3:
+                                        // 조회수
+                                        break
+                                    case 4:
+                                        dateStringList.append(noticeColumn.text ?? "")
+                                    default:
+                                        break
+                                    }
+                                }
                             }
                         }
-                        
-                        if index % 4 == 1 {
-                            authorList.append(product.content ?? "")
-                        } else if index % 4 == 2 {
-                            dateStringList.append(product.content ?? "")
-                        }
-                        index += 1
                     }
                     
-                    index = 0
-                    if authorList.count < 1 {
-                        ConfigSetting.canFetchData = false
-                    }
-                    
-                    for _ in authorList {
+                    for (index, _) in urlList.enumerated() {
                         let noticeItem = Notice(author: authorList[index], title: titleList[index], url: urlList[index], date: dateStringList[index], isNotice: isNoticeList[index])
-                        
                         noticeList.append(noticeItem)
-                        index += 1
                     }
                     
                     completion(noticeList)
@@ -704,3 +710,4 @@ class NoticeInmun {
         }
     }
 }
+

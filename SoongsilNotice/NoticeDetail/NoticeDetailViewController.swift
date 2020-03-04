@@ -33,7 +33,7 @@ class NoticeDetailViewController: BaseViewController, WKNavigationDelegate, WKUI
             self.departmentCode = department?.majorCode
         }
     }
-    var isEucKr       : Bool?
+    var writingUID    : String?
     var departmentCode: DeptCode?
     var noticeTitle   : String?
     var noticeDay     : String?
@@ -60,6 +60,7 @@ class NoticeDetailViewController: BaseViewController, WKNavigationDelegate, WKUI
         self.webView.navigationDelegate = self
         self.attachmentView.delegate = self
         self.attachmentView.dataSource = self
+        self.attachmentView.separatorInset = .zero
         self.attachmentView.tableFooterView = UIView()
         
         self.attachViewHeightConstraint.constant = 0
@@ -116,7 +117,7 @@ class NoticeDetailViewController: BaseViewController, WKNavigationDelegate, WKUI
                     let responseString = NSString(data: data, encoding:CFStringConvertEncodingToNSStringEncoding(0x0422))
                     do {
                         let doc = try HTML(html: responseString as String? ?? "", encoding: .utf8)
-                        self.presenter.parseWriting(html: doc, host: nil, completion: self.showWebViewPage)
+                        self.presenter.parseWriting(html: doc, uid: self.writingUID ?? "", host: nil, completion: self.showWebViewPage)
                     } catch let error {
                         print("ERROR : \(error)")
                     }
@@ -277,6 +278,9 @@ class NoticeDetailViewController: BaseViewController, WKNavigationDelegate, WKUI
             UIView.animate(withDuration: 0.3) {
                 self.view.layoutIfNeeded()
             }
+        } else if self.departmentCode == DeptCode.Inmun_Writing {
+            self.attachViewHeightConstraint.constant = 64
+            self.attachmentView.isScrollEnabled = false
         }
         
         for attachment in attachments {
@@ -289,22 +293,32 @@ class NoticeDetailViewController: BaseViewController, WKNavigationDelegate, WKUI
     
     // Attachment Table View Delegate Functions
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return attachments.count
+        if self.departmentCode == DeptCode.Inmun_Writing {
+            return 1
+        } else {
+            return attachments.count
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "noticeAttachmentCell", for: indexPath) as! NoticeAttachmentCell
-        
-        print("cell : \(attachments.count)")
-        if self.attachments.count > 0 {
-            cell.viewController = self
-            cell.cellDelegate = self
-            cell.attachment = attachments[indexPath.row]
-            cell.majorCode = self.departmentCode
+        if self.departmentCode == DeptCode.Inmun_Writing {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "notSupportAttachment", for: indexPath)
+            cell.selectionStyle = .none
+            return cell
+        } else {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "noticeAttachmentCell", for: indexPath) as! NoticeAttachmentCell
+            
+            print("cell : \(attachments.count)")
+            if self.attachments.count > 0 {
+                cell.viewController = self
+                cell.cellDelegate = self
+                cell.attachment = attachments[indexPath.row]
+                cell.majorCode = self.departmentCode
+            }
+            cell.selectionStyle  = .none
+            
+            return cell
         }
-        cell.selectionStyle  = .none
-        
-        return cell
     }
     
     func showDocumentInteractionController(filePath: String) {

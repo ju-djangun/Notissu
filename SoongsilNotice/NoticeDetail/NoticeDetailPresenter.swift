@@ -231,32 +231,33 @@ class NoticeDetailPresenter: NoticeDetail {
         var attachmentList = [Attachment]()
         
         for link in html.css("table[class='bbs-view'] a") {
-            //            print(link["href"])
-            //            print(link.content)
             attachmentList.append(Attachment(fileName: link.content ?? "", fileURL: link["href"] ?? ""))
         }
         
         completion(attachmentList, detailHTML)
     }
     
-    func parseWriting(html: HTMLDocument, host: String?, completion: @escaping ([Attachment], String) -> Void) {
-        let tables = html.css("span[id^='PrintLayer546'] table").makeIterator()
+    func parseWriting(html: HTMLDocument, uid: String?, host: String?, completion: @escaping ([Attachment], String) -> Void) {
+        let tables = html.css("span[id^='PrintLayer\(uid ?? "")'] table").makeIterator()
         let _ = tables.next()
+        var contentHTML: String?
         
-        let contentHTML = tables.next()?.innerHTML
-        
-        
-        var detailHTML = "\(htmlStart)\(contentHTML)\(htmlEnd)"
-        detailHTML = detailHTML.replacingOccurrences(of: "src=\"/", with: "src=\"\(host ?? "")/")
-        var attachmentList = [Attachment]()
-        
-        for link in html.css("table[class='bbs-view'] a") {
-            //            print(link["href"])
-            //            print(link.content)
-            attachmentList.append(Attachment(fileName: link.content ?? "", fileURL: link["href"] ?? ""))
+        guard let contentTable = tables.next() else {
+            return
         }
         
-        completion(attachmentList, detailHTML)
+        for (index, tr) in contentTable.css("tr").enumerated() {
+            switch index {
+            case 4:
+                // Content
+                contentHTML = tr.innerHTML ?? ""
+            default:
+                break
+            }
+        }
+        
+        let detailHTML = "\(htmlStart)\(contentHTML ?? "")\(htmlEnd)"
+        completion([Attachment](), detailHTML)
     }
     
     // 공과대학

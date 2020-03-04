@@ -21,6 +21,9 @@
 		DE0F8F1F2373F44C006A0B49 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE0F8F1E2373F44C006A0B49 /* HomeViewController.swift */; };
 		DE0F8F212373FDD7006A0B49 /* NoticeEngineering.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE0F8F202373FDD7006A0B49 /* NoticeEngineering.swift */; };
 		DE0F8F2323740041006A0B49 /* NoticeLaw.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE0F8F2223740041006A0B49 /* NoticeLaw.swift */; };
+		DE1772D3240F64F400A58A66 /* Encode+EUC-KR.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1772D2240F64F400A58A66 /* Encode+EUC-KR.swift */; };
+		DE1772D4240F64F400A58A66 /* Encode+EUC-KR.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1772D2240F64F400A58A66 /* Encode+EUC-KR.swift */; };
+		DE1772D5240F64F400A58A66 /* Encode+EUC-KR.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1772D2240F64F400A58A66 /* Encode+EUC-KR.swift */; };
 		DE29613623703F4C0074F24B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE29613523703F4C0074F24B /* AppDelegate.swift */; };
 		DE29613D23703F4C0074F24B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DE29613B23703F4C0074F24B /* Main.storyboard */; };
 		DE29613F23703F4D0074F24B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DE29613E23703F4D0074F24B /* Assets.xcassets */; };
@@ -218,6 +221,7 @@
 		DE0F8F1E2373F44C006A0B49 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		DE0F8F202373FDD7006A0B49 /* NoticeEngineering.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeEngineering.swift; sourceTree = "<group>"; };
 		DE0F8F2223740041006A0B49 /* NoticeLaw.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeLaw.swift; sourceTree = "<group>"; };
+		DE1772D2240F64F400A58A66 /* Encode+EUC-KR.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Encode+EUC-KR.swift"; sourceTree = "<group>"; };
 		DE29613223703F4C0074F24B /* Notissu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Notissu.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE29613523703F4C0074F24B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DE29613C23703F4C0074F24B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -454,6 +458,7 @@
 				DE53D0B223F8EA4E00AEFCE2 /* CoreDataUtil.swift */,
 				B0B67AEA2400BB060027D038 /* MajorModel.swift */,
 				DE7E5DB024093555007F0DF2 /* String+FileType.swift */,
+				DE1772D2240F64F400A58A66 /* Encode+EUC-KR.swift */,
 			);
 			path = SoongsilNotice;
 			sourceTree = "<group>";
@@ -900,6 +905,7 @@
 				DE53D14D23FC21DB00AEFCE2 /* BookmarkContract.swift in Sources */,
 				DE7E5DB124093555007F0DF2 /* String+FileType.swift in Sources */,
 				DE296155237195CD0074F24B /* ConfigSetting.swift in Sources */,
+				DE1772D3240F64F400A58A66 /* Encode+EUC-KR.swift in Sources */,
 				DE04186024021BCA00486BF3 /* NotissuResource.swift in Sources */,
 				DE55424623784879004E01EB /* SplashViewController.swift in Sources */,
 				DE29614F2370FCD20074F24B /* NoticeListContract.swift in Sources */,
@@ -961,6 +967,7 @@
 				DE85B92E23DD29CE001FB35C /* NoticeIT.swift in Sources */,
 				DE04186124021BCA00486BF3 /* NotissuResource.swift in Sources */,
 				DEBE386B23EFEFC2006F51AB /* WidgetNoticeView.swift in Sources */,
+				DE1772D4240F64F400A58A66 /* Encode+EUC-KR.swift in Sources */,
 				DE85B93323DD29CE001FB35C /* NoticeBusiness.swift in Sources */,
 				DE85B93F23DD300A001FB35C /* TodayContract.swift in Sources */,
 				DE64BE8823DD253C00DF46C5 /* TodayViewController.swift in Sources */,
@@ -987,6 +994,7 @@
 				DEFEAF83240D29D2007EDFB2 /* NoticeLaw.swift in Sources */,
 				DEE38D01240D285100DA5A10 /* WatchNoticeListViewController.swift in Sources */,
 				DEE38CF7240D278F00DA5A10 /* InterfacePresenter.swift in Sources */,
+				DE1772D5240F64F400A58A66 /* Encode+EUC-KR.swift in Sources */,
 				DEE38D07240D289900DA5A10 /* WatchNoticeListContract.swift in Sources */,
 				DEFEAF8B240D29DB007EDFB2 /* NoticeURL.swift in Sources */,
 				DEFEAF85240D29D2007EDFB2 /* NoticeNaturalScience.swift in Sources */,

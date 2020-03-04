@@ -13,6 +13,7 @@ class Notice: Codable {
     var title         : String?
     var url           : String?
     var date          : String?
+    var writingUID    : String?
     var isNotice      : Bool?
     var hasAttachment : Bool?
     
@@ -23,6 +24,16 @@ class Notice: Codable {
         self.date          = date
         self.isNotice      = isNotice
         self.hasAttachment = false
+    }
+    
+    init(author: String, title: String, url: String, date: String, isNotice: Bool, writingUID: String) {
+        self.author        = author
+        self.title         = title
+        self.url           = url
+        self.date          = date
+        self.isNotice      = isNotice
+        self.hasAttachment = false
+        self.writingUID    = writingUID
     }
     
     init(author: String, title: String, url: String, date: String, isNotice: Bool, hasAttachment: Bool) {

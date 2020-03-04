@@ -94,6 +94,28 @@
                                             <outlet property="fileTypeIcon" destination="HXa-8J-ujT" id="vht-5e-gDR"/>
                                         </connections>
                                     </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="notSupportAttachment" rowHeight="53" id="lei-3a-FHc">
+                                        <rect key="frame" x="0.0" y="81" width="414" height="53"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="lei-3a-FHc" id="Hqd-05-fSf">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="53"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="첨부파일을 지원하지 않는 전공입니다." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LMy-uK-Z9q">
+                                                    <rect key="frame" x="10" y="16" width="394" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" name="notissuGray500s"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="LMy-uK-Z9q" firstAttribute="centerX" secondItem="Hqd-05-fSf" secondAttribute="centerX" id="CI4-2W-Rdj"/>
+                                                <constraint firstItem="LMy-uK-Z9q" firstAttribute="leading" secondItem="Hqd-05-fSf" secondAttribute="leading" constant="10" id="PMu-eV-o3b"/>
+                                                <constraint firstItem="LMy-uK-Z9q" firstAttribute="centerY" secondItem="Hqd-05-fSf" secondAttribute="centerY" id="UUR-hv-OSp"/>
+                                                <constraint firstAttribute="trailing" secondItem="LMy-uK-Z9q" secondAttribute="trailing" constant="10" id="eAc-Ux-1Na"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
                                 </prototypes>
                             </tableView>
                         </subviews>
@@ -1224,19 +1246,19 @@
             <color white="0.95999997854232788" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </namedColor>
         <namedColor name="home_major_title">
-            <color red="0.0039215686274509803" green="0.67843137254901964" blue="0.8666666666666667" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <color red="0.0040000001899898052" green="0.67799997329711914" blue="0.86699998378753662" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <namedColor name="launch_bg">
-            <color red="0.0039215686274509803" green="0.67843137254901964" blue="0.8666666666666667" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <color red="0.0040000001899898052" green="0.67799997329711914" blue="0.86699998378753662" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <namedColor name="nav_bg">
-            <color red="0.0039215686274509803" green="0.67843137254901964" blue="0.8666666666666667" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.0040000001899898052" green="0.67799997329711914" blue="0.86699998378753662" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="notissuBlue1000s">
-            <color red="0.0039215686274509803" green="0.67843137254901964" blue="0.8666666666666667" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.0040000001899898052" green="0.67799997329711914" blue="0.86699998378753662" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="notissuButton1000s">
-            <color red="0.0039215686274509803" green="0.67843137254901964" blue="0.8666666666666667" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.0040000001899898052" green="0.67799997329711914" blue="0.86699998378753662" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="notissuColorWhite100s">
             <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1248,7 +1270,7 @@
             <color red="0.0" green="0.0" blue="0.0" alpha="0.89999997615814209" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="tab_icon_tint">
-            <color red="0.0039215686274509803" green="0.67843137254901964" blue="0.8666666666666667" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <color red="0.0040000001899898052" green="0.67799997329711914" blue="0.86699998378753662" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
     </resources>
 </document>

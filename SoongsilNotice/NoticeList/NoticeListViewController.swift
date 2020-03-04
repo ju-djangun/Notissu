@@ -179,6 +179,9 @@ class NoticeListViewController: BaseViewController, NoticeListView, UITableViewD
         let storyBoard = self.storyboard!
         let noticeDetailController = storyBoard.instantiateViewController(withIdentifier: "noticeDetailVC") as? NoticeDetailViewController
         
+        if self.department?.majorCode == DeptCode.Inmun_Writing {
+            noticeDetailController?.writingUID = noticeList[indexPath.row].writingUID
+        }
         noticeDetailController?.department = self.department
         noticeDetailController?.noticeItem = noticeList[indexPath.row]
         self.navigationController?.pushViewController(noticeDetailController!, animated: true)

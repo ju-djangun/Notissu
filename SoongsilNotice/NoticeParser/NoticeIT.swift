@@ -53,7 +53,6 @@ class NoticeIT {
                                 let pageString = product.at_xpath("a")?["href"] ?? ""
                                 
                                 if !pageString.isEmpty {
-                                    
                                     switch index % 2 {
                                     case 0:
                                         // Attachment

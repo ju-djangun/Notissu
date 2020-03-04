@@ -640,11 +640,9 @@ class NoticeInmun {
     }
     
     static func parseListWriting(page: Int, keyword: String?, completion: @escaping ([Notice]) -> Void) {
-        var index = 0
-        
         let keywordSearch = keyword?.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)
         let requestURL = NoticeRequestURL.writingURL(page: page, keyword: keywordSearch)
-        
+        var noticeUidList = [String]()
         self.cleanList()
         
         Alamofire.request(requestURL).responseData { response in
@@ -678,6 +676,8 @@ class NoticeInmun {
                                         titleList.append(noticeColumn.text ?? "")
                                         // URL 추출
                                         let noticeId = (noticeColumn.at_css("a")?["onclick"]?.getArrayAfterRegex(regex: "[(](.*?)[,]")[0] ?? "").replacingOccurrences(of: "(", with: "").replacingOccurrences(of: ",", with: "")
+                                        
+                                        noticeUidList.append(noticeId)
                                         urlList.append("http://writing.ssu.ac.kr/bbs/bbs.php?table=board_notice&query=view&uid=\(noticeId)&p=1")
                                     case 2:
                                         authorList.append(noticeColumn.text ?? "")
@@ -695,7 +695,7 @@ class NoticeInmun {
                     }
                     
                     for (index, _) in urlList.enumerated() {
-                        let noticeItem = Notice(author: authorList[index], title: titleList[index], url: urlList[index], date: dateStringList[index], isNotice: isNoticeList[index])
+                        let noticeItem = Notice(author: authorList[index], title: titleList[index], url: urlList[index], date: dateStringList[index], isNotice: isNoticeList[index], writingUID: noticeUidList[index])
                         noticeList.append(noticeItem)
                     }
                     

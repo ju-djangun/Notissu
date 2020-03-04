@@ -640,8 +640,6 @@ class NoticeInmun {
     }
     
     static func parseListWriting(page: Int, keyword: String?, completion: @escaping ([Notice]) -> Void) {
-        var index = 0
-        
         let keywordSearch = keyword?.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)
         let requestURL = NoticeRequestURL.writingURL(page: page, keyword: keywordSearch)
         

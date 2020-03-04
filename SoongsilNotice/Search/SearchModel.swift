@@ -14,11 +14,15 @@ class SearchModel: SearchModelProtocol {
     
     init() {
         for deptName in DeptName.allCases {
-            majorList.append(deptName)
+            if deptName != DeptName.Inmun_Writing {
+                majorList.append(deptName)
+            }
         }
         
         for deptCode in DeptCode.allCases {
-            majorCodeList.append(deptCode)
+            if deptCode != DeptCode.Inmun_Writing {
+                majorCodeList.append(deptCode)
+            }
         }
     }
     

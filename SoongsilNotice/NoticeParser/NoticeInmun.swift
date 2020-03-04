@@ -640,7 +640,8 @@ class NoticeInmun {
     }
     
     static func parseListWriting(page: Int, keyword: String?, completion: @escaping ([Notice]) -> Void) {
-        let keywordSearch = keyword?.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)
+//        let keywordSearch = keyword?.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)
+        let keywordSearch = EuckrUtil.euckrEncoding(keyword)
         let requestURL = NoticeRequestURL.writingURL(page: page, keyword: keywordSearch)
         var noticeUidList = [String]()
         self.cleanList()

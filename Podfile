@@ -23,7 +23,7 @@ target 'SoongsilNotice' do
 #  end
 end
 
-target 'Notissu-Watch Extension' do
-  pod 'Alamofire'
-  pod 'Kanna'
+# target 'Notissu-Watch Extension' do
+#  pod 'Alamofire'
+#  pod 'Kanna'
 end

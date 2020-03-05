@@ -44,6 +44,7 @@ class SchoolViewController: BaseViewController, SchoolView, UITableViewDelegate,
         self.noticeListView.delegate = self
         self.noticeListView.dataSource = self
         self.noticeListView.separatorInset = .zero
+        self.noticeListView.separatorStyle = .none
         self.noticeListView.tableFooterView = UIView()
         self.noticeListView.reloadData()
         self.refresh()

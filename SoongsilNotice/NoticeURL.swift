@@ -176,11 +176,12 @@ struct NoticeRequestURL {
     }
     
     static func writingURL(page: Int, keyword: String?) -> String {
-        if keyword != nil {
-            return "http://writing.ssu.ac.kr/bbs/bbs.php?table=board_notice&where=ALL&keyword=\(keyword ?? "")&search_sql=BB_NAME%20LIKE%20%27|||\(keyword ?? "")|||%27%20OR%20BB_SUBJECT%20LIKE%20%27|||\(keyword ?? "")|||%27%20OR%20BB_CONTENT%20LIKE%20%27|||\(keyword ?? "")|||%27&where=ALL&keyword=UCC&search_step=1&search_sql=BB_NAME%20LIKE%20%27|||\(keyword ?? "")|||%27%20OR%20BB_SUBJECT%20LIKE%20%27|||\(keyword ?? "")|||%27%20OR%20BB_CONTENT%20LIKE%20%27|||\(keyword ?? "")|||%27&p=\(page)"
-        } else {
-            return "http://writing.ssu.ac.kr/bbs/bbs.php?table=board_notice&p=\(page)"
-        }
+//        if !(keyword ?? "").isEmpty {
+//            return "http://writing.ssu.ac.kr/bbs/bbs.php?table=board_notice&where=ALL&keyword=\(keyword!)&search_step=1&search_sql=BB_NAME%20LIKE%20'%7C%7C%7C\(keyword!)%7C%7C%7C'%20OR%20BB_SUBJECT%20LIKE%20'%7C%7C%7C\(keyword!)%7C%7C%7C'%20OR%20BB_CONTENT%20LIKE%20'%7C%7C%7C\(keyword!)%7C%7C%7C'&p=\(page)"
+//        } else {
+//            return "http://writing.ssu.ac.kr/bbs/bbs.php?table=board_notice&p=\(page)"
+//        }
+        return "http://writing.ssu.ac.kr/bbs/bbs.php?table=board_notice&p=\(page)"
     }
     
     // 융합특성화 자유전공학부

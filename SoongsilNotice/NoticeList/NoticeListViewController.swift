@@ -137,11 +137,42 @@ class NoticeListViewController: BaseViewController, NoticeListView, UITableViewD
         self.showAlertOK(title: "메인 전공으로 등록되었습니다")
     }
     
+    private func setGradientNavigationBar() {
+        if let navigationBar = self.navigationController?.navigationBar {
+            let gradient = CAGradientLayer()
+            var bounds = navigationBar.bounds
+            bounds.size.height += UIApplication.shared.statusBarFrame.size.height
+            gradient.frame = bounds
+            gradient.colors = [UIColor(named: "notissuNaviGradientTop")!.cgColor, UIColor(named: "notissuNaviGradientBottom")!.cgColor]
+            gradient.startPoint = CGPoint(x: 0, y: 0)
+            gradient.endPoint = CGPoint(x: 0, y: 1)
+            
+            if let image = getImageFrom(gradientLayer: gradient) {
+                navigationBar.setBackgroundImage(image, for: UIBarMetrics.default)
+            }
+        }
+    }
+    
+    private func getImageFrom(gradientLayer:CAGradientLayer) -> UIImage? {
+        var gradientImage:UIImage?
+        UIGraphicsBeginImageContext(gradientLayer.frame.size)
+        if let context = UIGraphicsGetCurrentContext() {
+            gradientLayer.render(in: context)
+            gradientImage = UIGraphicsGetImageFromCurrentImageContext()?.resizableImage(withCapInsets: UIEdgeInsets.zero, resizingMode: .stretch)
+        }
+        UIGraphicsEndImageContext()
+        return gradientImage
+    }
+    
     override func viewDidLoad() {
+        self.setGradientNavigationBar()
+        self.navigationController?.navigationBar.setValue(true, forKey: "hidesShadow")
+        self.navigationController?.navigationBar.isTranslucent = false
+        
         self.noticeListView.delegate = self
         self.noticeListView.dataSource = self
         self.noticeListView.tableFooterView = UIView()
-        self.noticeListView.separatorInset = .zero
+        self.noticeListView.separatorStyle = .none
         self.noticeListView.reloadData()
         
         if #available(iOS 10.0, *) {

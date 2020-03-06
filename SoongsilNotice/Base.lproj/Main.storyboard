@@ -173,7 +173,7 @@
                                                     <rect key="frame" x="414" y="0.0" width="0.0" height="66"/>
                                                     <subviews>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="attachmennt" translatesAutoresizingMaskIntoConstraints="NO" id="kcI-u9-qg2">
-                                                            <rect key="frame" x="12" y="15" width="64" height="36"/>
+                                                            <rect key="frame" x="12" y="24" width="32" height="18"/>
                                                         </imageView>
                                                     </subviews>
                                                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -278,7 +278,7 @@
                                                     <rect key="frame" x="398" y="0.0" width="0.0" height="66"/>
                                                     <subviews>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iconDownloadable" translatesAutoresizingMaskIntoConstraints="NO" id="787-4J-qfD">
-                                                            <rect key="frame" x="12" y="9" width="48" height="48"/>
+                                                            <rect key="frame" x="12" y="21" width="24" height="24"/>
                                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </imageView>
                                                     </subviews>
@@ -441,7 +441,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="main_ios_arrow" translatesAutoresizingMaskIntoConstraints="NO" id="Gm7-qo-TUO">
-                                                    <rect key="frame" x="393" y="-17" width="11" height="104"/>
+                                                    <rect key="frame" x="393" y="9" width="11" height="52"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="11" id="QnV-lr-yhf"/>
                                                     </constraints>
@@ -534,15 +534,31 @@
                                             <constraint firstAttribute="bottom" secondItem="Umj-4e-AJA" secondAttribute="bottom" id="u1u-l7-9EQ"/>
                                         </constraints>
                                     </view>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PVp-NL-TSF">
+                                        <rect key="frame" x="340" y="16" width="64" height="32"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="64" id="LCS-l5-rua"/>
+                                            <constraint firstAttribute="height" constant="32" id="yL5-PS-1Vt"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
+                                        <state key="normal" title="전공 변경">
+                                            <color key="titleColor" name="notissuAccent1000s"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="onClickModifyProfile:" destination="0Lg-Vb-cRH" eventType="touchUpInside" id="MEo-dd-qg4"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
+                                    <constraint firstItem="PVp-NL-TSF" firstAttribute="centerY" secondItem="oIQ-yd-rFH" secondAttribute="centerY" id="0oF-Kb-10J"/>
                                     <constraint firstItem="Jim-FZ-dKd" firstAttribute="leading" secondItem="oIQ-yd-rFH" secondAttribute="leadingMargin" constant="10" id="EVS-11-fqZ"/>
                                     <constraint firstAttribute="height" constant="64" id="FlA-DD-PwK"/>
                                     <constraint firstItem="Rmy-jW-b6o" firstAttribute="centerY" secondItem="oIQ-yd-rFH" secondAttribute="centerY" id="R7g-fF-5PD"/>
                                     <constraint firstAttribute="trailing" secondItem="Rmy-jW-b6o" secondAttribute="trailing" constant="8" id="ZNT-T0-veH"/>
                                     <constraint firstItem="Rmy-jW-b6o" firstAttribute="leading" secondItem="Jim-FZ-dKd" secondAttribute="trailing" constant="8" id="isL-Lx-8yZ"/>
                                     <constraint firstItem="Jim-FZ-dKd" firstAttribute="centerY" secondItem="Rmy-jW-b6o" secondAttribute="centerY" id="m0s-nq-za5"/>
+                                    <constraint firstAttribute="trailing" secondItem="PVp-NL-TSF" secondAttribute="trailing" constant="10" id="pIC-sV-WtK"/>
                                     <constraint firstItem="Jim-FZ-dKd" firstAttribute="centerY" secondItem="oIQ-yd-rFH" secondAttribute="centerY" id="rb9-Yc-0cN"/>
                                 </constraints>
                             </view>
@@ -622,6 +638,7 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="더보기" image="plus" selectedImage="plus" id="Msr-09-glF"/>
                     <connections>
+                        <outlet property="btnModifyProfile" destination="PVp-NL-TSF" id="XPr-sx-gme"/>
                         <outlet property="majorLbl" destination="Umj-4e-AJA" id="oe1-Pi-Gby"/>
                         <outlet property="moreTableView" destination="LkB-wq-hEc" id="VnR-bp-oGW"/>
                         <outlet property="versionContainerView" destination="uTK-ht-Fhx" id="5Bd-on-VuF"/>
@@ -1057,7 +1074,7 @@
                                                     <rect key="frame" x="398" y="0.0" width="0.0" height="70"/>
                                                     <subviews>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iconDownloadable" translatesAutoresizingMaskIntoConstraints="NO" id="B0t-nV-Fg1">
-                                                            <rect key="frame" x="12" y="11" width="48" height="48"/>
+                                                            <rect key="frame" x="12" y="23" width="24" height="24"/>
                                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </imageView>
                                                     </subviews>
@@ -1187,7 +1204,7 @@
                                                     <rect key="frame" x="398" y="0.0" width="0.0" height="70"/>
                                                     <subviews>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iconDownloadable" translatesAutoresizingMaskIntoConstraints="NO" id="AAQ-tm-Qnf">
-                                                            <rect key="frame" x="12" y="11" width="48" height="48"/>
+                                                            <rect key="frame" x="12" y="23" width="24" height="24"/>
                                                         </imageView>
                                                     </subviews>
                                                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -1279,6 +1296,83 @@
             </objects>
             <point key="canvasLocation" x="518.84057971014499" y="-601.33928571428567"/>
         </scene>
+        <!--내 정보 변경-->
+        <scene sceneID="Ty8-wJ-It4">
+            <objects>
+                <viewController storyboardIdentifier="modifyVC" title="내 정보 변경" id="0ED-s4-RRb" customClass="ModifyProfileViewController" customModule="Notissu" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="JST-Js-2NY">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="t1A-bi-4HS">
+                                <rect key="frame" x="0.0" y="444" width="414" height="216"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="216" id="BKK-nu-PP6"/>
+                                </constraints>
+                            </pickerView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wPy-cx-RbP">
+                                <rect key="frame" x="16" y="696" width="382" height="46"/>
+                                <color key="backgroundColor" name="notissuButton1000s"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="46" id="Qs5-mq-ebu"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <state key="normal" title="변경하기">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="4"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.clipsToBounds" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="onClickNext:" destination="0ED-s4-RRb" eventType="touchUpInside" id="Bs9-1B-x4f"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="변경하고자 하는" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Psh-eP-kom">
+                                <rect key="frame" x="20" y="361.5" width="374" height="19.5"/>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="16"/>
+                                <color key="textColor" name="notissuGray900s"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="전공을 선택해주세요" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F6J-T5-HbK">
+                                <rect key="frame" x="20" y="385" width="374" height="29"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="24"/>
+                                <color key="textColor" name="notissuGray900s"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="SY6-Po-XVh" firstAttribute="bottom" secondItem="wPy-cx-RbP" secondAttribute="bottom" constant="120" id="1Eb-PP-yOr"/>
+                            <constraint firstItem="Psh-eP-kom" firstAttribute="centerX" secondItem="SY6-Po-XVh" secondAttribute="centerX" id="2pq-Lq-zAj"/>
+                            <constraint firstItem="t1A-bi-4HS" firstAttribute="leading" secondItem="SY6-Po-XVh" secondAttribute="leading" id="7yx-C9-WKB"/>
+                            <constraint firstItem="t1A-bi-4HS" firstAttribute="centerX" secondItem="SY6-Po-XVh" secondAttribute="centerX" id="AbP-3D-ieA"/>
+                            <constraint firstItem="F6J-T5-HbK" firstAttribute="centerX" secondItem="SY6-Po-XVh" secondAttribute="centerX" id="HKB-3I-HO0"/>
+                            <constraint firstItem="F6J-T5-HbK" firstAttribute="leading" secondItem="SY6-Po-XVh" secondAttribute="leading" constant="20" id="Iu0-UV-tGn"/>
+                            <constraint firstItem="wPy-cx-RbP" firstAttribute="leading" secondItem="SY6-Po-XVh" secondAttribute="leading" constant="16" id="PMI-fK-Jq1"/>
+                            <constraint firstItem="F6J-T5-HbK" firstAttribute="top" secondItem="Psh-eP-kom" secondAttribute="bottom" constant="4" id="QZ5-bR-zNi"/>
+                            <constraint firstItem="wPy-cx-RbP" firstAttribute="centerX" secondItem="SY6-Po-XVh" secondAttribute="centerX" id="Zyy-wh-kDl"/>
+                            <constraint firstItem="wPy-cx-RbP" firstAttribute="top" secondItem="t1A-bi-4HS" secondAttribute="bottom" constant="36" id="hSu-KQ-1ZB"/>
+                            <constraint firstItem="SY6-Po-XVh" firstAttribute="trailing" secondItem="wPy-cx-RbP" secondAttribute="trailing" constant="16" id="jK3-ut-Si1"/>
+                            <constraint firstItem="Psh-eP-kom" firstAttribute="leading" secondItem="SY6-Po-XVh" secondAttribute="leading" constant="20" id="jUH-u0-S3t"/>
+                            <constraint firstItem="SY6-Po-XVh" firstAttribute="trailing" secondItem="F6J-T5-HbK" secondAttribute="trailing" constant="20" id="khP-Gu-G02"/>
+                            <constraint firstItem="SY6-Po-XVh" firstAttribute="trailing" secondItem="Psh-eP-kom" secondAttribute="trailing" constant="20" id="psG-sf-okZ"/>
+                            <constraint firstItem="SY6-Po-XVh" firstAttribute="trailing" secondItem="t1A-bi-4HS" secondAttribute="trailing" id="qAG-kE-WGk"/>
+                            <constraint firstItem="t1A-bi-4HS" firstAttribute="top" secondItem="F6J-T5-HbK" secondAttribute="bottom" constant="30" id="w5H-IE-tAq"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="SY6-Po-XVh"/>
+                    </view>
+                    <connections>
+                        <outlet property="nextButton" destination="wPy-cx-RbP" id="e6Z-XT-62v"/>
+                        <outlet property="pickerView" destination="t1A-bi-4HS" id="s3d-Yb-7r2"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KWi-Pr-b8l" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1364" y="951"/>
+        </scene>
     </scenes>
     <resources>
         <image name="ad_info" width="543" height="105"/>
@@ -1301,6 +1395,9 @@
             <color red="0.0040000001899898052" green="0.67799997329711914" blue="0.86699998378753662" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <namedColor name="nav_bg">
+            <color red="0.0040000001899898052" green="0.67799997329711914" blue="0.86699998378753662" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="notissuAccent1000s">
             <color red="0.0040000001899898052" green="0.67799997329711914" blue="0.86699998378753662" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="notissuBlue1000s">

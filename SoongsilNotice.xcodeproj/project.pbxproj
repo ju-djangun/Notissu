@@ -35,6 +35,7 @@
 		DE2961592371ADEE0074F24B /* NoticeDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2961582371ADEE0074F24B /* NoticeDetailViewController.swift */; };
 		DE29615B237289D60074F24B /* NoticeDetailContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE29615A237289D60074F24B /* NoticeDetailContract.swift */; };
 		DE29615E23728A330074F24B /* NoticeDetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE29615D23728A330074F24B /* NoticeDetailPresenter.swift */; };
+		DE4B18EB241208E7007FD285 /* ModifyProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE4B18EA241208E7007FD285 /* ModifyProfileViewController.swift */; };
 		DE501C472374FC9D0053055A /* NoticeInmun.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE501C462374FC9D0053055A /* NoticeInmun.swift */; };
 		DE501C492374FD250053055A /* NoticeURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE501C482374FD250053055A /* NoticeURL.swift */; };
 		DE501C4B23750DCB0053055A /* notissu_anim.json in Resources */ = {isa = PBXBuildFile; fileRef = DE501C4A23750DCA0053055A /* notissu_anim.json */; };
@@ -179,6 +180,7 @@
 		DE2961582371ADEE0074F24B /* NoticeDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeDetailViewController.swift; sourceTree = "<group>"; };
 		DE29615A237289D60074F24B /* NoticeDetailContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeDetailContract.swift; sourceTree = "<group>"; };
 		DE29615D23728A330074F24B /* NoticeDetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeDetailPresenter.swift; sourceTree = "<group>"; };
+		DE4B18EA241208E7007FD285 /* ModifyProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModifyProfileViewController.swift; sourceTree = "<group>"; };
 		DE501C462374FC9D0053055A /* NoticeInmun.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeInmun.swift; sourceTree = "<group>"; };
 		DE501C482374FD250053055A /* NoticeURL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeURL.swift; sourceTree = "<group>"; };
 		DE501C4A23750DCA0053055A /* notissu_anim.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = notissu_anim.json; sourceTree = SOURCE_ROOT; };
@@ -416,6 +418,7 @@
 				DE55424A2379340A004E01EB /* MoreViewController.swift */,
 				DEBFDC44237E391C003888D9 /* OpenSourceViewController.swift */,
 				DEBFDC46237E3950003888D9 /* OpenSourceTableViewCell.swift */,
+				DE4B18EA241208E7007FD285 /* ModifyProfileViewController.swift */,
 			);
 			path = More;
 			sourceTree = "<group>";
@@ -705,6 +708,7 @@
 				DE8C73842379BB2E008F2FE1 /* NoticeEconomy.swift in Sources */,
 				DE501C472374FC9D0053055A /* NoticeInmun.swift in Sources */,
 				DE0F8F1823739C8A006A0B49 /* NoticeAttachmentCell.swift in Sources */,
+				DE4B18EB241208E7007FD285 /* ModifyProfileViewController.swift in Sources */,
 				DE5542402377CC31004E01EB /* NoticeNaturalScience.swift in Sources */,
 				DE29614B2370FC720074F24B /* NoticeListViewController.swift in Sources */,
 				DE53D15123FC21ED00AEFCE2 /* BookmarkModel.swift in Sources */,

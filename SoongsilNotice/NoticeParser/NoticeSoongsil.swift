@@ -63,7 +63,14 @@ class NoticeSoongsil {
                                         self.titleList.append(td.text ?? "")
                                         
                                         // URL
-                                        self.urlList.append(td.css("a").first?["href"] ?? "")
+                                        let urlScript = td.css("a").first?["href"] ?? ""
+                                        let boardNo = urlScript.getArrayAfterRegex(regex: "['](.*?)[']")[0].replacingOccurrences(of: "'", with: "")
+                                        let no = urlScript.getArrayAfterRegex(regex: "['](.*?)[']")[1].replacingOccurrences(of: "'", with: "")
+                                        
+                                        let detailURL = "https://ssudorm.ssu.ac.kr:444/SShostel/mall_main.php?viewform=B0001_noticeboard_view&formpath=&board_type=&next=0&board_no=\(boardNo)&no=\(no)"
+                                        
+                                        self.urlList.append(detailURL)
+                                        print("detailURL : \(detailURL)")
                                         
                                         // Attachment
                                         if (td.css("img").first?["src"] ?? "").contains("ldimg052.gif") {

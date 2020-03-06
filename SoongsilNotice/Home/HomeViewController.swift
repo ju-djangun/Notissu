@@ -9,7 +9,7 @@
 import UIKit
 
 class HomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-    var sections = ["IT 대학", "법과대학", "인문대학", "공과대학", "자연과학대학", "경영대학", "경제통상대학", "사회과학대학", "융합특성화자유전공학부"]
+    var sections = ["숭실대학교", "IT 대학", "법과대학", "인문대학", "공과대학", "자연과학대학", "경영대학", "경제통상대학", "사회과학대학", "융합특성화자유전공학부"]
 
     @IBOutlet var majorListView: UITableView!
     
@@ -51,22 +51,24 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         let noticeListViewController = storyBoard.instantiateViewController(withIdentifier: "noticeListVC") as? NoticeListViewController
         
         if indexPath.section == 0 {
-            noticeListViewController?.department = MajorModel.majorListIT[indexPath.row]
+            noticeListViewController?.department = MajorModel.majorListSoongsil[indexPath.row]
         } else if indexPath.section == 1 {
-            noticeListViewController?.department = MajorModel.majorListLaw[indexPath.row]
+            noticeListViewController?.department = MajorModel.majorListIT[indexPath.row]
         } else if indexPath.section == 2 {
-            noticeListViewController?.department = MajorModel.majorListInmun[indexPath.row]
+            noticeListViewController?.department = MajorModel.majorListLaw[indexPath.row]
         } else if indexPath.section == 3 {
-            noticeListViewController?.department = MajorModel.majorListEngineer[indexPath.row]
+            noticeListViewController?.department = MajorModel.majorListInmun[indexPath.row]
         } else if indexPath.section == 4 {
-            noticeListViewController?.department = MajorModel.majorListNatural[indexPath.row]
+            noticeListViewController?.department = MajorModel.majorListEngineer[indexPath.row]
         } else if indexPath.section == 5 {
-            noticeListViewController?.department = MajorModel.majorListBusiness[indexPath.row]
+            noticeListViewController?.department = MajorModel.majorListNatural[indexPath.row]
         } else if indexPath.section == 6 {
-            noticeListViewController?.department = MajorModel.majorListEconomy[indexPath.row]
+            noticeListViewController?.department = MajorModel.majorListBusiness[indexPath.row]
         } else if indexPath.section == 7 {
-            noticeListViewController?.department = MajorModel.majorListSocial[indexPath.row]
+            noticeListViewController?.department = MajorModel.majorListEconomy[indexPath.row]
         } else if indexPath.section == 8 {
+            noticeListViewController?.department = MajorModel.majorListSocial[indexPath.row]
+        } else if indexPath.section == 9 {
             noticeListViewController?.department = MajorModel.majorConvergence
         }
         noticeListViewController?.isSearchResult = false
@@ -77,22 +79,24 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if section == 0 {
-            return MajorModel.majorListIT.count
+            return MajorModel.majorListSoongsil.count
         } else if section == 1 {
-            return MajorModel.majorListLaw.count
+            return MajorModel.majorListIT.count
         } else if section == 2 {
-            return MajorModel.majorListInmun.count
+            return MajorModel.majorListLaw.count
         } else if section == 3 {
-            return  MajorModel.majorListEngineer.count
+            return MajorModel.majorListInmun.count
         } else if section == 4 {
-            return MajorModel.majorListNatural.count
+            return  MajorModel.majorListEngineer.count
         } else if section == 5 {
-            return MajorModel.majorListBusiness.count
+            return MajorModel.majorListNatural.count
         } else if section == 6 {
-            return MajorModel.majorListEconomy.count
+            return MajorModel.majorListBusiness.count
         } else if section == 7 {
-            return MajorModel.majorListSocial.count
+            return MajorModel.majorListEconomy.count
         } else if section == 8 {
+            return MajorModel.majorListSocial.count
+        } else if section == 9 {
             return 1
         } else {
             return 0
@@ -105,24 +109,25 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "majorCell", for: indexPath) as! HomeCell
-        
         if indexPath.section == 0 {
-            cell.major = MajorModel.majorListIT[indexPath.row]
+            cell.major = MajorModel.majorListSoongsil[indexPath.row]
         } else if indexPath.section == 1 {
-            cell.major = MajorModel.majorListLaw[indexPath.row]
+            cell.major = MajorModel.majorListIT[indexPath.row]
         } else if indexPath.section == 2 {
-            cell.major = MajorModel.majorListInmun[indexPath.row]
+            cell.major = MajorModel.majorListLaw[indexPath.row]
         } else if indexPath.section == 3 {
-            cell.major = MajorModel.majorListEngineer[indexPath.row]
+            cell.major = MajorModel.majorListInmun[indexPath.row]
         } else if indexPath.section == 4 {
-            cell.major = MajorModel.majorListNatural[indexPath.row]
+            cell.major = MajorModel.majorListEngineer[indexPath.row]
         } else if indexPath.section == 5 {
-            cell.major = MajorModel.majorListBusiness[indexPath.row]
+            cell.major = MajorModel.majorListNatural[indexPath.row]
         } else if indexPath.section == 6 {
-            cell.major = MajorModel.majorListEconomy[indexPath.row]
+            cell.major = MajorModel.majorListBusiness[indexPath.row]
         } else if indexPath.section == 7 {
-            cell.major = MajorModel.majorListSocial[indexPath.row]
+            cell.major = MajorModel.majorListEconomy[indexPath.row]
         } else if indexPath.section == 8 {
+            cell.major = MajorModel.majorListSocial[indexPath.row]
+        } else if indexPath.section == 9 {
             cell.major = MajorModel.majorConvergence
         } else {
             return UITableViewCell()

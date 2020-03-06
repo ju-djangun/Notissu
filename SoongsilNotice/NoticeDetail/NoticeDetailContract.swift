@@ -27,6 +27,8 @@ protocol NoticeDetail {
     
     func setFavorite(notice: Notice, majorCode: DeptCode, majorName: DeptName, favorite: Bool)
     
+    func parseDormitory(html: HTMLDocument, completion: @escaping ([Attachment], String) -> Void)
+    
     func parseSoongsil(html: HTMLDocument, completion: @escaping ([Attachment], String) -> Void)
     
     func parseComputer(html: HTMLDocument, completion: @escaping ([Attachment], String) -> Void)

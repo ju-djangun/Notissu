@@ -9,6 +9,11 @@
 import Foundation
 
 struct MajorModel {
+    // 학교 부대 시설
+    static var majorCodeListSoongsil    = [DeptCode.Dormitory]
+    static var majorNameListSoongsil    = [DeptName.Dormitory]
+    static var majorEngNameListSoongsil = [DeptNameEng.Dormitory]
+    
     // IT대학
     static var majorCodeListIT = [DeptCode.IT_Computer, DeptCode.IT_Media, DeptCode.IT_Electric, DeptCode.IT_Software, DeptCode.IT_SmartSystem]
     static var majorNameListIT = [DeptName.IT_Computer, DeptName.IT_Media, DeptName.IT_Electric, DeptName.IT_Software, DeptName.IT_SmartSystem]
@@ -51,6 +56,7 @@ struct MajorModel {
     
     static var majorConvergence = Major(majorCode: DeptCode.MIX_mix, majorName: DeptName.MIX_mix, majorNameEng: DeptNameEng.MIX_mix)
     
+    static var majorListSoongsil = [Major]()
     static var majorListIT       = [Major]()
     static var majorListLaw      = [Major]()
     static var majorListInmun    = [Major]()
@@ -61,6 +67,10 @@ struct MajorModel {
     static var majorListSocial   = [Major]()
     
     static func initializeMajor() {
+        for index in 0..<majorCodeListSoongsil.count {
+            majorListSoongsil.append(Major(majorCode: majorCodeListSoongsil[index], majorName: majorNameListSoongsil[index], majorNameEng: majorEngNameListSoongsil[index]))
+        }
+        
         for index in 0..<majorCodeListIT.count {
             majorListIT.append(Major(majorCode: majorCodeListIT[index], majorName: majorNameListIT[index], majorNameEng: majorEngNameListIT[index]))
         }

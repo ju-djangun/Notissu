@@ -76,6 +76,9 @@ class TodayPresenter: TodayPresenterProtocol {
         case DeptCode.Soongsil:
             NoticeSoongsil.parseSchoolNotice(page: page, keyword: keyword, completion: self.view.applyToTableView(list:))
             break
+        case DeptCode.Dormitory:
+            NoticeSoongsil.parseDormitoryNotice(page: page, keyword: keyword, completion: self.view.applyToTableView(list:))
+            break
         case DeptCode.IT_Computer :
             NoticeIT.parseListComputer(page: page, keyword: keyword, completion: self.view.applyToTableView(list:))
             break

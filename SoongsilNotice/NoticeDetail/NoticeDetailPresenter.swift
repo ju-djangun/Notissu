@@ -98,6 +98,13 @@ class NoticeDetailPresenter: NoticeDetail {
         }
     }
     
+    func parseDormitory(html: HTMLDocument, completion: @escaping ([Attachment], String) -> Void) {
+        let contentHTML = html.css("td[class=descript]").first?.innerHTML ?? ""
+        let detailHTML = "\(htmlStart)\(contentHTML)\(htmlEnd)"
+        
+        completion([Attachment](), detailHTML)
+    }
+    
     func parseSoongsil(html: HTMLDocument, completion: @escaping ([Attachment], String) -> Void) {
         var index = 0
         var contentHTML = ""

@@ -54,11 +54,12 @@ class NoticeListViewController: BaseViewController, NoticeListView, UITableViewD
         
         if listType == .myList {
             self.navigationController?.navigationBar.topItem?.title = self.noticeDeptName?.rawValue
-        } else if listType == .normalList {
-            if self.noticeDeptCode != BaseViewController.noticeDeptCode && self.searchKeyword == nil {
-                self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(onClickAddMajor))
-            }
         }
+//        else if listType == .normalList {
+//                   if self.noticeDeptCode != BaseViewController.noticeDeptCode && self.searchKeyword == nil {
+//                       self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(onClickAddMajor))
+//                   }
+//               }
         
         self.presenter = NoticeListPresenter(view: self)
         self.noticeListView.delegate = self
@@ -117,25 +118,25 @@ class NoticeListViewController: BaseViewController, NoticeListView, UITableViewD
             }
         }
     }
-    
-    @objc func onClickAddMajor(sender: UIBarButtonItem) {
-        self.showAlert(title: "메인 전공 등록", msg: "메인 전공으로 등록하면 첫 화면에 해당 전공 공지사항이 나옵니다.", handler: self.doRegisterFavorite(_:))
-    }
-    
-    func doRegisterFavorite(_ action: UIAlertAction) {
-        // 메인 전공 등록
-        BaseViewController.noticeDeptCode = self.noticeDeptCode
-        BaseViewController.noticeDeptName = self.noticeDeptName
-        BaseViewController.noticeMajor    = self.department
-        
-        UserDefaults(suiteName: "group.com.elliott.Notissu")?.set(BaseViewController.noticeDeptCode!.rawValue, forKey: "myDeptCode")
-        UserDefaults(suiteName: "group.com.elliott.Notissu")?.set(BaseViewController.noticeDeptName!.rawValue, forKey: "myDeptName")
-        UserDefaults.standard.setValue(BaseViewController.noticeDeptCode!.rawValue, forKey: "myDeptCode")
-        UserDefaults.standard.setValue(BaseViewController.noticeDeptName!.rawValue, forKey: "myDeptName")
-        
-        self.navigationItem.rightBarButtonItem = nil
-        self.showAlertOK(title: "메인 전공으로 등록되었습니다")
-    }
+//    
+//    @objc func onClickAddMajor(sender: UIBarButtonItem) {
+//        self.showAlert(title: "메인 전공 등록", msg: "메인 전공으로 등록하면 첫 화면에 해당 전공 공지사항이 나옵니다.", handler: self.doRegisterFavorite(_:))
+//    }
+//    
+//    func doRegisterFavorite(_ action: UIAlertAction) {
+//        // 메인 전공 등록
+//        BaseViewController.noticeDeptCode = self.noticeDeptCode
+//        BaseViewController.noticeDeptName = self.noticeDeptName
+//        BaseViewController.noticeMajor    = self.department
+//        
+//        UserDefaults(suiteName: "group.com.elliott.Notissu")?.set(BaseViewController.noticeDeptCode!.rawValue, forKey: "myDeptCode")
+//        UserDefaults(suiteName: "group.com.elliott.Notissu")?.set(BaseViewController.noticeDeptName!.rawValue, forKey: "myDeptName")
+//        UserDefaults.standard.setValue(BaseViewController.noticeDeptCode!.rawValue, forKey: "myDeptCode")
+//        UserDefaults.standard.setValue(BaseViewController.noticeDeptName!.rawValue, forKey: "myDeptName")
+//        
+//        self.navigationItem.rightBarButtonItem = nil
+//        self.showAlertOK(title: "메인 전공으로 등록되었습니다")
+//    }
     
     private func setGradientNavigationBar() {
         if let navigationBar = self.navigationController?.navigationBar {

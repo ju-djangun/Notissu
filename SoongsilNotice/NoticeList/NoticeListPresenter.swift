@@ -51,6 +51,9 @@ class NoticeListPresenter: NoticePresenter {
         case DeptCode.Soongsil:
             NoticeSoongsil.parseSchoolNotice(page: page, keyword: keyword, completion: self.view.applyToTableView)
             break
+        case DeptCode.Dormitory:
+            NoticeSoongsil.parseDormitoryNotice(page: page, keyword: keyword, completion: self.view.applyToTableView)
+            break
         case DeptCode.IT_Computer :
             NoticeIT.parseListComputer(page: page, keyword: keyword, completion: self.view.applyToTableView)
             break

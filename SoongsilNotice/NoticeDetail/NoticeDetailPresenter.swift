@@ -98,6 +98,21 @@ class NoticeDetailPresenter: NoticeDetail {
         }
     }
     
+    func parseDormitory(html: HTMLDocument, completion: @escaping ([Attachment], String) -> Void) {
+        let contentHTML = html.css("td[class=descript]").first?.innerHTML ?? ""
+        let detailHTML = "\(htmlStart)\(contentHTML)\(htmlEnd)"
+        var attachmentList = [Attachment]()
+        
+        for attachment in html.css("td[align=left] a") {
+            print("🚨...\(attachment.text) - \(attachment["href"])")
+            if let fileName = attachment.text?.replacingOccurrences(of: "첨부)", with: ""), let fileLink = attachment["href"] {
+                attachmentList.append(Attachment(fileName: fileName, fileURL: fileLink))
+            }
+        }
+        
+        completion(attachmentList, detailHTML)
+    }
+    
     func parseSoongsil(html: HTMLDocument, completion: @escaping ([Attachment], String) -> Void) {
         var index = 0
         var contentHTML = ""

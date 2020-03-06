@@ -15,6 +15,7 @@ class MoreViewController : BaseViewController, UITableViewDelegate, UITableViewD
     @IBOutlet var moreTableView: UITableView!
     @IBOutlet var majorLbl: UILabel!
     
+    @IBOutlet var btnModifyProfile: UIButton!
     @IBOutlet weak var versionContainerView: UIView!
     
     var session: WCSession?
@@ -36,6 +37,12 @@ class MoreViewController : BaseViewController, UITableViewDelegate, UITableViewD
         NotificationCenter.default.addObserver(self, selector: #selector(onLoadFromWidget),
                                                name: NSNotification.Name("widget"),
                                                object: nil)
+        
+        self.btnModifyProfile.layer.borderColor = UIColor(named: "notissuAccent1000s")?.cgColor
+        self.btnModifyProfile.layer.borderWidth = 1
+        
+        self.btnModifyProfile.layer.masksToBounds = true
+        self.btnModifyProfile.layer.cornerRadius = 6
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -66,6 +73,12 @@ class MoreViewController : BaseViewController, UITableViewDelegate, UITableViewD
                 self.tabBarController?.selectedIndex = index
             }
         }
+    }
+    
+    @IBAction func onClickModifyProfile(_ sender: Any) {
+        let storyBoard = self.storyboard!
+        let noticeDetailController = storyBoard.instantiateViewController(withIdentifier: "modifyVC") as? ModifyProfileViewController
+        self.navigationController?.pushViewController(noticeDetailController!, animated: true)
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

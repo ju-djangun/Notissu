@@ -102,7 +102,8 @@ public enum DeptCode: Int, CaseIterable {
     // 융합특성화 자유전공학부
     case MIX_mix          = 40
     
-    case Soongsil = 100
+    case Soongsil  = 100
+    case Dormitory = 101
 }
 
 public enum DeptName: String, CaseIterable {
@@ -164,6 +165,8 @@ public enum DeptName: String, CaseIterable {
     case MIX_mix = "융합특성화자유전공학부"
     
     case Soongsil = "숭실대학교 공지"
+    
+    case Dormitory = "레지던스홀(기숙사)"
 }
 
 public enum DeptNameEng: String {
@@ -226,6 +229,8 @@ public enum DeptNameEng: String {
     case MIX_mix = "School of Convergence Specialization"
     
     case Soongsil = "SSU Notice"
+    
+    case Dormitory = "Residence Hall"
 }
 
 struct ConfigSetting {

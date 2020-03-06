@@ -109,7 +109,7 @@ class NoticeDetailViewController: BaseViewController, WKNavigationDelegate, WKUI
             return
         }
         
-        if self.departmentCode! == DeptCode.Inmun_Writing {
+        if self.departmentCode! == DeptCode.Inmun_Writing || self.departmentCode! == DeptCode.Dormitory {
             Alamofire.request(url).responseData { response in
                 switch(response.result) {
                 case .success(_):
@@ -117,7 +117,14 @@ class NoticeDetailViewController: BaseViewController, WKNavigationDelegate, WKUI
                     let responseString = NSString(data: data, encoding:CFStringConvertEncodingToNSStringEncoding(0x0422))
                     do {
                         let doc = try HTML(html: responseString as String? ?? "", encoding: .utf8)
-                        self.presenter.parseWriting(html: doc, uid: self.writingUID ?? "", host: nil, completion: self.showWebViewPage)
+                        switch(self.departmentCode!) {
+                        case DeptCode.Dormitory:
+                            self.presenter.parseDormitory(html: doc, completion: self.showWebViewPage)
+                        case DeptCode.Inmun_Writing:
+                            self.presenter.parseWriting(html: doc, uid: self.writingUID ?? "", host: nil, completion: self.showWebViewPage)
+                        default:
+                            break
+                        }
                     } catch let error {
                         print("ERROR : \(error)")
                     }
@@ -136,6 +143,9 @@ class NoticeDetailViewController: BaseViewController, WKNavigationDelegate, WKUI
                         switch(self.departmentCode!) {
                         case DeptCode.Soongsil:
                             self.presenter.parseSoongsil(html: doc, completion: self.showWebViewPage)
+                            break
+                        case DeptCode.Dormitory:
+                            self.presenter.parseDormitory(html: doc, completion: self.showWebViewPage)
                             break
                         case DeptCode.IT_Computer:
                             self.presenter.parseComputer(html: doc, completion: self.showWebViewPage)

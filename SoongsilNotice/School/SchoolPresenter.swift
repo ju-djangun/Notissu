@@ -18,6 +18,7 @@ class SchoolPresenter : SchoolPresenterIf {
     }
     
     func parseSchoolNotice(page: Int, keyword: String?) {
-        NoticeSoongsil.parseSchoolNotice(page: page, keyword: keyword, completion: self.view!.applyTableView)
+//        NoticeSoongsil.parseSchoolNotice(page: page, keyword: keyword, completion: self.view!.applyTableView)
+        NoticeSoongsil.parseDormitoryNotice(page: page, keyword: keyword, completion: self.view!.applyTableView)
     }
 }

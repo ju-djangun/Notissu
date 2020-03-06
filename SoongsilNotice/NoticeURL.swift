@@ -36,6 +36,11 @@ struct NoticeRequestURL {
         return "https://scatch.ssu.ac.kr/%EA%B3%B5%EC%A7%80%EC%82%AC%ED%95%AD/page/\(page)/?f=all&keyword=\(keyword ?? "")"
     }
     
+    static func SSU_Dormitory(page: Int, keyword: String?) -> String {
+        let offset = (page < 1 ? 0 : (page - 1)) * 15
+        return "https://ssudorm.ssu.ac.kr:444/SShostel/mall_main.php?viewform=B0001_noticeboard_list&formpath=&board_type=&next=\(offset)&board_no=1&Q=&W=title&Q=\(EuckrUtil.euckrEncoding(keyword) ?? "")"
+    }
+    
     // 경영대학
     static func businessBiz(page: Int, keyword: String?) -> String {
         return "http://biz.ssu.ac.kr/bbs/list.do?&bId=BBS_03_NOTICE&sc_title=\(keyword ?? "")&page=\(page)"

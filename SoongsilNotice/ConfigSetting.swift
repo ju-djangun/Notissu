@@ -166,7 +166,7 @@ public enum DeptName: String, CaseIterable {
     
     case Soongsil = "숭실대학교 공지"
     
-    case Dormitory = "Residence Hall"
+    case Dormitory = "레지던스홀(기숙사)"
 }
 
 public enum DeptNameEng: String {

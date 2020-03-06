@@ -9,7 +9,7 @@
 import UIKit
 
 class HomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-    var sections = ["숭실대학교", "IT 대학", "법과대학", "인문대학", "공과대학", "자연과학대학", "경영대학", "경제통상대학", "사회과학대학", "융합특성화자유전공학부"]
+    var sections = ["학교 생활", "IT 대학", "법과대학", "인문대학", "공과대학", "자연과학대학", "경영대학", "경제통상대학", "사회과학대학", "융합특성화자유전공학부"]
 
     @IBOutlet var majorListView: UITableView!
     

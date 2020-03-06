@@ -73,34 +73,35 @@ public enum DeptCode: Int, CaseIterable {
     case Inmun_History = 20 // 사학과
     case Inmun_Philosophy = 21 // 철학과
     case Inmun_Writing = 22
+//    case Inmun_Film = 23
     
     // 자연과학대학
-    case NaturalScience_Math = 23 // 수학과
-    case NaturalScience_Chemistry = 24 // 화학과
-    case NaturalScience_Physics = 25 // 물리학과
-    case NaturalScience_Actuarial = 26 // 정보통계 보험수리학과
-    case NaturalScience_Medical = 27 // 의생명시스템학부
+    case NaturalScience_Math = 24 // 수학과
+    case NaturalScience_Chemistry = 25 // 화학과
+    case NaturalScience_Physics = 26 // 물리학과
+    case NaturalScience_Actuarial = 27 // 정보통계 보험수리학과
+    case NaturalScience_Medical = 28 // 의생명시스템학부
     
     // 경영대학
-    case Business_biz = 28 // 경영학부
-    case Business_venture = 29 // 벤처중소기업학과
-    case Business_Account = 30 // 회계학과
-    case Business_Finance = 31 // 금융학부
+    case Business_biz = 29 // 경영학부
+    case Business_venture = 30 // 벤처중소기업학과
+    case Business_Account = 31 // 회계학과
+    case Business_Finance = 32 // 금융학부
     
     // 경제통상대학
-    case Economy_Economics = 32 // 경제학과
-    case Economy_GlobalCommerce = 33 // 글로벌통상학과
+    case Economy_Economics = 33 // 경제학과
+    case Economy_GlobalCommerce = 34 // 글로벌통상학과
     
     // 사회과학대학
-    case Social_Welfare = 34 // 사회복지학부
-    case Social_Administration = 35 // 행정학부
-    case Social_Sociology = 36 // 정보사회학과
-    case Social_Journalism = 37 // 언론홍보학과
-    case Social_LifeLong = 38 // 평생교육학과
-    case Social_Political = 39 // 정치외교학과
+    case Social_Welfare = 35 // 사회복지학부
+    case Social_Administration = 36 // 행정학부
+    case Social_Sociology = 37 // 정보사회학과
+    case Social_Journalism = 38 // 언론홍보학과
+    case Social_LifeLong = 39 // 평생교육학과
+    case Social_Political = 40 // 정치외교학과
     
     // 융합특성화 자유전공학부
-    case MIX_mix          = 40
+    case MIX_mix          = 41
     
     case Soongsil  = 100
     case Dormitory = 101
@@ -134,7 +135,8 @@ public enum DeptName: String, CaseIterable {
     case Inmun_Japanese = "일어일문학과"
     case Inmun_History = "사학과"
     case Inmun_Philosophy = "철학과"
-    case Inmun_Writing = "문예창작학과"
+    case Inmun_Writing = "예술창작학부 문예창작전공"
+//    case Inmun_Film = "예술창작학부 영화예술전공"
     
     // 자연과학대학
     case NaturalScience_Math = "수학과" // 수학과
@@ -198,7 +200,8 @@ public enum DeptNameEng: String {
     case Inmun_Japanese = "Japanese Language & Literature"
     case Inmun_History = "Department of History"
     case Inmun_Philosophy = "Department of Philosophy"
-    case Inmun_Writing = "Major in Creative Writing"
+    case Inmun_Writing = "Arts Creation - Major in Creative Writing"
+//    case Inmun_Film = "Arts Creation - School of Film Arts"
     
     // 자연과학대학
     case NaturalScience_Math = "College of Mathematics" // 수학과

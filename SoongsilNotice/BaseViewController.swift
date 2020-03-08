@@ -17,12 +17,21 @@ class BaseViewController: UIViewController {
     static var noticeDeptName: DeptName?
     static var noticeMajor   : Major?
     
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        if let vc = self.navigationController?.topViewController {
+            return vc.preferredStatusBarStyle
+        } else {
+            return .lightContent
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        self.navigationController?.navigationBar.barStyle = .black
         self.checkUpdate()
     }
     

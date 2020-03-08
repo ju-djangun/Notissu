@@ -62,8 +62,11 @@ class SchoolViewController: BaseViewController, SchoolView, UITableViewDelegate,
         
         bannerView.backgroundColor = UIColor(named: "notissuWhite1000s")!
         addBannerViewToView(bannerView)
-        
+#if DEBUG
+        bannerView.adUnitID = "ca-app-pub-3940256099942544/2934735716"
+#else
         bannerView.adUnitID = "ca-app-pub-8965771939775493/8407428627"
+#endif
         bannerView.rootViewController = self
         bannerView.load(GADRequest())
         bannerView.delegate = self

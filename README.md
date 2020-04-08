@@ -7,8 +7,9 @@ Soongsil University Notice application by major.
   
 ## Developer  
 *Kim Tae In*  
+*iOS Developer*  
 ( Soongsil University School of Computer Science & Engineering )  
-Email : [della.kimko@gmail.com](della.kimko@gmail.com)  
+Email : [della.kimko@gmail.com](della.kimko@gmail.com)    
   
 ## License  
 Apache 2.0 License

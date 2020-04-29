@@ -1,4 +1,4 @@
-# Notissu
+# Notissu - Notice Information Application (iOS)
 Soongsil University Notice application by major.   
 ![Version](https://img.shields.io/badge/license-Apache%202.0-red.svg?style=flat)
 ![Version](https://img.shields.io/badge/version-v1.4-blue.svg?style=flat)

@@ -24,6 +24,8 @@ Soongsil University School Notice
 Soongsil University School Notice Search  
 Notice Today Extension (Widget)  
 Notice Bookmark  
+  
+Modularization : Notice (by Dept.)
 
 ## Will be updated Shortly  
 Application Notice Push Notification (To share Important Information with users)  

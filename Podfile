@@ -18,11 +18,6 @@ target 'SoongsilNotice' do
     inherit! :search_paths
   end
 
-#  target 'Notissu-Watch Extension' do
-#  	pod 'Alamofire'
-#  end
-end
-
 # target 'Notissu-Watch Extension' do
 #  pod 'Alamofire'
 #  pod 'Kanna'

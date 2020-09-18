@@ -40,10 +40,10 @@ class NoticeEconomy {
         
         self.cleanList()
         
-        Alamofire.request(requestURL).responseString(encoding: .utf8) { response in
+        AF.request(requestURL).responseString(encoding: .utf8, completionHandler: { response in
             switch(response.result) {
             case .success(_):
-                if let data = response.result.value {
+                if let data = response.value {
                     do {
                         let doc = try HTML(html: data, encoding: .utf8)
                         for product in doc.css("table[class='bbs-list']") {
@@ -120,10 +120,10 @@ class NoticeEconomy {
                     completion(noticeList)
                 }
             case .failure(_):
-                print("Error message:\(String(describing: response.result.error))")
+                print("Error message:\(String(describing: response.error))")
                 break
             }
-        }
+        })
     }
     
     static func parseListGlobalCommerce(page: Int, keyword: String?, completion: @escaping ([Notice]) -> Void) {
@@ -134,10 +134,10 @@ class NoticeEconomy {
         
         self.cleanList()
         
-        Alamofire.request(requestURL).responseString(encoding: .utf8) { response in
+        AF.request(requestURL).responseString(encoding: .utf8, completionHandler: { response in
             switch(response.result) {
             case .success(_):
-                if let data = response.result.value {
+                if let data = response.value {
                     do {
                         let doc = try HTML(html: data, encoding: .utf8)
                         for product in doc.css("table[class='bbs-list']") {
@@ -210,9 +210,9 @@ class NoticeEconomy {
                     completion(noticeList)
                 }
             case .failure(_):
-                print("Error message:\(String(describing: response.result.error))")
+                print("Error message:\(String(describing: response.error))")
                 break
             }
-        }
+        })
     }
 }

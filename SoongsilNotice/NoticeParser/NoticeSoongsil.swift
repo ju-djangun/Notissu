@@ -36,7 +36,7 @@ class NoticeSoongsil {
         
         self.cleanList()
         
-        Alamofire.request(requestURL).responseData { response in
+        AF.request(requestURL).responseData(completionHandler: { response in
             switch(response.result) {
             case .success(_):
                 guard let data = response.data else { return }
@@ -101,10 +101,10 @@ class NoticeSoongsil {
                     print("Error : \(error)")
                 }
             case .failure(_):
-                print("Error message:\(String(describing: response.result.error))")
+                print("Error message:\(String(describing: response.error))")
                 break
             }
-        }
+        })
     }
     
     static func parseSchoolNotice(page: Int, keyword: String?, completion: @escaping ([Notice]) -> Void) {
@@ -118,7 +118,7 @@ class NoticeSoongsil {
         let requestURL = NoticeRequestURL.SSU_Catch(page: page, keyword: keywordSearch)
         
         var index = 0
-        Alamofire.request(requestURL).responseString { response in
+        AF.request(requestURL).responseString(completionHandler: { response in
             switch(response.result) {
             case .success(_):
                 guard let data = response.data else { return }
@@ -157,10 +157,10 @@ class NoticeSoongsil {
                     print("Error : \(error)")
                 }
             case .failure(_):
-                print("Error message:\(String(describing: response.result.error))")
+                print("Error message:\(String(describing: response.error))")
                 break
             }
-        }
+        })
     }
 }
 

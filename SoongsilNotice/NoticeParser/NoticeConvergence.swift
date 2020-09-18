@@ -39,10 +39,10 @@ class NoticeConvergence {
         
         self.cleanList()
         
-        Alamofire.request(requestURL).responseString(encoding: .utf8) { response in
+        AF.request(requestURL).responseString(encoding: .utf8, completionHandler: { response in
             switch(response.result) {
             case .success(_):
-                if let data = response.result.value {
+                if let data = response.value {
                     do {
                         let doc = try HTML(html: data, encoding: .utf8)
                         index = 0
@@ -100,10 +100,10 @@ class NoticeConvergence {
                     completion(noticeList)
                 }
             case .failure(_):
-                print("Error message:\(String(describing: response.result.error))")
+                print("Error message:\(String(describing: response.error))")
                 break
             }
-        }
+        })
     }
 }
 

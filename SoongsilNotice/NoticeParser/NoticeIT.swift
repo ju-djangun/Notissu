@@ -40,10 +40,10 @@ class NoticeIT {
         
         self.cleanList()
         
-        Alamofire.request(requestURL).responseString(encoding: .utf8) { response in
+        AF.request(requestURL).responseString(encoding: .utf8, completionHandler: { response in
             switch(response.result) {
             case .success(_):
-                if let data = response.result.value {
+                if let data = response.value {
                     do {
                         let doc = try HTML(html: data, encoding: .utf8)
                         for product in doc.xpath("//table/tbody/tr/*") {
@@ -136,10 +136,10 @@ class NoticeIT {
                     }
                 }
             case .failure(_):
-                print("Error message:\(String(describing: response.result.error))")
+                print("Error message:\(String(describing: response.error))")
                 break
             }
-        }
+        })
     }
     
     static func parseListMedia(page: Int, keyword: String?, completion: @escaping ([Notice]) -> Void) {
@@ -150,7 +150,7 @@ class NoticeIT {
         
         self.cleanList()
         
-        Alamofire.request(requestURL).responseString { response in
+        AF.request(requestURL).responseString(completionHandler: { response in
             switch(response.result) {
             case .success(_):
                 guard let data = response.data else { return }
@@ -201,10 +201,10 @@ class NoticeIT {
                     print("Error : \(error)")
                 }
             case .failure(_):
-                print("Error message:\(String(describing: response.result.error))")
+                print("Error message:\(String(describing: response.error))")
                 break
             }
-        }
+        })
     }
     
     static func parseListSoftware(page: Int, keyword: String?, completion: @escaping ([Notice]) -> Void) {
@@ -215,10 +215,10 @@ class NoticeIT {
         
         self.cleanList()
         
-        Alamofire.request(requestURL).responseString(encoding: .utf8) { response in
+        AF.request(requestURL).responseString(encoding: .utf8, completionHandler: { response in
             switch(response.result) {
             case .success(_):
-                if let data = response.result.value {
+                if let data = response.value {
                     do {
                         let doc = try HTML(html: data, encoding: .utf8)
                         for product in doc.css("td[class^=num]") {
@@ -276,10 +276,10 @@ class NoticeIT {
                     completion(noticeList)
                 }
             case .failure(_):
-                print("Error message:\(String(describing: response.result.error))")
+                print("Error message:\(String(describing: response.error))")
                 break
             }
-        }
+        })
     }
     
     static func parseListElectric(page: Int, keyword: String?, completion: @escaping ([Notice]) -> Void) {
@@ -290,12 +290,12 @@ class NoticeIT {
         
         self.cleanList()
         
-        Alamofire.request(requestURL).responseString { response in
+        AF.request(requestURL).responseString(completionHandler: { response in
             //            print("\(response.result.isSuccess)")
             //            print(response.result.value ?? "")
             switch(response.result) {
             case .success(_):
-                if let data = response.result.value {
+                if let data = response.value {
                     print(data)
                     do {
                         let doc = try HTML(html: data, encoding: .utf8)
@@ -344,10 +344,10 @@ class NoticeIT {
                 
                 completion(noticeList)
             case .failure(_):
-                print("Error message:\(String(describing: response.result.error))")
+                print("Error message:\(String(describing: response.error))")
                 break
             }
-        }
+        })
     }
     
     static func parseListSmartSystem(page: Int, keyword: String?, completion: @escaping ([Notice]) -> Void) {
@@ -358,10 +358,10 @@ class NoticeIT {
         
         self.cleanList()
         
-        Alamofire.request(requestURL).responseString(encoding: .utf8) { response in
+        AF.request(requestURL).responseString(encoding: .utf8, completionHandler: { response in
             switch(response.result) {
             case .success(_):
-                if let data = response.result.value {
+                if let data = response.value {
                     do {
                         let doc = try HTML(html: data, encoding: .utf8)
                         
@@ -404,10 +404,10 @@ class NoticeIT {
                 
                 completion(noticeList)
             case .failure(_):
-                print("Error message:\(String(describing: response.result.error))")
+                print("Error message:\(String(describing: response.error))")
                 break
             }
-        }
+        })
     }
     
 }

@@ -40,10 +40,10 @@ class NoticeEngineering {
         
         self.cleanList()
         
-        Alamofire.request(requestURL).responseString(encoding: .utf8) { response in
+        AF.request(requestURL).responseString(encoding: .utf8, completionHandler: { response in
             switch(response.result) {
             case .success(_):
-                if let data = response.result.value {
+                if let data = response.value {
                     do {
                         let doc = try HTML(html: data, encoding: .utf8)
                         for product in doc.css("table[class^='t_list hover'] td") {
@@ -91,10 +91,10 @@ class NoticeEngineering {
                     completion(noticeList)
                 }
             case .failure(_):
-                print("Error message:\(String(describing: response.result.error))")
+                print("Error message:\(String(describing: response.error))")
                 break
             }
-        }
+        })
     }
     
     static func parseListChemistryEngineering(page: Int, keyword: String?, completion: @escaping ([Notice]) -> Void) {
@@ -108,10 +108,10 @@ class NoticeEngineering {
         
         self.cleanList()
         
-        Alamofire.request(requestURL).responseString(encoding: .utf8) { response in
+        AF.request(requestURL).responseString(encoding: .utf8, completionHandler: { response in
             switch(response.result) {
             case .success(_):
-                if let data = response.result.value {
+                if let data = response.value {
                     do {
                         let doc = try HTML(html: data, encoding: .utf8)
                         
@@ -156,10 +156,10 @@ class NoticeEngineering {
                     completion(noticeList)
                 }
             case .failure(_):
-                print("Error message:\(String(describing: response.result.error))")
+                print("Error message:\(String(describing: response.error))")
                 break
             }
-        }
+        })
     }
     
     static func parseListElectric(page: Int, keyword: String?, completion: @escaping ([Notice]) -> Void) {
@@ -173,10 +173,10 @@ class NoticeEngineering {
         
         self.cleanList()
         
-        Alamofire.request(requestURL).responseString(encoding: .utf8) { response in
+        AF.request(requestURL).responseString(encoding: .utf8, completionHandler: { response in
             switch(response.result) {
             case .success(_):
-                if let data = response.result.value {
+                if let data = response.value {
                     do {
                         let doc = try HTML(html: data, encoding: .utf8)
                         for product in doc.css("div[class^='num']") {
@@ -226,10 +226,10 @@ class NoticeEngineering {
                     completion(noticeList)
                 }
             case .failure(_):
-                print("Error message:\(String(describing: response.result.error))")
+                print("Error message:\(String(describing: response.error))")
                 break
             }
-        }
+        })
     }
     
     static func parseListIndustry(page: Int, keyword: String?, completion: @escaping ([Notice]) -> Void) {
@@ -240,10 +240,10 @@ class NoticeEngineering {
         
         self.cleanList()
         
-        Alamofire.request(requestURL).responseString(encoding: .utf8) { response in
+        AF.request(requestURL).responseString(encoding: .utf8, completionHandler: { response in
             switch(response.result) {
             case .success(_):
-                if let data = response.result.value {
+                if let data = response.value {
                     do {
                         let doc = try HTML(html: data, encoding: .utf8)
                         for product in doc.css("table[class='bbs-list']") {
@@ -315,10 +315,10 @@ class NoticeEngineering {
                     completion(noticeList)
                 }
             case .failure(_):
-                print("Error message:\(String(describing: response.result.error))")
+                print("Error message:\(String(describing: response.error))")
                 break
             }
-        }
+        })
     }
     
     static func parseListOrganic(page: Int, keyword: String?, completion: @escaping ([Notice]) -> Void) {
@@ -329,10 +329,10 @@ class NoticeEngineering {
         
         self.cleanList()
         
-        Alamofire.request(requestURL).responseString { response in
+        AF.request(requestURL).responseString(completionHandler: { response in
             switch(response.result) {
             case .success(_):
-                if let data = response.result.value {
+                if let data = response.value {
                     do {
                         let doc = try HTML(html: data, encoding: .utf8)
                         for product in (doc.css("div[class='mt40']").first?.css("td[align=left] a"))! {
@@ -371,10 +371,10 @@ class NoticeEngineering {
                     completion(noticeList)
                 }
             case .failure(_):
-                print("Error message:\(String(describing: response.result.error))")
+                print("Error message:\(String(describing: response.error))")
                 break
             }
-        }
+        })
     }
     
     // 건축학부 (검색을 위한 작업이 필요할듯)
@@ -393,7 +393,7 @@ class NoticeEngineering {
         }
         
         if page < 2 {
-            Alamofire.request(requestURL).responseString { response in
+            AF.request(requestURL).responseString(completionHandler: { response in
                 switch(response.result) {
                 case .success(_):
                     guard let data = response.data else { return }
@@ -445,10 +445,10 @@ class NoticeEngineering {
                     // 17
                     completion(noticeList)
                 case .failure(_):
-                    print("Error message:\(String(describing: response.result.error))")
+                    print("Error message:\(String(describing: response.error))")
                     break
                 }
-            }
+            })
         } else {
             ConfigSetting.canFetchData = false
         }

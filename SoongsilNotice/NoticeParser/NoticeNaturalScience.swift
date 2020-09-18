@@ -39,10 +39,10 @@ class NoticeNaturalScience {
         
         self.cleanList()
         
-        Alamofire.request(requestURL).responseString(encoding: .utf8) { response in
+        AF.request(requestURL).responseString(encoding: .utf8, completionHandler: { response in
             switch(response.result) {
             case .success(_):
-                if let data = response.result.value {
+                if let data = response.value {
                     do {
                         let doc = try HTML(html: data, encoding: .utf8)
                         for product in doc.css("table[class='bbs-list'] td") {
@@ -91,10 +91,10 @@ class NoticeNaturalScience {
                     completion(noticeList)
                 }
             case .failure(_):
-                print("Error message:\(String(describing: response.result.error))")
+                print("Error message:\(String(describing: response.error))")
                 break
             }
-        }
+        })
     }
     
     static func parseListChemistry(page: Int, keyword: String?, completion: @escaping ([Notice]) -> Void) {
@@ -105,10 +105,10 @@ class NoticeNaturalScience {
         
         self.cleanList()
         
-        Alamofire.request(requestURL).responseString(encoding: .utf8) { response in
+        AF.request(requestURL).responseString(encoding: .utf8, completionHandler: { response in
             switch(response.result) {
             case .success(_):
-                if let data = response.result.value {
+                if let data = response.value {
                     do {
                         let doc = try HTML(html: data, encoding: .utf8)
                         for product in doc.css("table[class='bbs-list'] td") {
@@ -161,10 +161,10 @@ class NoticeNaturalScience {
                     completion(noticeList)
                 }
             case .failure(_):
-                print("Error message:\(String(describing: response.result.error))")
+                print("Error message:\(String(describing: response.error))")
                 break
             }
-        }
+        })
     }
     
     static func parseListPhysics(page: Int, keyword: String?, completion: @escaping ([Notice]) -> Void) {
@@ -175,10 +175,10 @@ class NoticeNaturalScience {
         
         self.cleanList()
         
-        Alamofire.request(requestURL).responseString(encoding: .utf8) { response in
+        AF.request(requestURL).responseString(encoding: .utf8, completionHandler: { response in
             switch(response.result) {
             case .success(_):
-                if let data = response.result.value {
+                if let data = response.value {
                     do {
                         let doc = try HTML(html: data, encoding: .utf8)
                         for product in doc.css("table[class='bbs-list']") {
@@ -255,10 +255,10 @@ class NoticeNaturalScience {
                     completion(noticeList)
                 }
             case .failure(_):
-                print("Error message:\(String(describing: response.result.error))")
+                print("Error message:\(String(describing: response.error))")
                 break
             }
-        }
+        })
     }
     
     static func parseListActuarial(page: Int, keyword: String?, completion: @escaping ([Notice]) -> Void) {
@@ -269,10 +269,10 @@ class NoticeNaturalScience {
         
         self.cleanList()
         
-        Alamofire.request(requestURL).responseString(encoding: .utf8) { response in
+        AF.request(requestURL).responseString(encoding: .utf8, completionHandler: { response in
             switch(response.result) {
             case .success(_):
-                if let data = response.result.value {
+                if let data = response.value {
                     do {
                         let doc = try HTML(html: data, encoding: .utf8)
                         for product in doc.css("div[class='tbl_head01 tbl_wrap'] td") {
@@ -325,10 +325,10 @@ class NoticeNaturalScience {
                     completion(noticeList)
                 }
             case .failure(_):
-                print("Error message:\(String(describing: response.result.error))")
+                print("Error message:\(String(describing: response.error))")
                 break
             }
-        }
+        })
     }
     
     static func parseListBiomedical(page: Int, keyword: String?, completion: @escaping ([Notice]) -> Void) {
@@ -339,10 +339,10 @@ class NoticeNaturalScience {
         
         self.cleanList()
         
-        Alamofire.request(requestURL).responseString(encoding: .utf8) { response in
+        AF.request(requestURL).responseString(encoding: .utf8, completionHandler: { response in
             switch(response.result) {
             case .success(_):
-                if let data = response.result.value {
+                if let data = response.value {
                     do {
                         let doc = try HTML(html: data, encoding: .utf8)
                         for product in doc.css("table[class='bbs-list'] td") {
@@ -390,9 +390,9 @@ class NoticeNaturalScience {
                     completion(noticeList)
                 }
             case .failure(_):
-                print("Error message:\(String(describing: response.result.error))")
+                print("Error message:\(String(describing: response.error))")
                 break
             }
-        }
+        })
     }
 }

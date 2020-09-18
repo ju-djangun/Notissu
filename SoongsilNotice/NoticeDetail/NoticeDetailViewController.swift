@@ -110,7 +110,7 @@ class NoticeDetailViewController: BaseViewController, WKNavigationDelegate, WKUI
         }
         
         if self.departmentCode! == DeptCode.Inmun_Writing || self.departmentCode! == DeptCode.Dormitory {
-            Alamofire.request(url).responseData { response in
+            AF.request(url).responseData(completionHandler: { response in
                 switch(response.result) {
                 case .success(_):
                     guard let data = response.data else { return }
@@ -131,9 +131,9 @@ class NoticeDetailViewController: BaseViewController, WKNavigationDelegate, WKUI
                 case .failure(let error):
                     print(error)
                 }
-            }
+            })
         } else {
-            Alamofire.request(url).responseString { response in
+            AF.request(url).responseString(completionHandler: { response in
                 switch(response.result) {
                 case .success(_):
                     guard let text = response.data else { return }
@@ -275,7 +275,7 @@ class NoticeDetailViewController: BaseViewController, WKNavigationDelegate, WKUI
                 case .failure(let error):
                     print(error)
                 }
-            }
+            })
         }
     }
     

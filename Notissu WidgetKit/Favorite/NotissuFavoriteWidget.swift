@@ -50,7 +50,7 @@ struct NotissuFavoriteEntryView : View {
 }
 
 struct FavoriteWidget: Widget {
-    private let kind: String = "ShortcutWidget"
+    private let kind: String = "FavoriteWidget"
 
     public var body: some WidgetConfiguration {
         StaticConfiguration(kind: kind, provider: FavoriteProvider(), placeholder: FavoritePlaceholderView()) { entry in

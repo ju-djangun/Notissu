@@ -14,6 +14,7 @@ import WidgetKit
 struct NotissuWidgetBundle: WidgetBundle {
     @WidgetBundleBuilder
     var body: some Widget {
+        FavoriteWidget()
         ShortcutWidget()
     }
 }

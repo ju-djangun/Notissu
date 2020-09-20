@@ -15,6 +15,10 @@
 		B03BA5C225174CDF002010CE /* FavoriteNotice.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DE53D0AE23F8E9B100AEFCE2 /* FavoriteNotice.xcdatamodeld */; };
 		B03BA5EA25175F39002010CE /* NotissuWidgetBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = B03BA5E925175F39002010CE /* NotissuWidgetBundle.swift */; };
 		B03BA5EE25176049002010CE /* NotissuShortcutWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = B03BA5ED25176049002010CE /* NotissuShortcutWidget.swift */; };
+		B03BA5EF25176290002010CE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DE29613E23703F4D0074F24B /* Assets.xcassets */; };
+		B03BA5F025176295002010CE /* NotissuColorSet.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DE53D1552400F54B00AEFCE2 /* NotissuColorSet.xcassets */; };
+		B03BA5F125176296002010CE /* NotissuColorSet.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DE53D1552400F54B00AEFCE2 /* NotissuColorSet.xcassets */; };
+		B03BA5F22517629A002010CE /* FileTypeIcon.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DE7E5DB224093779007F0DF2 /* FileTypeIcon.xcassets */; };
 		B04D10082514BADA000BEBE4 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B04D10072514BADA000BEBE4 /* WidgetKit.framework */; };
 		B04D100A2514BADA000BEBE4 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B04D10092514BADA000BEBE4 /* SwiftUI.framework */; };
 		B04D100D2514BADA000BEBE4 /* NotissuFavoriteWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04D100C2514BADA000BEBE4 /* NotissuFavoriteWidget.swift */; };
@@ -337,9 +341,9 @@
 				B03BA5EC2517603B002010CE /* Shortcut */,
 				B03BA5EB2517602F002010CE /* Favorite */,
 				B03BA5C125174AB9002010CE /* Notissu WidgetKitExtension.entitlements */,
+				B03BA5E925175F39002010CE /* NotissuWidgetBundle.swift */,
 				B04D100E2514BADB000BEBE4 /* Assets.xcassets */,
 				B04D10102514BADB000BEBE4 /* Info.plist */,
-				B03BA5E925175F39002010CE /* NotissuWidgetBundle.swift */,
 			);
 			path = "Notissu WidgetKit";
 			sourceTree = "<group>";
@@ -658,6 +662,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B03BA5F22517629A002010CE /* FileTypeIcon.xcassets in Resources */,
+				B03BA5F125176296002010CE /* NotissuColorSet.xcassets in Resources */,
+				B03BA5EF25176290002010CE /* Assets.xcassets in Resources */,
 				B04D100F2514BADB000BEBE4 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -689,6 +696,7 @@
 				DEBE387123EFF09A006F51AB /* WidgetNoticeView.xib in Resources */,
 				DEBE387323F578C6006F51AB /* TodayExtensionColor.xcassets in Resources */,
 				DE0418B22402412F00486BF3 /* GoogleService-Info.plist in Resources */,
+				B03BA5F025176295002010CE /* NotissuColorSet.xcassets in Resources */,
 				DEC1684B23F7A3B900DE2D84 /* Assets.xcassets in Resources */,
 				DE7E5DB42409377D007F0DF2 /* FileTypeIcon.xcassets in Resources */,
 				DE64BE8B23DD253C00DF46C5 /* MainInterface.storyboard in Resources */,

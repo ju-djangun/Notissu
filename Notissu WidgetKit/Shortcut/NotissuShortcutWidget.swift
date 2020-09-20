@@ -51,72 +51,86 @@ struct NotissuShortcutEntryView : View {
     
     var entry: ShortcutProvider.Entry
     
+    var firstSectionView: some View {
+        HStack {
+            VStack {
+                Link(destination: URL(string: "notissu://?index=0")!) {
+                    Group {
+                        Image("my_notice").resizable().renderingMode(.template).colorMultiply(.white).padding(10)
+                    }
+                    .background(Color(UIColor(named: "notissuBlue1000s")!))
+                    .frame(width: Constants.buttonWidth,
+                           height: Constants.buttonWidth,
+                           alignment: .center)
+                    .cornerRadius(Constants.buttonWidth / 2)
+                }
+                Text("내 공지").font(.system(size: 10))
+            }.frame(minWidth: 0, maxWidth: .infinity)
+            
+            
+            VStack {
+                Link(destination: URL(string: "notissu://?index=1")!) {
+                    Group {
+                        Image("major_list").resizable().renderingMode(.template).colorMultiply(.white).padding(10)
+                    }
+                    .background(Color(UIColor(named: "notissuBlue1000s")!))
+                    .frame(width: Constants.buttonWidth,
+                           height: Constants.buttonWidth,
+                           alignment: .center)
+                    .cornerRadius(Constants.buttonWidth / 2)
+                }
+                Text("전공목록").font(.system(size: 10))
+            }.frame(minWidth: 0, maxWidth: .infinity)
+        }
+    }
+    
+    var secondSectionView: some View {
+        HStack {
+            VStack {
+                Link(destination: URL(string: "notissu://?index=2")!) {
+                    Group {
+                        Image("tab_school").resizable().renderingMode(.template).colorMultiply(.white).padding(10)
+                    }
+                    .background(Color(UIColor(named: "notissuBlue1000s")!))
+                    .frame(width: Constants.buttonWidth,
+                           height: Constants.buttonWidth,
+                           alignment: .center)
+                    .cornerRadius(Constants.buttonWidth / 2)
+                }
+                Text("학교공지").font(.system(size: 10))
+            }.frame(minWidth: 0, maxWidth: .infinity)
+            
+            VStack {
+                Link(destination: URL(string: "notissu://?index=4")!) {
+                    Group {
+                        Image("more")
+                            .resizable()
+                            .renderingMode(.template)
+                            .colorMultiply(.blue)
+                            .padding(10)
+                    }
+                    .background(Color(UIColor(named: "notissuBlue1000s")!))
+                    .frame(width: Constants.buttonWidth,
+                           height: Constants.buttonWidth,
+                           alignment: .center)
+                    .cornerRadius(Constants.buttonWidth / 2)
+                }
+                Text("더보기").font(.system(size: 10))
+            }.frame(minWidth: 0, maxWidth: .infinity)
+            
+        }
+    }
+    
     var body: some View {
         VStack {
-            HStack {
-                VStack {
-                    Link(destination: URL(string: "notissu://?index=0")!) {
-                        Group {
-                            Image("my_notice").resizable().renderingMode(.template).colorMultiply(.white).padding(10)
-                        }
-                        .background(Color(UIColor(named: "notissuBlue1000s")!))
-                        .frame(width: Constants.buttonWidth,
-                               height: Constants.buttonWidth,
-                               alignment: .center)
-                        .cornerRadius(Constants.buttonWidth / 2)
-                    }
-                    Text("내 공지").font(.system(size: 10))
-                }.frame(minWidth: 0, maxWidth: .infinity)
-                
-                
-                VStack {
-                    Link(destination: URL(string: "notissu://?index=1")!) {
-                        Group {
-                            Image("major_list").resizable().renderingMode(.template).colorMultiply(.white).padding(10)
-                        }
-                        .background(Color(UIColor(named: "notissuBlue1000s")!))
-                        .frame(width: Constants.buttonWidth,
-                               height: Constants.buttonWidth,
-                               alignment: .center)
-                        .cornerRadius(Constants.buttonWidth / 2)
-                    }
-                    Text("전공목록").font(.system(size: 10))
-                }.frame(minWidth: 0, maxWidth: .infinity)
-            }
-            
-            HStack {
-                VStack {
-                    Link(destination: URL(string: "notissu://?index=2")!) {
-                        Group {
-                            Image("tab_school").resizable().renderingMode(.template).colorMultiply(.white).padding(10)
-                        }
-                        .background(Color(UIColor(named: "notissuBlue1000s")!))
-                        .frame(width: Constants.buttonWidth,
-                               height: Constants.buttonWidth,
-                               alignment: .center)
-                        .cornerRadius(Constants.buttonWidth / 2)
-                    }
-                    Text("학교공지").font(.system(size: 10))
-                }.frame(minWidth: 0, maxWidth: .infinity)
-                
-                VStack {
-                    Link(destination: URL(string: "notissu://?index=4")!) {
-                        Group {
-                            Image("more")
-                                .resizable()
-                                .renderingMode(.template)
-                                .colorMultiply(.blue)
-                                .padding(10)
-                        }
-                        .background(Color(UIColor(named: "notissuBlue1000s")!))
-                        .frame(width: Constants.buttonWidth,
-                               height: Constants.buttonWidth,
-                               alignment: .center)
-                        .cornerRadius(Constants.buttonWidth / 2)
-                    }
-                    Text("더보기").font(.system(size: 10))
-                }.frame(minWidth: 0, maxWidth: .infinity)
-                
+            if family == .systemSmall {
+                firstSectionView
+                secondSectionView
+            } else {
+                HStack {
+                    firstSectionView
+                    secondSectionView
+                }
             }
         }
         .widgetURL(URL(string: "notissu://?index=1")!)

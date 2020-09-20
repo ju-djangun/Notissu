@@ -77,9 +77,7 @@ class NoticeDetailPresenter: NoticeDetail {
     
     private func addFavorite(notice: Notice, majorCode: Int, majorName: String) {
         let managedContext = CoreDataUtil.shared.persistentContainer.viewContext
-        
         let favoriteEntity = NSEntityDescription.entity(forEntityName: "Favorite", in: managedContext)!
-        
         let noticeObject = NSManagedObject(entity: favoriteEntity, insertInto: managedContext)
         
         noticeObject.setValue(notice.author, forKey: "author")

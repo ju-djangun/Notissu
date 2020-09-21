@@ -19,14 +19,14 @@ class CoreDataUtil {
     static let shared = CoreDataUtil()
     
     lazy var persistentContainer: NSPersistentContainer = {
-        let container = NSPersistentContainer(name: "FavoriteNotice")
-        container.loadPersistentStores(completionHandler: { (storeDescription, error) in
-            if let error = error as NSError? {
-                fatalError("Unresolved error \(error), \(error.userInfo)")
-            }
-        })
-        return container
-    }()
+            let container = NSCustomPersistentContainer(name: "FavoriteNotice")
+            container.loadPersistentStores(completionHandler: { (storeDescription, error) in
+                if let error = error as NSError? {
+                    fatalError("Unresolved error \(error), \(error.userInfo)")
+                }
+            })
+            return container
+        }()
     
     private init() { }
     
@@ -41,4 +41,13 @@ class CoreDataUtil {
             }
         }
     }
+}
+
+class NSCustomPersistentContainer: NSPersistentContainer {
+    override open class func defaultDirectoryURL() -> URL {
+        var storeURL = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: "group.com.elliott.Notissu")
+        storeURL = storeURL?.appendingPathComponent("Notissu.sqlite")
+        return storeURL!
+    }
+
 }

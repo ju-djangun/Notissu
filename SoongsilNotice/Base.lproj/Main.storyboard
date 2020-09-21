@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="wQc-9L-n58">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17132" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="wQc-9L-n58">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17105.1"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -39,7 +40,7 @@
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Mei-BY-e7h">
                                 <rect key="frame" x="0.0" y="684" width="414" height="178"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="178" id="HXk-jL-DGu"/>
                                 </constraints>
@@ -65,12 +66,14 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3QO-NX-Ndh">
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3QO-NX-Ndh">
                                                     <rect key="frame" x="334" y="8" width="60" height="37"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="60" id="NdM-MR-qea"/>
                                                     </constraints>
-                                                    <state key="normal" title="다운로드"/>
+                                                    <state key="normal" title="다운로드">
+                                                        <color key="titleColor" name="notissuBlue1000s"/>
+                                                    </state>
                                                     <connections>
                                                         <action selector="onClickDownload:" destination="YB3-D2-wio" eventType="touchUpInside" id="VUV-px-V4a"/>
                                                     </connections>
@@ -119,6 +122,7 @@
                                 </prototypes>
                             </tableView>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" name="detail_bg"/>
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="zMd-ND-uCL" secondAttribute="trailing" constant="20" id="2Xv-Qh-2Xl"/>
@@ -135,7 +139,6 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="UwP-AF-1re" secondAttribute="trailing" constant="20" id="uR7-oy-gUD"/>
                             <constraint firstItem="bxg-zn-osN" firstAttribute="top" secondItem="UwP-AF-1re" secondAttribute="bottom" constant="8" id="vrd-0J-abE"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
                         <outlet property="attachViewHeightConstraint" destination="HXk-jL-DGu" id="klS-Aa-cu2"/>
@@ -160,7 +163,7 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Cev-oP-pXq">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="862"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="noticeListCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="noticeListCell" rowHeight="66" id="1Eh-dA-jli" customClass="NoticeListViewCell" customModule="Notissu" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="66"/>
@@ -173,10 +176,10 @@
                                                     <rect key="frame" x="414" y="0.0" width="0.0" height="66"/>
                                                     <subviews>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="attachmennt" translatesAutoresizingMaskIntoConstraints="NO" id="kcI-u9-qg2">
-                                                            <rect key="frame" x="12" y="15" width="64" height="36"/>
+                                                            <rect key="frame" x="12" y="24" width="32" height="18"/>
                                                         </imageView>
                                                     </subviews>
-                                                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                     <constraints>
                                                         <constraint firstAttribute="trailing" secondItem="kcI-u9-qg2" secondAttribute="trailing" constant="12" id="7eG-eL-joy"/>
                                                         <constraint firstItem="kcI-u9-qg2" firstAttribute="centerX" secondItem="qdZ-xi-KsR" secondAttribute="centerX" id="9zm-Ct-DR4"/>
@@ -233,8 +236,8 @@
                                 </prototypes>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="yqb-zc-DwJ"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <connections>
                         <outlet property="noticeListView" destination="Cev-oP-pXq" id="EzT-DO-YoS"/>
@@ -255,7 +258,7 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="sEB-wU-zgL">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="862"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="noticeListCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="noticeListCell" rowHeight="66" id="a9x-5p-4uk" customClass="NoticeListViewCell" customModule="Notissu" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="66"/>
@@ -278,7 +281,7 @@
                                                     <rect key="frame" x="398" y="0.0" width="0.0" height="66"/>
                                                     <subviews>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iconDownloadable" translatesAutoresizingMaskIntoConstraints="NO" id="787-4J-qfD">
-                                                            <rect key="frame" x="12" y="9" width="48" height="48"/>
+                                                            <rect key="frame" x="12" y="21" width="24" height="24"/>
                                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </imageView>
                                                     </subviews>
@@ -345,8 +348,8 @@
                                 </prototypes>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="yXH-br-lGl"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <connections>
                         <outlet property="noticeListView" destination="sEB-wU-zgL" id="GYk-4B-Yd8"/>
@@ -363,7 +366,7 @@
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="vgO-Z5-SZK">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="noticeListCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="noticeListCell" rowHeight="66" id="c9Q-ca-8kl" customClass="NoticeListViewCell" customModule="Notissu" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="414" height="66"/>
@@ -418,7 +421,7 @@
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="GoR-ko-bON">
                                 <rect key="frame" x="0.0" y="88" width="414" height="725"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="majorCell" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="majorCell" rowHeight="70" id="fq8-l2-Rs6" customClass="HomeCell" customModule="Notissu">
                                         <rect key="frame" x="0.0" y="28" width="414" height="70"/>
@@ -441,7 +444,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="main_ios_arrow" translatesAutoresizingMaskIntoConstraints="NO" id="Gm7-qo-TUO">
-                                                    <rect key="frame" x="393" y="-17" width="11" height="104"/>
+                                                    <rect key="frame" x="393" y="9" width="11" height="52"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="11" id="QnV-lr-yhf"/>
                                                     </constraints>
@@ -466,14 +469,14 @@
                                 </prototypes>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="uVe-ps-lKm"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="uVe-ps-lKm" firstAttribute="trailing" secondItem="GoR-ko-bON" secondAttribute="trailing" id="5iL-fe-T88"/>
                             <constraint firstItem="uVe-ps-lKm" firstAttribute="bottom" secondItem="GoR-ko-bON" secondAttribute="bottom" id="ALg-bN-Yqn"/>
                             <constraint firstItem="GoR-ko-bON" firstAttribute="leading" secondItem="uVe-ps-lKm" secondAttribute="leading" id="Iww-mr-xw5"/>
                             <constraint firstItem="uVe-ps-lKm" firstAttribute="top" secondItem="GoR-ko-bON" secondAttribute="top" id="Swk-Sd-SJ5"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="uVe-ps-lKm"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="전공목록" image="major" selectedImage="major" id="oAk-hq-gGK"/>
                     <navigationItem key="navigationItem" title="전공 목록" id="Qd3-0d-rW4">
@@ -522,7 +525,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="42" id="8EW-9d-F6f"/>
                                             <constraint firstItem="ggX-f6-85B" firstAttribute="top" secondItem="Rmy-jW-b6o" secondAttribute="top" constant="4" id="Gtc-eW-Egf"/>
@@ -534,7 +537,7 @@
                                             <constraint firstAttribute="bottom" secondItem="Umj-4e-AJA" secondAttribute="bottom" id="u1u-l7-9EQ"/>
                                         </constraints>
                                     </view>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PVp-NL-TSF">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PVp-NL-TSF">
                                         <rect key="frame" x="340" y="16" width="64" height="32"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="64" id="LCS-l5-rua"/>
@@ -549,7 +552,7 @@
                                         </connections>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstItem="PVp-NL-TSF" firstAttribute="centerY" secondItem="oIQ-yd-rFH" secondAttribute="centerY" id="0oF-Kb-10J"/>
                                     <constraint firstItem="Jim-FZ-dKd" firstAttribute="leading" secondItem="oIQ-yd-rFH" secondAttribute="leadingMargin" constant="10" id="EVS-11-fqZ"/>
@@ -564,7 +567,7 @@
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uTK-ht-Fhx">
                                 <rect key="frame" x="0.0" y="152" width="414" height="64"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="64" id="7AT-u8-MyG"/>
                                 </constraints>
@@ -587,7 +590,7 @@
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="48" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="LkB-wq-hEc">
                                 <rect key="frame" x="0.0" y="216" width="414" height="597"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="moreListCell" rowHeight="48" id="fFC-Lm-flJ" customClass="MoreTableCell" customModule="Notissu" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="48"/>
@@ -617,7 +620,8 @@
                                 </prototypes>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="ZKz-3V-8NV"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="hrV-2K-VhU" firstAttribute="top" secondItem="uTK-ht-Fhx" secondAttribute="bottom" id="2Ni-SW-8Ga"/>
                             <constraint firstItem="uTK-ht-Fhx" firstAttribute="leading" secondItem="ZKz-3V-8NV" secondAttribute="leading" id="2he-bQ-8tn"/>
@@ -634,7 +638,6 @@
                             <constraint firstItem="ZKz-3V-8NV" firstAttribute="trailing" secondItem="hrV-2K-VhU" secondAttribute="trailing" id="wuw-nf-1y3"/>
                             <constraint firstItem="ZKz-3V-8NV" firstAttribute="trailing" secondItem="uTK-ht-Fhx" secondAttribute="trailing" id="xlT-hp-aus"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="ZKz-3V-8NV"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="더보기" image="plus" selectedImage="plus" id="Msr-09-glF"/>
                     <connections>
@@ -676,7 +679,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eCu-ob-1gX">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eCu-ob-1gX">
                                 <rect key="frame" x="22" y="751" width="370" height="46"/>
                                 <color key="backgroundColor" name="notissuButton1000s"/>
                                 <constraints>
@@ -697,7 +700,7 @@
                                     <action selector="searchAction:" destination="9PT-IW-mSw" eventType="touchUpInside" id="7hp-ZC-OZ9"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Dk-r8-3KZ">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Dk-r8-3KZ">
                                 <rect key="frame" x="22" y="129" width="370" height="46"/>
                                 <color key="backgroundColor" name="notissuButton1000s"/>
                                 <constraints>
@@ -734,7 +737,8 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="m0s-Y2-AdR"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="eCu-ob-1gX" firstAttribute="centerX" secondItem="m0s-Y2-AdR" secondAttribute="centerX" id="2aB-Rk-ocn"/>
                             <constraint firstItem="sTQ-Mj-I5z" firstAttribute="top" secondItem="m0s-Y2-AdR" secondAttribute="top" constant="16" id="6Ek-l4-7tH"/>
@@ -756,7 +760,6 @@
                             <constraint firstItem="MAp-09-ztT" firstAttribute="leading" secondItem="m0s-Y2-AdR" secondAttribute="leading" constant="20" id="qqK-gY-P1d"/>
                             <constraint firstItem="MAp-09-ztT" firstAttribute="centerX" secondItem="m0s-Y2-AdR" secondAttribute="centerX" id="vOf-dE-2aD"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="m0s-Y2-AdR"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="검색" image="iconSearch" id="Qi9-oL-ur1"/>
                     <connections>
@@ -781,7 +784,7 @@
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="0Wl-7a-6b1">
                                 <rect key="frame" x="0.0" y="44" width="414" height="818"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="openSourceCell" rowHeight="100" id="YSn-cC-nhV" customClass="OpenSourceTableViewCell" customModule="Notissu" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="100"/>
@@ -796,7 +799,7 @@
                                                     <color key="textColor" name="tab_icon_tint"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="htw-Io-kMz">
+                                                <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="htw-Io-kMz">
                                                     <rect key="frame" x="20" y="32" width="374" height="22"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="22" id="rlm-v2-A93"/>
@@ -834,14 +837,14 @@
                                 </prototypes>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="fzc-h6-F4w"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="fzc-h6-F4w" firstAttribute="trailing" secondItem="0Wl-7a-6b1" secondAttribute="trailing" id="eBk-ko-Q1s"/>
                             <constraint firstItem="0Wl-7a-6b1" firstAttribute="leading" secondItem="fzc-h6-F4w" secondAttribute="leading" id="hzT-MR-49O"/>
                             <constraint firstItem="fzc-h6-F4w" firstAttribute="bottom" secondItem="0Wl-7a-6b1" secondAttribute="bottom" id="jt6-j9-C8q"/>
                             <constraint firstItem="0Wl-7a-6b1" firstAttribute="top" secondItem="fzc-h6-F4w" secondAttribute="top" id="u9t-Nk-5EZ"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="fzc-h6-F4w"/>
                     </view>
                     <connections>
                         <outlet property="openSourceListView" destination="0Wl-7a-6b1" id="4uT-gl-MRe"/>
@@ -881,8 +884,8 @@
                     <view key="view" contentMode="scaleToFill" id="nlm-N9-SYV">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="M0j-uG-en4"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0Zg-S2-5HH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -903,7 +906,7 @@
                                     <constraint firstAttribute="height" constant="216" id="vkp-bO-V1X"/>
                                 </constraints>
                             </pickerView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EoW-CB-vD3">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EoW-CB-vD3">
                                 <rect key="frame" x="16" y="696" width="382" height="46"/>
                                 <color key="backgroundColor" name="notissuButton1000s"/>
                                 <constraints>
@@ -942,7 +945,8 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="JOP-5Y-g5a"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="haR-vh-TI2" firstAttribute="leading" secondItem="JOP-5Y-g5a" secondAttribute="leading" id="2oV-aB-A7e"/>
                             <constraint firstItem="JOP-5Y-g5a" firstAttribute="bottom" secondItem="haR-vh-TI2" secondAttribute="bottom" constant="29" id="3ED-Oc-nQE"/>
@@ -965,7 +969,6 @@
                             <constraint firstItem="Xya-fz-zbV" firstAttribute="leading" secondItem="JOP-5Y-g5a" secondAttribute="leading" constant="20" id="syg-YF-DvI"/>
                             <constraint firstItem="JOP-5Y-g5a" firstAttribute="trailing" secondItem="Xya-fz-zbV" secondAttribute="trailing" constant="20" id="vuZ-dW-NMa"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="JOP-5Y-g5a"/>
                     </view>
                     <connections>
                         <outlet property="nextButton" destination="EoW-CB-vD3" id="TEw-Ua-t2b"/>
@@ -990,11 +993,11 @@
                                 <viewLayoutGuide key="frameLayoutGuide" id="feV-iL-sSh"/>
                             </scrollView>
                             <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="U7J-Nn-Ygr">
-                                <rect key="frame" x="20" y="44" width="374" height="37"/>
+                                <rect key="frame" x="20" y="44" width="374" height="27.5"/>
                                 <color key="pageIndicatorTintColor" white="1" alpha="0.19547755281690141" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="currentPageIndicatorTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </pageControl>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2CT-cX-UqO">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2CT-cX-UqO">
                                 <rect key="frame" x="16" y="806" width="382" height="46"/>
                                 <color key="backgroundColor" name="notissuBlue1000s"/>
                                 <constraints>
@@ -1010,7 +1013,8 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="oaV-fx-D4W"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="U7J-Nn-Ygr" firstAttribute="centerX" secondItem="oaV-fx-D4W" secondAttribute="centerX" id="0fs-3G-WSO"/>
                             <constraint firstItem="oaV-fx-D4W" firstAttribute="trailing" secondItem="aRK-gv-885" secondAttribute="trailing" id="3Md-iU-tcm"/>
@@ -1027,7 +1031,6 @@
                             <constraint firstItem="aRK-gv-885" firstAttribute="bottom" secondItem="oaV-fx-D4W" secondAttribute="bottom" constant="34" id="lqK-tI-Swo"/>
                             <constraint firstItem="oaV-fx-D4W" firstAttribute="trailing" secondItem="U7J-Nn-Ygr" secondAttribute="trailing" constant="20" id="vSj-lm-chy"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="oaV-fx-D4W"/>
                     </view>
                     <navigationItem key="navigationItem" id="gcm-Od-RVy"/>
                     <connections>
@@ -1051,7 +1054,7 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="adL-PC-xkN">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="noticeListCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="noticeListCell" rowHeight="70" id="PPJ-r1-1ly" customClass="NoticeListViewCell" customModule="Notissu" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="70"/>
@@ -1074,7 +1077,7 @@
                                                     <rect key="frame" x="398" y="0.0" width="0.0" height="70"/>
                                                     <subviews>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iconDownloadable" translatesAutoresizingMaskIntoConstraints="NO" id="B0t-nV-Fg1">
-                                                            <rect key="frame" x="12" y="11" width="48" height="48"/>
+                                                            <rect key="frame" x="12" y="23" width="24" height="24"/>
                                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </imageView>
                                                     </subviews>
@@ -1143,8 +1146,8 @@
                                 </prototypes>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="QBG-Kl-0r9"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="내 공지" image="notice_active" selectedImage="notice_active" id="wh8-wJ-drI"/>
                     <connections>
@@ -1191,7 +1194,7 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="70" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="TJU-iT-Yg8">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="noticeListCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="noticeListCell" rowHeight="70" id="il7-CC-g95" customClass="NoticeListViewCell" customModule="Notissu" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="70"/>
@@ -1204,10 +1207,10 @@
                                                     <rect key="frame" x="398" y="0.0" width="0.0" height="70"/>
                                                     <subviews>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iconDownloadable" translatesAutoresizingMaskIntoConstraints="NO" id="AAQ-tm-Qnf">
-                                                            <rect key="frame" x="12" y="11" width="48" height="48"/>
+                                                            <rect key="frame" x="12" y="23" width="24" height="24"/>
                                                         </imageView>
                                                     </subviews>
-                                                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                     <constraints>
                                                         <constraint firstItem="AAQ-tm-Qnf" firstAttribute="leading" secondItem="HP5-4p-kMQ" secondAttribute="leading" constant="12" id="19i-mN-VV8"/>
                                                         <constraint firstAttribute="width" id="Ie0-a5-xYE"/>
@@ -1284,8 +1287,8 @@
                                 </prototypes>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="6aq-CJ-ZPS"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="학교 공지" image="university" id="r7d-be-atD"/>
                     <connections>
@@ -1310,7 +1313,7 @@
                                     <constraint firstAttribute="height" constant="216" id="BKK-nu-PP6"/>
                                 </constraints>
                             </pickerView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wPy-cx-RbP">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wPy-cx-RbP">
                                 <rect key="frame" x="16" y="696" width="382" height="46"/>
                                 <color key="backgroundColor" name="notissuButton1000s"/>
                                 <constraints>
@@ -1343,7 +1346,8 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="SY6-Po-XVh"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="SY6-Po-XVh" firstAttribute="bottom" secondItem="wPy-cx-RbP" secondAttribute="bottom" constant="120" id="1Eb-PP-yOr"/>
                             <constraint firstItem="Psh-eP-kom" firstAttribute="centerX" secondItem="SY6-Po-XVh" secondAttribute="centerX" id="2pq-Lq-zAj"/>
@@ -1362,7 +1366,6 @@
                             <constraint firstItem="SY6-Po-XVh" firstAttribute="trailing" secondItem="t1A-bi-4HS" secondAttribute="trailing" id="qAG-kE-WGk"/>
                             <constraint firstItem="t1A-bi-4HS" firstAttribute="top" secondItem="F6J-T5-HbK" secondAttribute="bottom" constant="30" id="w5H-IE-tAq"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="SY6-Po-XVh"/>
                     </view>
                     <connections>
                         <outlet property="nextButton" destination="wPy-cx-RbP" id="e6Z-XT-62v"/>
@@ -1389,22 +1392,22 @@
             <color white="0.95999997854232788" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </namedColor>
         <namedColor name="home_major_title">
-            <color red="0.0040000001899898052" green="0.67799997329711914" blue="0.86699998378753662" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <color red="0.3151490092" green="0.34236395359999999" blue="0.50982677939999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <namedColor name="launch_bg">
-            <color red="0.0040000001899898052" green="0.67799997329711914" blue="0.86699998378753662" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <color red="0.3151490092" green="0.34236395359999999" blue="0.50982677939999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <namedColor name="nav_bg">
-            <color red="0.0040000001899898052" green="0.67799997329711914" blue="0.86699998378753662" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.3151490092" green="0.34236395359999999" blue="0.50982677939999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <namedColor name="notissuAccent1000s">
-            <color red="0.0040000001899898052" green="0.67799997329711914" blue="0.86699998378753662" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.3151490092" green="0.34236395359999999" blue="0.50982677939999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <namedColor name="notissuBlue1000s">
-            <color red="0.0040000001899898052" green="0.67799997329711914" blue="0.86699998378753662" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.3151490092" green="0.34236395359999999" blue="0.50982677939999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <namedColor name="notissuButton1000s">
-            <color red="0.0040000001899898052" green="0.67799997329711914" blue="0.86699998378753662" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.3151490092" green="0.34236395359999999" blue="0.50982677939999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <namedColor name="notissuColorWhite100s">
             <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1416,10 +1419,13 @@
             <color red="0.0" green="0.0" blue="0.0" alpha="0.89999997615814209" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="notissuNoticeBg150s">
-            <color red="0.0040000001899898052" green="0.67799997329711914" blue="0.86699998378753662" alpha="0.15000000596046448" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.3151490092" green="0.34236395359999999" blue="0.50982677939999999" alpha="0.14999999999999999" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <namedColor name="tab_icon_tint">
-            <color red="0.0040000001899898052" green="0.67799997329711914" blue="0.86699998378753662" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <color red="0.3151490092" green="0.34236395359999999" blue="0.50982677939999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
     </resources>
 </document>

@@ -26,7 +26,7 @@ Notice Bookmark
 Modularization : Notice (by Dept.)
 
 ## Will be updated Shortly  
-Application Notice Push Notification (To share Important Information with users)  
+Apple Watch OS, iOS 14 WidgetKit  
 
 ## iOS App Store Link  
 ![App Store Link](https://apps.apple.com/us/app/notissu/id1488050194)  

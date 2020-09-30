@@ -8,13 +8,11 @@ Soongsil University Notice application by major.
 ## Developer  
 *Kim Tae In*  
 *iOS Developer*  
-( Soongsil University School of Computer Science & Engineering )  
 Email : [della.kimko@gmail.com](della.kimko@gmail.com)    
   
 ## License  
-Apache 2.0 License
-
-### App Store Version : 1.4   
+Apache 2.0 License  
+ 
 ### Supported Version : iOS 11.0 or newer, watchOS 5.0 or newer   
 ### Support Device : iPhone 5s ~ iPhone 11 Pro Max, Apple Watch 3 ~ Apple Watch 5   
   

@@ -21,7 +21,7 @@ Soongsil University Major Notice Search
 Soongsil University School Notice  
 Soongsil University School Notice Search  
 Notice Today Extension (Widget)  
-Notice Bookmark  
+Notice Bookmark (Local Database)  
   
 Modularization : Notice (by Dept.)
 

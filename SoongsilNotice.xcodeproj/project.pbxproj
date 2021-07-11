@@ -24,6 +24,7 @@
 		B07166D1269B198100B49CF7 /* NoticeSearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07166D0269B198100B49CF7 /* NoticeSearchViewModel.swift */; };
 		B07166D7269B1B6F00B49CF7 /* Dynamic.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07166D6269B1B6F00B49CF7 /* Dynamic.swift */; };
 		B07166DA269B1C3100B49CF7 /* NoticeFetchManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07166D9269B1C3100B49CF7 /* NoticeFetchManager.swift */; };
+		B07166DD269B1FB900B49CF7 /* MajorSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07166DC269B1FB900B49CF7 /* MajorSection.swift */; };
 		B0B67AEB2400BB060027D038 /* MajorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B67AEA2400BB060027D038 /* MajorModel.swift */; };
 		DE03E9CF2379B05D002AA5AE /* NoticeBusiness.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE03E9CE2379B05D002AA5AE /* NoticeBusiness.swift */; };
 		DE04186024021BCA00486BF3 /* NotissuResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE04185F24021BCA00486BF3 /* NotissuResource.swift */; };
@@ -186,6 +187,7 @@
 		B07166D0269B198100B49CF7 /* NoticeSearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeSearchViewModel.swift; sourceTree = "<group>"; };
 		B07166D6269B1B6F00B49CF7 /* Dynamic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dynamic.swift; sourceTree = "<group>"; };
 		B07166D9269B1C3100B49CF7 /* NoticeFetchManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeFetchManager.swift; sourceTree = "<group>"; };
+		B07166DC269B1FB900B49CF7 /* MajorSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MajorSection.swift; sourceTree = "<group>"; };
 		B0B67AEA2400BB060027D038 /* MajorModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MajorModel.swift; sourceTree = "<group>"; };
 		D7D51A6E1417CF69431DF616 /* Pods-Notissu-Watch Extension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Notissu-Watch Extension.debug.xcconfig"; path = "Target Support Files/Pods-Notissu-Watch Extension/Pods-Notissu-Watch Extension.debug.xcconfig"; sourceTree = "<group>"; };
 		DE03E9CE2379B05D002AA5AE /* NoticeBusiness.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeBusiness.swift; sourceTree = "<group>"; };
@@ -383,6 +385,14 @@
 			path = DataRepository;
 			sourceTree = "<group>";
 		};
+		B07166DB269B1FAD00B49CF7 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				B07166DC269B1FB900B49CF7 /* MajorSection.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		DD6CE84CCC08ADFCA011F42A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -449,6 +459,7 @@
 		DE29613423703F4C0074F24B /* SoongsilNotice */ = {
 			isa = PBXGroup;
 			children = (
+				B07166DB269B1FAD00B49CF7 /* Model */,
 				B07166D8269B1C2300B49CF7 /* DataRepository */,
 				B07166B5269B170E00B49CF7 /* Common */,
 				B07166AD269B15D100B49CF7 /* ViewControllers */,
@@ -789,6 +800,7 @@
 				B07166C7269B18F700B49CF7 /* MajorListViewController.swift in Sources */,
 				DE501C492374FD250053055A /* NoticeURL.swift in Sources */,
 				DEBFDC45237E391C003888D9 /* OpenSourceViewController.swift in Sources */,
+				B07166DD269B1FB900B49CF7 /* MajorSection.swift in Sources */,
 				B07166C5269B187A00B49CF7 /* MyNoticeViewModel.swift in Sources */,
 				DE5542442377E076004E01EB /* HomeSwticher.swift in Sources */,
 				DE53D14D23FC21DB00AEFCE2 /* BookmarkContract.swift in Sources */,

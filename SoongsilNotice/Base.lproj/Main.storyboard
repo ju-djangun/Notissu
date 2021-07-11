@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17132" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="wQc-9L-n58">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="wQc-9L-n58">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17105.1"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -46,7 +46,7 @@
                                 </constraints>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="noticeAttachmentCell" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="noticeAttachmentCell" id="YB3-D2-wio" customClass="NoticeAttachmentCell" customModule="Notissu" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="53"/>
+                                        <rect key="frame" x="0.0" y="24.5" width="414" height="53"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="YB3-D2-wio" id="wut-Sy-te4">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="53"/>
@@ -98,7 +98,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="notSupportAttachment" rowHeight="53" id="lei-3a-FHc">
-                                        <rect key="frame" x="0.0" y="81" width="414" height="53"/>
+                                        <rect key="frame" x="0.0" y="77.5" width="414" height="53"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="lei-3a-FHc" id="Hqd-05-fSf">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="53"/>
@@ -166,7 +166,7 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="noticeListCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="noticeListCell" rowHeight="66" id="1Eh-dA-jli" customClass="NoticeListViewCell" customModule="Notissu" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="66"/>
+                                        <rect key="frame" x="0.0" y="24.5" width="414" height="66"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="1Eh-dA-jli" id="dbi-UA-kQl">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="66"/>
@@ -261,7 +261,7 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="noticeListCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="noticeListCell" rowHeight="66" id="a9x-5p-4uk" customClass="NoticeListViewCell" customModule="Notissu" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="66"/>
+                                        <rect key="frame" x="0.0" y="24.5" width="414" height="66"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="a9x-5p-4uk" id="5bs-6S-Qp1">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="66"/>
@@ -369,7 +369,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="noticeListCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="noticeListCell" rowHeight="66" id="c9Q-ca-8kl" customClass="NoticeListViewCell" customModule="Notissu" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="414" height="66"/>
+                                <rect key="frame" x="0.0" y="24.5" width="414" height="66"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="c9Q-ca-8kl" id="Qce-My-y0B">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="66"/>
@@ -424,7 +424,7 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="majorCell" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="majorCell" rowHeight="70" id="fq8-l2-Rs6" customClass="HomeCell" customModule="Notissu">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="70"/>
+                                        <rect key="frame" x="0.0" y="24.5" width="414" height="70"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="fq8-l2-Rs6" id="LzX-tV-nKI">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="70"/>
@@ -593,7 +593,7 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="moreListCell" rowHeight="48" id="fFC-Lm-flJ" customClass="MoreTableCell" customModule="Notissu" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="48"/>
+                                        <rect key="frame" x="0.0" y="24.5" width="414" height="48"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="fFC-Lm-flJ" id="1Of-gH-JEk">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="48"/>
@@ -787,7 +787,7 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="openSourceCell" rowHeight="100" id="YSn-cC-nhV" customClass="OpenSourceTableViewCell" customModule="Notissu" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="100"/>
+                                        <rect key="frame" x="0.0" y="24.5" width="414" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="YSn-cC-nhV" id="yNi-ad-4YC">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="100"/>
@@ -1057,7 +1057,7 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="noticeListCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="noticeListCell" rowHeight="70" id="PPJ-r1-1ly" customClass="NoticeListViewCell" customModule="Notissu" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="70"/>
+                                        <rect key="frame" x="0.0" y="24.5" width="414" height="70"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="PPJ-r1-1ly" id="UqN-cH-Tgv">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="70"/>
@@ -1197,7 +1197,7 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="noticeListCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="noticeListCell" rowHeight="70" id="il7-CC-g95" customClass="NoticeListViewCell" customModule="Notissu" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="70"/>
+                                        <rect key="frame" x="0.0" y="24.5" width="414" height="70"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="il7-CC-g95" id="pxn-gy-8xS">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="70"/>
@@ -1392,22 +1392,22 @@
             <color white="0.95999997854232788" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </namedColor>
         <namedColor name="home_major_title">
-            <color red="0.3151490092" green="0.34236395359999999" blue="0.50982677939999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <color red="0.31499999761581421" green="0.34200000762939453" blue="0.50999999046325684" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <namedColor name="launch_bg">
-            <color red="0.3151490092" green="0.34236395359999999" blue="0.50982677939999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <color red="0.31499999761581421" green="0.34200000762939453" blue="0.50999999046325684" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <namedColor name="nav_bg">
-            <color red="0.3151490092" green="0.34236395359999999" blue="0.50982677939999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <color red="0.31499999761581421" green="0.34200000762939453" blue="0.50999999046325684" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <namedColor name="notissuAccent1000s">
-            <color red="0.3151490092" green="0.34236395359999999" blue="0.50982677939999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <color red="0.31499999761581421" green="0.34200000762939453" blue="0.50999999046325684" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <namedColor name="notissuBlue1000s">
-            <color red="0.3151490092" green="0.34236395359999999" blue="0.50982677939999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <color red="0.31499999761581421" green="0.34200000762939453" blue="0.50999999046325684" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <namedColor name="notissuButton1000s">
-            <color red="0.3151490092" green="0.34236395359999999" blue="0.50982677939999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <color red="0.31499999761581421" green="0.34200000762939453" blue="0.50999999046325684" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <namedColor name="notissuColorWhite100s">
             <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1419,10 +1419,10 @@
             <color red="0.0" green="0.0" blue="0.0" alpha="0.89999997615814209" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="notissuNoticeBg150s">
-            <color red="0.3151490092" green="0.34236395359999999" blue="0.50982677939999999" alpha="0.14999999999999999" colorSpace="custom" customColorSpace="displayP3"/>
+            <color red="0.31499999761581421" green="0.34200000762939453" blue="0.50999999046325684" alpha="0.15000000596046448" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <namedColor name="tab_icon_tint">
-            <color red="0.3151490092" green="0.34236395359999999" blue="0.50982677939999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <color red="0.31499999761581421" green="0.34200000762939453" blue="0.50999999046325684" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

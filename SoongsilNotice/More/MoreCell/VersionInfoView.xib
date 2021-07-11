@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -18,7 +18,7 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="290-EX-n6i" userLabel="ContainerView">
                     <rect key="frame" x="0.0" y="0.0" width="416" height="80"/>
                     <subviews>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QnL-j7-v86">
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QnL-j7-v86">
                             <rect key="frame" x="332" y="22" width="64" height="36"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="64" id="Rg3-rw-8el"/>
@@ -75,6 +75,7 @@
                     </constraints>
                 </view>
             </subviews>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="290-EX-n6i" secondAttribute="trailing" id="9DR-Xt-4B0"/>
@@ -83,7 +84,6 @@
                 <constraint firstItem="290-EX-n6i" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="y8K-z7-C8D"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <connections>
                 <outlet property="lblCurrentVersion" destination="GnM-a4-4bt" id="70A-GL-b1h"/>
                 <outlet property="lblRecentVersion" destination="lrZ-4w-Wql" id="FW4-Nf-5Cs"/>
@@ -95,7 +95,7 @@
     </objects>
     <resources>
         <namedColor name="notissuAccent1000s">
-            <color red="0.0040000001899898052" green="0.67799997329711914" blue="0.86699998378753662" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.31499999761581421" green="0.34200000762939453" blue="0.50999999046325684" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <namedColor name="notissuRed1000s">
             <color red="0.92799997329711914" green="0.40200001001358032" blue="0.32499998807907104" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>

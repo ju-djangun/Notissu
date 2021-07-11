@@ -9,6 +9,19 @@
 /* Begin PBXBuildFile section */
 		43C7B2F80E459CCCF0FD26CF /* Pods_Notissu_Today_Extension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C3F7DC8F67539D51717B753 /* Pods_Notissu_Today_Extension.framework */; };
 		B03BA5F025176295002010CE /* NotissuColorSet.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DE53D1552400F54B00AEFCE2 /* NotissuColorSet.xcassets */; };
+		B07166B0269B15E300B49CF7 /* MainTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07166AF269B15E300B49CF7 /* MainTabBarViewController.swift */; };
+		B07166B7269B171E00B49CF7 /* MainNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07166B6269B171E00B49CF7 /* MainNavigationController.swift */; };
+		B07166B9269B175100B49CF7 /* MainUINavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07166B8269B175100B49CF7 /* MainUINavigationBar.swift */; };
+		B07166BB269B17CF00B49CF7 /* UIImage+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07166BA269B17CF00B49CF7 /* UIImage+Ext.swift */; };
+		B07166BD269B180900B49CF7 /* NoticeListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07166BC269B180900B49CF7 /* NoticeListViewModel.swift */; };
+		B07166C3269B185800B49CF7 /* MyNoticeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07166C2269B185800B49CF7 /* MyNoticeViewController.swift */; };
+		B07166C5269B187A00B49CF7 /* MyNoticeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07166C4269B187A00B49CF7 /* MyNoticeViewModel.swift */; };
+		B07166C7269B18F700B49CF7 /* MajorListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07166C6269B18F700B49CF7 /* MajorListViewController.swift */; };
+		B07166C9269B190800B49CF7 /* MajorListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07166C8269B190800B49CF7 /* MajorListViewModel.swift */; };
+		B07166CB269B193300B49CF7 /* SSUCatchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07166CA269B193300B49CF7 /* SSUCatchViewController.swift */; };
+		B07166CD269B194700B49CF7 /* SSUCatchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07166CC269B194700B49CF7 /* SSUCatchViewModel.swift */; };
+		B07166CF269B197200B49CF7 /* NoticeSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07166CE269B197200B49CF7 /* NoticeSearchViewController.swift */; };
+		B07166D1269B198100B49CF7 /* NoticeSearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07166D0269B198100B49CF7 /* NoticeSearchViewModel.swift */; };
 		B0B67AEB2400BB060027D038 /* MajorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B67AEA2400BB060027D038 /* MajorModel.swift */; };
 		DE03E9CF2379B05D002AA5AE /* NoticeBusiness.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE03E9CE2379B05D002AA5AE /* NoticeBusiness.swift */; };
 		DE04186024021BCA00486BF3 /* NotissuResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE04185F24021BCA00486BF3 /* NotissuResource.swift */; };
@@ -156,6 +169,19 @@
 		90414B9DF20CF22441FFF574 /* Pods-SoongsilNotice-Notissu-Watch Extension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SoongsilNotice-Notissu-Watch Extension.debug.xcconfig"; path = "Target Support Files/Pods-SoongsilNotice-Notissu-Watch Extension/Pods-SoongsilNotice-Notissu-Watch Extension.debug.xcconfig"; sourceTree = "<group>"; };
 		B04D10072514BADA000BEBE4 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		B04D10092514BADA000BEBE4 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		B07166AF269B15E300B49CF7 /* MainTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarViewController.swift; sourceTree = "<group>"; };
+		B07166B6269B171E00B49CF7 /* MainNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainNavigationController.swift; sourceTree = "<group>"; };
+		B07166B8269B175100B49CF7 /* MainUINavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainUINavigationBar.swift; sourceTree = "<group>"; };
+		B07166BA269B17CF00B49CF7 /* UIImage+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Ext.swift"; sourceTree = "<group>"; };
+		B07166BC269B180900B49CF7 /* NoticeListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeListViewModel.swift; sourceTree = "<group>"; };
+		B07166C2269B185800B49CF7 /* MyNoticeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyNoticeViewController.swift; sourceTree = "<group>"; };
+		B07166C4269B187A00B49CF7 /* MyNoticeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyNoticeViewModel.swift; sourceTree = "<group>"; };
+		B07166C6269B18F700B49CF7 /* MajorListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MajorListViewController.swift; sourceTree = "<group>"; };
+		B07166C8269B190800B49CF7 /* MajorListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MajorListViewModel.swift; sourceTree = "<group>"; };
+		B07166CA269B193300B49CF7 /* SSUCatchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSUCatchViewController.swift; sourceTree = "<group>"; };
+		B07166CC269B194700B49CF7 /* SSUCatchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSUCatchViewModel.swift; sourceTree = "<group>"; };
+		B07166CE269B197200B49CF7 /* NoticeSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeSearchViewController.swift; sourceTree = "<group>"; };
+		B07166D0269B198100B49CF7 /* NoticeSearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeSearchViewModel.swift; sourceTree = "<group>"; };
 		B0B67AEA2400BB060027D038 /* MajorModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MajorModel.swift; sourceTree = "<group>"; };
 		D7D51A6E1417CF69431DF616 /* Pods-Notissu-Watch Extension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Notissu-Watch Extension.debug.xcconfig"; path = "Target Support Files/Pods-Notissu-Watch Extension/Pods-Notissu-Watch Extension.debug.xcconfig"; sourceTree = "<group>"; };
 		DE03E9CE2379B05D002AA5AE /* NoticeBusiness.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeBusiness.swift; sourceTree = "<group>"; };
@@ -278,6 +304,72 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		B07166AD269B15D100B49CF7 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				B07166AE269B15D900B49CF7 /* Main */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		B07166AE269B15D900B49CF7 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				B07166C1269B184700B49CF7 /* Search */,
+				B07166C0269B183D00B49CF7 /* SSUCatch */,
+				B07166BF269B183300B49CF7 /* MajorList */,
+				B07166BE269B182C00B49CF7 /* MyNotice */,
+				B07166AF269B15E300B49CF7 /* MainTabBarViewController.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		B07166B5269B170E00B49CF7 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				B07166B6269B171E00B49CF7 /* MainNavigationController.swift */,
+				B07166B8269B175100B49CF7 /* MainUINavigationBar.swift */,
+				B07166BA269B17CF00B49CF7 /* UIImage+Ext.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		B07166BE269B182C00B49CF7 /* MyNotice */ = {
+			isa = PBXGroup;
+			children = (
+				B07166C2269B185800B49CF7 /* MyNoticeViewController.swift */,
+				B07166C4269B187A00B49CF7 /* MyNoticeViewModel.swift */,
+			);
+			path = MyNotice;
+			sourceTree = "<group>";
+		};
+		B07166BF269B183300B49CF7 /* MajorList */ = {
+			isa = PBXGroup;
+			children = (
+				B07166C6269B18F700B49CF7 /* MajorListViewController.swift */,
+				B07166C8269B190800B49CF7 /* MajorListViewModel.swift */,
+			);
+			path = MajorList;
+			sourceTree = "<group>";
+		};
+		B07166C0269B183D00B49CF7 /* SSUCatch */ = {
+			isa = PBXGroup;
+			children = (
+				B07166CA269B193300B49CF7 /* SSUCatchViewController.swift */,
+				B07166CC269B194700B49CF7 /* SSUCatchViewModel.swift */,
+			);
+			path = SSUCatch;
+			sourceTree = "<group>";
+		};
+		B07166C1269B184700B49CF7 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				B07166CE269B197200B49CF7 /* NoticeSearchViewController.swift */,
+				B07166D0269B198100B49CF7 /* NoticeSearchViewModel.swift */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
 		DD6CE84CCC08ADFCA011F42A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -344,6 +436,8 @@
 		DE29613423703F4C0074F24B /* SoongsilNotice */ = {
 			isa = PBXGroup;
 			children = (
+				B07166B5269B170E00B49CF7 /* Common */,
+				B07166AD269B15D100B49CF7 /* ViewControllers */,
 				DE0418B02402412E00486BF3 /* GoogleService-Info.plist */,
 				DE53D14923FC21BA00AEFCE2 /* Bookmark */,
 				DE85B93B23DD2DEB001FB35C /* Notissu.entitlements */,
@@ -380,6 +474,7 @@
 				DE29614E2370FCD20074F24B /* NoticeListContract.swift */,
 				DE2961502370FD0A0074F24B /* NoticeListViewCell.swift */,
 				DE2961522370FF4E0074F24B /* Notice.swift */,
+				B07166BC269B180900B49CF7 /* NoticeListViewModel.swift */,
 			);
 			path = NoticeList;
 			sourceTree = "<group>";
@@ -534,7 +629,7 @@
 			attributes = {
 				LastSwiftUpdateCheck = 1200;
 				LastUpgradeCheck = 1120;
-				ORGANIZATIONNAME = TaeinKim;
+				ORGANIZATIONNAME = Notissu;
 				TargetAttributes = {
 					DE29613123703F4C0074F24B = {
 						CreatedOnToolsVersion = 11.2;
@@ -677,24 +772,36 @@
 				DE7496B523DC00D400000849 /* SearchModel.swift in Sources */,
 				DE29615B237289D60074F24B /* NoticeDetailContract.swift in Sources */,
 				DE75F91424064F2E00510E78 /* VersionInfoView.swift in Sources */,
+				B07166C7269B18F700B49CF7 /* MajorListViewController.swift in Sources */,
 				DE501C492374FD250053055A /* NoticeURL.swift in Sources */,
 				DEBFDC45237E391C003888D9 /* OpenSourceViewController.swift in Sources */,
+				B07166C5269B187A00B49CF7 /* MyNoticeViewModel.swift in Sources */,
 				DE5542442377E076004E01EB /* HomeSwticher.swift in Sources */,
 				DE53D14D23FC21DB00AEFCE2 /* BookmarkContract.swift in Sources */,
 				DE7E5DB124093555007F0DF2 /* String+FileType.swift in Sources */,
 				DE296155237195CD0074F24B /* ConfigSetting.swift in Sources */,
+				B07166CF269B197200B49CF7 /* NoticeSearchViewController.swift in Sources */,
 				DE1772D3240F64F400A58A66 /* Encode+EUC-KR.swift in Sources */,
 				DE04186024021BCA00486BF3 /* NotissuResource.swift in Sources */,
 				DE55424623784879004E01EB /* SplashViewController.swift in Sources */,
 				DE29614F2370FCD20074F24B /* NoticeListContract.swift in Sources */,
 				DEF56D7523837778003CA0F0 /* SearchViewController.swift in Sources */,
 				DE0F8F1A2373A222006A0B49 /* BaseViewController.swift in Sources */,
+				B07166B0269B15E300B49CF7 /* MainTabBarViewController.swift in Sources */,
 				DEF56D7C2383C002003CA0F0 /* SchoolContract.swift in Sources */,
+				B07166C9269B190800B49CF7 /* MajorListViewModel.swift in Sources */,
+				B07166CB269B193300B49CF7 /* SSUCatchViewController.swift in Sources */,
 				DE53D0B323F8EA4E00AEFCE2 /* CoreDataUtil.swift in Sources */,
 				DEF56D802384D547003CA0F0 /* ManualViewController.swift in Sources */,
+				B07166CD269B194700B49CF7 /* SSUCatchViewModel.swift in Sources */,
+				B07166D1269B198100B49CF7 /* NoticeSearchViewModel.swift in Sources */,
+				B07166BD269B180900B49CF7 /* NoticeListViewModel.swift in Sources */,
 				DEC1684C23F7A84500DE2D84 /* NotissuProperty.swift in Sources */,
+				B07166B7269B171E00B49CF7 /* MainNavigationController.swift in Sources */,
 				DE0F8F2323740041006A0B49 /* NoticeLaw.swift in Sources */,
+				B07166BB269B17CF00B49CF7 /* UIImage+Ext.swift in Sources */,
 				B0B67AEB2400BB060027D038 /* MajorModel.swift in Sources */,
+				B07166B9269B175100B49CF7 /* MainUINavigationBar.swift in Sources */,
 				DE0F8F1F2373F44C006A0B49 /* HomeViewController.swift in Sources */,
 				DE03E9CF2379B05D002AA5AE /* NoticeBusiness.swift in Sources */,
 				DE5542422377D993004E01EB /* StartViewController.swift in Sources */,
@@ -719,6 +826,7 @@
 				DE29614B2370FC720074F24B /* NoticeListViewController.swift in Sources */,
 				DE53D15123FC21ED00AEFCE2 /* BookmarkModel.swift in Sources */,
 				DE55424B2379340A004E01EB /* MoreViewController.swift in Sources */,
+				B07166C3269B185800B49CF7 /* MyNoticeViewController.swift in Sources */,
 				DE29615E23728A330074F24B /* NoticeDetailPresenter.swift in Sources */,
 				DE0F8F212373FDD7006A0B49 /* NoticeEngineering.swift in Sources */,
 				DEF56D7E238425D7003CA0F0 /* NoticeSoongsil.swift in Sources */,

@@ -84,6 +84,7 @@ PODS:
   - nanopb/encode (1.30906.0)
   - PromisesObjC (1.2.10)
   - Protobuf (3.13.0)
+  - SnapKit (5.0.1)
 
 DEPENDENCIES:
   - Alamofire
@@ -92,6 +93,7 @@ DEPENDENCIES:
   - Google-Mobile-Ads-SDK
   - Kanna (~> 5.0.0)
   - lottie-ios
+  - SnapKit
 
 SPEC REPOS:
   trunk:
@@ -113,6 +115,7 @@ SPEC REPOS:
     - nanopb
     - PromisesObjC
     - Protobuf
+    - SnapKit
 
 SPEC CHECKSUMS:
   Alamofire: 814429acc853c6c54ff123fc3d2ef66803823ce0
@@ -133,7 +136,8 @@ SPEC CHECKSUMS:
   nanopb: 59317e09cf1f1a0af72f12af412d54edf52603fc
   PromisesObjC: b14b1c6b68e306650688599de8a45e49fae81151
   Protobuf: 3dac39b34a08151c6d949560efe3f86134a3f748
+  SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
 
-PODFILE CHECKSUM: dd4fbf5915098bc76d7b3a97e514ee8f953b35bb
+PODFILE CHECKSUM: 48ba26f85d11fd66ec5c99e532c99524df6ca1e7
 
 COCOAPODS: 1.10.1

@@ -11,7 +11,6 @@ import UIKit
 import Alamofire
 import Kanna
 import WebKit
-import WidgetKit
 
 class NoticeDetailViewController: BaseViewController, WKNavigationDelegate, WKUIDelegate, UITableViewDelegate, UITableViewDataSource, UIDocumentInteractionControllerDelegate, NoticeDetailView, AttachmentDelegate {
     
@@ -103,7 +102,6 @@ class NoticeDetailViewController: BaseViewController, WKNavigationDelegate, WKUI
     @objc func favoriteTapped() {
         self.isFavorite = !self.isFavorite
         self.presenter.setFavorite(notice: self.noticeItem!, majorCode: self.departmentCode!, majorName: self.department!.majorName!, favorite: self.isFavorite)
-        WidgetCenter.shared.reloadAllTimelines()
     }
     
     func loadContentFromURL(string: String) {

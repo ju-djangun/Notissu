@@ -10,6 +10,7 @@ target 'SoongsilNotice' do
   pod 'Kanna', '~> 5.0.0'
   pod 'lottie-ios'
   pod 'Alamofire'
+  pod 'SnapKit'
   pod 'Firebase/Core'
   pod 'Firebase/Messaging'
   pod 'Google-Mobile-Ads-SDK'
@@ -17,8 +18,4 @@ target 'SoongsilNotice' do
   target 'Notissu Today Extension' do
     inherit! :search_paths
   end
-
-# target 'Notissu-Watch Extension' do
-#  pod 'Alamofire'
-#  pod 'Kanna'
 end

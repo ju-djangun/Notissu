@@ -8,22 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		43C7B2F80E459CCCF0FD26CF /* Pods_Notissu_Today_Extension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C3F7DC8F67539D51717B753 /* Pods_Notissu_Today_Extension.framework */; };
-		B03BA5BD251746B8002010CE /* FavoriteFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = B03BA5BB251746B3002010CE /* FavoriteFetcher.swift */; };
-		B03BA5BE251746F4002010CE /* Notice.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2961522370FF4E0074F24B /* Notice.swift */; };
-		B03BA5BF25174707002010CE /* CoreDataUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE53D0B223F8EA4E00AEFCE2 /* CoreDataUtil.swift */; };
-		B03BA5C02517471D002010CE /* ConfigSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE296154237195CD0074F24B /* ConfigSetting.swift */; };
-		B03BA5C225174CDF002010CE /* FavoriteNotice.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DE53D0AE23F8E9B100AEFCE2 /* FavoriteNotice.xcdatamodeld */; };
-		B03BA5EA25175F39002010CE /* NotissuWidgetBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = B03BA5E925175F39002010CE /* NotissuWidgetBundle.swift */; };
-		B03BA5EE25176049002010CE /* NotissuShortcutWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = B03BA5ED25176049002010CE /* NotissuShortcutWidget.swift */; };
-		B03BA5EF25176290002010CE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DE29613E23703F4D0074F24B /* Assets.xcassets */; };
 		B03BA5F025176295002010CE /* NotissuColorSet.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DE53D1552400F54B00AEFCE2 /* NotissuColorSet.xcassets */; };
-		B03BA5F125176296002010CE /* NotissuColorSet.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DE53D1552400F54B00AEFCE2 /* NotissuColorSet.xcassets */; };
-		B03BA5F22517629A002010CE /* FileTypeIcon.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DE7E5DB224093779007F0DF2 /* FileTypeIcon.xcassets */; };
-		B04D10082514BADA000BEBE4 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B04D10072514BADA000BEBE4 /* WidgetKit.framework */; };
-		B04D100A2514BADA000BEBE4 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B04D10092514BADA000BEBE4 /* SwiftUI.framework */; };
-		B04D100D2514BADA000BEBE4 /* NotissuFavoriteWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04D100C2514BADA000BEBE4 /* NotissuFavoriteWidget.swift */; };
-		B04D100F2514BADB000BEBE4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B04D100E2514BADB000BEBE4 /* Assets.xcassets */; };
-		B04D10132514BADB000BEBE4 /* Notissu WidgetKitExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = B04D10062514BADA000BEBE4 /* Notissu WidgetKitExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		B0B67AEB2400BB060027D038 /* MajorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B67AEA2400BB060027D038 /* MajorModel.swift */; };
 		DE03E9CF2379B05D002AA5AE /* NoticeBusiness.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE03E9CE2379B05D002AA5AE /* NoticeBusiness.swift */; };
 		DE04186024021BCA00486BF3 /* NotissuResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE04185F24021BCA00486BF3 /* NotissuResource.swift */; };
@@ -126,13 +111,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		B04D10112514BADB000BEBE4 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = DE29612A23703F4C0074F24B /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = B04D10052514BADA000BEBE4;
-			remoteInfo = "Notissu WidgetKitExtension";
-		};
 		DE64BE8D23DD253C00DF46C5 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = DE29612A23703F4C0074F24B /* Project object */;
@@ -149,7 +127,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				B04D10132514BADB000BEBE4 /* Notissu WidgetKitExtension.appex in Embed App Extensions */,
 				DE64BE8F23DD253C00DF46C5 /* Notissu Today Extension.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
@@ -177,16 +154,8 @@
 		550CAE3A9D2DBDE403D9BE3F /* Pods-Notissu Today Extension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Notissu Today Extension.release.xcconfig"; path = "Target Support Files/Pods-Notissu Today Extension/Pods-Notissu Today Extension.release.xcconfig"; sourceTree = "<group>"; };
 		57296D4BD235F1B361E7E590 /* Pods_SoongsilNotice.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SoongsilNotice.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		90414B9DF20CF22441FFF574 /* Pods-SoongsilNotice-Notissu-Watch Extension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SoongsilNotice-Notissu-Watch Extension.debug.xcconfig"; path = "Target Support Files/Pods-SoongsilNotice-Notissu-Watch Extension/Pods-SoongsilNotice-Notissu-Watch Extension.debug.xcconfig"; sourceTree = "<group>"; };
-		B03BA5BB251746B3002010CE /* FavoriteFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteFetcher.swift; sourceTree = "<group>"; };
-		B03BA5C125174AB9002010CE /* Notissu WidgetKitExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Notissu WidgetKitExtension.entitlements"; sourceTree = "<group>"; };
-		B03BA5E925175F39002010CE /* NotissuWidgetBundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotissuWidgetBundle.swift; sourceTree = "<group>"; };
-		B03BA5ED25176049002010CE /* NotissuShortcutWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotissuShortcutWidget.swift; sourceTree = "<group>"; };
-		B04D10062514BADA000BEBE4 /* Notissu WidgetKitExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Notissu WidgetKitExtension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B04D10072514BADA000BEBE4 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		B04D10092514BADA000BEBE4 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
-		B04D100C2514BADA000BEBE4 /* NotissuFavoriteWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotissuFavoriteWidget.swift; sourceTree = "<group>"; };
-		B04D100E2514BADB000BEBE4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		B04D10102514BADB000BEBE4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B0B67AEA2400BB060027D038 /* MajorModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MajorModel.swift; sourceTree = "<group>"; };
 		D7D51A6E1417CF69431DF616 /* Pods-Notissu-Watch Extension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Notissu-Watch Extension.debug.xcconfig"; path = "Target Support Files/Pods-Notissu-Watch Extension/Pods-Notissu-Watch Extension.debug.xcconfig"; sourceTree = "<group>"; };
 		DE03E9CE2379B05D002AA5AE /* NoticeBusiness.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeBusiness.swift; sourceTree = "<group>"; };
@@ -273,15 +242,6 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		B04D10032514BADA000BEBE4 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				B04D100A2514BADA000BEBE4 /* SwiftUI.framework in Frameworks */,
-				B04D10082514BADA000BEBE4 /* WidgetKit.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		DE29612F23703F4C0074F24B /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -316,36 +276,6 @@
 				F749762CEDDE4D582A22A89A /* Pods-SoongsilNotice-Notissu-Watch Extension.release.xcconfig */,
 			);
 			path = Pods;
-			sourceTree = "<group>";
-		};
-		B03BA5EB2517602F002010CE /* Favorite */ = {
-			isa = PBXGroup;
-			children = (
-				B04D100C2514BADA000BEBE4 /* NotissuFavoriteWidget.swift */,
-				B03BA5BB251746B3002010CE /* FavoriteFetcher.swift */,
-			);
-			path = Favorite;
-			sourceTree = "<group>";
-		};
-		B03BA5EC2517603B002010CE /* Shortcut */ = {
-			isa = PBXGroup;
-			children = (
-				B03BA5ED25176049002010CE /* NotissuShortcutWidget.swift */,
-			);
-			path = Shortcut;
-			sourceTree = "<group>";
-		};
-		B04D100B2514BADA000BEBE4 /* Notissu WidgetKit */ = {
-			isa = PBXGroup;
-			children = (
-				B03BA5EC2517603B002010CE /* Shortcut */,
-				B03BA5EB2517602F002010CE /* Favorite */,
-				B03BA5C125174AB9002010CE /* Notissu WidgetKitExtension.entitlements */,
-				B03BA5E925175F39002010CE /* NotissuWidgetBundle.swift */,
-				B04D100E2514BADB000BEBE4 /* Assets.xcassets */,
-				B04D10102514BADB000BEBE4 /* Info.plist */,
-			);
-			path = "Notissu WidgetKit";
 			sourceTree = "<group>";
 		};
 		DD6CE84CCC08ADFCA011F42A /* Frameworks */ = {
@@ -396,7 +326,6 @@
 			children = (
 				DE29613423703F4C0074F24B /* SoongsilNotice */,
 				DE64BE8623DD253C00DF46C5 /* Notissu Today Extension */,
-				B04D100B2514BADA000BEBE4 /* Notissu WidgetKit */,
 				DE29613323703F4C0074F24B /* Products */,
 				8C7A827DD516122B5FDBC531 /* Pods */,
 				DD6CE84CCC08ADFCA011F42A /* Frameworks */,
@@ -408,7 +337,6 @@
 			children = (
 				DE29613223703F4C0074F24B /* Notissu.app */,
 				DE64BE8323DD253C00DF46C5 /* Notissu Today Extension.appex */,
-				B04D10062514BADA000BEBE4 /* Notissu WidgetKitExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -558,23 +486,6 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		B04D10052514BADA000BEBE4 /* Notissu WidgetKitExtension */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = B04D10162514BADB000BEBE4 /* Build configuration list for PBXNativeTarget "Notissu WidgetKitExtension" */;
-			buildPhases = (
-				B04D10022514BADA000BEBE4 /* Sources */,
-				B04D10032514BADA000BEBE4 /* Frameworks */,
-				B04D10042514BADA000BEBE4 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = "Notissu WidgetKitExtension";
-			productName = "Notissu WidgetKitExtension";
-			productReference = B04D10062514BADA000BEBE4 /* Notissu WidgetKitExtension.appex */;
-			productType = "com.apple.product-type.app-extension";
-		};
 		DE29613123703F4C0074F24B /* SoongsilNotice */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = DE29614623703F4D0074F24B /* Build configuration list for PBXNativeTarget "SoongsilNotice" */;
@@ -591,7 +502,6 @@
 			);
 			dependencies = (
 				DE64BE8E23DD253C00DF46C5 /* PBXTargetDependency */,
-				B04D10122514BADB000BEBE4 /* PBXTargetDependency */,
 			);
 			name = SoongsilNotice;
 			productName = SoongsilNotice;
@@ -626,9 +536,6 @@
 				LastUpgradeCheck = 1120;
 				ORGANIZATIONNAME = TaeinKim;
 				TargetAttributes = {
-					B04D10052514BADA000BEBE4 = {
-						CreatedOnToolsVersion = 12.0;
-					};
 					DE29613123703F4C0074F24B = {
 						CreatedOnToolsVersion = 11.2;
 					};
@@ -652,23 +559,11 @@
 			targets = (
 				DE29613123703F4C0074F24B /* SoongsilNotice */,
 				DE64BE8223DD253C00DF46C5 /* Notissu Today Extension */,
-				B04D10052514BADA000BEBE4 /* Notissu WidgetKitExtension */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		B04D10042514BADA000BEBE4 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				B03BA5F22517629A002010CE /* FileTypeIcon.xcassets in Resources */,
-				B03BA5F125176296002010CE /* NotissuColorSet.xcassets in Resources */,
-				B03BA5EF25176290002010CE /* Assets.xcassets in Resources */,
-				B04D100F2514BADB000BEBE4 /* Assets.xcassets in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		DE29613023703F4C0074F24B /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -770,21 +665,6 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		B04D10022514BADA000BEBE4 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				B03BA5BE251746F4002010CE /* Notice.swift in Sources */,
-				B04D100D2514BADA000BEBE4 /* NotissuFavoriteWidget.swift in Sources */,
-				B03BA5EA25175F39002010CE /* NotissuWidgetBundle.swift in Sources */,
-				B03BA5EE25176049002010CE /* NotissuShortcutWidget.swift in Sources */,
-				B03BA5BF25174707002010CE /* CoreDataUtil.swift in Sources */,
-				B03BA5C225174CDF002010CE /* FavoriteNotice.xcdatamodeld in Sources */,
-				B03BA5C02517471D002010CE /* ConfigSetting.swift in Sources */,
-				B03BA5BD251746B8002010CE /* FavoriteFetcher.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		DE29612E23703F4C0074F24B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -878,11 +758,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		B04D10122514BADB000BEBE4 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = B04D10052514BADA000BEBE4 /* Notissu WidgetKitExtension */;
-			targetProxy = B04D10112514BADB000BEBE4 /* PBXContainerItemProxy */;
-		};
 		DE64BE8E23DD253C00DF46C5 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = DE64BE8223DD253C00DF46C5 /* Notissu Today Extension */;
@@ -910,54 +785,6 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		B04D10142514BADB000BEBE4 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
-				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
-				CODE_SIGN_ENTITLEMENTS = "Notissu WidgetKitExtension.entitlements";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = M79H9K226Y;
-				INFOPLIST_FILE = "Notissu WidgetKit/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@executable_path/../../Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.elliott.notissu-ios.Notissu-WidgetKit";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Debug;
-		};
-		B04D10152514BADB000BEBE4 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
-				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
-				CODE_SIGN_ENTITLEMENTS = "Notissu WidgetKitExtension.entitlements";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = M79H9K226Y;
-				INFOPLIST_FILE = "Notissu WidgetKit/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@executable_path/../../Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.elliott.notissu-ios.Notissu-WidgetKit";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Release;
-		};
 		DE29614423703F4D0074F24B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1169,15 +996,6 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		B04D10162514BADB000BEBE4 /* Build configuration list for PBXNativeTarget "Notissu WidgetKitExtension" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				B04D10142514BADB000BEBE4 /* Debug */,
-				B04D10152514BADB000BEBE4 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		DE29612D23703F4C0074F24B /* Build configuration list for PBXProject "SoongsilNotice" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

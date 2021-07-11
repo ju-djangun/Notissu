@@ -28,5 +28,13 @@ final class MyNoticeViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        bindViewModel()
+        viewModel.fetchNoticeList()
+    }
+    
+    private func bindViewModel() {
+        viewModel.noticeList.bind({ list in
+            
+        })
     }
 }

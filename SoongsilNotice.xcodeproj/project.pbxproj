@@ -22,6 +22,8 @@
 		B07166CD269B194700B49CF7 /* SSUCatchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07166CC269B194700B49CF7 /* SSUCatchViewModel.swift */; };
 		B07166CF269B197200B49CF7 /* NoticeSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07166CE269B197200B49CF7 /* NoticeSearchViewController.swift */; };
 		B07166D1269B198100B49CF7 /* NoticeSearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07166D0269B198100B49CF7 /* NoticeSearchViewModel.swift */; };
+		B07166D7269B1B6F00B49CF7 /* Dynamic.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07166D6269B1B6F00B49CF7 /* Dynamic.swift */; };
+		B07166DA269B1C3100B49CF7 /* NoticeFetchManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07166D9269B1C3100B49CF7 /* NoticeFetchManager.swift */; };
 		B0B67AEB2400BB060027D038 /* MajorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B67AEA2400BB060027D038 /* MajorModel.swift */; };
 		DE03E9CF2379B05D002AA5AE /* NoticeBusiness.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE03E9CE2379B05D002AA5AE /* NoticeBusiness.swift */; };
 		DE04186024021BCA00486BF3 /* NotissuResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE04185F24021BCA00486BF3 /* NotissuResource.swift */; };
@@ -182,6 +184,8 @@
 		B07166CC269B194700B49CF7 /* SSUCatchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSUCatchViewModel.swift; sourceTree = "<group>"; };
 		B07166CE269B197200B49CF7 /* NoticeSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeSearchViewController.swift; sourceTree = "<group>"; };
 		B07166D0269B198100B49CF7 /* NoticeSearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeSearchViewModel.swift; sourceTree = "<group>"; };
+		B07166D6269B1B6F00B49CF7 /* Dynamic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dynamic.swift; sourceTree = "<group>"; };
+		B07166D9269B1C3100B49CF7 /* NoticeFetchManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeFetchManager.swift; sourceTree = "<group>"; };
 		B0B67AEA2400BB060027D038 /* MajorModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MajorModel.swift; sourceTree = "<group>"; };
 		D7D51A6E1417CF69431DF616 /* Pods-Notissu-Watch Extension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Notissu-Watch Extension.debug.xcconfig"; path = "Target Support Files/Pods-Notissu-Watch Extension/Pods-Notissu-Watch Extension.debug.xcconfig"; sourceTree = "<group>"; };
 		DE03E9CE2379B05D002AA5AE /* NoticeBusiness.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeBusiness.swift; sourceTree = "<group>"; };
@@ -330,6 +334,7 @@
 				B07166B6269B171E00B49CF7 /* MainNavigationController.swift */,
 				B07166B8269B175100B49CF7 /* MainUINavigationBar.swift */,
 				B07166BA269B17CF00B49CF7 /* UIImage+Ext.swift */,
+				B07166D6269B1B6F00B49CF7 /* Dynamic.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -368,6 +373,14 @@
 				B07166D0269B198100B49CF7 /* NoticeSearchViewModel.swift */,
 			);
 			path = Search;
+			sourceTree = "<group>";
+		};
+		B07166D8269B1C2300B49CF7 /* DataRepository */ = {
+			isa = PBXGroup;
+			children = (
+				B07166D9269B1C3100B49CF7 /* NoticeFetchManager.swift */,
+			);
+			path = DataRepository;
 			sourceTree = "<group>";
 		};
 		DD6CE84CCC08ADFCA011F42A /* Frameworks */ = {
@@ -436,6 +449,7 @@
 		DE29613423703F4C0074F24B /* SoongsilNotice */ = {
 			isa = PBXGroup;
 			children = (
+				B07166D8269B1C2300B49CF7 /* DataRepository */,
 				B07166B5269B170E00B49CF7 /* Common */,
 				B07166AD269B15D100B49CF7 /* ViewControllers */,
 				DE0418B02402412E00486BF3 /* GoogleService-Info.plist */,
@@ -797,6 +811,7 @@
 				B07166D1269B198100B49CF7 /* NoticeSearchViewModel.swift in Sources */,
 				B07166BD269B180900B49CF7 /* NoticeListViewModel.swift in Sources */,
 				DEC1684C23F7A84500DE2D84 /* NotissuProperty.swift in Sources */,
+				B07166D7269B1B6F00B49CF7 /* Dynamic.swift in Sources */,
 				B07166B7269B171E00B49CF7 /* MainNavigationController.swift in Sources */,
 				DE0F8F2323740041006A0B49 /* NoticeLaw.swift in Sources */,
 				B07166BB269B17CF00B49CF7 /* UIImage+Ext.swift in Sources */,
@@ -821,6 +836,7 @@
 				DE8C73842379BB2E008F2FE1 /* NoticeEconomy.swift in Sources */,
 				DE501C472374FC9D0053055A /* NoticeInmun.swift in Sources */,
 				DE0F8F1823739C8A006A0B49 /* NoticeAttachmentCell.swift in Sources */,
+				B07166DA269B1C3100B49CF7 /* NoticeFetchManager.swift in Sources */,
 				DE4B18EB241208E7007FD285 /* ModifyProfileViewController.swift in Sources */,
 				DE5542402377CC31004E01EB /* NoticeNaturalScience.swift in Sources */,
 				DE29614B2370FC720074F24B /* NoticeListViewController.swift in Sources */,

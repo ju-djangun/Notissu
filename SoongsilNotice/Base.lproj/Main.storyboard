@@ -9,6 +9,11 @@
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="NotoSansKR-Bold.otf">
+            <string>NotoSansKR-Bold</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--상세보기-->
         <scene sceneID="tne-QT-ifu">
@@ -414,77 +419,17 @@
         <!--전공 목록-->
         <scene sceneID="ed7-c7-6Dq">
             <objects>
-                <viewController id="oMw-42-hXP" customClass="HomeViewController" customModule="Notissu" sceneMemberID="viewController">
+                <viewController id="oMw-42-hXP" customClass="MajorListViewController" customModule="Notissu" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="QZD-sF-fTk">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="GoR-ko-bON">
-                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="majorCell" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="majorCell" rowHeight="70" id="fq8-l2-Rs6" customClass="HomeCell" customModule="Notissu">
-                                        <rect key="frame" x="0.0" y="24.5" width="414" height="70"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="fq8-l2-Rs6" id="LzX-tV-nKI">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="70"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="국어국문학과" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ytu-mA-skT">
-                                                    <rect key="frame" x="20" y="15" width="166.5" height="24"/>
-                                                    <color key="tintColor" red="0.1764705882352941" green="0.36862745098039218" blue="0.7803921568627451" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
-                                                    <color key="textColor" name="home_major_title"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Korean Language &amp; Literature" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fqR-iI-C6z">
-                                                    <rect key="frame" x="20" y="41.5" width="166.5" height="14.5"/>
-                                                    <fontDescription key="fontDescription" type="system" weight="light" pointSize="12"/>
-                                                    <color key="textColor" red="0.62745098040000002" green="0.62745098040000002" blue="0.62745098040000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="main_ios_arrow" translatesAutoresizingMaskIntoConstraints="NO" id="Gm7-qo-TUO">
-                                                    <rect key="frame" x="393" y="9" width="11" height="52"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="11" id="QnV-lr-yhf"/>
-                                                    </constraints>
-                                                </imageView>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstItem="fqR-iI-C6z" firstAttribute="top" secondItem="Ytu-mA-skT" secondAttribute="bottom" constant="2.5" id="1Al-jy-wv5"/>
-                                                <constraint firstItem="Ytu-mA-skT" firstAttribute="trailing" secondItem="fqR-iI-C6z" secondAttribute="trailing" id="NgF-uP-IlY"/>
-                                                <constraint firstAttribute="bottom" secondItem="fqR-iI-C6z" secondAttribute="bottom" constant="14" id="PfZ-LV-t6E"/>
-                                                <constraint firstItem="Ytu-mA-skT" firstAttribute="leading" secondItem="fqR-iI-C6z" secondAttribute="leading" id="WJo-tu-4q3"/>
-                                                <constraint firstItem="Ytu-mA-skT" firstAttribute="leading" secondItem="LzX-tV-nKI" secondAttribute="leading" constant="20" id="cAH-Ii-PjJ"/>
-                                                <constraint firstAttribute="trailing" secondItem="Gm7-qo-TUO" secondAttribute="trailing" constant="10" id="e1l-QV-nRi"/>
-                                                <constraint firstItem="Ytu-mA-skT" firstAttribute="top" secondItem="LzX-tV-nKI" secondAttribute="top" constant="15" id="v7k-XP-kEf"/>
-                                                <constraint firstItem="Gm7-qo-TUO" firstAttribute="centerY" secondItem="LzX-tV-nKI" secondAttribute="centerY" id="zWs-eG-L1R"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                        <connections>
-                                            <outlet property="majorTitle" destination="Ytu-mA-skT" id="KQN-py-Uh7"/>
-                                            <outlet property="majorTitleEng" destination="fqR-iI-C6z" id="Uvp-p3-CaW"/>
-                                        </connections>
-                                    </tableViewCell>
-                                </prototypes>
-                            </tableView>
-                        </subviews>
                         <viewLayoutGuide key="safeArea" id="uVe-ps-lKm"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="uVe-ps-lKm" firstAttribute="trailing" secondItem="GoR-ko-bON" secondAttribute="trailing" id="5iL-fe-T88"/>
-                            <constraint firstItem="uVe-ps-lKm" firstAttribute="bottom" secondItem="GoR-ko-bON" secondAttribute="bottom" id="ALg-bN-Yqn"/>
-                            <constraint firstItem="GoR-ko-bON" firstAttribute="leading" secondItem="uVe-ps-lKm" secondAttribute="leading" id="Iww-mr-xw5"/>
-                            <constraint firstItem="uVe-ps-lKm" firstAttribute="top" secondItem="GoR-ko-bON" secondAttribute="top" id="Swk-Sd-SJ5"/>
-                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="전공목록" image="major" selectedImage="major" id="oAk-hq-gGK"/>
                     <navigationItem key="navigationItem" title="전공 목록" id="Qd3-0d-rW4">
                         <barButtonItem key="rightBarButtonItem" title="즐겨찾기 설정" id="bVg-eC-tSj"/>
                     </navigationItem>
-                    <connections>
-                        <outlet property="majorListView" destination="GoR-ko-bON" id="MAc-Xu-dhd"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ENX-ph-Xfw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -513,14 +458,14 @@
                                         <rect key="frame" x="66" y="11" width="340" height="42"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="나의 전공" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ggX-f6-85B">
-                                                <rect key="frame" x="8" y="4" width="332" height="12"/>
+                                                <rect key="frame" x="8" y="4" width="332" height="12.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                 <color key="textColor" red="0.60784313729999995" green="0.60784313729999995" blue="0.60784313729999995" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalCompressionResistancePriority="751" text="전공이름" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Umj-4e-AJA">
-                                                <rect key="frame" x="8" y="18" width="332" height="24"/>
-                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
+                                                <rect key="frame" x="8" y="18.5" width="332" height="23.5"/>
+                                                <fontDescription key="fontDescription" name="NotoSansKR-Bold" family="Noto Sans KR" pointSize="20"/>
                                                 <color key="textColor" name="tab_icon_tint"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -1382,7 +1327,6 @@
         <image name="attachmennt" width="32" height="18"/>
         <image name="iconDownloadable" width="24" height="24"/>
         <image name="iconSearch" width="24" height="24"/>
-        <image name="main_ios_arrow" width="32" height="52"/>
         <image name="major" width="30" height="30"/>
         <image name="notice_active" width="30" height="30"/>
         <image name="person_png" width="490" height="490"/>
@@ -1390,9 +1334,6 @@
         <image name="university" width="30" height="30"/>
         <namedColor name="detail_bg">
             <color white="0.95999997854232788" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </namedColor>
-        <namedColor name="home_major_title">
-            <color red="0.31499999761581421" green="0.34200000762939453" blue="0.50999999046325684" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <namedColor name="launch_bg">
             <color red="0.31499999761581421" green="0.34200000762939453" blue="0.50999999046325684" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>

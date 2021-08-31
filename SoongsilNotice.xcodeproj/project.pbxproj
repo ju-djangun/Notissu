@@ -57,8 +57,6 @@
 		DE0418B22402412F00486BF3 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DE0418B02402412E00486BF3 /* GoogleService-Info.plist */; };
 		DE0F8F1823739C8A006A0B49 /* NoticeAttachmentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE0F8F1723739C8A006A0B49 /* NoticeAttachmentCell.swift */; };
 		DE0F8F1A2373A222006A0B49 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE0F8F192373A222006A0B49 /* BaseViewController.swift */; };
-		DE0F8F1D2373F346006A0B49 /* HomeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE0F8F1C2373F346006A0B49 /* HomeCell.swift */; };
-		DE0F8F1F2373F44C006A0B49 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE0F8F1E2373F44C006A0B49 /* HomeViewController.swift */; };
 		DE0F8F212373FDD7006A0B49 /* NoticeEngineering.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE0F8F202373FDD7006A0B49 /* NoticeEngineering.swift */; };
 		DE0F8F2323740041006A0B49 /* NoticeLaw.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE0F8F2223740041006A0B49 /* NoticeLaw.swift */; };
 		DE1772D3240F64F400A58A66 /* Encode+EUC-KR.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1772D2240F64F400A58A66 /* Encode+EUC-KR.swift */; };
@@ -231,8 +229,6 @@
 		DE0418B02402412E00486BF3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		DE0F8F1723739C8A006A0B49 /* NoticeAttachmentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeAttachmentCell.swift; sourceTree = "<group>"; };
 		DE0F8F192373A222006A0B49 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
-		DE0F8F1C2373F346006A0B49 /* HomeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCell.swift; sourceTree = "<group>"; };
-		DE0F8F1E2373F44C006A0B49 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		DE0F8F202373FDD7006A0B49 /* NoticeEngineering.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeEngineering.swift; sourceTree = "<group>"; };
 		DE0F8F2223740041006A0B49 /* NoticeLaw.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeLaw.swift; sourceTree = "<group>"; };
 		DE1772D2240F64F400A58A66 /* Encode+EUC-KR.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Encode+EUC-KR.swift"; sourceTree = "<group>"; };
@@ -489,8 +485,6 @@
 		DE0F8F1B2373F333006A0B49 /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				DE0F8F1C2373F346006A0B49 /* HomeCell.swift */,
-				DE0F8F1E2373F44C006A0B49 /* HomeViewController.swift */,
 				DE5542412377D993004E01EB /* StartViewController.swift */,
 				DE55424523784879004E01EB /* SplashViewController.swift */,
 				DEF56D7F2384D547003CA0F0 /* ManualViewController.swift */,
@@ -911,7 +905,6 @@
 				B07166BB269B17CF00B49CF7 /* UIImage+Ext.swift in Sources */,
 				B0B67AEB2400BB060027D038 /* MajorModel.swift in Sources */,
 				B07166B9269B175100B49CF7 /* MainUINavigationBar.swift in Sources */,
-				DE0F8F1F2373F44C006A0B49 /* HomeViewController.swift in Sources */,
 				DE03E9CF2379B05D002AA5AE /* NoticeBusiness.swift in Sources */,
 				DE5542422377D993004E01EB /* StartViewController.swift in Sources */,
 				DE2961592371ADEE0074F24B /* NoticeDetailViewController.swift in Sources */,
@@ -924,7 +917,6 @@
 				DE29614D2370FCB20074F24B /* NoticeListPresenter.swift in Sources */,
 				DE53D0B023F8E9B100AEFCE2 /* FavoriteNotice.xcdatamodeld in Sources */,
 				DE7496B123DC008C00000849 /* SearchPresenter.swift in Sources */,
-				DE0F8F1D2373F346006A0B49 /* HomeCell.swift in Sources */,
 				DE2961512370FD0A0074F24B /* NoticeListViewCell.swift in Sources */,
 				DEF56D782383BF05003CA0F0 /* SchoolViewController.swift in Sources */,
 				DE296157237198070074F24B /* NoticeIT.swift in Sources */,

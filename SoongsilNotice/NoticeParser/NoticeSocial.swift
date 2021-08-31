@@ -46,10 +46,9 @@ class NoticeSocial {
                 if let data = response.value {
                     do {
                         let doc = try HTML(html: data, encoding: .utf8)
-                        for product in doc.css("table[class='bbs-list']") {
+                        for product in doc.css("table[class='t_list hover']") {
                             var isAppendNotice = false
                             var title = ""
-                            var author = ""
                             var date = ""
                             var url = ""
                             var isNotice = false
@@ -58,10 +57,10 @@ class NoticeSocial {
                             for (index, td) in product.css("td").enumerated() {
                                 let content = td.text!.trimmingCharacters(in: .whitespacesAndNewlines)
                                 
-                                switch (index % 6) {
+                                switch (index % 5) {
                                 case 0:
                                     isAppendNotice = false
-                                    if td.innerHTML?.contains("img") ?? false {
+                                    if td.innerHTML?.contains("공지") ?? false {
                                         isNotice = true
                                         if page < 2 {
                                             isAppendNotice = true
@@ -84,8 +83,7 @@ class NoticeSocial {
                                     }
                                 case 2:
                                     hasAttachment = false
-                                    let imgHTML = td.toHTML ?? ""
-                                    if imgHTML.contains("ico_file.gif") {
+                                    if td.innerHTML?.contains("파일") ?? false {
                                         hasAttachment = true
                                     }
                                     
@@ -93,11 +91,6 @@ class NoticeSocial {
                                         attachmentCheckList.append(hasAttachment)
                                     }
                                 case 3:
-                                    author = content
-                                    if isAppendNotice {
-                                        authorList.append(author)
-                                    }
-                                case 4:
                                     date = content
                                     if isAppendNotice {
                                         dateStringList.append(date)
@@ -112,7 +105,7 @@ class NoticeSocial {
                     
                     index = 0
                     for _ in urlList {
-                        let noticeItem = Notice(author: authorList[index], title: titleList[index], url: urlList[index], date: dateStringList[index], isNotice: isNoticeList[index], hasAttachment: attachmentCheckList[index])
+                        let noticeItem = Notice(author: "", title: titleList[index], url: urlList[index], date: dateStringList[index], isNotice: isNoticeList[index], hasAttachment: attachmentCheckList[index])
                         noticeList.append(noticeItem)
                         index += 1
                     }

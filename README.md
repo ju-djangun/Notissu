@@ -14,7 +14,7 @@ Email : [della.kimko@gmail.com](della.kimko@gmail.com)
 Apache 2.0 License  
  
 ### Supported Version : iOS 11.0 or newer, watchOS 5.0 or newer   
-### Support Device : iPhone 5s ~ iPhone 11 Pro Max, Apple Watch 3 ~ Apple Watch 5   
+### Support Device : iPhone 5s ~ iPhone 12 Pro Max   
   
 Soongsil University Major Notice  
 Soongsil University Major Notice Search  
@@ -24,9 +24,6 @@ Notice Today Extension (Widget)
 Notice Bookmark (Local Database)  
   
 Modularization : Notice (by Dept.)
-
-## Will be updated Shortly  
-Apple Watch OS, iOS 14 WidgetKit  
 
 ## iOS App Store Link  
 ![App Store Link](https://apps.apple.com/us/app/notissu/id1488050194)  

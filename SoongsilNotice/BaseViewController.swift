@@ -18,13 +18,13 @@ class BaseViewController: UIViewController, UIGestureRecognizerDelegate {
     static var noticeMajor   : Major?
     weak var tabBarDelegate: MainTabBarDelegate?
     
-    override var preferredStatusBarStyle: UIStatusBarStyle {
-        if let vc = self.navigationController?.topViewController {
-            return vc.preferredStatusBarStyle
-        } else {
-            return .lightContent
-        }
-    }
+//    override var preferredStatusBarStyle: UIStatusBarStyle {
+//        if let vc = self.navigationController?.topViewController {
+//            return vc.preferredStatusBarStyle
+//        } else {
+//            return .lightContent
+//        }
+//    }
     
     override func viewDidLoad() {
         super.viewDidLoad()

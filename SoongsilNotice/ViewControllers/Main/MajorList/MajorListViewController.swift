@@ -35,6 +35,7 @@ final class MajorListViewController: BaseViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.isNavigationBarHidden = true
+        navigationController?.navigationBar.topItem?.title = "전공 목록"
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -107,6 +108,7 @@ extension MajorListViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let storyBoard = UIStoryboard(name: "Main", bundle: .main)
+        
         if let noticeListViewController = storyBoard.instantiateViewController(withIdentifier: "noticeListVC") as? NoticeListViewController {
             
             noticeListViewController.department = MajorSection(rawValue: indexPath.section)?.getMajorList()[indexPath.row]
@@ -114,7 +116,8 @@ extension MajorListViewController: UITableViewDelegate, UITableViewDataSource {
             noticeListViewController.listType = .normalList
 //            noticeListViewController.modalPresentationStyle = .fullScreen
             
-            self.present(noticeListViewController, animated: true, completion: nil)
+//            self.present(noticeListViewController, animated: true, completion: nil)
+            self.navigationController?.pushViewController(noticeListViewController, animated: true)
         }
     }
 }

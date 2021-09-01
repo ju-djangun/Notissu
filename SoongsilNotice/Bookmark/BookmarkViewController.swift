@@ -48,7 +48,7 @@ extension BookmarkViewController {
         
         noticeDetailController?.noticeItem     = bookmark.notice
         noticeDetailController?.detailURL      = bookmark.notice.url
-        noticeDetailController?.department     = Major(majorCode: bookmark.deptCode, majorName: bookmark.deptName)
+        noticeDetailController?.department     = Major(majorCode: bookmark.deptCode)
         noticeDetailController?.noticeTitle    = bookmark.notice.title
         noticeDetailController?.noticeDay      = bookmark.notice.date
         
@@ -64,9 +64,9 @@ extension BookmarkViewController {
         
         if self.presenter.getBookmarkCount() > 0 {
             let bookmark = self.presenter.getBookmark(at: indexPath.row)
-            cell.deptName   = bookmark.deptName
+            cell.deptCode = bookmark.deptCode
             cell.isBookmark = true
-            cell.notice     = bookmark.notice
+            cell.notice = bookmark.notice
         }
         cell.selectionStyle  = .none
         return cell

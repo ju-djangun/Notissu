@@ -48,7 +48,7 @@ class MoreViewController : BaseViewController, UITableViewDelegate, UITableViewD
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.navigationBar.topItem?.title = "더보기"
-        self.majorLbl.text = BaseViewController.noticeDeptName?.rawValue ?? ""
+        self.majorLbl.text = BaseViewController.noticeDeptCode?.getName() ?? ""
         
         self.checkURLScheme()
     }

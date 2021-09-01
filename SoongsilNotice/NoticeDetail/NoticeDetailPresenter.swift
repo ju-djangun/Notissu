@@ -45,10 +45,10 @@ class NoticeDetailPresenter: NoticeDetail {
         return false
     }
     
-    func setFavorite(notice: Notice, majorCode: DeptCode, majorName: DeptName, favorite: Bool) {
+    func setFavorite(notice: Notice, majorCode: DeptCode, favorite: Bool) {
         // isFavorite이 참이면 Create하고 거짓이면 Delete한다.
         if favorite {
-            self.addFavorite(notice: notice, majorCode: majorCode.rawValue, majorName: majorName.rawValue)
+            self.addFavorite(notice: notice, majorCode: majorCode.rawValue)
         } else {
             self.deleteFavorite(notice: notice, majorCode: majorCode.rawValue)
         }
@@ -75,7 +75,7 @@ class NoticeDetailPresenter: NoticeDetail {
         }
     }
     
-    private func addFavorite(notice: Notice, majorCode: Int, majorName: String) {
+    private func addFavorite(notice: Notice, majorCode: Int) {
         let managedContext = CoreDataUtil.shared.persistentContainer.viewContext
         let favoriteEntity = NSEntityDescription.entity(forEntityName: "Favorite", in: managedContext)!
         let noticeObject = NSManagedObject(entity: favoriteEntity, insertInto: managedContext)
@@ -83,7 +83,6 @@ class NoticeDetailPresenter: NoticeDetail {
         noticeObject.setValue(notice.author, forKey: "author")
         noticeObject.setValue(notice.date, forKey: "date")
         noticeObject.setValue(majorCode, forKey: "deptCode")
-        noticeObject.setValue(majorName, forKey: "deptName")
         noticeObject.setValue(notice.isNotice, forKey: "isNotice")
         noticeObject.setValue(notice.title, forKey: "title")
         noticeObject.setValue(notice.url, forKey: "url")

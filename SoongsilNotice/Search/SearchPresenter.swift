@@ -16,27 +16,15 @@ class SearchPresenter: SearchPresenterProtocol {
         self.view = view
     }
     
-    func getMajorListItem(at: Int) -> DeptName {
+    func getMajorListItem(at: Int) -> DeptCode {
         return self.model.getMajorList()[at]
     }
     
-    func getMajorCodeListItem(at: Int) -> DeptCode {
-        return self.model.getMajorCodeList()[at]
-    }
-    
-    func getMajorList() -> [DeptName] {
+    func getMajorList() -> [DeptCode] {
         return self.model.getMajorList()
-    }
-    
-    func getMajorCodeList() -> [DeptCode] {
-        return self.model.getMajorCodeList()
     }
     
     func getMajorListCount() -> Int {
         return self.model.getMajorList().count
-    }
-    
-    func getMajorCodeListCount() -> Int {
-        return self.model.getMajorCodeList().count
     }
 }

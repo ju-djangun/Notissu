@@ -9,6 +9,6 @@ import Foundation
 
 struct Major {
     var majorCode: DeptCode?
-    var majorName: DeptName?
-    var majorNameEng: DeptNameEng?
+//    var majorName: DeptName?
+//    var majorNameEng: DeptNameEng?
 }

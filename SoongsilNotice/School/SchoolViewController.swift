@@ -134,7 +134,7 @@ class SchoolViewController: BaseViewController, SchoolView, UITableViewDelegate,
         
         noticeDetailController?.noticeItem  = noticeList[indexPath.row]
         noticeDetailController?.detailURL   = noticeList[indexPath.row].url
-        noticeDetailController?.department  = Major(majorCode: DeptCode.Soongsil, majorName: DeptName.Soongsil)
+        noticeDetailController?.department  = Major(majorCode: DeptCode.Soongsil)
         noticeDetailController?.noticeTitle = self.noticeList[indexPath.row].title
         noticeDetailController?.noticeDay   = self.noticeList[indexPath.row].date
         self.navigationController?.pushViewController(noticeDetailController!, animated: true)

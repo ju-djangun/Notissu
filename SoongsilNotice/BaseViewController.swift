@@ -14,7 +14,6 @@ class BaseViewController: UIViewController, UIGestureRecognizerDelegate {
     let animationView = AnimationView(name: "notissu_anim")
     
     static var noticeDeptCode: DeptCode?
-    static var noticeDeptName: DeptName?
     static var noticeMajor   : Major?
     weak var tabBarDelegate: MainTabBarDelegate?
     

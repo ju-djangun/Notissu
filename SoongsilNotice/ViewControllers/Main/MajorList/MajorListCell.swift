@@ -25,16 +25,14 @@ final class MajorListCell: UITableViewCell {
     
     var major: Major? {
         didSet {
-            titleLabel.text = major?.majorName.map { $0.rawValue }
-            subTitleLabel.text = major?.majorNameEng.map { $0.rawValue }
+            titleLabel.text = major?.majorCode?.getName()
+            subTitleLabel.text = major?.majorCode?.getName(isKorean: false)
             
             majorCode = major?.majorCode
-            majorName = major?.majorName
         }
     }
     
     private var majorCode: DeptCode?
-    private var majorName: DeptName?
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)

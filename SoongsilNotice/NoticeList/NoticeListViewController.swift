@@ -34,11 +34,9 @@ class NoticeListViewController: BaseViewController, NoticeListView, UITableViewD
     var department     = BaseViewController.noticeMajor {
         didSet {
             self.noticeDeptCode = self.department?.majorCode
-            self.noticeDeptName = self.department?.majorName
         }
     }
     var noticeDeptCode = BaseViewController.noticeDeptCode
-    var noticeDeptName = BaseViewController.noticeDeptName
     
     private var page : Int = 1
     
@@ -47,13 +45,12 @@ class NoticeListViewController: BaseViewController, NoticeListView, UITableViewD
         if listType == .myList {
             self.department     = BaseViewController.noticeMajor
             self.noticeDeptCode = BaseViewController.noticeDeptCode
-            self.noticeDeptName = BaseViewController.noticeDeptName
         }
         
-        self.navigationItem.title = self.noticeDeptName?.rawValue
+        self.navigationItem.title = self.noticeDeptCode?.getName() ?? ""
         
         if listType == .myList {
-            self.navigationController?.navigationBar.topItem?.title = self.noticeDeptName?.rawValue
+            self.navigationController?.navigationBar.topItem?.title = self.noticeDeptCode?.getName() ?? ""
         }
 //        else if listType == .normalList {
 //                   if self.noticeDeptCode != BaseViewController.noticeDeptCode && self.searchKeyword == nil {
@@ -228,7 +225,7 @@ class NoticeListViewController: BaseViewController, NoticeListView, UITableViewD
         let cell = tableView.dequeueReusableCell(withIdentifier: "noticeListCell", for: indexPath) as! NoticeListViewCell
         if noticeList.count > 0 {
             cell.notice = noticeList[indexPath.row]
-            cell.deptName = noticeDeptName
+            cell.deptCode = noticeDeptCode
         }
         cell.selectionStyle  = .none
         return cell

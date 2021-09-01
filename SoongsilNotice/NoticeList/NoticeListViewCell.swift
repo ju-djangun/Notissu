@@ -17,7 +17,7 @@ class NoticeListViewCell: UITableViewCell {
     @IBOutlet var noticeDate      : UILabel!
     @IBOutlet var noticeBadgeWidthConstraint: NSLayoutConstraint!
     
-    var deptName: DeptName?
+    var deptCode: DeptCode?
     var isBookmark: Bool = false
     
     var notice  : Notice? {
@@ -36,7 +36,7 @@ class NoticeListViewCell: UITableViewCell {
         self.attachmentWidthConstraint.constant = (strongNotice.hasAttachment ?? false) ? 50 : 0
         
         if isBookmark {
-            self.noticeDate.text = "\(strongNotice.date ?? "") | \(deptName?.rawValue ?? "")"
+            self.noticeDate.text = "\(strongNotice.date ?? "") | \(deptCode?.getName() ?? "")"
         } else {
             self.noticeDate.text = strongNotice.date ?? ""
         }

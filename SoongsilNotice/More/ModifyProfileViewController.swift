@@ -13,11 +13,10 @@ class ModifyProfileViewController: BaseViewController, UIPickerViewDelegate, UIP
     @IBOutlet var pickerView: UIPickerView!
     @IBOutlet var nextButton: UIButton!
     
-    private var majorList = [DeptName]()
-    private var majorCodeList = [DeptCode]()
+    private var majorList = [DeptCode]()
     
     private var selectedIndex = 0
-    private var selectedMajor = DeptName.IT_Computer
+    private var selectedMajor: DeptCode = .IT_Computer
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -31,37 +30,24 @@ class ModifyProfileViewController: BaseViewController, UIPickerViewDelegate, UIP
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        for deptName in DeptName.allCases {
-            majorList.append(deptName)
-        }
-        
         for deptCode in DeptCode.allCases {
-            majorCodeList.append(deptCode)
+            majorList.append(deptCode)
         }
         
         majorList.removeLast()
-        majorCodeList.removeLast()
         
         self.pickerView.dataSource = self
         self.pickerView.delegate = self
     }
     
     @IBAction func onClickNext(_ sender: Any?) {
-        let myCode = majorCodeList[selectedIndex]
-        let myName = selectedMajor
-        
-        print(myCode.rawValue)
-        print(myName.rawValue)
+        let myCode = majorList[selectedIndex]
         
         BaseViewController.noticeDeptCode = myCode
-        BaseViewController.noticeDeptName = myName
-        BaseViewController.noticeMajor    = Major(majorCode: myCode, majorName: myName)
+        BaseViewController.noticeMajor    = Major(majorCode: myCode)
         
         UserDefaults.standard.setValue(myCode.rawValue, forKey: "myDeptCode")
-        UserDefaults.standard.setValue(myName.rawValue, forKey: "myDeptName")
-        
         UserDefaults(suiteName: "group.com.elliott.Notissu")?.set(myCode.rawValue, forKey: "myDeptCode")
-        UserDefaults(suiteName: "group.com.elliott.Notissu")?.set(myName.rawValue, forKey: "myDeptName")
         
         self.navigationController?.popViewController(animated: true)
     }
@@ -75,7 +61,7 @@ class ModifyProfileViewController: BaseViewController, UIPickerViewDelegate, UIP
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return self.majorList[row].rawValue
+        return self.majorList[row].getName()
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {

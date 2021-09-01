@@ -13,21 +13,13 @@ protocol SearchViewProtocol {
 }
 
 protocol SearchPresenterProtocol {
-    func getMajorCodeListItem(at: Int) -> DeptCode
+    func getMajorListItem(at: Int) -> DeptCode
     
-    func getMajorListItem(at: Int) -> DeptName
-    
-    func getMajorCodeList() -> [DeptCode]
-    
-    func getMajorList() -> [DeptName]
-    
-    func getMajorCodeListCount() -> Int
+    func getMajorList() -> [DeptCode]
     
     func getMajorListCount() -> Int
 }
 
 protocol SearchModelProtocol {
-    func getMajorCodeList() -> [DeptCode]
-    
-    func getMajorList() -> [DeptName]
+    func getMajorList() -> [DeptCode]
 }

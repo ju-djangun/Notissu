@@ -101,7 +101,7 @@ class NoticeDetailViewController: BaseViewController, WKNavigationDelegate, WKUI
     
     @objc func favoriteTapped() {
         self.isFavorite = !self.isFavorite
-        self.presenter.setFavorite(notice: self.noticeItem!, majorCode: self.departmentCode!, majorName: self.department!.majorName!, favorite: self.isFavorite)
+        self.presenter.setFavorite(notice: self.noticeItem!, majorCode: self.departmentCode!, favorite: self.isFavorite)
     }
     
     func loadContentFromURL(string: String) {

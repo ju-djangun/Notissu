@@ -1,9 +1,8 @@
 //
 //  SearchViewController.swift
-//  SoongsilNotice
+//  Notissu
 //
-//  Created by TaeinKim on 2019/11/19.
-//  Copyright © 2019 TaeinKim. All rights reserved.
+//  Copyright © 2021 Notissu. All rights reserved.
 //
 
 import UIKit
@@ -20,7 +19,7 @@ class SearchViewController: BaseViewController, SearchViewProtocol, UIPickerView
     private var presenter: SearchPresenter!
     
     private var selectedIndex = -1
-    private var selectedMajor = DeptName.IT_Computer
+    private var selectedMajor: DeptCode = .IT_Computer
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -61,7 +60,7 @@ class SearchViewController: BaseViewController, SearchViewProtocol, UIPickerView
             let storyBoard = self.storyboard!
             let noticeListViewController = storyBoard.instantiateViewController(withIdentifier: "noticeListVC") as? NoticeListViewController
             
-            noticeListViewController?.department = Major(majorCode: self.presenter.getMajorCodeListItem(at: selectedIndex), majorName: selectedMajor, majorNameEng: nil)
+            noticeListViewController?.department = Major(majorCode: self.presenter.getMajorListItem(at: selectedIndex))
             
             noticeListViewController?.isSearchResult = true
             noticeListViewController?.listType = .normalList
@@ -102,7 +101,7 @@ class SearchViewController: BaseViewController, SearchViewProtocol, UIPickerView
         
         alert!.addAction(UIAlertAction(title: "취소", style: .cancel, handler: nil))
         alert!.addAction(UIAlertAction(title: "확인", style: .default, handler: { (UIAlertAction) in
-            self.lblSelectedMajor.text = "선택한 전공 : \(self.selectedMajor.rawValue)"
+            self.lblSelectedMajor.text = "선택한 전공 : \(self.selectedMajor.getName())"
             
         }))
         self.present(alert!, animated: true, completion: nil)
@@ -116,11 +115,11 @@ extension SearchViewController {
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return self.presenter.getMajorCodeListCount()
+        return self.presenter.getMajorListCount()
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return self.presenter.getMajorListItem(at: row).rawValue
+        return self.presenter.getMajorListItem(at: row).getName()
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {

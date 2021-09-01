@@ -1,6 +1,6 @@
 //
 //  Dynamic.swift
-//  SoongsilNotice
+//  Notissu
 //
 //  Copyright © 2021 Notissu. All rights reserved.
 //

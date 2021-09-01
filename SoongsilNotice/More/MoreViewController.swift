@@ -1,9 +1,8 @@
 //
 //  MoreViewController.swift
-//  SoongsilNotice
+//  Notissu
 //
-//  Created by TaeinKim on 2019/11/11.
-//  Copyright © 2019 TaeinKim. All rights reserved.
+//  Copyright © 2019 Notissu. All rights reserved.
 //
 
 import UIKit

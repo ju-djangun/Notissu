@@ -1,8 +1,7 @@
 //
 //  SearchModel.swift
-//  SoongsilNotice
+//  Notissu
 //
-//  Created by Notissu on 2020/01/25.
 //  Copyright © 2021 Notissu. All rights reserved.
 //
 

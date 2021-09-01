@@ -1,9 +1,8 @@
 //
 //  NoticeEconomy.swift
-//  SoongsilNotice
+//  Notissu
 //
-//  Created by TaeinKim on 2019/11/12.
-//  Copyright © 2019 TaeinKim. All rights reserved.
+//  Copyright © 2019 Notissu. All rights reserved.
 //
 
 import Foundation

@@ -1,9 +1,8 @@
 //
 //  Encode+EUC-KR.swift
-//  SoongsilNotice
+//  Notissu
 //
-//  Created by TaeinKim on 2020/03/04.
-//  Copyright © 2020 TaeinKim. All rights reserved.
+//  Copyright © 2020 Notissu. All rights reserved.
 //
 
 import Foundation

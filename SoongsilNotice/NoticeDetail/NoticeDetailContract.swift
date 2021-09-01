@@ -10,11 +10,6 @@ import Foundation
 import UIKit
 import Kanna
 
-struct Attachment {
-    var fileName: String
-    var fileURL: String
-}
-
 // View
 protocol NoticeDetailView {
     func showWebViewPage(attachments: [Attachment], html: String)

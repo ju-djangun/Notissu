@@ -54,21 +54,10 @@ class NoticeListPresenter: NoticePresenter {
         case DeptCode.Dormitory:
             NoticeSoongsil.parseDormitoryNotice(page: page, keyword: keyword, completion: self.view.applyToTableView)
             break
-        case DeptCode.IT_Computer :
-            NoticeIT.parseListComputer(page: page, keyword: keyword, completion: self.view.applyToTableView)
-            break
-        case DeptCode.IT_Media :
-            NoticeIT.parseListMedia(page: page, keyword: keyword, completion: self.view.applyToTableView)
-            break
-        case DeptCode.IT_Electric :
-            NoticeIT.parseListElectric(page: page, keyword: keyword, completion: self.view.applyToTableView)
-            break
-        case DeptCode.IT_Software :
-            NoticeIT.parseListSoftware(page: page, keyword: keyword, completion: self.view.applyToTableView)
-            break
-        case DeptCode.IT_SmartSystem:
-            NoticeIT.parseListSmartSystem(page: page, keyword: keyword, completion: self.view.applyToTableView)
-            break
+        case DeptCode.IT_Computer, DeptCode.IT_Media,
+             DeptCode.IT_Electric, DeptCode.IT_Software,
+             DeptCode.IT_SmartSystem :
+            NoticeParser.shared.parseNoticeList(type: deptCode, page: page, keyword: keyword, completion: self.view.applyToTableView)
         case DeptCode.LAW_Law:
             NoticeLaw.parseListLaw(page: page, keyword: keyword, completion: self.view.applyToTableView)
             break

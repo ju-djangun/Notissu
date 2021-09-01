@@ -105,6 +105,23 @@ public enum DeptCode: Int, CaseIterable {
     
     case Soongsil  = 100
     case Dormitory = 101
+    
+    func parseList(page: Int, keyword: String?, completion: @escaping ([Notice]) -> Void) {
+        switch self {
+        case .IT_Computer:
+            NoticeIT.parseListComputer(page: page, keyword: keyword, completion: completion)
+        case .IT_Media:
+            NoticeIT.parseListMedia(page: page, keyword: keyword, completion: completion)
+        case .IT_Software:
+            NoticeIT.parseListSoftware(page: page, keyword: keyword, completion: completion)
+        case .IT_SmartSystem:
+            NoticeIT.parseListSmartSystem(page: page, keyword: keyword, completion: completion)
+        case .IT_Electric:
+            NoticeIT.parseListElectric(page: page, keyword: keyword, completion: completion)
+        default:
+            break
+        }
+    }
 }
 
 public enum DeptName: String, CaseIterable {

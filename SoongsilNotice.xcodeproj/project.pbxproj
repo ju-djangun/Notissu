@@ -55,6 +55,13 @@
 		B0A130C726DF4CA600BB1E28 /* Attachment.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A130C526DF4CA600BB1E28 /* Attachment.swift */; };
 		B0A130C926E10E3100BB1E28 /* NoticeBaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A130C826E10E3100BB1E28 /* NoticeBaseModel.swift */; };
 		B0A130CA26E10E3100BB1E28 /* NoticeBaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A130C826E10E3100BB1E28 /* NoticeBaseModel.swift */; };
+		B0A130F126E118F900BB1E28 /* UIImage+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07166BA269B17CF00B49CF7 /* UIImage+Ext.swift */; };
+		B0A130F226E118F900BB1E28 /* Dynamic.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07166D6269B1B6F00B49CF7 /* Dynamic.swift */; };
+		B0A130F326E118F900BB1E28 /* NoticeURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE501C482374FD250053055A /* NoticeURL.swift */; };
+		B0A130F426E118F900BB1E28 /* String+FileType.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE7E5DB024093555007F0DF2 /* String+FileType.swift */; };
+		B0A130F526E118F900BB1E28 /* Encode+EUC-KR.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1772D2240F64F400A58A66 /* Encode+EUC-KR.swift */; };
+		B0A130F626E118F900BB1E28 /* CoreDataUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE53D0B223F8EA4E00AEFCE2 /* CoreDataUtil.swift */; };
+		B0A130F726E1190000BB1E28 /* ConfigSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE296154237195CD0074F24B /* ConfigSetting.swift */; };
 		B0B67AEB2400BB060027D038 /* MajorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B67AEA2400BB060027D038 /* MajorModel.swift */; };
 		DE03E9CF2379B05D002AA5AE /* NoticeBusiness.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE03E9CE2379B05D002AA5AE /* NoticeBusiness.swift */; };
 		DE04186024021BCA00486BF3 /* NotissuResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE04185F24021BCA00486BF3 /* NotissuResource.swift */; };
@@ -952,10 +959,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B0A130F526E118F900BB1E28 /* Encode+EUC-KR.swift in Sources */,
 				DE85B93523DD29CE001FB35C /* NoticeSocial.swift in Sources */,
 				DE85B93123DD29CE001FB35C /* NoticeInmun.swift in Sources */,
 				DE85B93023DD29CE001FB35C /* NoticeLaw.swift in Sources */,
 				B0A130B726DE177F00BB1E28 /* MajorListCell.swift in Sources */,
+				B0A130F326E118F900BB1E28 /* NoticeURL.swift in Sources */,
 				DE85B93D23DD3001001FB35C /* TodayPresenter.swift in Sources */,
 				DE85B93A23DD2AF2001FB35C /* Notice.swift in Sources */,
 				B0A130BE26DE1CBA00BB1E28 /* TopContentView.swift in Sources */,
@@ -964,19 +973,24 @@
 				B0A130CA26E10E3100BB1E28 /* NoticeBaseModel.swift in Sources */,
 				DE85B93223DD29CE001FB35C /* NoticeNaturalScience.swift in Sources */,
 				DE85B93723DD29CE001FB35C /* NoticeSoongsil.swift in Sources */,
+				B0A130F626E118F900BB1E28 /* CoreDataUtil.swift in Sources */,
 				B0A130C126DE1F7E00BB1E28 /* MajorListSectionHeaderView.swift in Sources */,
 				DE85B92F23DD29CE001FB35C /* NoticeEngineering.swift in Sources */,
 				DE53D0B623F92B3600AEFCE2 /* TodayModel.swift in Sources */,
 				B0A130BA26DE185A00BB1E28 /* Major.swift in Sources */,
 				DE53D0B123F8E9B100AEFCE2 /* FavoriteNotice.xcdatamodeld in Sources */,
+				B0A130F226E118F900BB1E28 /* Dynamic.swift in Sources */,
 				DE85B92E23DD29CE001FB35C /* NoticeIT.swift in Sources */,
+				B0A130F726E1190000BB1E28 /* ConfigSetting.swift in Sources */,
 				DE04186124021BCA00486BF3 /* NotissuResource.swift in Sources */,
 				B0A130C426DF4BA200BB1E28 /* NoticeParser.swift in Sources */,
 				DEBE386B23EFEFC2006F51AB /* WidgetNoticeView.swift in Sources */,
 				DE85B93323DD29CE001FB35C /* NoticeBusiness.swift in Sources */,
 				DE85B93F23DD300A001FB35C /* TodayContract.swift in Sources */,
 				DE64BE8823DD253C00DF46C5 /* TodayViewController.swift in Sources */,
+				B0A130F126E118F900BB1E28 /* UIImage+Ext.swift in Sources */,
 				B0A130C726DF4CA600BB1E28 /* Attachment.swift in Sources */,
+				B0A130F426E118F900BB1E28 /* String+FileType.swift in Sources */,
 				DE85B93623DD29CE001FB35C /* NoticeConvergence.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

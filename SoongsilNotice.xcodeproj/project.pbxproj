@@ -62,6 +62,7 @@
 		B0A130F526E118F900BB1E28 /* Encode+EUC-KR.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1772D2240F64F400A58A66 /* Encode+EUC-KR.swift */; };
 		B0A130F626E118F900BB1E28 /* CoreDataUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE53D0B223F8EA4E00AEFCE2 /* CoreDataUtil.swift */; };
 		B0A130F726E1190000BB1E28 /* ConfigSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE296154237195CD0074F24B /* ConfigSetting.swift */; };
+		B0A130F826E1193900BB1E28 /* MajorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B67AEA2400BB060027D038 /* MajorModel.swift */; };
 		B0B67AEB2400BB060027D038 /* MajorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B67AEA2400BB060027D038 /* MajorModel.swift */; };
 		DE03E9CF2379B05D002AA5AE /* NoticeBusiness.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE03E9CE2379B05D002AA5AE /* NoticeBusiness.swift */; };
 		DE04186024021BCA00486BF3 /* NotissuResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE04185F24021BCA00486BF3 /* NotissuResource.swift */; };
@@ -440,6 +441,7 @@
 		B07166DB269B1FAD00B49CF7 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				B0B67AEA2400BB060027D038 /* MajorModel.swift */,
 				B07166DC269B1FB900B49CF7 /* MajorSection.swift */,
 				B0A130B826DE185A00BB1E28 /* Major.swift */,
 				B0A130C526DF4CA600BB1E28 /* Attachment.swift */,
@@ -558,7 +560,6 @@
 				DE29614323703F4D0074F24B /* Info.plist */,
 				DE0F8F192373A222006A0B49 /* BaseViewController.swift */,
 				DE72017E237A871B00F60CEB /* Launch Screen.storyboard */,
-				B0B67AEA2400BB060027D038 /* MajorModel.swift */,
 			);
 			path = SoongsilNotice;
 			sourceTree = "<group>";
@@ -962,6 +963,7 @@
 				B0A130F526E118F900BB1E28 /* Encode+EUC-KR.swift in Sources */,
 				DE85B93523DD29CE001FB35C /* NoticeSocial.swift in Sources */,
 				DE85B93123DD29CE001FB35C /* NoticeInmun.swift in Sources */,
+				B0A130F826E1193900BB1E28 /* MajorModel.swift in Sources */,
 				DE85B93023DD29CE001FB35C /* NoticeLaw.swift in Sources */,
 				B0A130B726DE177F00BB1E28 /* MajorListCell.swift in Sources */,
 				B0A130F326E118F900BB1E28 /* NoticeURL.swift in Sources */,

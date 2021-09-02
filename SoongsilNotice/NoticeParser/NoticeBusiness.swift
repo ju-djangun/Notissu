@@ -10,26 +10,7 @@ import UIKit
 import Alamofire
 import Kanna
 
-class NoticeBusiness {
-    static var noticeList = [Notice]()
-    static var authorList = [String]()
-    static var titleList  = [String]()
-    static var pageStringList = [String]()
-    static var dateStringList = [String]()
-    static var isNoticeList = [Bool]()
-    static var urlList    = [String]()
-    static var attachmentCheckList = [Bool]()
-    
-    static func cleanList() {
-        noticeList.removeAll()
-        authorList.removeAll()
-        titleList.removeAll()
-        pageStringList.removeAll()
-        dateStringList.removeAll()
-        isNoticeList.removeAll()
-        urlList.removeAll()
-        attachmentCheckList.removeAll()
-    }
+class NoticeBusiness: NoticeBaseModel {
     static func parseListBiz(page: Int, keyword: String?, completion: @escaping ([Notice]) -> Void) {
         var index = 0
         

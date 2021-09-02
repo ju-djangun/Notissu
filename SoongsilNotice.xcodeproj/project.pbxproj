@@ -53,6 +53,8 @@
 		B0A130C426DF4BA200BB1E28 /* NoticeParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A130C226DF4BA200BB1E28 /* NoticeParser.swift */; };
 		B0A130C626DF4CA600BB1E28 /* Attachment.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A130C526DF4CA600BB1E28 /* Attachment.swift */; };
 		B0A130C726DF4CA600BB1E28 /* Attachment.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A130C526DF4CA600BB1E28 /* Attachment.swift */; };
+		B0A130C926E10E3100BB1E28 /* NoticeBaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A130C826E10E3100BB1E28 /* NoticeBaseModel.swift */; };
+		B0A130CA26E10E3100BB1E28 /* NoticeBaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A130C826E10E3100BB1E28 /* NoticeBaseModel.swift */; };
 		B0B67AEB2400BB060027D038 /* MajorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B67AEA2400BB060027D038 /* MajorModel.swift */; };
 		DE03E9CF2379B05D002AA5AE /* NoticeBusiness.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE03E9CE2379B05D002AA5AE /* NoticeBusiness.swift */; };
 		DE04186024021BCA00486BF3 /* NotissuResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE04185F24021BCA00486BF3 /* NotissuResource.swift */; };
@@ -64,7 +66,6 @@
 		DE0F8F212373FDD7006A0B49 /* NoticeEngineering.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE0F8F202373FDD7006A0B49 /* NoticeEngineering.swift */; };
 		DE0F8F2323740041006A0B49 /* NoticeLaw.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE0F8F2223740041006A0B49 /* NoticeLaw.swift */; };
 		DE1772D3240F64F400A58A66 /* Encode+EUC-KR.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1772D2240F64F400A58A66 /* Encode+EUC-KR.swift */; };
-		DE1772D4240F64F400A58A66 /* Encode+EUC-KR.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1772D2240F64F400A58A66 /* Encode+EUC-KR.swift */; };
 		DE29613623703F4C0074F24B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE29613523703F4C0074F24B /* AppDelegate.swift */; };
 		DE29613D23703F4C0074F24B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DE29613B23703F4C0074F24B /* Main.storyboard */; };
 		DE29613F23703F4D0074F24B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DE29613E23703F4D0074F24B /* Assets.xcassets */; };
@@ -85,7 +86,6 @@
 		DE53D0B023F8E9B100AEFCE2 /* FavoriteNotice.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DE53D0AE23F8E9B100AEFCE2 /* FavoriteNotice.xcdatamodeld */; };
 		DE53D0B123F8E9B100AEFCE2 /* FavoriteNotice.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DE53D0AE23F8E9B100AEFCE2 /* FavoriteNotice.xcdatamodeld */; };
 		DE53D0B323F8EA4E00AEFCE2 /* CoreDataUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE53D0B223F8EA4E00AEFCE2 /* CoreDataUtil.swift */; };
-		DE53D0B423F8EA4E00AEFCE2 /* CoreDataUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE53D0B223F8EA4E00AEFCE2 /* CoreDataUtil.swift */; };
 		DE53D0B623F92B3600AEFCE2 /* TodayModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE53D0B523F92B3600AEFCE2 /* TodayModel.swift */; };
 		DE53D14B23FC21D300AEFCE2 /* BookmarkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE53D14A23FC21D300AEFCE2 /* BookmarkViewController.swift */; };
 		DE53D14D23FC21DB00AEFCE2 /* BookmarkContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE53D14C23FC21DB00AEFCE2 /* BookmarkContract.swift */; };
@@ -122,8 +122,6 @@
 		DE85B93523DD29CE001FB35C /* NoticeSocial.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE8C73852379BDF6008F2FE1 /* NoticeSocial.swift */; };
 		DE85B93623DD29CE001FB35C /* NoticeConvergence.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE72017A237A76DE00F60CEB /* NoticeConvergence.swift */; };
 		DE85B93723DD29CE001FB35C /* NoticeSoongsil.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEF56D7D238425D7003CA0F0 /* NoticeSoongsil.swift */; };
-		DE85B93823DD29E0001FB35C /* NoticeURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE501C482374FD250053055A /* NoticeURL.swift */; };
-		DE85B93923DD29FC001FB35C /* ConfigSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE296154237195CD0074F24B /* ConfigSetting.swift */; };
 		DE85B93A23DD2AF2001FB35C /* Notice.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2961522370FF4E0074F24B /* Notice.swift */; };
 		DE85B93D23DD3001001FB35C /* TodayPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE85B93C23DD3001001FB35C /* TodayPresenter.swift */; };
 		DE85B93F23DD300A001FB35C /* TodayContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE85B93E23DD300A001FB35C /* TodayContract.swift */; };
@@ -228,6 +226,7 @@
 		B0A130BF26DE1F7E00BB1E28 /* MajorListSectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MajorListSectionHeaderView.swift; sourceTree = "<group>"; };
 		B0A130C226DF4BA200BB1E28 /* NoticeParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeParser.swift; sourceTree = "<group>"; };
 		B0A130C526DF4CA600BB1E28 /* Attachment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Attachment.swift; sourceTree = "<group>"; };
+		B0A130C826E10E3100BB1E28 /* NoticeBaseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeBaseModel.swift; sourceTree = "<group>"; };
 		B0B67AEA2400BB060027D038 /* MajorModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MajorModel.swift; sourceTree = "<group>"; };
 		D7D51A6E1417CF69431DF616 /* Pods-Notissu-Watch Extension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Notissu-Watch Extension.debug.xcconfig"; path = "Target Support Files/Pods-Notissu-Watch Extension/Pods-Notissu-Watch Extension.debug.xcconfig"; sourceTree = "<group>"; };
 		DE03E9CE2379B05D002AA5AE /* NoticeBusiness.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeBusiness.swift; sourceTree = "<group>"; };
@@ -371,6 +370,12 @@
 		B07166B5269B170E00B49CF7 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				DE296154237195CD0074F24B /* ConfigSetting.swift */,
+				DE501C482374FD250053055A /* NoticeURL.swift */,
+				DE5542432377E076004E01EB /* HomeSwticher.swift */,
+				DE53D0B223F8EA4E00AEFCE2 /* CoreDataUtil.swift */,
+				DE7E5DB024093555007F0DF2 /* String+FileType.swift */,
+				DE1772D2240F64F400A58A66 /* Encode+EUC-KR.swift */,
 				B07166B6269B171E00B49CF7 /* MainNavigationController.swift */,
 				B07166B8269B175100B49CF7 /* MainUINavigationBar.swift */,
 				B07166BA269B17CF00B49CF7 /* UIImage+Ext.swift */,
@@ -486,6 +491,7 @@
 				DE72017A237A76DE00F60CEB /* NoticeConvergence.swift */,
 				DEF56D7D238425D7003CA0F0 /* NoticeSoongsil.swift */,
 				B0A130C226DF4BA200BB1E28 /* NoticeParser.swift */,
+				B0A130C826E10E3100BB1E28 /* NoticeBaseModel.swift */,
 			);
 			path = NoticeParser;
 			sourceTree = "<group>";
@@ -543,15 +549,9 @@
 				DE29613523703F4C0074F24B /* AppDelegate.swift */,
 				DE29613B23703F4C0074F24B /* Main.storyboard */,
 				DE29614323703F4D0074F24B /* Info.plist */,
-				DE296154237195CD0074F24B /* ConfigSetting.swift */,
 				DE0F8F192373A222006A0B49 /* BaseViewController.swift */,
-				DE501C482374FD250053055A /* NoticeURL.swift */,
-				DE5542432377E076004E01EB /* HomeSwticher.swift */,
 				DE72017E237A871B00F60CEB /* Launch Screen.storyboard */,
-				DE53D0B223F8EA4E00AEFCE2 /* CoreDataUtil.swift */,
 				B0B67AEA2400BB060027D038 /* MajorModel.swift */,
-				DE7E5DB024093555007F0DF2 /* String+FileType.swift */,
-				DE1772D2240F64F400A58A66 /* Encode+EUC-KR.swift */,
 			);
 			path = SoongsilNotice;
 			sourceTree = "<group>";
@@ -939,6 +939,7 @@
 				DE5542402377CC31004E01EB /* NoticeNaturalScience.swift in Sources */,
 				DE29614B2370FC720074F24B /* NoticeListViewController.swift in Sources */,
 				DE53D15123FC21ED00AEFCE2 /* BookmarkModel.swift in Sources */,
+				B0A130C926E10E3100BB1E28 /* NoticeBaseModel.swift in Sources */,
 				DE55424B2379340A004E01EB /* MoreViewController.swift in Sources */,
 				B07166C3269B185800B49CF7 /* MyNoticeViewController.swift in Sources */,
 				DE29615E23728A330074F24B /* NoticeDetailPresenter.swift in Sources */,
@@ -958,26 +959,23 @@
 				DE85B93D23DD3001001FB35C /* TodayPresenter.swift in Sources */,
 				DE85B93A23DD2AF2001FB35C /* Notice.swift in Sources */,
 				B0A130BE26DE1CBA00BB1E28 /* TopContentView.swift in Sources */,
-				DE85B93823DD29E0001FB35C /* NoticeURL.swift in Sources */,
 				DEC1684A23F7A1FF00DE2D84 /* NotissuProperty.swift in Sources */,
 				DE85B93423DD29CE001FB35C /* NoticeEconomy.swift in Sources */,
+				B0A130CA26E10E3100BB1E28 /* NoticeBaseModel.swift in Sources */,
 				DE85B93223DD29CE001FB35C /* NoticeNaturalScience.swift in Sources */,
 				DE85B93723DD29CE001FB35C /* NoticeSoongsil.swift in Sources */,
 				B0A130C126DE1F7E00BB1E28 /* MajorListSectionHeaderView.swift in Sources */,
 				DE85B92F23DD29CE001FB35C /* NoticeEngineering.swift in Sources */,
 				DE53D0B623F92B3600AEFCE2 /* TodayModel.swift in Sources */,
-				DE85B93923DD29FC001FB35C /* ConfigSetting.swift in Sources */,
 				B0A130BA26DE185A00BB1E28 /* Major.swift in Sources */,
 				DE53D0B123F8E9B100AEFCE2 /* FavoriteNotice.xcdatamodeld in Sources */,
 				DE85B92E23DD29CE001FB35C /* NoticeIT.swift in Sources */,
 				DE04186124021BCA00486BF3 /* NotissuResource.swift in Sources */,
 				B0A130C426DF4BA200BB1E28 /* NoticeParser.swift in Sources */,
 				DEBE386B23EFEFC2006F51AB /* WidgetNoticeView.swift in Sources */,
-				DE1772D4240F64F400A58A66 /* Encode+EUC-KR.swift in Sources */,
 				DE85B93323DD29CE001FB35C /* NoticeBusiness.swift in Sources */,
 				DE85B93F23DD300A001FB35C /* TodayContract.swift in Sources */,
 				DE64BE8823DD253C00DF46C5 /* TodayViewController.swift in Sources */,
-				DE53D0B423F8EA4E00AEFCE2 /* CoreDataUtil.swift in Sources */,
 				B0A130C726DF4CA600BB1E28 /* Attachment.swift in Sources */,
 				DE85B93623DD29CE001FB35C /* NoticeConvergence.swift in Sources */,
 			);

@@ -9,27 +9,7 @@ import Foundation
 import Kanna
 import Alamofire
 
-class NoticeSoongsil {
-    static var noticeList = [Notice]()
-    static var authorList = [String]()
-    static var titleList  = [String]()
-    static var pageStringList = [String]()
-    static var dateStringList = [String]()
-    static var isNoticeList = [Bool]()
-    static var urlList    = [String]()
-    static var attachmentCheckList = [Bool]()
-    
-    static func cleanList() {
-        noticeList.removeAll()
-        authorList.removeAll()
-        titleList.removeAll()
-        pageStringList.removeAll()
-        dateStringList.removeAll()
-        isNoticeList.removeAll()
-        urlList.removeAll()
-        attachmentCheckList.removeAll()
-    }
-    
+class NoticeSoongsil: NoticeBaseModel {
     static func parseDormitoryNotice(page: Int, keyword: String?, completion: @escaping ([Notice]) -> Void) {
         let requestURL = NoticeRequestURL.SSU_Dormitory(page: page, keyword: keyword)
         
@@ -46,9 +26,7 @@ class NoticeSoongsil {
                     if let product = doc.css("table[frame='hsides']").first {
                         for (index, tr) in product.css("tr").enumerated() {
                             if index > 1 {
-//                                print("...tr==>\(tr.toHTML)")
                                 for (index, td) in tr.css("td").enumerated() {
-//                                    print("...td==>\(td.css("font").first?.text)...\(td.text)")
                                     switch index {
                                     case 1:
                                         // Badge

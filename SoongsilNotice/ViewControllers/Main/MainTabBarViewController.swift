@@ -34,10 +34,12 @@ public class MainTabBarViewController: UITabBarController, UITabBarControllerDel
     }
 
     private func setupTabBarItems() {
-        let myNoticeVC = MyNoticeViewController(viewModel: MyNoticeViewModel())
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let myNoticeVC = storyboard.instantiateViewController(withIdentifier: "") as! NoticeListViewController
         let majorListVC = MajorListViewController(viewModel: MajorListViewModel())
-        let ssuCatchVC = SSUCatchViewController(viewModel: SSUCatchViewModel())
-        let noticeSearchVC = NoticeSearchViewController(viewModel: NoticeSearchViewModel())
+        let ssuCatchVC = storyboard.instantiateViewController(withIdentifier: "") as! SchoolViewController
+        let noticeSearchVC = storyboard.instantiateViewController(withIdentifier: "") as! SearchViewController
+        let moreVC = storyboard.instantiateViewController(withIdentifier: "") as! MoreViewController
         
         let myNoticeNC = createNavController(for: myNoticeVC,
                                          normalImage: UIImage(named: "tab_home_un.png"),
@@ -55,11 +57,16 @@ public class MainTabBarViewController: UITabBarController, UITabBarControllerDel
                                          normalImage: UIImage(named: "tab_home_un.png"),
                                          selectedImage: UIImage(named: "tab_home.png"))
         
+        let moreNC = createNavController(for: moreVC,
+                                         normalImage: UIImage(named: "tab_home_un.png"),
+                                         selectedImage: UIImage(named: "tab_home.png"))
+        
         tabViewControllers.removeAll()
         tabViewControllers.append(myNoticeNC)
         tabViewControllers.append(majorListNC)
         tabViewControllers.append(ssuCatchNC)
         tabViewControllers.append(noticeSearchNC)
+        tabViewControllers.append(moreNC)
         
         tabBar.barTintColor = .black
         tabBar.tintColor = .gray

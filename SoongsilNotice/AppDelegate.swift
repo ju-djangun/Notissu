@@ -28,6 +28,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UNUserNotificationCenter.current().requestAuthorization(options: authOptions,completionHandler: {_, _ in })
         application.registerForRemoteNotifications()
         
+        window = UIWindow(frame: UIScreen.main.bounds)
+        window?.rootViewController = SplashViewController()
+        window?.makeKeyAndVisible()
+        
         return true
     }
     

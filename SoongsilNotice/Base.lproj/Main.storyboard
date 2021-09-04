@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="5cQ-Xb-nyz">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -641,7 +641,6 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="onClickNext:" destination="5cQ-Xb-nyz" eventType="touchUpInside" id="OEs-nQ-4Wn"/>
                                     <action selector="searchAction:" destination="9PT-IW-mSw" eventType="touchUpInside" id="7hp-ZC-OZ9"/>
                                 </connections>
                             </button>
@@ -662,7 +661,6 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="onClickNext:" destination="5cQ-Xb-nyz" eventType="touchUpInside" id="UyL-sP-2h5"/>
                                     <action selector="selectMajorAction:" destination="9PT-IW-mSw" eventType="touchUpInside" id="Q7W-lM-SKA"/>
                                 </connections>
                             </button>
@@ -822,93 +820,6 @@
             </objects>
             <point key="canvasLocation" x="-1614" y="-845"/>
         </scene>
-        <!--Start View Controller-->
-        <scene sceneID="Cmq-CU-GyN">
-            <objects>
-                <viewController storyboardIdentifier="StartVC" id="5cQ-Xb-nyz" customClass="StartViewController" customModule="Notissu" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="GNL-7s-WH7">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mIY-6h-4eW">
-                                <rect key="frame" x="0.0" y="444" width="414" height="216"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="216" id="vkp-bO-V1X"/>
-                                </constraints>
-                            </pickerView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EoW-CB-vD3">
-                                <rect key="frame" x="16" y="696" width="382" height="46"/>
-                                <color key="backgroundColor" name="notissuButton1000s"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="46" id="XZd-HW-WnW"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                <state key="normal" title="시작하기">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                        <integer key="value" value="4"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.clipsToBounds" value="YES"/>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <action selector="onClickNext:" destination="5cQ-Xb-nyz" eventType="touchUpInside" id="W4g-It-JXw"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="앱을 시작하기 위해" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xya-fz-zbV">
-                                <rect key="frame" x="20" y="361.5" width="374" height="19.5"/>
-                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="16"/>
-                                <color key="textColor" name="notissuGray900s"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Copyright (C) 2019 Taein Kim All Rights Reserved." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="haR-vh-TI2">
-                                <rect key="frame" x="0.0" y="821" width="414" height="12"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="10"/>
-                                <color key="textColor" red="0.60784313729999995" green="0.60784313729999995" blue="0.60784313729999995" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="전공을 선택해주세요" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YXG-Sx-rtX">
-                                <rect key="frame" x="20" y="385" width="374" height="29"/>
-                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="24"/>
-                                <color key="textColor" name="notissuGray900s"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="JOP-5Y-g5a"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="haR-vh-TI2" firstAttribute="leading" secondItem="JOP-5Y-g5a" secondAttribute="leading" id="2oV-aB-A7e"/>
-                            <constraint firstItem="JOP-5Y-g5a" firstAttribute="bottom" secondItem="haR-vh-TI2" secondAttribute="bottom" constant="29" id="3ED-Oc-nQE"/>
-                            <constraint firstItem="haR-vh-TI2" firstAttribute="centerX" secondItem="JOP-5Y-g5a" secondAttribute="centerX" id="4kJ-I9-wra"/>
-                            <constraint firstItem="Xya-fz-zbV" firstAttribute="centerX" secondItem="JOP-5Y-g5a" secondAttribute="centerX" id="AlE-gY-3Gu"/>
-                            <constraint firstItem="YXG-Sx-rtX" firstAttribute="centerX" secondItem="JOP-5Y-g5a" secondAttribute="centerX" id="Ej2-gN-oc9"/>
-                            <constraint firstItem="JOP-5Y-g5a" firstAttribute="bottom" secondItem="EoW-CB-vD3" secondAttribute="bottom" constant="120" id="Hys-Re-GcL"/>
-                            <constraint firstItem="EoW-CB-vD3" firstAttribute="centerX" secondItem="JOP-5Y-g5a" secondAttribute="centerX" id="Vu1-pX-rsw"/>
-                            <constraint firstItem="JOP-5Y-g5a" firstAttribute="trailing" secondItem="YXG-Sx-rtX" secondAttribute="trailing" constant="20" id="XVn-Gd-9bj"/>
-                            <constraint firstItem="YXG-Sx-rtX" firstAttribute="top" secondItem="Xya-fz-zbV" secondAttribute="bottom" constant="4" id="Xu5-2g-a0V"/>
-                            <constraint firstItem="EoW-CB-vD3" firstAttribute="top" secondItem="mIY-6h-4eW" secondAttribute="bottom" constant="36" id="ZcR-3I-7pX"/>
-                            <constraint firstItem="JOP-5Y-g5a" firstAttribute="trailing" secondItem="mIY-6h-4eW" secondAttribute="trailing" id="aHy-MI-lq2"/>
-                            <constraint firstItem="mIY-6h-4eW" firstAttribute="centerX" secondItem="JOP-5Y-g5a" secondAttribute="centerX" id="bDd-Zd-Zkk"/>
-                            <constraint firstItem="mIY-6h-4eW" firstAttribute="leading" secondItem="JOP-5Y-g5a" secondAttribute="leading" id="cPH-i0-rKE"/>
-                            <constraint firstItem="JOP-5Y-g5a" firstAttribute="trailing" secondItem="haR-vh-TI2" secondAttribute="trailing" id="fpb-S0-wTa"/>
-                            <constraint firstItem="EoW-CB-vD3" firstAttribute="leading" secondItem="JOP-5Y-g5a" secondAttribute="leading" constant="16" id="gZt-e3-k0B"/>
-                            <constraint firstItem="YXG-Sx-rtX" firstAttribute="leading" secondItem="JOP-5Y-g5a" secondAttribute="leading" constant="20" id="mSx-RL-a9N"/>
-                            <constraint firstItem="JOP-5Y-g5a" firstAttribute="trailing" secondItem="EoW-CB-vD3" secondAttribute="trailing" constant="16" id="oAk-5s-UCh"/>
-                            <constraint firstItem="mIY-6h-4eW" firstAttribute="top" secondItem="YXG-Sx-rtX" secondAttribute="bottom" constant="30" id="sZd-qZ-Ycc"/>
-                            <constraint firstItem="Xya-fz-zbV" firstAttribute="leading" secondItem="JOP-5Y-g5a" secondAttribute="leading" constant="20" id="syg-YF-DvI"/>
-                            <constraint firstItem="JOP-5Y-g5a" firstAttribute="trailing" secondItem="Xya-fz-zbV" secondAttribute="trailing" constant="20" id="vuZ-dW-NMa"/>
-                        </constraints>
-                    </view>
-                    <connections>
-                        <outlet property="nextButton" destination="EoW-CB-vD3" id="TEw-Ua-t2b"/>
-                        <outlet property="pickerView" destination="mIY-6h-4eW" id="M7U-IZ-qur"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="cQW-Db-csJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-1614.4927536231885" y="-87.053571428571431"/>
-        </scene>
         <!--Manual View Controller-->
         <scene sceneID="KY5-dy-d9i">
             <objects>
@@ -938,7 +849,6 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <action selector="onClickNext:" destination="5cQ-Xb-nyz" eventType="touchUpInside" id="FkE-J1-JCZ"/>
                                     <action selector="onClickStartButton:" destination="qmq-et-aKG" eventType="touchUpInside" id="aA0-PE-zOO"/>
                                 </connections>
                             </button>

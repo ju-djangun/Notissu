@@ -16,7 +16,8 @@ class HomeSwitcher {
         if(BaseViewController.noticeDeptCode != nil) {
             navigationVC = (UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "HomeNavVC") as! UINavigationController)
         } else {
-            rootVC = (UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "StartVC") as! StartViewController)
+            rootVC = StartViewController()
+//            rootVC = (UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "StartVC") as! StartViewController)
         }
         
         let appDelegate = UIApplication.shared.delegate as! AppDelegate

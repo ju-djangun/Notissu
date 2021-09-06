@@ -458,13 +458,13 @@
                                         <rect key="frame" x="66" y="11" width="340" height="42"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="나의 전공" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ggX-f6-85B">
-                                                <rect key="frame" x="8" y="4" width="332" height="6"/>
+                                                <rect key="frame" x="8" y="4" width="332" height="12.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                 <color key="textColor" red="0.60784313729999995" green="0.60784313729999995" blue="0.60784313729999995" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalCompressionResistancePriority="751" text="전공이름" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Umj-4e-AJA">
-                                                <rect key="frame" x="8" y="12" width="332" height="30"/>
+                                                <rect key="frame" x="8" y="18.5" width="332" height="23.5"/>
                                                 <fontDescription key="fontDescription" name="NotoSansKR-Bold" family="Noto Sans KR" pointSize="20"/>
                                                 <color key="textColor" name="tab_icon_tint"/>
                                                 <nil key="highlightedColor"/>
@@ -819,69 +819,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dxw-kr-GLx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1614" y="-845"/>
-        </scene>
-        <!--Manual View Controller-->
-        <scene sceneID="KY5-dy-d9i">
-            <objects>
-                <viewController restorationIdentifier="manualVC" storyboardIdentifier="manualVC" id="qmq-et-aKG" customClass="ManualViewController" customModule="Notissu" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="ZeX-ob-J7g">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" bounces="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aRK-gv-885">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                                <viewLayoutGuide key="contentLayoutGuide" id="QWZ-Lr-Ois"/>
-                                <viewLayoutGuide key="frameLayoutGuide" id="feV-iL-sSh"/>
-                            </scrollView>
-                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="U7J-Nn-Ygr">
-                                <rect key="frame" x="20" y="44" width="374" height="27.5"/>
-                                <color key="pageIndicatorTintColor" white="1" alpha="0.19547755281690141" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <color key="currentPageIndicatorTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </pageControl>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2CT-cX-UqO">
-                                <rect key="frame" x="16" y="806" width="382" height="46"/>
-                                <color key="backgroundColor" name="notissuBlue1000s"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="46" id="3bh-W8-QG4"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                <state key="normal" title="Notissu 시작하기">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="onClickStartButton:" destination="qmq-et-aKG" eventType="touchUpInside" id="aA0-PE-zOO"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="oaV-fx-D4W"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="U7J-Nn-Ygr" firstAttribute="centerX" secondItem="oaV-fx-D4W" secondAttribute="centerX" id="0fs-3G-WSO"/>
-                            <constraint firstItem="oaV-fx-D4W" firstAttribute="trailing" secondItem="aRK-gv-885" secondAttribute="trailing" id="3Md-iU-tcm"/>
-                            <constraint firstItem="2CT-cX-UqO" firstAttribute="leading" secondItem="oaV-fx-D4W" secondAttribute="leading" constant="16" id="DnL-kd-Jmp"/>
-                            <constraint firstItem="oaV-fx-D4W" firstAttribute="trailing" secondItem="2CT-cX-UqO" secondAttribute="trailing" constant="16" id="Nri-Jt-rdU"/>
-                            <constraint firstItem="U7J-Nn-Ygr" firstAttribute="leading" secondItem="oaV-fx-D4W" secondAttribute="leading" constant="20" id="Ogn-yB-ghB"/>
-                            <constraint firstItem="2CT-cX-UqO" firstAttribute="centerX" secondItem="oaV-fx-D4W" secondAttribute="centerX" id="Sb2-4b-zeq"/>
-                            <constraint firstItem="oaV-fx-D4W" firstAttribute="bottom" secondItem="2CT-cX-UqO" secondAttribute="bottom" constant="10" id="ZBW-DV-8i7"/>
-                            <constraint firstItem="aRK-gv-885" firstAttribute="leading" secondItem="oaV-fx-D4W" secondAttribute="leading" id="b3Y-m3-eUH"/>
-                            <constraint firstItem="oaV-fx-D4W" firstAttribute="top" secondItem="aRK-gv-885" secondAttribute="top" constant="44" id="deK-wo-jb8"/>
-                            <constraint firstItem="aRK-gv-885" firstAttribute="centerX" secondItem="oaV-fx-D4W" secondAttribute="centerX" id="fQB-gj-F9c"/>
-                            <constraint firstItem="aRK-gv-885" firstAttribute="centerY" secondItem="oaV-fx-D4W" secondAttribute="centerY" id="frO-7W-pkz"/>
-                            <constraint firstItem="U7J-Nn-Ygr" firstAttribute="top" secondItem="oaV-fx-D4W" secondAttribute="top" id="i4h-oy-Kzf"/>
-                            <constraint firstItem="aRK-gv-885" firstAttribute="bottom" secondItem="oaV-fx-D4W" secondAttribute="bottom" constant="34" id="lqK-tI-Swo"/>
-                            <constraint firstItem="oaV-fx-D4W" firstAttribute="trailing" secondItem="U7J-Nn-Ygr" secondAttribute="trailing" constant="20" id="vSj-lm-chy"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" id="gcm-Od-RVy"/>
-                    <connections>
-                        <outlet property="pageControl" destination="U7J-Nn-Ygr" id="zeR-Hr-a25"/>
-                        <outlet property="scrollView" destination="aRK-gv-885" id="TQh-qn-c5o"/>
-                        <outlet property="startButton" destination="2CT-cX-UqO" id="Q3n-8X-UuT"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="pkh-fh-y98" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-1614.4927536231885" y="638.83928571428567"/>
         </scene>
         <!--내 공지-->
         <scene sceneID="uef-mS-A94">

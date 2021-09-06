@@ -124,10 +124,7 @@ class StartViewController: BaseViewController, UIPickerViewDelegate, UIPickerVie
         
         UserDefaults(suiteName: "group.com.elliott.Notissu")?.set(myCode.rawValue, forKey: "myDeptCode")
         
-        let storyBoard = UIStoryboard(name: "Main", bundle: nil)
-        let manualViewController = storyBoard.instantiateViewController(withIdentifier: "manualVC") as? ManualViewController
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        appDelegate.window?.rootViewController = manualViewController!
+        HomeSwitcher.updateRootVC()
     }
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {

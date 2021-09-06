@@ -75,9 +75,8 @@ class MoreViewController : BaseViewController, UITableViewDelegate, UITableViewD
     }
     
     @IBAction func onClickModifyProfile(_ sender: Any) {
-        let storyBoard = self.storyboard!
-        let noticeDetailController = storyBoard.instantiateViewController(withIdentifier: "modifyVC") as? ModifyProfileViewController
-        self.navigationController?.pushViewController(noticeDetailController!, animated: true)
+        let modifyVC = ModifyProfileViewController()
+        self.navigationController?.pushViewController(modifyVC, animated: true)
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

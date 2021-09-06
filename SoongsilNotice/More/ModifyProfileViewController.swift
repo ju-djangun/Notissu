@@ -9,8 +9,42 @@ import Foundation
 import UIKit
 
 class ModifyProfileViewController: BaseViewController, UIPickerViewDelegate, UIPickerViewDataSource {
-    @IBOutlet var pickerView: UIPickerView!
-    @IBOutlet var nextButton: UIButton!
+    private let bottomLabel: UILabel = {
+        $0.text = "Copyright (C) 2019 Taein Kim All Rights Reserved."
+        $0.textAlignment = .center
+        $0.font = UIFont(name: "NotoSansKR-Light", size: 10)
+        $0.textColor = UIColor(red: 155/255, green: 155/255, blue: 155/255, alpha: 1.0)
+        return $0
+    }(UILabel())
+    
+    private let titleLabel: UILabel = {
+        $0.text = "변경하고자 하는"
+        $0.textAlignment = .center
+        $0.font = UIFont(name: "NotoSansKR-Light", size: 16)
+        $0.textColor = .black
+        return $0
+    }(UILabel())
+    
+    private let subTitleLabel: UILabel = {
+        $0.text = "전공을 선택해주세요"
+        $0.textAlignment = .center
+        $0.font = UIFont(name: "NotoSansKR-Medium", size: 24)
+        $0.textColor = .black
+        return $0
+    }(UILabel())
+    
+    private let continueButton: UIButton = {
+        $0.setTitle("계속하기", for: .normal)
+        $0.setTitleColor(.white, for: .normal)
+        $0.layer.cornerRadius = 8
+        $0.backgroundColor = UIColor(named: "notissuButton1000s")
+        $0.addTarget(self, action: #selector(onClickNext(_:)), for: .touchUpInside)
+        return $0
+    }(UIButton())
+    
+    private let majorPickerView: UIPickerView = {
+        return $0
+    }(UIPickerView())
     
     private var majorList = [DeptCode]()
     
@@ -35,11 +69,52 @@ class ModifyProfileViewController: BaseViewController, UIPickerViewDelegate, UIP
         
         majorList.removeLast()
         
-        self.pickerView.dataSource = self
-        self.pickerView.delegate = self
+        setupViewLayout()
+        self.majorPickerView.dataSource = self
+        self.majorPickerView.delegate = self
     }
     
-    @IBAction func onClickNext(_ sender: Any?) {
+    private func setupViewLayout() {
+        view.backgroundColor = .white
+        view.addSubview(bottomLabel)
+        view.addSubview(titleLabel)
+        view.addSubview(subTitleLabel)
+        view.addSubview(majorPickerView)
+        view.addSubview(continueButton)
+        
+        bottomLabel.snp.makeConstraints { make in
+            make.centerX.equalToSuperview()
+            make.bottom.equalToSuperview().offset(-30)
+        }
+        
+        continueButton.snp.makeConstraints { make in
+            make.leading.equalToSuperview().offset(16)
+            make.trailing.equalToSuperview().offset(-16)
+            make.height.equalTo(46)
+            make.bottom.equalTo(bottomLabel.snp.top).offset(-80)
+        }
+        
+        majorPickerView.snp.makeConstraints { make in
+            make.bottom.equalTo(continueButton.snp.top).offset(-36)
+            make.height.equalTo(216)
+            make.leading.trailing.equalToSuperview()
+        }
+        
+        subTitleLabel.snp.makeConstraints { make in
+            make.leading.equalToSuperview().offset(16)
+            make.trailing.equalToSuperview().offset(-16)
+            make.bottom.equalTo(majorPickerView.snp.top).offset(-36)
+        }
+        
+        titleLabel.snp.makeConstraints { make in
+            make.leading.equalToSuperview().offset(16)
+            make.trailing.equalToSuperview().offset(-16)
+            make.bottom.equalTo(subTitleLabel.snp.top).offset(-4)
+        }
+    }
+    
+    @objc
+    private func onClickNext(_ sender: Any?) {
         let myCode = majorList[selectedIndex]
         
         BaseViewController.noticeDeptCode = myCode

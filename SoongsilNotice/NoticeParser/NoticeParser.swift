@@ -10,8 +10,65 @@ import Kanna
 
 final class NoticeParser {
     public static let shared: NoticeParser = NoticeParser()
-    private let htmlStart = "<hml><head><meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0, shrink-to-fit=no\"><style>html,body{padding:0 5px 5px;margin:0;font-size:18px !important;}iframe,img{max-width:100%;height:auto;}</style></head><bpdy>"
-    private let htmlEnd = "</bpdy></hml>"
+    
+    private enum Dimension {
+        enum Margin {
+            static let horizontal = 20
+            static let vertical = 24
+        }
+    }
+    
+    private enum Paragraph {
+        static let fontSize = "16px"
+        static let lineHeight = "1.6"
+        static let textColor = "#333D4B"
+        static let pointColor = "#505782"
+    }
+    
+    private let htmlStart =
+        // special thx to dino han
+        """
+        <head>
+            <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no'>
+        </head>
+        <style>
+            img {
+                height: auto !important;
+                width: auto !important;
+            }
+
+            iframe {
+                width: calc(100vw - \(Dimension.Margin.horizontal*2)px) !important;
+                height: calc((100vw - \(Dimension.Margin.horizontal*2)px)/ 16*9) !important;
+                overflow: scroll;
+            }
+
+            table {
+                width: 100% !important;
+                height: auto !important;
+            }
+
+            body {
+                margin: \(Dimension.Margin.vertical)px \(Dimension.Margin.horizontal)px;
+
+            }
+        
+            * {
+                line-height: \(Paragraph.lineHeight); !important;
+                color: \(Paragraph.textColor); !important;
+                font-size: \(Paragraph.fontSize); !important;
+                font-family: '-apple-system' !important;
+                max-width: 100% !important;
+                -webkit-touch-callout: none;
+            }
+
+            a {
+                color: \(Paragraph.pointColor);
+                word-break: break-all; !important;
+            }
+        </style>
+        """
+    private let htmlEnd = ""
     
     private init() { }
     

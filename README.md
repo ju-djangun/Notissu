@@ -10,6 +10,10 @@ Soongsil University Notice application by major.
 *iOS Developer*  
 Email : [della.kimko@gmail.com](della.kimko@gmail.com)    
   
+## Contributor    
+*Kim Bong Kyun
+*iOS Developer*
+  
 ## License  
 Apache 2.0 License  
  

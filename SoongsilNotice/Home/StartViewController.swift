@@ -7,6 +7,7 @@
 
 import SnapKit
 import UIKit
+import YDS
 
 class StartViewController: BaseViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     private let bottomLabel: UILabel = {
@@ -33,14 +34,11 @@ class StartViewController: BaseViewController, UIPickerViewDelegate, UIPickerVie
         return $0
     }(UILabel())
     
-    private let continueButton: UIButton = {
-        $0.setTitle("계속하기", for: .normal)
-        $0.setTitleColor(.white, for: .normal)
-        $0.layer.cornerRadius = 8
-        $0.backgroundColor = UIColor(named: "notissuButton1000s")
+    private let continueButton: YDSBoxButton = {
+        $0.text = "계속하기"
         $0.addTarget(self, action: #selector(onClickNext(_:)), for: .touchUpInside)
         return $0
-    }(UIButton())
+    }(YDSBoxButton())
     
     private let majorPickerView: UIPickerView = {
         return $0

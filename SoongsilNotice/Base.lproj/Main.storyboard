@@ -458,13 +458,13 @@
                                         <rect key="frame" x="66" y="11" width="340" height="42"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="나의 전공" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ggX-f6-85B">
-                                                <rect key="frame" x="8" y="4" width="332" height="12.5"/>
+                                                <rect key="frame" x="8" y="4" width="332" height="6"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                 <color key="textColor" red="0.60784313729999995" green="0.60784313729999995" blue="0.60784313729999995" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalCompressionResistancePriority="751" text="전공이름" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Umj-4e-AJA">
-                                                <rect key="frame" x="8" y="18.5" width="332" height="23.5"/>
+                                                <rect key="frame" x="8" y="12" width="332" height="30"/>
                                                 <fontDescription key="fontDescription" name="NotoSansKR-Bold" family="Noto Sans KR" pointSize="20"/>
                                                 <color key="textColor" name="tab_icon_tint"/>
                                                 <nil key="highlightedColor"/>
@@ -603,115 +603,10 @@
                     <view key="view" contentMode="scaleToFill" id="zAD-aq-UyG">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="전공을 선택해주세요." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sTQ-Mj-I5z">
-                                <rect key="frame" x="20" y="104" width="117.5" height="17"/>
-                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
-                                <color key="textColor" name="tab_icon_tint"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MAp-09-ztT">
-                                <rect key="frame" x="20" y="220" width="374" height="48"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="48" id="hEf-Sl-EXb"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.clipsToBounds" value="YES"/>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                        <integer key="value" value="4"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eCu-ob-1gX">
-                                <rect key="frame" x="22" y="751" width="370" height="46"/>
-                                <color key="backgroundColor" name="notissuButton1000s"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="46" id="Dn4-Kc-LiB"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="16"/>
-                                <state key="normal" title="검색하기">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.clipsToBounds" value="YES"/>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                        <integer key="value" value="4"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <action selector="searchAction:" destination="9PT-IW-mSw" eventType="touchUpInside" id="7hp-ZC-OZ9"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Dk-r8-3KZ">
-                                <rect key="frame" x="22" y="129" width="370" height="46"/>
-                                <color key="backgroundColor" name="notissuButton1000s"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="46" id="DJ6-d3-Arm"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="16"/>
-                                <state key="normal" title="전공 선택">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.clipsToBounds" value="YES"/>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                        <integer key="value" value="4"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <action selector="selectMajorAction:" destination="9PT-IW-mSw" eventType="touchUpInside" id="Q7W-lM-SKA"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="검색어 입력" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gL2-ln-dNO">
-                                <rect key="frame" x="20" y="195" width="64.5" height="17"/>
-                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
-                                <color key="textColor" name="tab_icon_tint"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="선택한 전공 : 전공을 선택해주세요." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2je-1i-G8l">
-                                <rect key="frame" x="20" y="286" width="374" height="17"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="17" id="0zJ-ye-49a"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="14"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
                         <viewLayoutGuide key="safeArea" id="m0s-Y2-AdR"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="eCu-ob-1gX" firstAttribute="centerX" secondItem="m0s-Y2-AdR" secondAttribute="centerX" id="2aB-Rk-ocn"/>
-                            <constraint firstItem="sTQ-Mj-I5z" firstAttribute="top" secondItem="m0s-Y2-AdR" secondAttribute="top" constant="16" id="6Ek-l4-7tH"/>
-                            <constraint firstItem="2je-1i-G8l" firstAttribute="trailing" secondItem="MAp-09-ztT" secondAttribute="trailing" id="8Xi-TR-Jhd"/>
-                            <constraint firstItem="4Dk-r8-3KZ" firstAttribute="leading" secondItem="m0s-Y2-AdR" secondAttribute="leading" constant="22" id="96c-N8-e1R"/>
-                            <constraint firstItem="4Dk-r8-3KZ" firstAttribute="centerX" secondItem="m0s-Y2-AdR" secondAttribute="centerX" id="Hlp-wp-9BF"/>
-                            <constraint firstItem="m0s-Y2-AdR" firstAttribute="trailing" secondItem="eCu-ob-1gX" secondAttribute="trailing" constant="22" id="J5a-6a-I4k"/>
-                            <constraint firstItem="m0s-Y2-AdR" firstAttribute="bottom" secondItem="eCu-ob-1gX" secondAttribute="bottom" constant="16" id="KwS-mn-9zj"/>
-                            <constraint firstItem="m0s-Y2-AdR" firstAttribute="trailing" secondItem="4Dk-r8-3KZ" secondAttribute="trailing" constant="22" id="KxO-qU-qOM"/>
-                            <constraint firstItem="gL2-ln-dNO" firstAttribute="top" secondItem="4Dk-r8-3KZ" secondAttribute="bottom" constant="20" id="MTt-sT-K2x"/>
-                            <constraint firstItem="2je-1i-G8l" firstAttribute="leading" secondItem="MAp-09-ztT" secondAttribute="leading" id="V4d-Vk-SH8"/>
-                            <constraint firstItem="MAp-09-ztT" firstAttribute="top" secondItem="gL2-ln-dNO" secondAttribute="bottom" constant="8" id="W1p-3m-zQy"/>
-                            <constraint firstItem="m0s-Y2-AdR" firstAttribute="trailing" secondItem="MAp-09-ztT" secondAttribute="trailing" constant="20" id="XPa-dz-UGN"/>
-                            <constraint firstItem="4Dk-r8-3KZ" firstAttribute="top" secondItem="sTQ-Mj-I5z" secondAttribute="bottom" constant="8" id="dxc-Uv-bdw"/>
-                            <constraint firstItem="gL2-ln-dNO" firstAttribute="leading" secondItem="m0s-Y2-AdR" secondAttribute="leading" constant="20" id="e9A-Fh-3ar"/>
-                            <constraint firstItem="2je-1i-G8l" firstAttribute="top" secondItem="MAp-09-ztT" secondAttribute="bottom" constant="18" id="fiC-bo-qfh"/>
-                            <constraint firstItem="sTQ-Mj-I5z" firstAttribute="leading" secondItem="m0s-Y2-AdR" secondAttribute="leading" constant="20" id="jkA-Qo-4qh"/>
-                            <constraint firstItem="eCu-ob-1gX" firstAttribute="leading" secondItem="m0s-Y2-AdR" secondAttribute="leading" constant="22" id="l07-lD-f7g"/>
-                            <constraint firstItem="MAp-09-ztT" firstAttribute="leading" secondItem="m0s-Y2-AdR" secondAttribute="leading" constant="20" id="qqK-gY-P1d"/>
-                            <constraint firstItem="MAp-09-ztT" firstAttribute="centerX" secondItem="m0s-Y2-AdR" secondAttribute="centerX" id="vOf-dE-2aD"/>
-                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="검색" image="iconSearch" id="Qi9-oL-ur1"/>
-                    <connections>
-                        <outlet property="keywordTextField" destination="MAp-09-ztT" id="gcS-1Y-twG"/>
-                        <outlet property="lblSelectedMajor" destination="2je-1i-G8l" id="GU3-Ve-zwm"/>
-                        <outlet property="majorSelectionBtn" destination="4Dk-r8-3KZ" id="4SS-Il-v5K"/>
-                        <outlet property="majorText" destination="sTQ-Mj-I5z" id="1bb-oo-WYf"/>
-                        <outlet property="searchBtn" destination="eCu-ob-1gX" id="3IV-Vc-pFe"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2jN-3G-0Fh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1100,9 +995,6 @@
             <color red="0.31499999761581421" green="0.34200000762939453" blue="0.50999999046325684" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <namedColor name="notissuBlue1000s">
-            <color red="0.31499999761581421" green="0.34200000762939453" blue="0.50999999046325684" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-        </namedColor>
-        <namedColor name="notissuButton1000s">
             <color red="0.31499999761581421" green="0.34200000762939453" blue="0.50999999046325684" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <namedColor name="notissuColorWhite100s">

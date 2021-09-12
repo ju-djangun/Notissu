@@ -8,6 +8,7 @@
 import Foundation
 import SnapKit
 import UIKit
+import YDS
 
 final class MajorListViewController: BaseViewController {
     private let topContentView: TopContentView = {

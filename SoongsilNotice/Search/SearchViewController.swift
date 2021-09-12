@@ -6,29 +6,107 @@
 //
 
 import UIKit
+import YDS
 
 class SearchViewController: BaseViewController, SearchViewProtocol, UIPickerViewDelegate, UIPickerViewDataSource {
     
-    @IBOutlet weak var majorText         : UILabel!
-    @IBOutlet weak var lblSelectedMajor  : UILabel!
-    @IBOutlet weak var pickerView        : UIPickerView!
-    @IBOutlet weak var searchBtn         : UIButton!
-    @IBOutlet weak var majorSelectionBtn: UIButton!
-    @IBOutlet weak var keywordTextField  : UITextField!
+    private var majorSelectLabel: UILabel = {
+        $0.text = "전공을 선택해주세요."
+        $0.textColor = YDSColor.buttonNormal
+        $0.font = UIFont.systemFont(ofSize: 14, weight: .semibold)
+        return $0
+    }(UILabel())
+    
+    private var searchTitleLabel: UILabel = {
+        $0.text = "검색어 입력"
+        $0.textColor = YDSColor.buttonNormal
+        $0.font = UIFont.systemFont(ofSize: 14, weight: .semibold)
+        return $0
+    }(UILabel())
+    
+    private var lblSelectedMajor  : UILabel = {
+        $0.text = "선택한 전공 : 전공을 선택해주세요."
+        $0.font = UIFont.systemFont(ofSize: 14, weight: .semibold)
+        return $0
+    }(UILabel())
+    
+    private var searchBtn: YDSBoxButton = {
+        $0.text = "검색하기"
+        $0.addTarget(self, action: #selector(searchAction(_:)), for: .touchUpInside)
+        return $0
+    }(YDSBoxButton())
+    
+    private var majorSelectionBtn: YDSBoxButton = {
+        $0.text = "전공 선택"
+        $0.addTarget(self, action: #selector(selectMajorAction(_:)), for: .touchUpInside)
+        return $0
+    }(YDSBoxButton())
+    
+    private var keywordTextField: YDSSimpleTextFieldView = {
+        $0.placeholder = "검색어를 입력해주세요."
+        return $0
+    }(YDSSimpleTextFieldView())
     
     private var presenter: SearchPresenter!
     
     private var selectedIndex = -1
     private var selectedMajor: DeptCode = .IT_Computer
     
+    private func setupViewLayout() {
+        view.addSubview(majorSelectLabel)
+        view.addSubview(majorSelectionBtn)
+        view.addSubview(searchTitleLabel)
+        view.addSubview(keywordTextField)
+        view.addSubview(lblSelectedMajor)
+        view.addSubview(searchBtn)
+        
+        majorSelectLabel.snp.makeConstraints { make in
+            make.top.equalTo(view.safeAreaLayoutGuide.snp.top).offset(10)
+            make.leading.equalToSuperview().offset(16)
+            make.trailing.equalToSuperview().offset(-16)
+        }
+        
+        majorSelectionBtn.snp.makeConstraints { make in
+            make.top.equalTo(majorSelectLabel.snp.bottom).offset(10)
+            make.leading.equalToSuperview().offset(16)
+            make.trailing.equalToSuperview().offset(-16)
+        }
+        
+        searchTitleLabel.snp.makeConstraints { make in
+            make.top.equalTo(majorSelectionBtn.snp.bottom).offset(10)
+            make.leading.equalToSuperview().offset(16)
+            make.trailing.equalToSuperview().offset(-16)
+        }
+        
+        keywordTextField.snp.makeConstraints { make in
+            make.top.equalTo(searchTitleLabel.snp.bottom).offset(10)
+            make.leading.equalToSuperview().offset(16)
+            make.trailing.equalToSuperview().offset(-16)
+        }
+        
+        lblSelectedMajor.snp.makeConstraints { make in
+            make.top.equalTo(keywordTextField.snp.bottom).offset(10)
+            make.leading.equalToSuperview().offset(16)
+            make.trailing.equalToSuperview().offset(-16)
+        }
+        
+        searchBtn.snp.makeConstraints { make in
+            make.leading.equalToSuperview().offset(16)
+            make.trailing.equalToSuperview().offset(-16)
+            make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom).offset(-10)
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.presenter = SearchPresenter(view: self)
+        presenter = SearchPresenter(view: self)
         
-        self.keywordTextField.layer.borderWidth = 0.5
-        self.keywordTextField.layer.borderColor = NotiSSU_ColorSet.notissuGrayLight.cgColor
+        setupViewLayout()
         
-        self.lblSelectedMajor.textColor = NotiSSU_ColorSet.notissuGray
+        keywordTextField.layer.borderWidth = 0.5
+        keywordTextField.layer.borderColor = NotiSSU_ColorSet.notissuGrayLight.cgColor
+        
+        lblSelectedMajor.textColor = NotiSSU_ColorSet.notissuGray
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -42,7 +120,8 @@ class SearchViewController: BaseViewController, SearchViewProtocol, UIPickerView
         self.view.endEditing(true)
     }
     
-    @IBAction func searchAction(_ sender: Any?) {
+    @objc
+    private func searchAction(_ sender: Any?) {
         print("검색 : \(String(describing: self.keywordTextField.text))")
         
         if selectedIndex < 0 {
@@ -70,7 +149,8 @@ class SearchViewController: BaseViewController, SearchViewProtocol, UIPickerView
         }
     }
     
-    @IBAction func selectMajorAction(_ sender: Any?) {
+    @objc
+    private func selectMajorAction(_ sender: Any?) {
         showPickerActionSheet()
     }
     

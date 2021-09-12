@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -64,6 +64,7 @@
 		B0A130F726E1190000BB1E28 /* ConfigSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE296154237195CD0074F24B /* ConfigSetting.swift */; };
 		B0A130F826E1193900BB1E28 /* MajorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B67AEA2400BB060027D038 /* MajorModel.swift */; };
 		B0B67AEB2400BB060027D038 /* MajorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B67AEA2400BB060027D038 /* MajorModel.swift */; };
+		B0DC694026EDFF8100171D93 /* YDS in Frameworks */ = {isa = PBXBuildFile; productRef = B0DC693F26EDFF8100171D93 /* YDS */; };
 		DE03E9CF2379B05D002AA5AE /* NoticeBusiness.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE03E9CE2379B05D002AA5AE /* NoticeBusiness.swift */; };
 		DE04186024021BCA00486BF3 /* NotissuResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE04185F24021BCA00486BF3 /* NotissuResource.swift */; };
 		DE04186124021BCA00486BF3 /* NotissuResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE04185F24021BCA00486BF3 /* NotissuResource.swift */; };
@@ -321,6 +322,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B0DC694026EDFF8100171D93 /* YDS in Frameworks */,
 				DEBB715123744AC800C38812 /* WebKit.framework in Frameworks */,
 				DEBB714E23744AC700C38812 /* Pods_SoongsilNotice.framework in Frameworks */,
 			);
@@ -695,6 +697,9 @@
 				DE64BE8E23DD253C00DF46C5 /* PBXTargetDependency */,
 			);
 			name = SoongsilNotice;
+			packageProductDependencies = (
+				B0DC693F26EDFF8100171D93 /* YDS */,
+			);
 			productName = SoongsilNotice;
 			productReference = DE29613223703F4C0074F24B /* Notissu.app */;
 			productType = "com.apple.product-type.application";
@@ -744,6 +749,9 @@
 				Base,
 			);
 			mainGroup = DE29612923703F4C0074F24B;
+			packageReferences = (
+				B0DC693E26EDFF8100171D93 /* XCRemoteSwiftPackageReference "YDS-iOS" */,
+			);
 			productRefGroup = DE29613323703F4C0074F24B /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -1149,6 +1157,7 @@
 				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = M79H9K226Y;
 				INFOPLIST_FILE = SoongsilNotice/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1174,6 +1183,7 @@
 				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = M79H9K226Y;
 				INFOPLIST_FILE = SoongsilNotice/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1196,7 +1206,7 @@
 				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = M79H9K226Y;
 				INFOPLIST_FILE = "Notissu Today Extension/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1220,7 +1230,7 @@
 				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = M79H9K226Y;
 				INFOPLIST_FILE = "Notissu Today Extension/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1266,6 +1276,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		B0DC693E26EDFF8100171D93 /* XCRemoteSwiftPackageReference "YDS-iOS" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/yourssu/YDS-iOS";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.3.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		B0DC693F26EDFF8100171D93 /* YDS */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B0DC693E26EDFF8100171D93 /* XCRemoteSwiftPackageReference "YDS-iOS" */;
+			productName = YDS;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		DE53D0AE23F8E9B100AEFCE2 /* FavoriteNotice.xcdatamodeld */ = {

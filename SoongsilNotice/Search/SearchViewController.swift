@@ -103,9 +103,6 @@ class SearchViewController: BaseViewController, SearchViewProtocol, UIPickerView
         
         setupViewLayout()
         
-        keywordTextField.layer.borderWidth = 0.5
-        keywordTextField.layer.borderColor = NotiSSU_ColorSet.notissuGrayLight.cgColor
-        
         lblSelectedMajor.textColor = NotiSSU_ColorSet.notissuGray
     }
     

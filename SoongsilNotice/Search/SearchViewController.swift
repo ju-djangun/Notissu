@@ -12,14 +12,14 @@ class SearchViewController: BaseViewController, SearchViewProtocol, UIPickerView
     
     private var majorSelectLabel: UILabel = {
         $0.text = "전공을 선택해주세요."
-        $0.textColor = YDSColor.buttonNormal
+        $0.textColor = YDSColor.buttonPoint
         $0.font = UIFont.systemFont(ofSize: 14, weight: .semibold)
         return $0
     }(UILabel())
     
     private var searchTitleLabel: UILabel = {
         $0.text = "검색어 입력"
-        $0.textColor = YDSColor.buttonNormal
+        $0.textColor = YDSColor.buttonPoint
         $0.font = UIFont.systemFont(ofSize: 14, weight: .semibold)
         return $0
     }(UILabel())

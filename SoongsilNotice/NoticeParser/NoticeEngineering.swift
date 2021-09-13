@@ -27,7 +27,6 @@ class NoticeEngineering: NoticeBaseModel {
                         let doc = try HTML(html: data, encoding: .utf8)
                         for product in doc.css("table[class^='t_list hover'] td") {
                             let content = product.text!.trimmingCharacters(in: .whitespacesAndNewlines)
-                            //                            print(content)
                             switch (index % 5) {
                             case 0: break
                             case 1:
@@ -118,7 +117,6 @@ class NoticeEngineering: NoticeBaseModel {
                         }
                         
                         for product in doc.css("div[class^='board-list'] td a") {
-                            print("http://chemeng.ssu.ac.kr\(product["href"] ?? "")")
                             urlList.append("http://chemeng.ssu.ac.kr\(product["href"] ?? "")")
                         }
                     } catch let error {

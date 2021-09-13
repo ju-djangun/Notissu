@@ -272,7 +272,6 @@ extension NoticeParser {
         
         for link in html.css("td[width^=480] a") {
             let url = "\(mediaUrl)\(link["href"] ?? "")"
-            print("media : \(url)")
             attachmentList.append(Attachment(fileName: link.text ?? "", fileURL: url))
         }
         
@@ -349,7 +348,6 @@ extension NoticeParser {
         let contentHTML = html.css("div[class^='body']").first?.innerHTML ?? ""
         var detailHTML = "\(htmlStart)\(contentHTML)\(htmlEnd)"
         detailHTML = detailHTML.replacingOccurrences(of: "src=\"", with: "src=\"http://chemeng.ssu.ac.kr")
-        print(detailHTML)
         completion([Attachment](), detailHTML)
     }
     
@@ -359,11 +357,6 @@ extension NoticeParser {
         var detailHTML = "\(htmlStart)\(contentHTML)\(htmlEnd)"
         detailHTML = detailHTML.replacingOccurrences(of: "src=\"/", with: "src=\"\(host ?? "")/")
         let attachmentList = [Attachment]()
-        
-        // MARK: Needs to be updated
-//        for link in html.css("table[class='bbs-view'] a") {
-//            attachmentList.append(Attachment(fileName: link.content ?? "", fileURL: link["href"] ?? ""))
-//        }
         
         completion(attachmentList, detailHTML)
     }
@@ -383,11 +376,9 @@ extension NoticeParser {
                 let index = params.split(separator: ",")[2]
                 
                 let attachmentURL = "http://ee.ssu.ac.kr/module/board/download.php?boardid=\(boardId)&b_idx=\(bIndex)&idx=\(index)"
-                print(attachmentURL)
                 attachmentList.append(Attachment(fileName: link.content ?? "", fileURL: attachmentURL))
             }
         }
-        //        attachmentList.remove(at: attachmentList.count - 1)
         completion(attachmentList, detailHTML)
     }
     
@@ -398,8 +389,6 @@ extension NoticeParser {
         var attachmentList = [Attachment]()
         
         for link in html.css("table[class='bbs-view'] a") {
-            //            print(link["href"])
-            //            print(link.content)
             attachmentList.append(Attachment(fileName: link.content ?? "", fileURL: link["href"] ?? ""))
         }
         completion(attachmentList, detailHTML)
@@ -412,15 +401,11 @@ extension NoticeParser {
         
         for tr in fullHTML {
             // 마지막 제외하고 모두 첨부파일임
-            print(tr.css("td p").count)
             if tr.css("td p").count < 1 {
-                print("attachment")
                 let fileName = tr.css("a").first?.text?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
                 let fileLink = tr.css("a").first?["href"]?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
-                print("\(host!)\(fileLink)")
                 attachmentList.append(Attachment(fileName: fileName, fileURL: "\(host!)\(fileLink)"))
             } else {
-                print("content")
                 contentHTML = tr.innerHTML ?? ""
                 break
             }
@@ -439,8 +424,6 @@ extension NoticeParser {
         var attachmentList = [Attachment]()
         
         for link in html.css("table[class='bbs-view'] a") {
-            //            print(link["href"])
-            //            print(link.content)
             attachmentList.append(Attachment(fileName: link.content ?? "", fileURL: link["href"] ?? ""))
         }
         completion(attachmentList, detailHTML)
@@ -453,8 +436,6 @@ extension NoticeParser {
         var attachmentList = [Attachment]()
         
         for link in html.css("table[class='bbs-view'] a") {
-            //            print(link["href"])
-            //            print(link.content)
             attachmentList.append(Attachment(fileName: link.content ?? "", fileURL: link["href"] ?? ""))
         }
         completion(attachmentList, detailHTML)
@@ -515,8 +496,6 @@ extension NoticeParser {
         var attachmentList = [Attachment]()
         
         for link in html.css("table[class='bbs-view'] a") {
-            //            print(link["href"])
-            //            print(link.content)
             attachmentList.append(Attachment(fileName: link.content ?? "", fileURL: link["href"] ?? ""))
         }
         completion(attachmentList, detailHTML)
@@ -553,8 +532,6 @@ extension NoticeParser {
         var attachmentList = [Attachment]()
         
         for link in html.css("section[id^='bo_v_file'] a") {
-            print("[DDD] \(link.css("strong").first?.content)")
-            print("[DDD] \(link["href"])")
             attachmentList.append(Attachment(fileName: link.css("strong").first?.content ?? "", fileURL: link["href"] ?? ""))
         }
         completion(attachmentList, detailHTML)

@@ -165,10 +165,6 @@ class NoticeDetailViewController: BaseViewController, WKNavigationDelegate, WKUI
             self.attachmentView.isScrollEnabled = false
         }
         
-        for attachment in attachments {
-            print("attachment : \(attachment.fileName) / \(attachment.fileURL)")
-        }
-        
         self.hideProgressBar()
         self.attachmentView.reloadData()
     }
@@ -204,17 +200,14 @@ class NoticeDetailViewController: BaseViewController, WKNavigationDelegate, WKUI
     }
     
     func showDocumentInteractionController(filePath: String) {
-        print("open file dialog")
         self.hideProgressBar()
         self.docController = UIDocumentInteractionController(url: NSURL(fileURLWithPath: filePath) as URL)
         self.docController.name = NSURL(fileURLWithPath: filePath).lastPathComponent
-        print("NAME : " + self.docController.name!)
         self.docController.delegate = self
         self.docController.presentOptionsMenu(from: view.frame, in: view, animated: true)
     }
     
     func showIndicator() {
-        print("show Indicator")
         self.showProgressBar()
     }
 }

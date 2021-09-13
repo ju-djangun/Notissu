@@ -270,12 +270,9 @@ class NoticeIT: NoticeBaseModel {
         self.cleanList()
         
         AF.request(requestURL).responseString(completionHandler: { response in
-            //            print("\(response.result.isSuccess)")
-            //            print(response.result.value ?? "")
             switch(response.result) {
             case .success(_):
                 if let data = response.value {
-                    print(data)
                     do {
                         let doc = try HTML(html: data, encoding: .utf8)
                         for product in doc.css("div[class^='list']") {

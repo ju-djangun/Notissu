@@ -105,10 +105,6 @@ class BaseViewController: UIViewController, UIGestureRecognizerDelegate {
     }
     
     func showProgressBar() {
-        print("START")
-        print("\(self.view.frame.width) / \(self.view.frame.height)")
-        //animationView.frame = CGRect(x: 0, y: 0, width: 200, height: 200)
-        
         animationView.frame       = self.view.frame
         animationView.center      = self.view.center
         animationView.contentMode = .center

@@ -107,7 +107,6 @@ class SearchViewController: BaseViewController, SearchViewProtocol, UIPickerView
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        print("Appear")
         self.navigationItem.title = "검색"
         self.navigationController?.navigationBar.topItem?.title = "검색"
         
@@ -119,8 +118,6 @@ class SearchViewController: BaseViewController, SearchViewProtocol, UIPickerView
     
     @objc
     private func searchAction(_ sender: Any?) {
-        print("검색 : \(String(describing: self.keywordTextField.text))")
-        
         if selectedIndex < 0 {
             let alert = UIAlertController(title: "전공을 선택해주세요", message: "", preferredStyle: .alert)
             alert.isModalInPopover = true
@@ -200,7 +197,6 @@ extension SearchViewController {
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        print("\(row) : \(self.presenter.getMajorListItem(at: row))")
         selectedIndex = row
         selectedMajor = self.presenter.getMajorListItem(at: row)
     }

@@ -94,7 +94,6 @@ class SchoolViewController: BaseViewController, SchoolView, UITableViewDelegate,
     
     private func checkURLScheme() {
         if let index = NotissuProperty.openIndex {
-            print("change to Tab \(index)...")
             if index != self.tabBarController?.selectedIndex {
                 self.tabBarController?.selectedIndex = index
             }

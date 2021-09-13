@@ -25,9 +25,7 @@ class NoticeNaturalScience: NoticeBaseModel {
                     do {
                         let doc = try HTML(html: data, encoding: .utf8)
                         for product in doc.css("table[class='bbs-list'] td") {
-                            //print("***")
                             let content = product.text!.trimmingCharacters(in: .whitespacesAndNewlines)
-                            print(content)
                             switch (index % 5) {
                             case 0: break
                             case 1:
@@ -53,7 +51,6 @@ class NoticeNaturalScience: NoticeBaseModel {
                         }
                         
                         for product in doc.css("table[class='bbs-list'] a") {
-                            print(product["href"] ?? "")
                             urlList.append(product["href"] ?? "")
                         }
                     } catch let error {
@@ -91,9 +88,7 @@ class NoticeNaturalScience: NoticeBaseModel {
                     do {
                         let doc = try HTML(html: data, encoding: .utf8)
                         for product in doc.css("table[class='bbs-list'] td") {
-                            //print("***")
                             let content = product.text!.trimmingCharacters(in: .whitespacesAndNewlines)
-                            print(content)
                             switch (index % 6) {
                             case 0: break
                             case 1:
@@ -123,7 +118,6 @@ class NoticeNaturalScience: NoticeBaseModel {
                         }
                         
                         for product in doc.css("table[class='bbs-list'] a") {
-                            print(product["href"] ?? "")
                             urlList.append(product["href"] ?? "")
                         }
                     } catch let error {
@@ -256,7 +250,6 @@ class NoticeNaturalScience: NoticeBaseModel {
                         let doc = try HTML(html: data, encoding: .utf8)
                         for product in doc.css("div[class='tbl_head01 tbl_wrap'] td") {
                             let content = product.text!.trimmingCharacters(in: .whitespacesAndNewlines)
-                            print(content)
                             switch (index % 5) {
                             case 0: break
                             case 1:
@@ -287,7 +280,6 @@ class NoticeNaturalScience: NoticeBaseModel {
                         }
                         
                         for product in doc.css("div[class='tbl_head01 tbl_wrap'] td a") {
-                            print(product["href"] ?? "")
                             urlList.append(product["href"] ?? "")
                         }
                     } catch let error {
@@ -325,7 +317,6 @@ class NoticeNaturalScience: NoticeBaseModel {
                     do {
                         let doc = try HTML(html: data, encoding: .utf8)
                         for product in doc.css("table[class='bbs-list'] td") {
-                            //print("***")
                             let content = product.text!.trimmingCharacters(in: .whitespacesAndNewlines)
                             switch (index % 5) {
                             case 0: break
@@ -352,7 +343,6 @@ class NoticeNaturalScience: NoticeBaseModel {
                         }
                         
                         for product in doc.css("table[class='bbs-list'] a") {
-                            print(product["href"] ?? "")
                             urlList.append(product["href"] ?? "")
                         }
                     } catch let error {

@@ -40,8 +40,6 @@ class BookmarkPresenter: BookmarkPresenterProtocol {
             }
             self.model.appendBookmarkList(list: favoriteList)
             self.view.applyListToTableView(list: favoriteList)
-            print("Retrieve Notice : \(resultCount)")
-            
         } catch {
             print("ERROR")
         }
@@ -55,7 +53,6 @@ class BookmarkPresenter: BookmarkPresenterProtocol {
         do {
             let result = try managedContext.fetch(fetchRequest)
             let objectToDelete = result[0] as! NSManagedObject
-            print("result : \(objectToDelete.value(forKey: "title") ?? "")")
             managedContext.delete(objectToDelete)
 
             do {

@@ -45,11 +45,8 @@ class OpenSourceViewController: BaseViewController, UITableViewDataSource, UITab
         
         cell.viewVC = self
         cell.titleLbl.text = openSourceList[indexPath.row].title
-        print("A")
         cell.urlButton.setTitle(openSourceList[indexPath.row].url, for: .normal)
-        print("B")
         cell.descLbl.text = openSourceList[indexPath.row].desc
-        print("C")
         cell.selectionStyle  = .none
         
         return cell

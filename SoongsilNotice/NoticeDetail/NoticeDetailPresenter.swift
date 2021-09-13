@@ -30,7 +30,6 @@ class NoticeDetailPresenter: NoticeDetail {
             for _ in result as! [NSManagedObject] {
                 resultCount += 1
             }
-            print("Retrieve Notice : \(resultCount)")
         } catch {
             print("ERROR")
         }
@@ -58,7 +57,6 @@ class NoticeDetailPresenter: NoticeDetail {
         do {
             let result = try managedContext.fetch(fetchRequest)
             let objectToDelete = result[0] as! NSManagedObject
-            print("result : \(objectToDelete.value(forKey: "title") ?? "")")
             managedContext.delete(objectToDelete)
 
             do {

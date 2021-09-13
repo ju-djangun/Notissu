@@ -67,7 +67,6 @@ class MoreViewController : BaseViewController, UITableViewDelegate, UITableViewD
     
     private func checkURLScheme() {
         if let index = NotissuProperty.openIndex {
-            print("change to Tab \(index)...")
             if index != self.tabBarController?.selectedIndex {
                 self.tabBarController?.selectedIndex = index
             }
@@ -94,7 +93,6 @@ class MoreViewController : BaseViewController, UITableViewDelegate, UITableViewD
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch(indexPath.row) {
         case 0:
-            print("0")
             let storyBoard = self.storyboard!
             let bookmarkController = storyBoard.instantiateViewController(withIdentifier: "bookmarkVC") as? BookmarkViewController
             self.navigationController?.pushViewController(bookmarkController!, animated: true)

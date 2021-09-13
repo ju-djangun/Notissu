@@ -94,7 +94,6 @@ class NoticeAttachmentCell: UITableViewCell {
                 self.cellDelegate?.showDocumentInteractionController(filePath: filePath)
             }
         }
-        print("B")
     }
     
     func showAlert(title: String, msg: String, handler: ((UIAlertAction) -> Swift.Void)?){

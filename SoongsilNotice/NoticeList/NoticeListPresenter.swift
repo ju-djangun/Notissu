@@ -38,8 +38,6 @@ class NoticeListPresenter: NoticePresenter {
                 favoriteList.append(Notice(author: author, title: title, url: url, date: date, isNotice: isNotice))
             }
             self.view.applyToTableView(list: favoriteList)
-            print("Retrieve Notice : \(resultCount)")
-            
         } catch {
             print("ERROR")
         }

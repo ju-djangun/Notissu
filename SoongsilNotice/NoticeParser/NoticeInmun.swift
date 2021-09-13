@@ -26,9 +26,7 @@ class NoticeInmun: NoticeBaseModel {
                     do {
                         let doc = try HTML(html: data, encoding: .utf8)
                         for product in doc.css("table[class='bbs-list'] td") {
-                            //print("***")
                             let content = product.text!.trimmingCharacters(in: .whitespacesAndNewlines)
-                            print(content)
                             switch (index % 6) {
                             case 0: break
                             case 1:
@@ -190,9 +188,7 @@ class NoticeInmun: NoticeBaseModel {
                     do {
                         let doc = try HTML(html: data, encoding: .utf8)
                         for product in doc.css("table[class='bbs-list'] td") {
-                            //print("***")
                             let content = product.text!.trimmingCharacters(in: .whitespacesAndNewlines)
-                            print(content)
                             switch (index % 3) {
                             case 0:
                                 // Title
@@ -247,9 +243,7 @@ class NoticeInmun: NoticeBaseModel {
                     do {
                         let doc = try HTML(html: data, encoding: .utf8)
                         for product in doc.css("table[class='bbs-list'] td") {
-                            //print("***")
                             let content = product.text!.trimmingCharacters(in: .whitespacesAndNewlines)
-                            print(content)
                             switch (index % 5) {
                             case 0: break
                             case 1:
@@ -493,9 +487,7 @@ class NoticeInmun: NoticeBaseModel {
                     do {
                         let doc = try HTML(html: data, encoding: .utf8)
                         for product in doc.css("table[class='bbs-list'] td") {
-                            //print("***")
                             let content = product.text!.trimmingCharacters(in: .whitespacesAndNewlines)
-                            print(content)
                             switch (index % 6) {
                             case 0: break
                             case 1:
@@ -563,9 +555,7 @@ class NoticeInmun: NoticeBaseModel {
                     do {
                         let doc = try HTML(html: data, encoding: .utf8)
                         for product in doc.css("table[class='bbs-list'] td") {
-                            //print("***")
                             let content = product.text!.trimmingCharacters(in: .whitespacesAndNewlines)
-                            print(content)
                             switch (index % 6) {
                             case 0: break
                             case 1:
@@ -685,7 +675,6 @@ class NoticeInmun: NoticeBaseModel {
                 }
             case .failure(_):
                 print("Error message:\(String(describing: response.error))")
-                break
             }
         })
     }

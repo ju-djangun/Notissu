@@ -9,23 +9,17 @@ import Foundation
 import UIKit
 
 class HomeSwitcher {
-    static func updateRootVC(){
-        var rootVC : StartViewController?
-        var navigationVC : UINavigationController?
-        
-        if(BaseViewController.noticeDeptCode != nil) {
-            navigationVC = (UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "HomeNavVC") as! UINavigationController)
-        } else {
-            rootVC = StartViewController()
-//            rootVC = (UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "StartVC") as! StartViewController)
-        }
+    static func updateRootVC() {
         
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         
-        if rootVC != nil {
-            appDelegate.window?.rootViewController = rootVC
+        if (BaseViewController.noticeDeptCode != nil) {
+            //  noticeDeptCode가 존재할 때
+            appDelegate.window?.rootViewController = (UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "HomeNavVC") as! UINavigationController)
         } else {
-            appDelegate.window?.rootViewController = navigationVC
+            //  noticeDeptCode가 존재하지 않을 때
+            appDelegate.window?.rootViewController = StartViewController()
         }
+        
     }
 }

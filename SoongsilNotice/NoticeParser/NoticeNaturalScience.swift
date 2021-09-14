@@ -10,7 +10,7 @@ import Alamofire
 import Kanna
 
 class NoticeNaturalScience: NoticeBaseModel {
-    static func parseListMath(page: Int, keyword: String?, completion: @escaping ([Notice]) -> Void) {
+    static func parseListMath(page: Int, keyword: String?, completion: @escaping ([Notice]) -> Void?) {
         var index = 0
         
         let keywordSearch = keyword?.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)
@@ -73,7 +73,7 @@ class NoticeNaturalScience: NoticeBaseModel {
         })
     }
     
-    static func parseListChemistry(page: Int, keyword: String?, completion: @escaping ([Notice]) -> Void) {
+    static func parseListChemistry(page: Int, keyword: String?, completion: @escaping ([Notice]) -> Void?) {
         var index = 0
         
         let keywordSearch = keyword?.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)
@@ -140,7 +140,7 @@ class NoticeNaturalScience: NoticeBaseModel {
         })
     }
     
-    static func parseListPhysics(page: Int, keyword: String?, completion: @escaping ([Notice]) -> Void) {
+    static func parseListPhysics(page: Int, keyword: String?, completion: @escaping ([Notice]) -> Void?) {
         var index = 0
         
         let keywordSearch = keyword?.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)
@@ -234,7 +234,7 @@ class NoticeNaturalScience: NoticeBaseModel {
         })
     }
     
-    static func parseListActuarial(page: Int, keyword: String?, completion: @escaping ([Notice]) -> Void) {
+    static func parseListActuarial(page: Int, keyword: String?, completion: @escaping ([Notice]) -> Void?) {
         var index = 0
         
         let keywordSearch = keyword?.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)
@@ -302,7 +302,7 @@ class NoticeNaturalScience: NoticeBaseModel {
         })
     }
     
-    static func parseListBiomedical(page: Int, keyword: String?, completion: @escaping ([Notice]) -> Void) {
+    static func parseListBiomedical(page: Int, keyword: String?, completion: @escaping ([Notice]) -> Void?) {
         var index = 0
         
         let keywordSearch = keyword?.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)

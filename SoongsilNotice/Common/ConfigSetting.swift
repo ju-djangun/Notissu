@@ -108,7 +108,7 @@ public enum DeptCode: Int, CaseIterable {
     func getName(isKorean: Bool = true) -> String {
         switch self {
         case .Soongsil:
-            return isKorean ? "숭실대학교 공지" : "SSU Notice"
+            return isKorean ? "SSU:Catch" : "SSU:Catch"
         case .Dormitory:
             return isKorean ? "레지던스홀(기숙사)" : "Residence Hall"
         case .MIX_mix:

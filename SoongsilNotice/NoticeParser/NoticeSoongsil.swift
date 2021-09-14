@@ -10,7 +10,7 @@ import Kanna
 import Alamofire
 
 class NoticeSoongsil: NoticeBaseModel {
-    static func parseDormitoryNotice(page: Int, keyword: String?, completion: @escaping ([Notice]) -> Void) {
+    static func parseDormitoryNotice(page: Int, keyword: String?, completion: (([Notice]) -> Void)?) {
         let requestURL = NoticeRequestURL.SSU_Dormitory(page: page, keyword: keyword)
         
         self.cleanList()
@@ -73,7 +73,7 @@ class NoticeSoongsil: NoticeBaseModel {
                         noticeList.append(Notice(author: authorList[index], title: titleList[index], url: urlList[index], date: dateStringList[index], isNotice: isNoticeList[index], hasAttachment: attachmentCheckList[index]))
                     }
                     
-                    completion(noticeList)
+                    completion?(noticeList)
                 } catch let error {
                     print("Error : \(error)")
                 }
@@ -84,7 +84,7 @@ class NoticeSoongsil: NoticeBaseModel {
         })
     }
     
-    static func parseSchoolNotice(page: Int, keyword: String?, completion: @escaping ([Notice]) -> Void) {
+    static func parseSchoolNotice(page: Int, keyword: String?, completion: (([Notice]) -> Void)?) {
         var noticeList = [Notice]()
         var authorList = [String]()
         var titleList  = [String]()
@@ -129,7 +129,7 @@ class NoticeSoongsil: NoticeBaseModel {
                         index += 1
                     }
                     
-                    completion(noticeList)
+                    completion?(noticeList)
                 } catch let error {
                     print("Error : \(error)")
                 }

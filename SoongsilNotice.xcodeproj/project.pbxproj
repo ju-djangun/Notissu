@@ -18,8 +18,8 @@
 		B07166C5269B187A00B49CF7 /* MyNoticeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07166C4269B187A00B49CF7 /* MyNoticeViewModel.swift */; };
 		B07166C7269B18F700B49CF7 /* MajorListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07166C6269B18F700B49CF7 /* MajorListViewController.swift */; };
 		B07166C9269B190800B49CF7 /* MajorListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07166C8269B190800B49CF7 /* MajorListViewModel.swift */; };
-		B07166CB269B193300B49CF7 /* SSUCatchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07166CA269B193300B49CF7 /* SSUCatchViewController.swift */; };
-		B07166CD269B194700B49CF7 /* SSUCatchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07166CC269B194700B49CF7 /* SSUCatchViewModel.swift */; };
+		B07166CB269B193300B49CF7 /* NoticesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07166CA269B193300B49CF7 /* NoticesViewController.swift */; };
+		B07166CD269B194700B49CF7 /* NoticesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07166CC269B194700B49CF7 /* NoticesViewModel.swift */; };
 		B07166CF269B197200B49CF7 /* NoticeSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07166CE269B197200B49CF7 /* NoticeSearchViewController.swift */; };
 		B07166D1269B198100B49CF7 /* NoticeSearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07166D0269B198100B49CF7 /* NoticeSearchViewModel.swift */; };
 		B07166D7269B1B6F00B49CF7 /* Dynamic.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07166D6269B1B6F00B49CF7 /* Dynamic.swift */; };
@@ -213,8 +213,8 @@
 		B07166C4269B187A00B49CF7 /* MyNoticeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyNoticeViewModel.swift; sourceTree = "<group>"; };
 		B07166C6269B18F700B49CF7 /* MajorListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MajorListViewController.swift; sourceTree = "<group>"; };
 		B07166C8269B190800B49CF7 /* MajorListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MajorListViewModel.swift; sourceTree = "<group>"; };
-		B07166CA269B193300B49CF7 /* SSUCatchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSUCatchViewController.swift; sourceTree = "<group>"; };
-		B07166CC269B194700B49CF7 /* SSUCatchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSUCatchViewModel.swift; sourceTree = "<group>"; };
+		B07166CA269B193300B49CF7 /* NoticesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticesViewController.swift; sourceTree = "<group>"; };
+		B07166CC269B194700B49CF7 /* NoticesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticesViewModel.swift; sourceTree = "<group>"; };
 		B07166CE269B197200B49CF7 /* NoticeSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeSearchViewController.swift; sourceTree = "<group>"; };
 		B07166D0269B198100B49CF7 /* NoticeSearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeSearchViewModel.swift; sourceTree = "<group>"; };
 		B07166D6269B1B6F00B49CF7 /* Dynamic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dynamic.swift; sourceTree = "<group>"; };
@@ -367,7 +367,7 @@
 			isa = PBXGroup;
 			children = (
 				B07166C1269B184700B49CF7 /* Search */,
-				B07166C0269B183D00B49CF7 /* SSUCatch */,
+				B07166C0269B183D00B49CF7 /* Notices */,
 				B07166BF269B183300B49CF7 /* MajorList */,
 				B07166BE269B182C00B49CF7 /* MyNotice */,
 				B07166AF269B15E300B49CF7 /* MainTabBarViewController.swift */,
@@ -412,13 +412,13 @@
 			path = MajorList;
 			sourceTree = "<group>";
 		};
-		B07166C0269B183D00B49CF7 /* SSUCatch */ = {
+		B07166C0269B183D00B49CF7 /* Notices */ = {
 			isa = PBXGroup;
 			children = (
-				B07166CA269B193300B49CF7 /* SSUCatchViewController.swift */,
-				B07166CC269B194700B49CF7 /* SSUCatchViewModel.swift */,
+				B07166CA269B193300B49CF7 /* NoticesViewController.swift */,
+				B07166CC269B194700B49CF7 /* NoticesViewModel.swift */,
 			);
-			path = SSUCatch;
+			path = Notices;
 			sourceTree = "<group>";
 		};
 		B07166C1269B184700B49CF7 /* Search */ = {
@@ -913,9 +913,9 @@
 				B07166B0269B15E300B49CF7 /* MainTabBarViewController.swift in Sources */,
 				DEF56D7C2383C002003CA0F0 /* SchoolContract.swift in Sources */,
 				B07166C9269B190800B49CF7 /* MajorListViewModel.swift in Sources */,
-				B07166CB269B193300B49CF7 /* SSUCatchViewController.swift in Sources */,
+				B07166CB269B193300B49CF7 /* NoticesViewController.swift in Sources */,
 				DE53D0B323F8EA4E00AEFCE2 /* CoreDataUtil.swift in Sources */,
-				B07166CD269B194700B49CF7 /* SSUCatchViewModel.swift in Sources */,
+				B07166CD269B194700B49CF7 /* NoticesViewModel.swift in Sources */,
 				B07166D1269B198100B49CF7 /* NoticeSearchViewModel.swift in Sources */,
 				B07166BD269B180900B49CF7 /* NoticeListViewModel.swift in Sources */,
 				DEC1684C23F7A84500DE2D84 /* NotissuProperty.swift in Sources */,

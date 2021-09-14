@@ -11,7 +11,7 @@ import Alamofire
 import Kanna
 
 class NoticeEngineering: NoticeBaseModel {
-    static func parseListMachine(page: Int, keyword: String?, completion: @escaping ([Notice]) -> Void) {
+    static func parseListMachine(page: Int, keyword: String?, completion: @escaping ([Notice]) -> Void?) {
         var index = 0
         
         let keywordSearch = keyword?.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)
@@ -75,7 +75,7 @@ class NoticeEngineering: NoticeBaseModel {
         })
     }
     
-    static func parseListChemistryEngineering(page: Int, keyword: String?, completion: @escaping ([Notice]) -> Void) {
+    static func parseListChemistryEngineering(page: Int, keyword: String?, completion: @escaping ([Notice]) -> Void?) {
         // offset : 0 / 10 / 20 / etc.
         // offset : 0 * 10 / 1 * 10
         let offset = (page - 1) * 10
@@ -139,7 +139,7 @@ class NoticeEngineering: NoticeBaseModel {
         })
     }
     
-    static func parseListElectric(page: Int, keyword: String?, completion: @escaping ([Notice]) -> Void) {
+    static func parseListElectric(page: Int, keyword: String?, completion: @escaping ([Notice]) -> Void?) {
         // offset : 0 / 10 / 20 / etc.
         // offset : 0 * 10 / 1 * 10
         let offset = (page - 1) * 10
@@ -209,7 +209,7 @@ class NoticeEngineering: NoticeBaseModel {
         })
     }
     
-    static func parseListIndustry(page: Int, keyword: String?, completion: @escaping ([Notice]) -> Void) {
+    static func parseListIndustry(page: Int, keyword: String?, completion: @escaping ([Notice]) -> Void?) {
         var index = 0
         
         let keywordSearch = keyword?.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)
@@ -298,7 +298,7 @@ class NoticeEngineering: NoticeBaseModel {
         })
     }
     
-    static func parseListOrganic(page: Int, keyword: String?, completion: @escaping ([Notice]) -> Void) {
+    static func parseListOrganic(page: Int, keyword: String?, completion: @escaping ([Notice]) -> Void?) {
         var index = 0
         
         let keywordSearch = keyword?.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)
@@ -355,7 +355,7 @@ class NoticeEngineering: NoticeBaseModel {
     }
     
     // 건축학부 (검색을 위한 작업이 필요할듯)
-    static func parseListArchitect(page: Int, keyword: String, completion: @escaping ([Notice]) -> Void) {
+    static func parseListArchitect(page: Int, keyword: String, completion: @escaping ([Notice]) -> Void?) {
         var isSearchMode = false
         
         var index = 0

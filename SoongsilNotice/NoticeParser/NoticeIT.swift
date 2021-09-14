@@ -11,7 +11,7 @@ import Alamofire
 import Kanna
 
 class NoticeIT: NoticeBaseModel {
-    static func parseListComputer(page: Int, keyword: String?, completion: @escaping ([Notice]) -> Void) {
+    static func parseListComputer(page: Int, keyword: String?, completion: @escaping ([Notice]) -> Void?) {
         var index = 0
         
         let keywordSearch = keyword?.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)
@@ -121,7 +121,7 @@ class NoticeIT: NoticeBaseModel {
         })
     }
     
-    static func parseListMedia(page: Int, keyword: String?, completion: @escaping ([Notice]) -> Void) {
+    static func parseListMedia(page: Int, keyword: String?, completion: @escaping ([Notice]) -> Void?) {
         var index = 0
         
         let keywordSearch = keyword?.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)
@@ -186,7 +186,7 @@ class NoticeIT: NoticeBaseModel {
         })
     }
     
-    static func parseListSoftware(page: Int, keyword: String?, completion: @escaping ([Notice]) -> Void) {
+    static func parseListSoftware(page: Int, keyword: String?, completion: @escaping ([Notice]) -> Void?) {
         var index = 0
         
         let keywordSearch = keyword?.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)
@@ -261,7 +261,7 @@ class NoticeIT: NoticeBaseModel {
         })
     }
     
-    static func parseListElectric(page: Int, keyword: String?, completion: @escaping ([Notice]) -> Void) {
+    static func parseListElectric(page: Int, keyword: String?, completion: @escaping ([Notice]) -> Void?) {
         var index = 0
         
         let keywordSearch = keyword?.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)
@@ -326,7 +326,7 @@ class NoticeIT: NoticeBaseModel {
         })
     }
     
-    static func parseListSmartSystem(page: Int, keyword: String?, completion: @escaping ([Notice]) -> Void) {
+    static func parseListSmartSystem(page: Int, keyword: String?, completion: @escaping ([Notice]) -> Void?) {
         var index = 0
         
         let keywordSearch = keyword?.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)

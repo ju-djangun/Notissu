@@ -11,7 +11,7 @@ import Alamofire
 import Kanna
 
 class NoticeInmun: NoticeBaseModel {
-    static func parseListKorean(page: Int, keyword: String?, completion: @escaping ([Notice]) -> Void) {
+    static func parseListKorean(page: Int, keyword: String?, completion: @escaping ([Notice]) -> Void?) {
         var index = 0
         
         let keywordSearch = keyword?.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)
@@ -79,7 +79,7 @@ class NoticeInmun: NoticeBaseModel {
         })
     }
     
-    static func parseListEnglish(page: Int, keyword: String?, completion: @escaping ([Notice]) -> Void) {
+    static func parseListEnglish(page: Int, keyword: String?, completion: @escaping ([Notice]) -> Void?) {
         var index = 0
         
         let keywordSearch = keyword?.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)
@@ -173,7 +173,7 @@ class NoticeInmun: NoticeBaseModel {
         })
     }
     
-    static func parseListGerman(page: Int, keyword: String?, completion: @escaping ([Notice]) -> Void) {
+    static func parseListGerman(page: Int, keyword: String?, completion: @escaping ([Notice]) -> Void?) {
         var index = 0
         
         let keywordSearch = keyword?.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)
@@ -228,7 +228,7 @@ class NoticeInmun: NoticeBaseModel {
         })
     }
     
-    static func parseListFrench(page: Int, keyword: String?, completion: @escaping ([Notice]) -> Void) {
+    static func parseListFrench(page: Int, keyword: String?, completion: @escaping ([Notice]) -> Void?) {
         var index = 0
         
         let keywordSearch = keyword?.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)
@@ -288,7 +288,7 @@ class NoticeInmun: NoticeBaseModel {
         })
     }
     
-    static func parseListChinese(page: Int, keyword: String?, completion: @escaping ([Notice]) -> Void) {
+    static func parseListChinese(page: Int, keyword: String?, completion: @escaping ([Notice]) -> Void?) {
         var index = 0
         
         let keywordSearch = keyword?.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)
@@ -378,7 +378,7 @@ class NoticeInmun: NoticeBaseModel {
         })
     }
     
-    static func parseListJapanese(page: Int, keyword: String?, completion: @escaping ([Notice]) -> Void) {
+    static func parseListJapanese(page: Int, keyword: String?, completion: @escaping ([Notice]) -> Void?) {
         var index = 0
         
         let keywordSearch = keyword?.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)
@@ -472,7 +472,7 @@ class NoticeInmun: NoticeBaseModel {
         })
     }
     
-    static func parseListPhilo(page: Int, keyword: String?, completion: @escaping ([Notice]) -> Void) {
+    static func parseListPhilo(page: Int, keyword: String?, completion: @escaping ([Notice]) -> Void?) {
         var index = 0
         
         let keywordSearch = keyword?.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)
@@ -540,7 +540,7 @@ class NoticeInmun: NoticeBaseModel {
         })
     }
     
-    static func parseListHistory(page: Int, keyword: String?, completion: @escaping ([Notice]) -> Void) {
+    static func parseListHistory(page: Int, keyword: String?, completion: @escaping ([Notice]) -> Void?) {
         var index = 0
         
         let keywordSearch = keyword?.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)
@@ -608,7 +608,7 @@ class NoticeInmun: NoticeBaseModel {
         })
     }
     
-    static func parseListWriting(page: Int, keyword: String?, completion: @escaping ([Notice]) -> Void) {
+    static func parseListWriting(page: Int, keyword: String?, completion: @escaping ([Notice]) -> Void?) {
 //        let keywordSearch = keyword?.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)
         let keywordSearch = EuckrUtil.euckrEncoding(keyword)
         let requestURL = NoticeRequestURL.writingURL(page: page, keyword: keywordSearch)

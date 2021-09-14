@@ -15,7 +15,7 @@ class HomeSwitcher {
         
         if (BaseViewController.noticeDeptCode != nil) {
             //  noticeDeptCode가 존재할 때
-            appDelegate.window?.rootViewController = (UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "HomeNavVC") as! UINavigationController)
+            appDelegate.window?.rootViewController = MainTabBarViewController()
         } else {
             //  noticeDeptCode가 존재하지 않을 때
             appDelegate.window?.rootViewController = StartViewController()

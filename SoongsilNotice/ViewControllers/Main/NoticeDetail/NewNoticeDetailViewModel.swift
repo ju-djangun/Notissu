@@ -33,7 +33,9 @@ class NewNoticeDetailViewModel: NoticeDetailViewModelInput, NoticeDetailViewMode
     //  MARK: - INPUT
     
     func loadWebView() {
-        loadContentFromURL(string: notice.url ?? "google.com")
+        if let url = notice.url {
+            loadContentFromURL(string: url)
+        }
     }
     
     //  MARK: - 그 외

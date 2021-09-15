@@ -93,9 +93,9 @@ public class MainTabBarViewController: YDSBottomBarController, UITabBarControlle
         super.viewWillAppear(animated)
     }
 
-    public func tabBarController(_: UITabBarController, didSelect _: UIViewController) {
-        print("tabBarController didSelect update Navigation Title")
-    }
+//    public func tabBarController(_: UITabBarController, didSelect _: UIViewController) {
+//        print("tabBarController didSelect update Navigation Title")
+//    }
     
 }
 

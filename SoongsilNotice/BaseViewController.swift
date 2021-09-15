@@ -8,6 +8,7 @@
 import UIKit
 import Lottie
 import WatchConnectivity
+import YDS
 
 class BaseViewController: UIViewController, UIGestureRecognizerDelegate {
     let animationView = AnimationView(name: "notissu_anim")
@@ -31,6 +32,7 @@ class BaseViewController: UIViewController, UIGestureRecognizerDelegate {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 //        self.navigationController?.navigationBar.barStyle = .black
+        self.view.backgroundColor = YDSColor.bgNormal
         self.checkUpdate()
     }
     

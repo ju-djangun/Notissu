@@ -79,6 +79,7 @@ class NewNoticeDetailViewController: BaseViewController {
         titleLabel.text = viewModel.title
         captionLabel.text = viewModel.caption
         webView.navigationDelegate = self
+        webView.scrollView.isScrollEnabled = false
     }
     
     private func setViewHierarchy() {

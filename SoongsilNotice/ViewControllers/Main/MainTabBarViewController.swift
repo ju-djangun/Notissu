@@ -19,7 +19,7 @@ public class MainTabBarViewController: YDSBottomBarController, UITabBarControlle
     private var tabViewControllers: [UIViewController] = [UIViewController]()
     
     let myNoticeNavigationController: YDSNavigationController = {
-        let rootViewController = NoticesViewController(viewModel: NoticesViewModel(deptCode: .IT_Computer))
+        let rootViewController = NoticesListViewController(with: NoticesListViewModel(deptCode: .IT_Computer))
         let navigationController = YDSNavigationController(title: "내 공지",
                                                            rootViewController: rootViewController)
         navigationController.tabBarItem = UITabBarItem(title: "내 공지",
@@ -39,7 +39,7 @@ public class MainTabBarViewController: YDSBottomBarController, UITabBarControlle
     }()
     
     let ssuCatchNavigationController: YDSNavigationController = {
-        let rootViewController = NoticesViewController(viewModel: NoticesViewModel(deptCode: .Soongsil))
+        let rootViewController = NoticesListViewController(with: NoticesListViewModel(deptCode: .Soongsil))
         let navigationController = YDSNavigationController(title: "SSU:Catch",
                                                            rootViewController: rootViewController)
         navigationController.tabBarItem = UITabBarItem(title: "학교 공지",
@@ -59,6 +59,8 @@ public class MainTabBarViewController: YDSBottomBarController, UITabBarControlle
     }()
     
     let aboutNavigationController: YDSNavigationController = {
+        //  moreNavigationController 로 이름을 짓고 싶었는데 이미 UITabBarController에서 사용중인 속성이더라고요...
+        //  새 이름 추천해주세요
         let rootViewController = UIViewController()
         let navigationController = YDSNavigationController(title: "더 보기",
                                                            rootViewController: rootViewController)

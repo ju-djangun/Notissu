@@ -86,17 +86,13 @@ extension MajorListViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let storyBoard = UIStoryboard(name: "Main", bundle: .main)
+        guard let deptCode = MajorSection(rawValue: indexPath.section)?
+                                .getMajorList()[indexPath.row]
+                                .majorCode
+        else { return }
         
-        if let noticeListViewController = storyBoard.instantiateViewController(withIdentifier: "noticeListVC") as? NoticeListViewController {
-            
-            noticeListViewController.department = MajorSection(rawValue: indexPath.section)?.getMajorList()[indexPath.row]
-            noticeListViewController.isSearchResult = false
-            noticeListViewController.listType = .normalList
-//            noticeListViewController.modalPresentationStyle = .fullScreen
-            
-//            self.present(noticeListViewController, animated: true, completion: nil)
-            self.navigationController?.pushViewController(noticeListViewController, animated: true)
-        }
+        let viewModel = NoticesListViewModel(deptCode: deptCode)
+        let viewController = NoticesListViewController(with: viewModel)
+        self.navigationController?.pushViewController(viewController, animated: true)
     }
 }

@@ -15,7 +15,7 @@ class NewNoticeDetailViewController: BaseViewController {
     
     private enum Dimension {
         enum Margin {
-            static let vertical: CGFloat = 20
+            static let vertical: CGFloat = 16
             static let horizontal: CGFloat = 24
         }
     }

@@ -13,16 +13,16 @@ final class NoticeParser {
     
     private enum Dimension {
         enum Margin {
-            static let horizontal = 20
-            static let vertical = 24
+            static let horizontal = 0
+            static let vertical = 0
         }
     }
     
     private enum Paragraph {
-        static let fontSize = "16px"
+        static let fontSize = "15px"
         static let lineHeight = "1.6"
-        static let textColor = "#333D4B"
-        static let pointColor = "#505782"
+        static let textColor = "#252729"
+        static let pointColor = "#816DEC"
     }
     
     private let htmlStart =

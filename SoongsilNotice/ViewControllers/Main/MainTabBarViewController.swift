@@ -19,7 +19,7 @@ public class MainTabBarViewController: YDSBottomBarController, UITabBarControlle
     private var tabViewControllers: [UIViewController] = [UIViewController]()
     
     let myNoticeNavigationController: YDSNavigationController = {
-        let rootViewController = NoticesListViewController(with: NoticesListViewModel(deptCode: .IT_Computer))
+        let rootViewController = NoticesListViewController(with: NoticesListViewModel(deptCode: .IT_SmartSystem))
         let navigationController = YDSNavigationController(title: "내 공지",
                                                            rootViewController: rootViewController)
         navigationController.tabBarItem = UITabBarItem(title: "내 공지",

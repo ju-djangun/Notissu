@@ -16,7 +16,7 @@ class NewNoticeDetailViewController: BaseViewController {
     private enum Dimension {
         enum Margin {
             static let vertical: CGFloat = 20
-            static let horizontal: CGFloat = 20
+            static let horizontal: CGFloat = 24
         }
     }
     
@@ -37,7 +37,7 @@ class NewNoticeDetailViewController: BaseViewController {
     }()
     
     private let titleLabel: YDSLabel = {
-        let label = YDSLabel(style: .title2)
+        let label = YDSLabel(style: .title3)
         label.textColor = YDSColor.textPrimary
         label.numberOfLines = 0
         return label
@@ -49,7 +49,7 @@ class NewNoticeDetailViewController: BaseViewController {
         return label
     }()
     
-    private let contentWebView: WKWebView = WKWebView()
+    private let webView: WKWebView = WKWebView()
     
     init(with viewModel: NewNoticeDetailViewModel) {
         self.viewModel = viewModel
@@ -65,6 +65,8 @@ class NewNoticeDetailViewController: BaseViewController {
         super.viewDidLoad()
 
         setupViews()
+        bindViewModel()
+        viewModel.loadWebView()
     }
     
     private func setupViews() {
@@ -76,13 +78,13 @@ class NewNoticeDetailViewController: BaseViewController {
     private func setViewProperties() {
         titleLabel.text = viewModel.title
         captionLabel.text = viewModel.caption
-        contentWebView.navigationDelegate = self
+        webView.navigationDelegate = self
     }
     
     private func setViewHierarchy() {
         self.view.addSubview(scrollView)
         scrollView.addSubview(stackView)
-        [titleLabel, captionLabel, contentWebView].forEach {
+        [titleLabel, captionLabel, webView].forEach {
             stackView.addArrangedSubview($0)
         }
     }
@@ -97,14 +99,26 @@ class NewNoticeDetailViewController: BaseViewController {
             $0.top.leading.trailing.bottom.width.equalToSuperview()
         }
     }
+    
+    private func bindViewModel() {
+        viewModel.html.bind { [weak self] html in
+            guard let `self` = self else { return }
+            self.webView.loadHTMLString(html, baseURL: nil)
+        }
+        
+        viewModel.url.bind { [weak self] url in
+            guard let `self` = self else { return }
+            self.webView.load(URLRequest(url: URL(string: url)!))
+        }
+    }
 
 }
 
 extension NewNoticeDetailViewController: WKNavigationDelegate {
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-            self.contentWebView.snp.makeConstraints {
-                $0.height.equalTo(self.contentWebView.scrollView.contentSize.height)
+            self.webView.snp.makeConstraints {
+                $0.height.equalTo(self.webView.scrollView.contentSize.height)
             }
         }
     }

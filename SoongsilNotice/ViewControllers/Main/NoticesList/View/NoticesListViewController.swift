@@ -113,8 +113,12 @@ extension NoticesListViewController: UITableViewDataSource {
 extension NoticesListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-//        viewModel.didSelectItem(at: indexPath.row)
-        self.navigationController?.pushViewController(NewNoticeDetailViewController(with: NewNoticeDetailViewModel(notice: viewModel.noticesList.value[indexPath.row])), animated: true)
+        
+        let viewModel = NewNoticeDetailViewModel(notice: viewModel.noticesList.value[indexPath.row],
+                                                 deptCode: viewModel.deptCode.value)
+        let viewController = NewNoticeDetailViewController(with: viewModel)
+                                                           
+        self.navigationController?.pushViewController(viewController, animated: true)
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {

@@ -104,5 +104,9 @@ extension NewNoticeDetailViewModel {
     
     private func webViewContentUpdate(attachments: [Attachment], html: String) {
         self.html.value = html
+        attachments.forEach {
+            print($0.fileName)
+            print($0.fileURL)
+        }
     }
 }

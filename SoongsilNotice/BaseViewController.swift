@@ -107,12 +107,13 @@ class BaseViewController: UIViewController, UIGestureRecognizerDelegate {
     }
     
     func showProgressBar() {
-        animationView.frame       = self.view.frame
-        animationView.center      = self.view.center
-        animationView.contentMode = .center
-        animationView.loopMode    = .loop
-        
+//        animationView.frame         =  view.bounds
+//        animationView.contentMode   = .center
+        animationView.loopMode      = .loop
         self.view.addSubview(animationView)
+        animationView.snp.makeConstraints {
+            $0.center.equalToSuperview()
+        }
         animationView.play()
     }
     

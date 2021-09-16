@@ -83,6 +83,7 @@ extension NoticeDetailAttachmentsListTableViewController {
 extension NoticeDetailAttachmentsListTableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        progressBarDelegate?.showProgressBar()
         viewModel.didSelectAttachmentItem(at: indexPath.row)
     }
     
@@ -94,10 +95,12 @@ extension NoticeDetailAttachmentsListTableViewController {
 //  MARK: - FileDownloaderDelegate
 extension NoticeDetailAttachmentsListTableViewController: FileDownloaderDelegate {
     func didFileDownloaded(at filePath: String?) {
-        guard let filePath = filePath else { return }
-        self.docController = UIDocumentInteractionController(url: NSURL(fileURLWithPath: filePath) as URL)
-        self.docController.name = NSURL(fileURLWithPath: filePath).lastPathComponent
-        self.docController.delegate = self
-        self.docController.presentOptionsMenu(from: self.view.frame, in: self.view, animated: true)
+        if let filePath = filePath {
+            self.docController = UIDocumentInteractionController(url: NSURL(fileURLWithPath: filePath) as URL)
+            self.docController.name = NSURL(fileURLWithPath: filePath).lastPathComponent
+            self.docController.delegate = self
+            self.docController.presentOptionsMenu(from: self.view.frame, in: self.view, animated: true)
+        }
+        progressBarDelegate?.hideProgressBar()
     }
 }

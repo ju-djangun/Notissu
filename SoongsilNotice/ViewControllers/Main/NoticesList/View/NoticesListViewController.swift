@@ -44,7 +44,7 @@ class NoticesListViewController: BaseViewController {
 
         setupViews()
         bindViewModel()
-        viewModel.loadInitialPage()
+        setInitialData()
     }
     
     private func setupViews() {
@@ -74,6 +74,12 @@ class NoticesListViewController: BaseViewController {
         }
     }
     
+    private func setTitle() {
+        if self.navigationController?.viewControllers.count ?? 0 > 1 {
+            self.title = viewModel.deptCode.value.getName()
+        }
+    }
+    
     private func bindViewModel() {
         viewModel.noticesList.bind { [weak self] _ in
             guard let `self` = self else { return }
@@ -88,13 +94,16 @@ class NoticesListViewController: BaseViewController {
                 //  refresch control이 refresh를 중단
                 self.refreshControl.endRefreshing()
             }
+            
+            if self.animationView.isAnimationPlaying {
+                self.hideProgressBar()
+            }
         }
     }
     
-    private func setTitle() {
-        if self.navigationController?.viewControllers.count ?? 0 > 1 {
-            self.title = viewModel.deptCode.value.getName()
-        }
+    private func setInitialData() {
+        viewModel.loadInitialPage()
+        self.showProgressBar()
     }
 
 }

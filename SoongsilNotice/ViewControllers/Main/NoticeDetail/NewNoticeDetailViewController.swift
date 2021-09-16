@@ -39,7 +39,7 @@ class NewNoticeDetailViewController: BaseViewController {
     private let titleLabelArea = UIView()
     
     private let titleLabel: YDSLabel = {
-        let label = YDSLabel(style: .title3)
+        let label = YDSLabel(style: .title2)
         label.textColor = YDSColor.textPrimary
         label.numberOfLines = 0
         return label
@@ -88,6 +88,7 @@ class NewNoticeDetailViewController: BaseViewController {
         webView.navigationDelegate = self
         webView.scrollView.isScrollEnabled = false
         webView.tintColor = YDSColor.textPointed
+        attachmentsListTableViewController.progressBarDelegate = self
     }
     
     private func setViewHierarchy() {

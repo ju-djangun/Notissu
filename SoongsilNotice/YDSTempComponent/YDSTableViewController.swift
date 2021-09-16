@@ -25,6 +25,5 @@ open class YDSTableViewController: UITableViewController {
     
     override open func viewDidLoad() {
         self.tableView.separatorColor = YDSColor.borderNormal
-        self.tableView.rowHeight = UITableView.automaticDimension
     }
 }

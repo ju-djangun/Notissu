@@ -11,12 +11,14 @@ import Kanna
 
 protocol NoticeDetailViewModelInput {
     func loadWebView()
+    func didSelectAttachmentItem(at: Int)
 }
 
 protocol NoticeDetailViewModelOutput {
     var title: String? { get }
     var caption: String? { get }
     var html: Dynamic<String> { get }
+    var attachments: Dynamic<[Attachment]> { get }
 }
 
 
@@ -28,6 +30,8 @@ class NewNoticeDetailViewModel: NoticeDetailViewModelInput, NoticeDetailViewMode
     let caption: String?
     let html: Dynamic<String> = Dynamic("")
     let url: Dynamic<String> = Dynamic("")
+    let attachments: Dynamic<[Attachment]> = Dynamic([])
+    var fileDownloaderDelegate: FileDownloaderDelegate?
     
     
     //  MARK: - INPUT
@@ -36,6 +40,10 @@ class NewNoticeDetailViewModel: NoticeDetailViewModelInput, NoticeDetailViewMode
         if let url = notice.url {
             loadContentFromURL(string: url)
         }
+    }
+    
+    func didSelectAttachmentItem(at index: Int) {
+        downloadFile(at: index)
     }
     
     //  MARK: - 그 외
@@ -104,9 +112,71 @@ extension NewNoticeDetailViewModel {
     
     private func webViewContentUpdate(attachments: [Attachment], html: String) {
         self.html.value = html
-        attachments.forEach {
-            print($0.fileName)
-            print($0.fileURL)
+        self.attachments.value = attachments
+    }
+}
+
+extension NewNoticeDetailViewModel {
+    private func downloadFile(at index: Int) {
+        let attachment = self.attachments.value[index]
+        
+        var encodedURL: String
+        switch(departmentCode) {
+        case .LAW_IntlLaw,
+             .Inmun_Korean,
+             .Inmun_French,
+             .Inmun_Chinese,
+             .Inmun_English,
+             .Inmun_History,
+             .Inmun_Philosophy,
+             .Inmun_Japanese,
+             .Inmun_Writing,
+             .Engineering_Machine,
+             .Engineering_Industrial,
+             .NaturalScience_Math,
+             .NaturalScience_Physics,
+             .NaturalScience_Chemistry,
+             .NaturalScience_Medical,
+             .Business_biz,
+             .Business_venture,
+             .Business_Account,
+             .Business_Finance,
+             .Economy_Economics,
+             .Economy_GlobalCommerce,
+             .Social_Welfare,
+             .Social_Administration,
+             .Social_Sociology,
+             .Social_Journalism,
+             .Social_LifeLong,
+             .Social_Political,
+             .MIX_mix:
+            encodedURL = attachment.fileURL
+        default:
+            encodedURL = attachment.fileURL.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
+        }
+        
+        let destination: DownloadRequest.Destination = { _, _ in
+            let documentsURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
+            let fileURL = documentsURL.appendingPathComponent(attachment.fileName)
+            return (fileURL, [.removePreviousFile, .createIntermediateDirectories])
+        }
+        
+        AF.download(encodedURL, to: destination)
+            .downloadProgress { progress in
+                print("Download Progress: \(progress.fractionCompleted)")
+        }
+        .response { response in
+            debugPrint(response)
+            
+            if let filePath = response.fileURL?.path {
+                self.fileDownloaderDelegate?.didFileDownloaded(at: filePath)
+            } else {
+                self.fileDownloaderDelegate?.didFileDownloaded(at: nil)
+            }
         }
     }
+}
+
+protocol FileDownloaderDelegate {
+    func didFileDownloaded(at filePath: String?)
 }

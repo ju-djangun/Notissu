@@ -55,8 +55,11 @@ class NewNoticeDetailViewController: BaseViewController {
     
     private let webView: WKWebView = WKWebView()
     
+    private let attachmentsListTableViewController: NoticeDetailAttachmentsListTableViewController
+    
     init(with viewModel: NewNoticeDetailViewModel) {
         self.viewModel = viewModel
+        self.attachmentsListTableViewController = NoticeDetailAttachmentsListTableViewController(with: viewModel)
         super.init(nibName: nil, bundle: nil)
         self.hidesBottomBarWhenPushed = true
     }
@@ -84,12 +87,14 @@ class NewNoticeDetailViewController: BaseViewController {
         captionLabel.text = viewModel.caption
         webView.navigationDelegate = self
         webView.scrollView.isScrollEnabled = false
+        webView.tintColor = YDSColor.textPointed
     }
     
     private func setViewHierarchy() {
+        self.embed(attachmentsListTableViewController)
         self.view.addSubview(scrollView)
         scrollView.addSubview(stackView)
-        [titleLabelArea, captionLabelArea, webView].forEach {
+        [titleLabelArea, captionLabelArea, webView, attachmentsListTableViewController.view].forEach {
             stackView.addArrangedSubview($0)
         }
         titleLabelArea.addSubview(titleLabel)
@@ -105,7 +110,7 @@ class NewNoticeDetailViewController: BaseViewController {
         stackView.snp.makeConstraints {
             $0.top.leading.trailing.bottom.width.equalToSuperview()
         }
-        
+
         [titleLabel, captionLabel].forEach {
             $0.snp.makeConstraints {
                 $0.top.bottom.equalToSuperview()

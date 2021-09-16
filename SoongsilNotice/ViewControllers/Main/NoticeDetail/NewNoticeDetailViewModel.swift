@@ -40,8 +40,8 @@ class NewNoticeDetailViewModel: NoticeDetailViewModelInput, NoticeDetailViewMode
     
     //  MARK: - 그 외
     
-    let notice: Notice
-    let departmentCode: DeptCode?
+    private let notice: Notice
+    private let departmentCode: DeptCode?
     
     init(notice: Notice, deptCode: DeptCode) {
         self.notice = notice

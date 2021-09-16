@@ -13,7 +13,7 @@ final class NoticeParser {
     
     private enum Dimension {
         enum Margin {
-            static let horizontal = 0
+            static let horizontal = 24
             static let vertical = 0
         }
     }

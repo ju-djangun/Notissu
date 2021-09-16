@@ -30,11 +30,13 @@ class NewNoticeDetailViewController: BaseViewController {
         
         stackView.isLayoutMarginsRelativeArrangement = true
         stackView.layoutMargins = UIEdgeInsets(top: Dimension.Margin.vertical,
-                                               left: Dimension.Margin.horizontal,
+                                               left: 0,
                                                bottom: Dimension.Margin.vertical,
-                                               right: Dimension.Margin.horizontal)
+                                               right: 0)
         return stackView
     }()
+    
+    private let titleLabelArea = UIView()
     
     private let titleLabel: YDSLabel = {
         let label = YDSLabel(style: .title3)
@@ -42,6 +44,8 @@ class NewNoticeDetailViewController: BaseViewController {
         label.numberOfLines = 0
         return label
     }()
+    
+    private let captionLabelArea = UIView()
     
     private let captionLabel: YDSLabel = {
         let label = YDSLabel(style: .body2)
@@ -85,9 +89,11 @@ class NewNoticeDetailViewController: BaseViewController {
     private func setViewHierarchy() {
         self.view.addSubview(scrollView)
         scrollView.addSubview(stackView)
-        [titleLabel, captionLabel, webView].forEach {
+        [titleLabelArea, captionLabelArea, webView].forEach {
             stackView.addArrangedSubview($0)
         }
+        titleLabelArea.addSubview(titleLabel)
+        captionLabelArea.addSubview(captionLabel)
     }
     
     private func setAutolayouts() {
@@ -98,6 +104,13 @@ class NewNoticeDetailViewController: BaseViewController {
         
         stackView.snp.makeConstraints {
             $0.top.leading.trailing.bottom.width.equalToSuperview()
+        }
+        
+        [titleLabel, captionLabel].forEach {
+            $0.snp.makeConstraints {
+                $0.top.bottom.equalToSuperview()
+                $0.leading.trailing.equalToSuperview().inset(Dimension.Margin.horizontal)
+            }
         }
     }
     

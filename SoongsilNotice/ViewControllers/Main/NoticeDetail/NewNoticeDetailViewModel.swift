@@ -59,42 +59,29 @@ extension NewNoticeDetailViewModel {
             return
         }
         
-        if self.departmentCode! == DeptCode.Inmun_Writing || self.departmentCode! == DeptCode.Dormitory {
+        switch self.departmentCode {
+        case .IT_SmartSystem, .Engineering_Organic:
+            self.url.value = url
+            
+        case .Inmun_Writing, .Dormitory:
             AF.request(url).responseData(completionHandler: { response in
                 switch(response.result) {
-                case .success(_):
-                    guard let data = response.data else { return }
-                    let responseString = NSString(data: data, encoding:CFStringConvertEncodingToNSStringEncoding(0x0422))
-                    do {
-                        let doc = try HTML(html: responseString as String? ?? "", encoding: .utf8)
-                        if let deptCode = self.departmentCode, deptCode == .Dormitory || deptCode == .Inmun_Writing {
-                            NoticeParser.shared.parseNoticeDetail(html: doc, type: deptCode, completion: self.showWebViewPage)
-                        }
-                    } catch let error {
-                        print("ERROR : \(error)")
+                case .success(let data):
+                    let responseString = NSString(data: data,
+                                                  encoding:CFStringConvertEncodingToNSStringEncoding(0x0422))
+                    if let responseString = responseString as String? {
+                        self.parseNoticeDetail(html: responseString)
                     }
                 case .failure(let error):
                     print(error)
                 }
             })
-        } else {
+            
+        default:
             AF.request(url).responseString(completionHandler: { response in
                 switch(response.result) {
-                case .success(_):
-                    guard let text = response.data else { return }
-                    let data = String(data: text, encoding: .utf8) ?? String(decoding: text, as: UTF8.self)
-                    do {
-                        let doc = try HTML(html: data, encoding: .utf8)
-                        if let deptCode = self.departmentCode, deptCode != .Inmun_Writing {
-                            if deptCode == .IT_SmartSystem || deptCode == .Engineering_Organic {
-//                                self.webView.load(URLRequest(url: URL(string: self.detailURL ?? "")!))
-                                self.url.value = self.notice.url ?? ""
-                            }
-                            NoticeParser.shared.parseNoticeDetail(html: doc, type: deptCode, completion: self.showWebViewPage)
-                        }
-                    } catch let error {
-                        print("ERROR : \(error)")
-                    }
+                case .success(let string):
+                    self.parseNoticeDetail(html: string)
                 case .failure(let error):
                     print(error)
                 }
@@ -102,7 +89,20 @@ extension NewNoticeDetailViewModel {
         }
     }
     
-    func showWebViewPage(attachments: [Attachment], html: String) {
+    private func parseNoticeDetail(html: String) {
+        do {
+            let doc = try HTML(html: html, encoding: .utf8)
+            if let deptCode = self.departmentCode {
+                NoticeParser.shared.parseNoticeDetail(html: doc,
+                                                      type: deptCode,
+                                                      completion: self.webViewContentUpdate)
+            }
+        } catch let error {
+            print("ERROR : \(error)")
+        }
+    }
+    
+    private func webViewContentUpdate(attachments: [Attachment], html: String) {
         self.html.value = html
     }
 }

@@ -14,7 +14,9 @@ class NoticesListViewController: BaseViewController {
     private let refreshControl = UIRefreshControl()
     private var didReachedBottom: Bool {
         self.tableView.contentOffset.y >
-            self.tableView.contentSize.height - self.tableView.bounds.size.height - Dimension.bottomRefreshHeight
+            self.tableView.contentSize.height
+            - self.tableView.bounds.size.height
+            - Dimension.bottomRefreshHeight
     }
     private enum Dimension {
         static let bottomRefreshHeight: CGFloat = 100

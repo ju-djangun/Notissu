@@ -19,6 +19,7 @@
 		531C932926F32E49001C73DD /* YDSTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 531C932826F32E49001C73DD /* YDSTableViewController.swift */; };
 		531C932B26F32E57001C73DD /* YDSTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 531C932A26F32E57001C73DD /* YDSTableViewCell.swift */; };
 		531C932D26F32EAD001C73DD /* UIViewController+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 531C932C26F32EAD001C73DD /* UIViewController+Ext.swift */; };
+		531C933426F3A48C001C73DD /* NoticesSearchListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 531C933326F3A48C001C73DD /* NoticesSearchListViewController.swift */; };
 		B03BA5F025176295002010CE /* NotissuColorSet.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DE53D1552400F54B00AEFCE2 /* NotissuColorSet.xcassets */; };
 		B07166B0269B15E300B49CF7 /* MainTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07166AF269B15E300B49CF7 /* MainTabBarViewController.swift */; };
 		B07166B7269B171E00B49CF7 /* MainNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07166B6269B171E00B49CF7 /* MainNavigationController.swift */; };
@@ -221,6 +222,7 @@
 		531C932826F32E49001C73DD /* YDSTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YDSTableViewController.swift; sourceTree = "<group>"; };
 		531C932A26F32E57001C73DD /* YDSTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YDSTableViewCell.swift; sourceTree = "<group>"; };
 		531C932C26F32EAD001C73DD /* UIViewController+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Ext.swift"; sourceTree = "<group>"; };
+		531C933326F3A48C001C73DD /* NoticesSearchListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticesSearchListViewController.swift; sourceTree = "<group>"; };
 		550CAE3A9D2DBDE403D9BE3F /* Pods-Notissu Today Extension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Notissu Today Extension.release.xcconfig"; path = "Target Support Files/Pods-Notissu Today Extension/Pods-Notissu Today Extension.release.xcconfig"; sourceTree = "<group>"; };
 		57296D4BD235F1B361E7E590 /* Pods_SoongsilNotice.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SoongsilNotice.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		90414B9DF20CF22441FFF574 /* Pods-SoongsilNotice-Notissu-Watch Extension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SoongsilNotice-Notissu-Watch Extension.debug.xcconfig"; path = "Target Support Files/Pods-SoongsilNotice-Notissu-Watch Extension/Pods-SoongsilNotice-Notissu-Watch Extension.debug.xcconfig"; sourceTree = "<group>"; };
@@ -367,6 +369,7 @@
 			children = (
 				531C931B26F1F067001C73DD /* ViewModel */,
 				531C931C26F1F075001C73DD /* View */,
+				531C933226F3A441001C73DD /* Search */,
 			);
 			path = NoticesList;
 			sourceTree = "<group>";
@@ -415,6 +418,15 @@
 				531C932A26F32E57001C73DD /* YDSTableViewCell.swift */,
 			);
 			path = YDSTempComponent;
+			sourceTree = "<group>";
+		};
+		531C933226F3A441001C73DD /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				531C933326F3A48C001C73DD /* NoticesSearchListViewController.swift */,
+			);
+			name = Search;
+			path = View/Search;
 			sourceTree = "<group>";
 		};
 		8C7A827DD516122B5FDBC531 /* Pods */ = {
@@ -1008,6 +1020,7 @@
 				DEC1684C23F7A84500DE2D84 /* NotissuProperty.swift in Sources */,
 				B07166D7269B1B6F00B49CF7 /* Dynamic.swift in Sources */,
 				B0A130B926DE185A00BB1E28 /* Major.swift in Sources */,
+				531C933426F3A48C001C73DD /* NoticesSearchListViewController.swift in Sources */,
 				B07166B7269B171E00B49CF7 /* MainNavigationController.swift in Sources */,
 				DE0F8F2323740041006A0B49 /* NoticeLaw.swift in Sources */,
 				B07166BB269B17CF00B49CF7 /* UIImage+Ext.swift in Sources */,

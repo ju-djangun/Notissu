@@ -29,7 +29,9 @@ class NoticesListViewController: BaseViewController {
         tableView.rowHeight = UITableView.automaticDimension
         return tableView
     }()
-   
+    
+    private let searchButton = YDSTopBarButton(image: YDSIcon.searchLine)
+    
     init(with viewModel: NoticesListViewModel) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
@@ -54,17 +56,23 @@ class NoticesListViewController: BaseViewController {
     }
     
     private func setProperties() {
+        self.extendedLayoutIncludesOpaqueBars = true
+        setTitle()
         tableView.dataSource = self
         tableView.delegate = self
         tableView.refreshControl = refreshControl
         refreshControl.addTarget(self,
                                  action: #selector(refreshData(sender:)),
                                  for: .valueChanged)
-        setTitle()
+        searchButton.addTarget(self,
+                               action: #selector(pushSearchViewController(sender:)),
+                               for: .touchUpInside)
     }
     
     private func setViewHierarchy() {
         self.view.addSubview(tableView)
+        self.navigationItem.setRightBarButtonItems([UIBarButtonItem(customView: searchButton)],
+                                                   animated: true)
     }
     
     private func setAutolayout() {
@@ -95,15 +103,17 @@ class NoticesListViewController: BaseViewController {
                 self.refreshControl.endRefreshing()
             }
             
-            if self.animationView.isAnimationPlaying {
-                self.hideProgressBar()
-            }
+            self.hideProgressBar()
         }
     }
     
     private func setInitialData() {
         viewModel.loadInitialPage()
         self.showProgressBar()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        self.hideProgressBar()
     }
 
 }
@@ -144,6 +154,12 @@ extension NoticesListViewController {
     @objc
     private func refreshData(sender: UIRefreshControl) {
         viewModel.loadInitialPage()
+    }
+    
+    @objc
+    private func pushSearchViewController(sender: UIControl) {
+        let viewController = NoticesSearchListViewController()
+        self.navigationController?.pushViewController(viewController, animated: true)
     }
 }
 

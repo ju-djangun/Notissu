@@ -58,11 +58,7 @@ class NoticesListViewController: BaseViewController {
         refreshControl.addTarget(self,
                                  action: #selector(refreshData(sender:)),
                                  for: .valueChanged)
-        
-        if let titleLabel = self.navigationItem.leftBarButtonItem?.customView as? UILabel {
-            //  내장 폰트인데 이거 이뻐요
-            titleLabel.font = UIFont(name: "Avenir-Heavy", size: 22)
-        }
+        setTitle()
     }
     
     private func setViewHierarchy() {
@@ -92,6 +88,12 @@ class NoticesListViewController: BaseViewController {
             }
         }
     }
+    
+    private func setTitle() {
+        if self.navigationController?.viewControllers.count ?? 0 > 1 {
+            self.title = viewModel.deptCode.value.getName()
+        }
+    }
 
 }
 
@@ -105,7 +107,8 @@ extension NoticesListViewController: UITableViewDataSource {
             tableView.dequeueReusableCell(withIdentifier: "NoticesListItemCell",
                                           for: indexPath) as? NoticesListItemCell
             ?? NoticesListItemCell()
-        cell.fillData(with: NoticesListItemViewModel(notice: viewModel.noticesList.value[indexPath.row]))
+        let notice = viewModel.noticesList.value[indexPath.row]
+        cell.fillData(with: NoticesListItemViewModel(notice: notice))
         return cell
     }
 }

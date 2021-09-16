@@ -7,22 +7,25 @@
 
 import Foundation
 
-protocol NoticesListViewModelOutput {
+protocol NoticesListViewModelInput {
     func didSelectItem(at index: Int)
     func loadInitialPage()
     func loadNextPage()
 }
 
-protocol NoticesListViewModelInput {
+protocol NoticesListViewModelOutput {
     var noticesList: Dynamic<[Notice]> { get }
     var nowLoading: Dynamic<Bool> { get }
+    var deptCode: Dynamic<DeptCode> { get }
 }
+
 
 class NoticesListViewModel: NoticesListViewModelInput, NoticesListViewModelOutput {
 
     //  MARK: - OUTPUT
     var noticesList: Dynamic<[Notice]> = Dynamic([])
     var nowLoading: Dynamic<Bool> = Dynamic(false)
+    var deptCode: Dynamic<DeptCode> = Dynamic(.Soongsil)
     
     //  MARK: - INPUT
     func didSelectItem(at index: Int) {
@@ -44,16 +47,18 @@ class NoticesListViewModel: NoticesListViewModelInput, NoticesListViewModelOutpu
     
     //  MARK: - 그 외
     
-    var deptCode: Dynamic<DeptCode> = Dynamic(.Soongsil)
-    var keyword: String?
-    var page: Int = 1
+    private var keyword: String?
+    private var page: Int = 1
     
     init(deptCode: DeptCode, keyword: String? = nil) {
         self.deptCode.value = deptCode
     }
     
     private func getListData(page: Int, keyword: String?) {
-        NoticeParser.shared.parseNoticeList(type: self.deptCode.value, page: page, keyword: keyword, completion: { [weak self] list in
+        NoticeParser.shared.parseNoticeList(type: self.deptCode.value,
+                                            page: page,
+                                            keyword: keyword,
+                                            completion: { [weak self] list in
             guard let `self` = self else { return }
             self.nowLoading.value = false
             if page < 2 {
@@ -63,4 +68,5 @@ class NoticesListViewModel: NoticesListViewModelInput, NoticesListViewModelOutpu
             }
         })
     }
+    
 }

@@ -100,6 +100,11 @@ class NewNoticeDetailViewController: BaseViewController {
         self.navigationItem.setRightBarButtonItems([UIBarButtonItem(customView: bookmarkButton),
                                                     UIBarButtonItem(customView: shareButton),],
                                                    animated: true)
+        [bookmarkButton, shareButton].forEach {
+            $0.addTarget(self,
+                         action: #selector(buttonDidTapped(_:)),
+                         for: .touchUpInside)
+        }
         titleLabel.text = viewModel.title
         captionLabel.text = viewModel.caption
         webView.navigationDelegate = self
@@ -117,12 +122,6 @@ class NewNoticeDetailViewController: BaseViewController {
         }
         titleLabelArea.addSubview(titleLabel)
         captionLabelArea.addSubview(captionLabel)
-        
-        [bookmarkButton, shareButton].forEach {
-            $0.addTarget(self,
-                                   action: #selector(buttonDidTapped(_:)),
-                                   for: .touchUpInside)
-        }
     }
     
     private func setAutolayouts() {

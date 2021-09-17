@@ -5,6 +5,7 @@
 //  Copyright © 2021 Notissu. All rights reserved.
 //
 
+import CoreData
 import Foundation
 import Alamofire
 import Kanna
@@ -12,13 +13,17 @@ import Kanna
 protocol NoticeDetailViewModelInput {
     func loadWebView()
     func didSelectAttachmentItem(at: Int)
+    func didTappedBookmarkButton()
 }
 
 protocol NoticeDetailViewModelOutput {
     var title: String? { get }
     var caption: String? { get }
     var html: Dynamic<String> { get }
+    var url: Dynamic<String> { get }
     var attachments: Dynamic<[Attachment]> { get }
+    var fileDownloaderDelegate: FileDownloaderDelegate? { get set }
+    var isBookmarked: Dynamic<Bool> { get }
 }
 
 
@@ -32,6 +37,7 @@ class NewNoticeDetailViewModel: NoticeDetailViewModelInput, NoticeDetailViewMode
     let url: Dynamic<String> = Dynamic("")
     let attachments: Dynamic<[Attachment]> = Dynamic([])
     var fileDownloaderDelegate: FileDownloaderDelegate?
+    var isBookmarked: Dynamic<Bool> = Dynamic(false)
     
     
     //  MARK: - INPUT
@@ -46,19 +52,99 @@ class NewNoticeDetailViewModel: NoticeDetailViewModelInput, NoticeDetailViewMode
         downloadFile(at: index)
     }
     
+    func didTappedBookmarkButton() {
+        isBookmarked.value = !isBookmarked.value
+        setFavorite()
+    }
+    
     //  MARK: - 그 외
     
     private let notice: Notice
     private let departmentCode: DeptCode?
+    private let date: String?
     
     init(notice: Notice, deptCode: DeptCode) {
         self.notice = notice
         self.title = notice.title
         self.caption = notice.date
+        self.date = notice.date
         self.departmentCode = deptCode
+        self.isBookmarked.value = isNoticeBookmarked()
     }
     
+    func isNoticeBookmarked() -> Bool {
+        // Retrieve Data From Core Data
+        // Favorite 여부를 확인하여 View 에 적용하기 위한 함수
+        guard let title = self.title, let date = self.date, let major = self.departmentCode else { return false }
+        let managedContext = CoreDataUtil.shared.persistentContainer.viewContext
+        let fetchRequest:NSFetchRequest<NSFetchRequestResult> = NSFetchRequest.init(entityName: "Favorite")
+        fetchRequest.predicate = NSPredicate(format: "title = %@ AND date = %@ AND deptCode = %i", title, date, major.rawValue)
+        var resultCount: Int = 0
+        do {
+            let result = try managedContext.fetch(fetchRequest)
+            
+            for _ in result as! [NSManagedObject] {
+                resultCount += 1
+            }
+        } catch {
+            print("ERROR")
+        }
+        
+        if resultCount > 0 {
+            return true
+        }
+        return false
+    }
     
+    func setFavorite() {
+        // isFavorite이 참이면 Create하고 거짓이면 Delete한다.
+        guard let majorCode = self.departmentCode else { return }
+        if isBookmarked.value {
+            self.addFavorite(notice: notice, majorCode: majorCode.rawValue)
+        } else {
+            self.deleteFavorite(notice: notice, majorCode: majorCode.rawValue)
+        }
+    }
+    
+    private func deleteFavorite(notice: Notice, majorCode: Int) {
+        let managedContext = CoreDataUtil.shared.persistentContainer.viewContext
+        let fetchRequest:NSFetchRequest<NSFetchRequestResult> = NSFetchRequest.init(entityName: "Favorite")
+        fetchRequest.predicate = NSPredicate(format: "title = %@ AND date = %@ AND deptCode = %i", notice.title!, notice.date!, majorCode)
+        
+        do {
+            let result = try managedContext.fetch(fetchRequest)
+            let objectToDelete = result[0] as! NSManagedObject
+            managedContext.delete(objectToDelete)
+
+            do {
+                try managedContext.save()
+            } catch {
+                print(error)
+            }
+        } catch {
+            print(error)
+        }
+    }
+    
+    private func addFavorite(notice: Notice, majorCode: Int) {
+        let managedContext = CoreDataUtil.shared.persistentContainer.viewContext
+        let favoriteEntity = NSEntityDescription.entity(forEntityName: "Favorite", in: managedContext)!
+        let noticeObject = NSManagedObject(entity: favoriteEntity, insertInto: managedContext)
+        
+        noticeObject.setValue(notice.author, forKey: "author")
+        noticeObject.setValue(notice.date, forKey: "date")
+        noticeObject.setValue(majorCode, forKey: "deptCode")
+        noticeObject.setValue(notice.isNotice, forKey: "isNotice")
+        noticeObject.setValue(notice.title, forKey: "title")
+        noticeObject.setValue(notice.url, forKey: "url")
+        noticeObject.setValue(notice.hasAttachment, forKey: "hasAttachment")
+        
+        do {
+            try managedContext.save()
+        } catch let error as NSError {
+            print("Could not save. \(error), \(error.userInfo)")
+        }
+    }
 }
 
 extension NewNoticeDetailViewModel {

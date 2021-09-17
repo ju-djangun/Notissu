@@ -20,6 +20,20 @@ class NewNoticeDetailViewController: BaseViewController {
         }
     }
     
+    private let shareButton: YDSTopBarButton = {
+        let configuration = UIImage.SymbolConfiguration(weight: .thin)
+        let icon = UIImage(systemName: "square.and.arrow.up",
+                           withConfiguration: configuration)
+        let button = YDSTopBarButton(image: icon)
+        return button
+    }()
+    
+    private let bookmarkButton: YDSTopBarButton = {
+        let button = YDSTopBarButton(image: YDSIcon.starLine)
+        button.setImage(YDSIcon.starFilled, for: .normal)
+        return button
+    }()
+    
     private let scrollView: UIScrollView = UIScrollView()
     
     private let stackView: UIStackView = {
@@ -83,6 +97,9 @@ class NewNoticeDetailViewController: BaseViewController {
     }
     
     private func setViewProperties() {
+        self.navigationItem.setRightBarButtonItems([UIBarButtonItem(customView: bookmarkButton),
+                                                    UIBarButtonItem(customView: shareButton),],
+                                                   animated: true)
         titleLabel.text = viewModel.title
         captionLabel.text = viewModel.caption
         webView.navigationDelegate = self
@@ -100,6 +117,12 @@ class NewNoticeDetailViewController: BaseViewController {
         }
         titleLabelArea.addSubview(titleLabel)
         captionLabelArea.addSubview(captionLabel)
+        
+        [bookmarkButton, shareButton].forEach {
+            $0.addTarget(self,
+                                   action: #selector(buttonDidTapped(_:)),
+                                   for: .touchUpInside)
+        }
     }
     
     private func setAutolayouts() {
@@ -130,6 +153,14 @@ class NewNoticeDetailViewController: BaseViewController {
             guard let `self` = self else { return }
             self.webView.load(URLRequest(url: URL(string: url)!))
         }
+        
+        viewModel.isBookmarked.bindAndFire { [weak self] isBookmakred in
+            guard let `self` = self else { return }
+            self.bookmarkButton.setImage(isBookmakred
+                                            ? YDSIcon.starFilled
+                                            : YDSIcon.starLine,
+                                         for: .normal)
+        }
     }
 
 }
@@ -153,6 +184,25 @@ extension NewNoticeDetailViewController: WKNavigationDelegate {
             }
         } else {
             decisionHandler(.allow)
+        }
+    }
+}
+
+extension NewNoticeDetailViewController {
+    @objc
+    func buttonDidTapped(_ sender: UIControl) {
+        switch(sender) {
+        case shareButton:
+            guard let url = viewModel.url.value.decodeUrl()?.encodeUrl() else { return }
+            
+            let textToShare = [url]
+            let activityVC = UIActivityViewController(activityItems: textToShare, applicationActivities: nil)
+            activityVC.excludedActivityTypes = [ UIActivity.ActivityType.airDrop ]
+            self.present(activityVC, animated: true, completion: nil)
+        case bookmarkButton:
+            viewModel.didTappedBookmarkButton()
+        default:
+            return
         }
     }
 }

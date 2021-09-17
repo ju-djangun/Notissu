@@ -11,7 +11,7 @@ class NoticeDetailAttachmentsListTableViewController: YDSTableViewController, UI
     
     private var viewModel: NewNoticeDetailViewModel
     private var docController : UIDocumentInteractionController!
-    var progressBarDelegate: BaseViewController?
+    var progressBarDelegate: ProgressBarDelegate?
     
     private enum Dimension {
         static let cellHeight: CGFloat = 48

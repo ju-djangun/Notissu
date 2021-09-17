@@ -10,7 +10,7 @@ import Lottie
 import WatchConnectivity
 import YDS
 
-class BaseViewController: UIViewController, UIGestureRecognizerDelegate {
+class BaseViewController: UIViewController, UIGestureRecognizerDelegate, ProgressBarDelegate {
     let animationView = AnimationView(name: "notissu_anim")
     
     static var noticeDeptCode: DeptCode?
@@ -149,4 +149,9 @@ extension UIColor {
         
         return nil
     }
+}
+
+protocol ProgressBarDelegate {
+    func showProgressBar()
+    func hideProgressBar()
 }

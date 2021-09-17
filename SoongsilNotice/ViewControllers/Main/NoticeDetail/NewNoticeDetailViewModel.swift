@@ -71,8 +71,11 @@ class NewNoticeDetailViewModel: NoticeDetailViewModelInput, NoticeDetailViewMode
         self.departmentCode = deptCode
         self.isBookmarked.value = isNoticeBookmarked()
     }
-    
-    func isNoticeBookmarked() -> Bool {
+}
+
+//  MARK: - Bookmark
+extension NewNoticeDetailViewModel {
+    private func isNoticeBookmarked() -> Bool {
         // Retrieve Data From Core Data
         // Favorite 여부를 확인하여 View 에 적용하기 위한 함수
         guard let title = self.title, let date = self.date, let major = self.departmentCode else { return false }
@@ -96,7 +99,7 @@ class NewNoticeDetailViewModel: NoticeDetailViewModelInput, NoticeDetailViewMode
         return false
     }
     
-    func setFavorite() {
+    private func setFavorite() {
         // isFavorite이 참이면 Create하고 거짓이면 Delete한다.
         guard let majorCode = self.departmentCode else { return }
         if isBookmarked.value {
@@ -147,6 +150,7 @@ class NewNoticeDetailViewModel: NoticeDetailViewModelInput, NoticeDetailViewMode
     }
 }
 
+//  MARK: - Webview load
 extension NewNoticeDetailViewModel {
     private func loadContentFromURL(string: String) {
         guard let url = string.decodeUrl()?.encodeUrl() else {
@@ -202,6 +206,7 @@ extension NewNoticeDetailViewModel {
     }
 }
 
+//  MARK: - Download file
 extension NewNoticeDetailViewModel {
     private func downloadFile(at index: Int) {
         let attachment = self.attachments.value[index]

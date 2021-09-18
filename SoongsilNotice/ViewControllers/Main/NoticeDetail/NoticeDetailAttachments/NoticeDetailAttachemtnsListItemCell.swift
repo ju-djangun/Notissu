@@ -13,7 +13,7 @@ class NoticeDetailAttachemtnsListItemCell: YDSTableViewCell {
     //  MARK: - View
     private let iconView: YDSIconView = {
         let iconView = YDSIconView()
-        iconView.size = .medium
+        iconView.size = .large
         return iconView
     }()
     
@@ -29,10 +29,11 @@ class NoticeDetailAttachemtnsListItemCell: YDSTableViewCell {
     //  MARK: - Constant
     private enum Dimension {
         enum Margin {
-            static let horizontal: CGFloat = 20
+            static let leading: CGFloat = 8
+            static let trailing: CGFloat = 20
         }
         
-        static let spacing: CGFloat = 8
+        static let spacing: CGFloat = 0
         static let height: CGFloat = 48
     }
 
@@ -65,13 +66,13 @@ class NoticeDetailAttachemtnsListItemCell: YDSTableViewCell {
     
     private func setAutolayouts() {
         iconView.snp.makeConstraints {
-            $0.leading.equalToSuperview().inset(Dimension.Margin.horizontal)
+            $0.leading.equalToSuperview().inset(Dimension.Margin.leading)
             $0.centerY.equalToSuperview()
         }
         
         nameLabel.snp.makeConstraints {
             $0.leading.equalTo(iconView.snp.trailing).offset(Dimension.spacing)
-            $0.trailing.equalToSuperview().inset(Dimension.Margin.horizontal)
+            $0.trailing.equalToSuperview().inset(Dimension.Margin.trailing)
             $0.centerY.equalToSuperview()
         }
     }

@@ -20,7 +20,7 @@ class NewNoticeDetailViewController: BaseViewController {
     
     private enum Dimension {
         enum Margin {
-            static let vertical: CGFloat = 16
+            static let vertical: CGFloat = 20
             static let horizontal: CGFloat = 24
         }
     }
@@ -28,8 +28,8 @@ class NewNoticeDetailViewController: BaseViewController {
     
     //  MARK: - View
     private let shareButton: YDSTopBarButton = {
-        let configuration = UIImage.SymbolConfiguration(weight: .thin)
-        let icon = UIImage(systemName: "square.and.arrow.up",
+        let configuration = UIImage.SymbolConfiguration(weight: .light)
+        let icon = UIImage(systemName: "square.and.arrow.up.on.square",
                            withConfiguration: configuration)
         let button = YDSTopBarButton(image: icon)
         return button
@@ -47,7 +47,7 @@ class NewNoticeDetailViewController: BaseViewController {
         let stackView = UIStackView()
         stackView.axis = .vertical
         stackView.alignment = .fill
-        stackView.spacing = 16
+        stackView.spacing = 20
         
         stackView.isLayoutMarginsRelativeArrangement = true
         stackView.layoutMargins = UIEdgeInsets(top: Dimension.Margin.vertical,
@@ -118,6 +118,9 @@ class NewNoticeDetailViewController: BaseViewController {
     
     private func setViewProperties() {
         self.extendedLayoutIncludesOpaqueBars = true
+        
+        self.title = viewModel.title
+        self.navigationController?.navigationBar.setTitleVerticalPositionAdjustment(-2, for: .default)
         self.navigationItem.setRightBarButtonItems([UIBarButtonItem(customView: bookmarkButton),
                                                     UIBarButtonItem(customView: shareButton),],
                                                    animated: true)
@@ -126,11 +129,16 @@ class NewNoticeDetailViewController: BaseViewController {
                          action: #selector(buttonDidTap(_:)),
                          for: .touchUpInside)
         }
+        
+        scrollView.delegate = self
+        
         titleLabel.text = viewModel.title
         captionLabel.text = viewModel.caption
+        
         webView.navigationDelegate = self
         webView.scrollView.isScrollEnabled = false
         webView.tintColor = YDSColor.textPointed
+        
         attachmentsListTableViewController.progressBarDelegate = self
     }
     
@@ -138,7 +146,11 @@ class NewNoticeDetailViewController: BaseViewController {
         self.embed(attachmentsListTableViewController)
         self.view.addSubview(scrollView)
         scrollView.addSubview(stackView)
-        [titleLabelArea, captionLabelArea, webView, divider, attachmentsListTableViewController.view].forEach {
+        [titleLabelArea,
+         captionLabelArea,
+         webView,
+         divider,
+         attachmentsListTableViewController.view].forEach {
             stackView.addArrangedSubview($0)
         }
         titleLabelArea.addSubview(titleLabel)
@@ -230,16 +242,59 @@ extension NewNoticeDetailViewController {
     func buttonDidTap(_ sender: UIControl) {
         switch(sender) {
         case shareButton:
-            guard let url = viewModel.url.value.decodeUrl()?.encodeUrl() else { return }
-            
-            let textToShare = [url]
-            let activityVC = UIActivityViewController(activityItems: textToShare, applicationActivities: nil)
-            activityVC.excludedActivityTypes = [ UIActivity.ActivityType.airDrop ]
-            self.present(activityVC, animated: true, completion: nil)
+            presentActivityViewController()
         case bookmarkButton:
             viewModel.bookmarkButtondidTap()
         default:
             return
         }
+    }
+    
+    private func presentActivityViewController() {
+        guard let url = viewModel.url.value.decodeUrl()?.encodeUrl(),
+              let url = NSURL(string: url) else {
+            YDSToast.makeToast(text: "공유할 수 없는 링크입니다.")
+            return
+        }
+        switch UIDevice.current.userInterfaceIdiom {
+        case .phone:
+            let activityVC = UIActivityViewController(activityItems: [url], applicationActivities: nil)
+            self.present(activityVC, animated: true, completion: nil)
+        case .pad:
+            YDSToast.makeToast(text: "iPad에서 링크를 공유할 수 없습니다.")
+        default:
+            YDSToast.makeToast(text: "링크를 공유할 수 없는 기기입니다.")
+        }
+    }
+}
+
+
+//  MARK: - ScrollView Delegate
+
+extension NewNoticeDetailViewController: UIScrollViewDelegate {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        if scrollView.contentOffset.y == 0 {
+            return
+        }
+        
+        let topBarHeight: CGFloat = self.navigationController?.navigationBar.bounds.height ?? 44
+        let gap: CGFloat = ((scrollView.contentOffset.y + topBarHeight)
+                    - (titleLabel.bounds.height + Dimension.Margin.vertical))
+        
+        var alpha: CGFloat {
+            let alpha = gap/topBarHeight
+            if alpha > 1 {
+                return 1
+            } else if alpha < 0 {
+                return 0
+            } else {
+                return alpha
+            }
+        }
+        
+        self.navigationController?.navigationBar.titleTextAttributes = [
+            NSAttributedString.Key.font: YDSFont.subtitle3,
+            NSAttributedString.Key.foregroundColor: YDSColor.textSecondary.withAlphaComponent(alpha)
+        ]
     }
 }

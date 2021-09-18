@@ -22,8 +22,9 @@ protocol NoticeDetailViewModelOutput {
     var html: Dynamic<String> { get }
     var url: Dynamic<String> { get }
     var attachments: Dynamic<[Attachment]> { get }
-    var fileDownloaderDelegate: FileDownloadDelegate? { get set }
     var isBookmarked: Dynamic<Bool> { get }
+    var shouldDividerBeHidden: Dynamic<Bool> { get }
+    var fileDownloaderDelegate: FileDownloadDelegate? { get set }
 }
 
 protocol NoticeDetailViewModelProtocol: NoticeDetailViewModelInput, NoticeDetailViewModelOutput {}
@@ -37,8 +38,9 @@ class NewNoticeDetailViewModel: NoticeDetailViewModelProtocol {
     let html: Dynamic<String> = Dynamic("")
     let url: Dynamic<String> = Dynamic("")
     let attachments: Dynamic<[Attachment]> = Dynamic([])
+    let isBookmarked: Dynamic<Bool> = Dynamic(false)
+    let shouldDividerBeHidden: Dynamic<Bool> = Dynamic(true)
     var fileDownloaderDelegate: FileDownloadDelegate?
-    var isBookmarked: Dynamic<Bool> = Dynamic(false)
     
     
     //  MARK: - INPUT
@@ -209,6 +211,7 @@ extension NewNoticeDetailViewModel {
     private func webViewContentUpdate(attachments: [Attachment], html: String) {
         self.html.value = html
         self.attachments.value = attachments
+        self.shouldDividerBeHidden.value = attachments.isEmpty
     }
 }
 

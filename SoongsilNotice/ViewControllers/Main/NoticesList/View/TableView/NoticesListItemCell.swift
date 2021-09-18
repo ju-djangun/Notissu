@@ -35,7 +35,7 @@ class NoticesListItemCell: UITableViewCell {
         stackView.spacing = 6
         
         stackView.backgroundColor = YDSColor.monoItemBG
-        stackView.layer.cornerRadius = 12
+        stackView.layer.cornerRadius = 8
         stackView.clipsToBounds = true
         
         stackView.isLayoutMarginsRelativeArrangement = true

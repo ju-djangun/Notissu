@@ -17,8 +17,10 @@ class NoticeDetailAttachemtnsListItemCell: YDSTableViewCell {
         return iconView
     }()
     
-    private let nameLabel: YDSLabel = {
-        let label = YDSLabel(style: .body2)
+    private let nameLabel: UILabel = {
+        let label = UILabel()
+        label.font = YDSFont.subtitle3
+        label.lineBreakMode = .byTruncatingMiddle
         label.textColor = YDSColor.textSecondary
         return label
     }()

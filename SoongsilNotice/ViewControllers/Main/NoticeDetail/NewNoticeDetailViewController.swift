@@ -47,7 +47,7 @@ class NewNoticeDetailViewController: BaseViewController {
         let stackView = UIStackView()
         stackView.axis = .vertical
         stackView.alignment = .fill
-        stackView.spacing = 20
+        stackView.spacing = 16
         
         stackView.isLayoutMarginsRelativeArrangement = true
         stackView.layoutMargins = UIEdgeInsets(top: Dimension.Margin.vertical,
@@ -76,6 +76,12 @@ class NewNoticeDetailViewController: BaseViewController {
     
     private let webView: WKWebView = WKWebView()
     
+    private let divider: YDSDivider = {
+        let divider = YDSDivider(.horizontal)
+        divider.thickness = .thick
+        return divider
+    }()
+    
     //  MARK: - ViewController
     
     private let attachmentsListTableViewController: NoticeDetailAttachmentsListTableViewController
@@ -101,7 +107,7 @@ class NewNoticeDetailViewController: BaseViewController {
 
         setupViews()
         bindViewModel()
-        viewModel.loadWebView()
+        loadWebView()
     }
     
     private func setupViews() {
@@ -132,7 +138,7 @@ class NewNoticeDetailViewController: BaseViewController {
         self.embed(attachmentsListTableViewController)
         self.view.addSubview(scrollView)
         scrollView.addSubview(stackView)
-        [titleLabelArea, captionLabelArea, webView, attachmentsListTableViewController.view].forEach {
+        [titleLabelArea, captionLabelArea, webView, divider, attachmentsListTableViewController.view].forEach {
             stackView.addArrangedSubview($0)
         }
         titleLabelArea.addSubview(titleLabel)
@@ -175,6 +181,16 @@ class NewNoticeDetailViewController: BaseViewController {
                                             : YDSIcon.starLine,
                                          for: .normal)
         }
+        
+        viewModel.shouldDividerBeHidden.bindAndFire { [weak self] value in
+            guard let `self` = self else { return }
+            self.divider.isHidden = value
+        }
+    }
+    
+    private func loadWebView() {
+        self.showProgressBar()
+        viewModel.loadWebView()
     }
 
 }
@@ -185,6 +201,7 @@ class NewNoticeDetailViewController: BaseViewController {
 extension NewNoticeDetailViewController: WKNavigationDelegate {
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+            self.hideProgressBar()
             self.webView.snp.makeConstraints {
                 $0.height.equalTo(self.webView.scrollView.contentSize.height)
             }

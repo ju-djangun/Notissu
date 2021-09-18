@@ -2,21 +2,29 @@
 //  NoticesSearchListViewController.swift
 //  SoongsilNotice
 //
-//  Created by Gyuni on 2021/09/17.
 //  Copyright © 2021 Notissu. All rights reserved.
 //
 
 import UIKit
 import YDS
 
-class NoticesSearchListViewController: BaseViewController {
-
-    let searchBar: YDSSearchBar = {
+class NoticesSearchListViewController: BaseNoticesListViewController {
+    
+    private let searchBar: YDSSearchBar = {
         let searchBar = YDSSearchBar()
         searchBar.placeholder = "검색어를 입력해주세요"
         return searchBar
     }()
 
+    override init(with viewModel: NoticesListViewModel) {
+        super.init(with: viewModel)
+        self.hidesBottomBarWhenPushed = true
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
@@ -27,7 +35,6 @@ class NoticesSearchListViewController: BaseViewController {
     }
     
     private func setViewProperty() {
-        self.extendedLayoutIncludesOpaqueBars = true
         self.navigationItem.titleView = searchBar
         
         searchBar.becomeFirstResponder()
@@ -44,6 +51,10 @@ extension NoticesSearchListViewController {
 
 extension NoticesSearchListViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        print(searchBar.text)
+        if let keyword = searchBar.text {
+            viewModel.keyword = keyword
+            tableViewController.setInitialData()
+        }
+        searchBar.endEditing(true)
     }
 }

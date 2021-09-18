@@ -7,16 +7,28 @@
 //
 
 import UIKit
+import YDS
 
 class NoticesListTableViewController: YDSTableViewController {
     
     private var viewModel: NoticesListViewModel
+    
+    private let warningView: WarningView = {
+        let view = WarningView()
+        view.text = "결과를 찾을 수 없습니다."
+        view.isHidden = true
+        return view
+    }()
+    
+    private var didInitialLoad: Bool = false
+    
     private var didReachedBottom: Bool {
         self.tableView.contentOffset.y >
             self.tableView.contentSize.height
             - self.tableView.bounds.size.height
             - Dimension.bottomRefreshHeight
     }
+    
     private enum Dimension {
         static let bottomRefreshHeight: CGFloat = 100
     }
@@ -26,6 +38,7 @@ class NoticesListTableViewController: YDSTableViewController {
     func setInitialData() {
         viewModel.loadInitialPage()
         progressBarDelegate?.showProgressBar()
+        didInitialLoad = true
     }
 
     init(with viewModel: NoticesListViewModel) {
@@ -44,9 +57,11 @@ class NoticesListTableViewController: YDSTableViewController {
     }
     
     private func bindViewModel() {
-        viewModel.noticesList.bind { [weak self] _ in
+        viewModel.noticesList.bind { [weak self] value in
             guard let `self` = self else { return }
             self.tableView.reloadData()
+            
+            self.warningView.isHidden = ((value.count != 0) || !self.didInitialLoad)
         }
         
         viewModel.nowLoading.bind { [weak self] value in
@@ -63,6 +78,8 @@ class NoticesListTableViewController: YDSTableViewController {
     
     private func setupViews() {
         setViewProperties()
+        setViewHierarchy()
+        setAutolayouts()
     }
     
     private func setViewProperties() {
@@ -72,6 +89,17 @@ class NoticesListTableViewController: YDSTableViewController {
         tableView.refreshControl?.addTarget(self,
                                  action: #selector(refreshData(sender:)),
                                  for: .valueChanged)
+    }
+    
+    
+    private func setViewHierarchy() {
+        self.view.addSubview(warningView)
+    }
+    
+    private func setAutolayouts() {
+        warningView.snp.makeConstraints {
+            $0.center.equalToSuperview()
+        }
     }
 
 }

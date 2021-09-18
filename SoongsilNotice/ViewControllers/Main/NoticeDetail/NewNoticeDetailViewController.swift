@@ -97,6 +97,7 @@ class NewNoticeDetailViewController: BaseViewController {
     }
     
     private func setViewProperties() {
+        self.extendedLayoutIncludesOpaqueBars = true
         self.navigationItem.setRightBarButtonItems([UIBarButtonItem(customView: bookmarkButton),
                                                     UIBarButtonItem(customView: shareButton),],
                                                    animated: true)

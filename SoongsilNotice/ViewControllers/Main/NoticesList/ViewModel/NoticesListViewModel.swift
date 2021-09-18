@@ -11,6 +11,7 @@ protocol NoticesListViewModelInput {
     func didSelectItem(at index: Int)
     func loadInitialPage()
     func loadNextPage()
+    func loadInitialPage(keyword: String)
 }
 
 protocol NoticesListViewModelOutput {
@@ -37,6 +38,11 @@ class NoticesListViewModel: NoticesListViewModelInput, NoticesListViewModelOutpu
         loadNextPage()
     }
     
+    func loadInitialPage(keyword: String) {
+        self.keyword = keyword
+        loadInitialPage()
+    }
+    
     func loadNextPage() {
         if nowLoading.value { return }
         
@@ -47,7 +53,7 @@ class NoticesListViewModel: NoticesListViewModelInput, NoticesListViewModelOutpu
     
     //  MARK: - 그 외
     
-    private var keyword: String?
+    var keyword: String?
     private var page: Int = 1
     
     init(deptCode: DeptCode, keyword: String? = nil) {

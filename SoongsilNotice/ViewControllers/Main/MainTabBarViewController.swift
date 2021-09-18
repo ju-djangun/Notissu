@@ -12,7 +12,7 @@ import YDS
 
 public class MainTabBarViewController: YDSBottomBarController {
     private let myNoticeNavigationController: YDSNavigationController = {
-        let deptCode = DeptCode.IT_Computer
+        let deptCode = BaseNoticesListViewController.noticeDeptCode ?? .Soongsil
         let rootViewController = NoticesListViewController(with: NoticesListViewModel(deptCode: deptCode))
         let navigationController = YDSNavigationController(title: deptCode.getName(),
                                                            rootViewController: rootViewController)

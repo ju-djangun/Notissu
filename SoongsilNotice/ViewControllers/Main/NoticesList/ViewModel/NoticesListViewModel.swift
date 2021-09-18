@@ -49,7 +49,7 @@ class NoticesListViewModel: NoticesListViewModelProtocol {
         if nowLoading.value { return }
         
         nowLoading.value = true
-        getListData()
+        getListData(page: page, keyword: keyword)
         page += 1
     }
     
@@ -68,7 +68,7 @@ class NoticesListViewModel: NoticesListViewModelProtocol {
     
     
     //  MARK: - Func
-    private func getListData() {
+    private func getListData(page: Int, keyword: String?) {
         NoticeParser.shared.parseNoticeList(type: self.deptCode.value,
                                             page: page,
                                             keyword: keyword,
@@ -76,7 +76,7 @@ class NoticesListViewModel: NoticesListViewModelProtocol {
             guard let `self` = self else { return }
             self.nowLoading.value = false
             self.shouldShowErrorMessage.value = list.isEmpty
-            if self.page < 2 {
+            if page < 2 {
                 self.noticesList.value = list
             } else {
                 self.noticesList.value.append(contentsOf: list)

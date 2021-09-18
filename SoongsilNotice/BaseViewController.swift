@@ -109,6 +109,12 @@ class BaseViewController: UIViewController, UIGestureRecognizerDelegate, Progres
         animationView.stop()
         animationView.removeFromSuperview()
     }
+    
+    func setNavigationTitleLabelFont() {
+        if let titleLabel = self.navigationItem.leftBarButtonItem?.customView as? UILabel {
+            titleLabel.font = UIFont(name: "Avenir-Black", size: 22)
+        }
+    }
 }
 
 extension UIColor {

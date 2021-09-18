@@ -33,6 +33,7 @@ final class MajorListViewController: BaseViewController {
         super.viewDidLoad()
         setupViewLayout()
         bindViewModel()
+        setNavigationTitleLabelFont()
     }
     
     private func bindViewModel() {

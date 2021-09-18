@@ -67,6 +67,8 @@ class BaseNoticesListViewController: BaseViewController {
 
             if self.navigationController?.viewControllers.count ?? 0 > 1 {
                 self.title = value.getName()
+            } else {
+                self.setNavigationTitleLabelFont()
             }
         }
     }

@@ -54,6 +54,7 @@ final class NoticeSearchViewController: BaseViewController {
         super.viewDidLoad()
         setupViewLayout()
         bindViewModel()
+        setNavigationTitleLabelFont()
     }
     
     private func bindViewModel() {

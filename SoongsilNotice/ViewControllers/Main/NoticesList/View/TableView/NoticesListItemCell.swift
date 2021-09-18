@@ -12,6 +12,8 @@ class NoticesListItemCell: UITableViewCell {
     
     private var viewModel: NoticesListItemViewModel?
     
+    //  MARK: - Constant
+    
     private enum Dimension {
         enum Margin {
             static let vertical: CGFloat = 6
@@ -79,6 +81,7 @@ class NoticesListItemCell: UITableViewCell {
         label.textColor = YDSColor.violetItemText
         return label
     }()
+    
     
     //  MARK: - Init
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {

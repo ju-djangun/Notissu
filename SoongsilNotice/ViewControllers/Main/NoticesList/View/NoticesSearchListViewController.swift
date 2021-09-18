@@ -10,13 +10,16 @@ import YDS
 
 class NoticesSearchListViewController: BaseNoticesListViewController {
     
+    //  MARK: - View
     private let searchBar: YDSSearchBar = {
         let searchBar = YDSSearchBar()
         searchBar.placeholder = "검색어를 입력해주세요"
         return searchBar
     }()
 
-    override init(with viewModel: NoticesListViewModel) {
+    
+    //  MARK: - Init
+    override init(with viewModel: NoticesListViewModelProtocol) {
         super.init(with: viewModel)
         self.hidesBottomBarWhenPushed = true
     }
@@ -25,6 +28,8 @@ class NoticesSearchListViewController: BaseNoticesListViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
+    
+    //  MARK: - Func
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
@@ -43,17 +48,19 @@ class NoticesSearchListViewController: BaseNoticesListViewController {
 
 }
 
+//  MARK: - Touch Handler
 extension NoticesSearchListViewController {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         searchBar.endEditing(true)
     }
 }
 
+
+//  MARK: - SearchBarDelegate
 extension NoticesSearchListViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         if let keyword = searchBar.text {
-            viewModel.keyword = keyword
-            tableViewController.setInitialData()
+            loadInitialPage(keyword: keyword)
         }
         searchBar.endEditing(true)
     }

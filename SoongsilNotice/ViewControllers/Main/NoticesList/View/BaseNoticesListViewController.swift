@@ -2,7 +2,6 @@
 //  BaseNoticesListViewController.swift
 //  SoongsilNotice
 //
-//  Created by Gyuni on 2021/09/18.
 //  Copyright © 2021 Notissu. All rights reserved.
 //
 
@@ -11,10 +10,17 @@ import YDS
 
 class BaseNoticesListViewController: BaseViewController {
     
-    let viewModel: NoticesListViewModel
+    //  MARK: - Property
+    let viewModel: NoticesListViewModelProtocol
+    
+    
+    //  MARK: - ViewController
     let tableViewController: NoticesListTableViewController
     
-    init(with viewModel: NoticesListViewModel) {
+    
+    //  MARK: - Init
+    
+    init(with viewModel: NoticesListViewModelProtocol) {
         self.viewModel = viewModel
         self.tableViewController = NoticesListTableViewController(with: viewModel)
         super.init(nibName: nil, bundle: nil)
@@ -24,6 +30,8 @@ class BaseNoticesListViewController: BaseViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
+
+    //  MARK: - Func
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -67,4 +75,13 @@ class BaseNoticesListViewController: BaseViewController {
         self.hideProgressBar()
     }
 
+}
+
+//  MARK: - Input
+extension BaseNoticesListViewController {
+    func loadInitialPage(keyword: String? = nil) {
+        viewModel.loadInitialPage(keyword: keyword)
+        self.showProgressBar()
+    }
+    
 }

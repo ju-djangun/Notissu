@@ -12,8 +12,8 @@ import Kanna
 
 protocol NoticeDetailViewModelInput {
     func loadWebView()
-    func didSelectAttachmentItem(at: Int)
-    func didTappedBookmarkButton()
+    func attachmentItemDidSelect(at: Int)
+    func bookmarkButtondidTap()
 }
 
 protocol NoticeDetailViewModelOutput {
@@ -22,12 +22,13 @@ protocol NoticeDetailViewModelOutput {
     var html: Dynamic<String> { get }
     var url: Dynamic<String> { get }
     var attachments: Dynamic<[Attachment]> { get }
-    var fileDownloaderDelegate: FileDownloaderDelegate? { get set }
+    var fileDownloaderDelegate: FileDownloadDelegate? { get set }
     var isBookmarked: Dynamic<Bool> { get }
 }
 
+protocol NoticeDetailViewModelProtocol: NoticeDetailViewModelInput, NoticeDetailViewModelOutput {}
 
-class NewNoticeDetailViewModel: NoticeDetailViewModelInput, NoticeDetailViewModelOutput {
+class NewNoticeDetailViewModel: NoticeDetailViewModelProtocol {
     
     //  MARK: - OUTPUT
     
@@ -36,7 +37,7 @@ class NewNoticeDetailViewModel: NoticeDetailViewModelInput, NoticeDetailViewMode
     let html: Dynamic<String> = Dynamic("")
     let url: Dynamic<String> = Dynamic("")
     let attachments: Dynamic<[Attachment]> = Dynamic([])
-    var fileDownloaderDelegate: FileDownloaderDelegate?
+    var fileDownloaderDelegate: FileDownloadDelegate?
     var isBookmarked: Dynamic<Bool> = Dynamic(false)
     
     
@@ -48,32 +49,36 @@ class NewNoticeDetailViewModel: NoticeDetailViewModelInput, NoticeDetailViewMode
         }
     }
     
-    func didSelectAttachmentItem(at index: Int) {
+    func attachmentItemDidSelect(at index: Int) {
         downloadFile(at: index)
     }
     
-    func didTappedBookmarkButton() {
+    func bookmarkButtondidTap() {
         isBookmarked.value = !isBookmarked.value
         setFavorite()
     }
     
-    //  MARK: - 그 외
+    //  MARK: - Property
     
     private let notice: Notice
     private let departmentCode: DeptCode?
     private let date: String?
     
+    
+    //  MARK: - Init
     init(notice: Notice, deptCode: DeptCode) {
         self.notice = notice
         self.title = notice.title
         self.caption = notice.date
         self.date = notice.date
+        self.url.value = notice.url ?? ""
         self.departmentCode = deptCode
         self.isBookmarked.value = isNoticeBookmarked()
     }
 }
 
 //  MARK: - Bookmark
+
 extension NewNoticeDetailViewModel {
     private func isNoticeBookmarked() -> Bool {
         // Retrieve Data From Core Data
@@ -151,6 +156,7 @@ extension NewNoticeDetailViewModel {
 }
 
 //  MARK: - Webview load
+
 extension NewNoticeDetailViewModel {
     private func loadContentFromURL(string: String) {
         guard let url = string.decodeUrl()?.encodeUrl() else {
@@ -207,6 +213,7 @@ extension NewNoticeDetailViewModel {
 }
 
 //  MARK: - Download file
+
 extension NewNoticeDetailViewModel {
     private func downloadFile(at index: Int) {
         let attachment = self.attachments.value[index]
@@ -260,14 +267,14 @@ extension NewNoticeDetailViewModel {
             debugPrint(response)
             
             if let filePath = response.fileURL?.path {
-                self.fileDownloaderDelegate?.didFileDownloaded(at: filePath)
+                self.fileDownloaderDelegate?.fileDownloadDidEnd(at: filePath)
             } else {
-                self.fileDownloaderDelegate?.didFileDownloaded(at: nil)
+                self.fileDownloaderDelegate?.fileDownloadDidEnd(at: nil)
             }
         }
     }
 }
 
-protocol FileDownloaderDelegate {
-    func didFileDownloaded(at filePath: String?)
+protocol FileDownloadDelegate {
+    func fileDownloadDidEnd(at filePath: String?)
 }

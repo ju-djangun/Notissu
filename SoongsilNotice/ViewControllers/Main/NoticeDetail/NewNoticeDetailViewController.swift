@@ -11,7 +11,12 @@ import YDS
 
 class NewNoticeDetailViewController: BaseViewController {
 
-    private let viewModel: NewNoticeDetailViewModel
+    //  MARK: - Property
+    
+    private let viewModel: NoticeDetailViewModelProtocol
+    
+    
+    //  MARK: - Constant
     
     private enum Dimension {
         enum Margin {
@@ -20,6 +25,8 @@ class NewNoticeDetailViewController: BaseViewController {
         }
     }
     
+    
+    //  MARK: - View
     private let shareButton: YDSTopBarButton = {
         let configuration = UIImage.SymbolConfiguration(weight: .thin)
         let icon = UIImage(systemName: "square.and.arrow.up",
@@ -69,8 +76,12 @@ class NewNoticeDetailViewController: BaseViewController {
     
     private let webView: WKWebView = WKWebView()
     
+    //  MARK: - ViewController
+    
     private let attachmentsListTableViewController: NoticeDetailAttachmentsListTableViewController
     
+    
+    //  MARK: - Init
     init(with viewModel: NewNoticeDetailViewModel) {
         self.viewModel = viewModel
         self.attachmentsListTableViewController = NoticeDetailAttachmentsListTableViewController(with: viewModel)
@@ -81,6 +92,9 @@ class NewNoticeDetailViewController: BaseViewController {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    
+    //  MARK: - Func
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -103,7 +117,7 @@ class NewNoticeDetailViewController: BaseViewController {
                                                    animated: true)
         [bookmarkButton, shareButton].forEach {
             $0.addTarget(self,
-                         action: #selector(buttonDidTapped(_:)),
+                         action: #selector(buttonDidTap(_:)),
                          for: .touchUpInside)
         }
         titleLabel.text = viewModel.title
@@ -165,6 +179,9 @@ class NewNoticeDetailViewController: BaseViewController {
 
 }
 
+
+//  MARK: - WKNavigationDelegate
+
 extension NewNoticeDetailViewController: WKNavigationDelegate {
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
@@ -188,9 +205,12 @@ extension NewNoticeDetailViewController: WKNavigationDelegate {
     }
 }
 
+
+//  MARK: - Action
+
 extension NewNoticeDetailViewController {
     @objc
-    func buttonDidTapped(_ sender: UIControl) {
+    func buttonDidTap(_ sender: UIControl) {
         switch(sender) {
         case shareButton:
             guard let url = viewModel.url.value.decodeUrl()?.encodeUrl() else { return }
@@ -200,7 +220,7 @@ extension NewNoticeDetailViewController {
             activityVC.excludedActivityTypes = [ UIActivity.ActivityType.airDrop ]
             self.present(activityVC, animated: true, completion: nil)
         case bookmarkButton:
-            viewModel.didTappedBookmarkButton()
+            viewModel.bookmarkButtondidTap()
         default:
             return
         }

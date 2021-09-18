@@ -1,15 +1,16 @@
 //
-//  WarningView.swift
+//  ErorrView.swift
 //  SoongsilNotice
 //
-//  Created by Gyuni on 2021/09/18.
 //  Copyright © 2021 Notissu. All rights reserved.
 //
 
 import UIKit
 import YDS
 
-class WarningView: UIView {
+class ErrorView: UIView {
+    
+    //  MARK: - Property
     
     var text: String? {
         get { return label.text }
@@ -19,30 +20,38 @@ class WarningView: UIView {
         }
     }
     
+    override var tintColor: UIColor! {
+        didSet { label.textColor = tintColor }
+    }
+    
+    
+    //  MARK: - View
+    
     private let stackView: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .vertical
-        stackView.spacing = 16
+        stackView.spacing = 12
         stackView.alignment = .center
         return stackView
     }()
     
-    private let warningIconView: UIImageView = {
-        let imageView = UIImageView()
-        let configuration = UIImage.SymbolConfiguration(pointSize: 48, weight: .ultraLight)
-        imageView.image = UIImage(systemName: "exclamationmark.triangle",
+    private let warningIconView: YDSIconView = {
+        let iconView = YDSIconView()
+        let configuration = UIImage.SymbolConfiguration(weight: .ultraLight)
+        iconView.image = UIImage(systemName: "exclamationmark.triangle",
                                   withConfiguration: configuration)
-        return imageView
+        iconView.size = .large
+        return iconView
     }()
     
     private let label = YDSLabel(style: .body1)
-    
-    override var tintColor: UIColor! {
-        didSet { label.textColor = tintColor }
-    }
 
-    init(keyword: String? = nil) {
+    
+    //  MARK: - Init
+    
+    init(text: String? = nil) {
         super.init(frame: .zero)
+        self.text = text
         setupViews()
     }
     
@@ -50,6 +59,8 @@ class WarningView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
+
+    //  MARK: - Func
     private func setupViews() {
         self.addSubview(stackView)
         

@@ -10,6 +10,7 @@ import YDS
 
 class NoticeDetailAttachemtnsListItemCell: YDSTableViewCell {
     
+    //  MARK: - View
     private let iconView: YDSIconView = {
         let iconView = YDSIconView()
         iconView.size = .medium
@@ -22,6 +23,8 @@ class NoticeDetailAttachemtnsListItemCell: YDSTableViewCell {
         return label
     }()
     
+    
+    //  MARK: - Constant
     private enum Dimension {
         enum Margin {
             static let horizontal: CGFloat = 20
@@ -31,6 +34,9 @@ class NoticeDetailAttachemtnsListItemCell: YDSTableViewCell {
         static let height: CGFloat = 48
     }
 
+    
+    //  MARK: - Init
+    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
@@ -40,6 +46,9 @@ class NoticeDetailAttachemtnsListItemCell: YDSTableViewCell {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    
+    //  MARK: - Func
     
     private func setupViews() {
         setViewHierarchy()
@@ -68,6 +77,7 @@ class NoticeDetailAttachemtnsListItemCell: YDSTableViewCell {
 }
 
 //  MARK: - INPUT
+
 extension NoticeDetailAttachemtnsListItemCell {
     func fillData(with model: Attachment) {
         self.iconView.image = model.fileName.fileTypeIconImage

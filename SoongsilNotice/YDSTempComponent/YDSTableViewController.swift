@@ -2,9 +2,10 @@
 //  YDSTableViewController.swift
 //  SoongsilNotice
 //
-//  Created by Gyuni on 2021/09/16.
 //  Copyright © 2021 Notissu. All rights reserved.
 //
+
+//  YDS에 편입시킬 컴포넌트입니다.
 
 import UIKit
 import YDS

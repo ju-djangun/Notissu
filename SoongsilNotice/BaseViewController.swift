@@ -15,23 +15,13 @@ class BaseViewController: UIViewController, UIGestureRecognizerDelegate, Progres
     
     static var noticeDeptCode: DeptCode?
     static var noticeMajor   : Major?
-    weak var tabBarDelegate: MainTabBarDelegate?
-    
-//    override var preferredStatusBarStyle: UIStatusBarStyle {
-//        if let vc = self.navigationController?.topViewController {
-//            return vc.preferredStatusBarStyle
-//        } else {
-//            return .lightContent
-//        }
-//    }
-    
+        
     override func viewDidLoad() {
         super.viewDidLoad()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-//        self.navigationController?.navigationBar.barStyle = .black
         self.view.backgroundColor = YDSColor.bgNormal
         self.checkUpdate()
     }
@@ -107,8 +97,6 @@ class BaseViewController: UIViewController, UIGestureRecognizerDelegate, Progres
     }
     
     func showProgressBar() {
-//        animationView.frame         =  view.bounds
-//        animationView.contentMode   = .center
         animationView.loopMode      = .loop
         self.view.addSubview(animationView)
         animationView.snp.makeConstraints {

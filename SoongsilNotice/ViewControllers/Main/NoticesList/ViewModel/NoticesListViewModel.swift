@@ -8,37 +8,39 @@
 import Foundation
 
 protocol NoticesListViewModelInput {
-    func didSelectItem(at index: Int)
     func loadInitialPage()
+    func loadInitialPage(keyword: String?)
     func loadNextPage()
-    func loadInitialPage(keyword: String)
 }
 
 protocol NoticesListViewModelOutput {
     var noticesList: Dynamic<[Notice]> { get }
     var nowLoading: Dynamic<Bool> { get }
     var deptCode: Dynamic<DeptCode> { get }
+    var shouldShowErrorMessage: Dynamic<Bool> { get }
 }
 
+protocol NoticesListViewModelProtocol: NoticesListViewModelInput, NoticesListViewModelOutput{}
 
-class NoticesListViewModel: NoticesListViewModelInput, NoticesListViewModelOutput {
+
+class NoticesListViewModel: NoticesListViewModelProtocol {
 
     //  MARK: - OUTPUT
+    
     var noticesList: Dynamic<[Notice]> = Dynamic([])
     var nowLoading: Dynamic<Bool> = Dynamic(false)
     var deptCode: Dynamic<DeptCode> = Dynamic(.Soongsil)
+    var shouldShowErrorMessage: Dynamic<Bool> = Dynamic(false)
+    
     
     //  MARK: - INPUT
-    func didSelectItem(at index: Int) {
-        print(index)
-    }
     
     func loadInitialPage() {
         page = 1
         loadNextPage()
     }
     
-    func loadInitialPage(keyword: String) {
+    func loadInitialPage(keyword: String?) {
         self.keyword = keyword
         loadInitialPage()
     }
@@ -51,15 +53,21 @@ class NoticesListViewModel: NoticesListViewModelInput, NoticesListViewModelOutpu
         page += 1
     }
     
-    //  MARK: - 그 외
     
-    var keyword: String?
+    //  MARK: - Property
+    
+    private var keyword: String?
     private var page: Int = 1
+    
+    
+    //  MARK: - Init
     
     init(deptCode: DeptCode, keyword: String? = nil) {
         self.deptCode.value = deptCode
     }
     
+    
+    //  MARK: - Func
     private func getListData(page: Int, keyword: String?) {
         NoticeParser.shared.parseNoticeList(type: self.deptCode.value,
                                             page: page,
@@ -67,6 +75,7 @@ class NoticesListViewModel: NoticesListViewModelInput, NoticesListViewModelOutpu
                                             completion: { [weak self] list in
             guard let `self` = self else { return }
             self.nowLoading.value = false
+            self.shouldShowErrorMessage.value = list.isEmpty
             if page < 2 {
                 self.noticesList.value = list
             } else {

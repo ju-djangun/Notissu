@@ -2,7 +2,6 @@
 //  NoticesListTableViewController.swift
 //  SoongsilNotice
 //
-//  Created by Gyuni on 2021/09/17.
 //  Copyright © 2021 Notissu. All rights reserved.
 //
 
@@ -11,17 +10,20 @@ import YDS
 
 class NoticesListTableViewController: YDSTableViewController {
     
-    private var viewModel: NoticesListViewModel
+    private var viewModel: NoticesListViewModelProtocol
     
-    private let warningView: WarningView = {
-        let view = WarningView()
-        view.text = "결과를 찾을 수 없습니다."
-        view.isHidden = true
-        return view
-    }()
+    //  MARK: - View
+    private let warningView = ErrorView(text: "결과를 찾을 수 없습니다.")
     
-    private var didInitialLoad: Bool = false
     
+    //  MARK: - Constant
+    
+    private enum Dimension {
+        static let bottomRefreshHeight: CGFloat = 100
+    }
+    
+    
+    //  MARK: - Property
     private var didReachedBottom: Bool {
         self.tableView.contentOffset.y >
             self.tableView.contentSize.height
@@ -29,19 +31,12 @@ class NoticesListTableViewController: YDSTableViewController {
             - Dimension.bottomRefreshHeight
     }
     
-    private enum Dimension {
-        static let bottomRefreshHeight: CGFloat = 100
-    }
-    
     var progressBarDelegate: ProgressBarDelegate?
-    
-    func setInitialData() {
-        viewModel.loadInitialPage()
-        progressBarDelegate?.showProgressBar()
-        didInitialLoad = true
-    }
 
-    init(with viewModel: NoticesListViewModel) {
+    
+    //  MARK: - Init
+    
+    init(with viewModel: NoticesListViewModelProtocol) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
     }
@@ -49,6 +44,9 @@ class NoticesListTableViewController: YDSTableViewController {
     required public init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    
+    //  MARK: - Func
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -60,19 +58,19 @@ class NoticesListTableViewController: YDSTableViewController {
         viewModel.noticesList.bind { [weak self] value in
             guard let `self` = self else { return }
             self.tableView.reloadData()
-            
-            self.warningView.isHidden = ((value.count != 0) || !self.didInitialLoad)
         }
         
         viewModel.nowLoading.bind { [weak self] value in
             guard let `self` = self else { return }
-            if self.refreshControl?.isRefreshing ?? false && !value {
-                //  refresh control이 refresh 중인데
-                //  새로 내려온 nowLoading 값이 false인 경우에
-                //  refresch control이 refresh를 중단
+            if !value {
+                self.progressBarDelegate?.hideProgressBar()
                 self.refreshControl?.endRefreshing()
             }
-            self.progressBarDelegate?.hideProgressBar()
+        }
+        
+        viewModel.shouldShowErrorMessage.bindAndFire { [weak self] value in
+            guard let `self` = self else { return }
+            self.warningView.isHidden = !value
         }
     }
     

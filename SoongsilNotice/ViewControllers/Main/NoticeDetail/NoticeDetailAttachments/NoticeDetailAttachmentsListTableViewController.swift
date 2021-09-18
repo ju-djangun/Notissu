@@ -7,16 +7,22 @@
 
 import UIKit
 
-class NoticeDetailAttachmentsListTableViewController: YDSTableViewController, UIDocumentInteractionControllerDelegate {
+class NoticeDetailAttachmentsListTableViewController: YDSTableViewController {
     
+    //  MARK: - Property
     private var viewModel: NewNoticeDetailViewModel
     private var docController : UIDocumentInteractionController!
     var progressBarDelegate: ProgressBarDelegate?
+    
+    
+    //  MARK: - Constant
     
     private enum Dimension {
         static let cellHeight: CGFloat = 48
     }
     
+    
+    //  MARK: - Init
     init(with viewModel: NewNoticeDetailViewModel) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
@@ -26,6 +32,9 @@ class NoticeDetailAttachmentsListTableViewController: YDSTableViewController, UI
         fatalError("init(coder:) has not been implemented")
     }
 
+    
+    //  MARK: - Func
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         bindViewModel()
@@ -63,6 +72,7 @@ class NoticeDetailAttachmentsListTableViewController: YDSTableViewController, UI
 }
 
 //  MARK: - DataSource
+
 extension NoticeDetailAttachmentsListTableViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel.attachments.value.count
@@ -80,11 +90,12 @@ extension NoticeDetailAttachmentsListTableViewController {
 }
 
 //  MARK: - Delegate
+
 extension NoticeDetailAttachmentsListTableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         progressBarDelegate?.showProgressBar()
-        viewModel.didSelectAttachmentItem(at: indexPath.row)
+        viewModel.attachmentItemDidSelect(at: indexPath.row)
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -93,8 +104,9 @@ extension NoticeDetailAttachmentsListTableViewController {
 }
 
 //  MARK: - FileDownloaderDelegate
-extension NoticeDetailAttachmentsListTableViewController: FileDownloaderDelegate {
-    func didFileDownloaded(at filePath: String?) {
+
+extension NoticeDetailAttachmentsListTableViewController: FileDownloadDelegate, UIDocumentInteractionControllerDelegate {
+    func fileDownloadDidEnd(at filePath: String?) {
         if let filePath = filePath {
             self.docController = UIDocumentInteractionController(url: NSURL(fileURLWithPath: filePath) as URL)
             self.docController.name = NSURL(fileURLWithPath: filePath).lastPathComponent

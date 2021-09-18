@@ -10,7 +10,12 @@ import YDS
 
 class NoticesListViewController: BaseNoticesListViewController {
     
+    //  MARK: - View
+    
     private let searchButton = YDSTopBarButton(image: YDSIcon.searchLine)
+    
+    
+    //  MARK: - Func
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,7 +26,7 @@ class NoticesListViewController: BaseNoticesListViewController {
     private func setupViews() {
         setProperties()
         setViewHierarchy()
-        tableViewController.setInitialData()
+        loadInitialPage()
     }
     
     private func setProperties() {
@@ -36,6 +41,7 @@ class NoticesListViewController: BaseNoticesListViewController {
     }
 }
 
+//  MARK: - Action
 extension NoticesListViewController {
     @objc
     private func pushSearchViewController(sender: UIControl) {

@@ -8,8 +8,8 @@
 import Foundation
 
 protocol NoticesListViewModelInput {
-    func loadInitialPage()
     func loadInitialPage(keyword: String?)
+    func loadInitialPage()
     func loadNextPage()
 }
 
@@ -34,22 +34,22 @@ class NoticesListViewModel: NoticesListViewModelProtocol {
     
     
     //  MARK: - INPUT
+        
+    func loadInitialPage(keyword: String?) {
+        self.keyword = keyword
+        loadInitialPage()
+    }
     
     func loadInitialPage() {
         page = 1
         loadNextPage()
     }
     
-    func loadInitialPage(keyword: String?) {
-        self.keyword = keyword
-        loadInitialPage()
-    }
-    
     func loadNextPage() {
         if nowLoading.value { return }
         
         nowLoading.value = true
-        getListData(page: page, keyword: keyword)
+        getListData()
         page += 1
     }
     
@@ -68,7 +68,7 @@ class NoticesListViewModel: NoticesListViewModelProtocol {
     
     
     //  MARK: - Func
-    private func getListData(page: Int, keyword: String?) {
+    private func getListData() {
         NoticeParser.shared.parseNoticeList(type: self.deptCode.value,
                                             page: page,
                                             keyword: keyword,
@@ -76,7 +76,7 @@ class NoticesListViewModel: NoticesListViewModelProtocol {
             guard let `self` = self else { return }
             self.nowLoading.value = false
             self.shouldShowErrorMessage.value = list.isEmpty
-            if page < 2 {
+            if self.page < 2 {
                 self.noticesList.value = list
             } else {
                 self.noticesList.value.append(contentsOf: list)

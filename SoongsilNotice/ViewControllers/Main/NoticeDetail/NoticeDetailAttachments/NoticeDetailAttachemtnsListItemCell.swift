@@ -1,6 +1,6 @@
 //
 //  NoticeDetailAttachemtnsListItemCell.swift
-//  SoongsilNotice
+//  Notissu
 //
 //  Copyright © 2021 Notissu. All rights reserved.
 //
@@ -25,7 +25,6 @@ class NoticeDetailAttachemtnsListItemCell: YDSTableViewCell {
         return label
     }()
     
-    
     //  MARK: - Constant
     private enum Dimension {
         enum Margin {
@@ -36,7 +35,6 @@ class NoticeDetailAttachemtnsListItemCell: YDSTableViewCell {
         static let spacing: CGFloat = 0
         static let height: CGFloat = 48
     }
-
     
     //  MARK: - Init
     
@@ -50,9 +48,7 @@ class NoticeDetailAttachemtnsListItemCell: YDSTableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    
     //  MARK: - Func
-    
     private func setupViews() {
         setViewHierarchy()
         setAutolayouts()
@@ -80,7 +76,6 @@ class NoticeDetailAttachemtnsListItemCell: YDSTableViewCell {
 }
 
 //  MARK: - INPUT
-
 extension NoticeDetailAttachemtnsListItemCell {
     func fillData(with model: Attachment) {
         self.iconView.image = model.fileName.fileTypeIconImage

@@ -1,6 +1,6 @@
 //
 //  ErorrView.swift
-//  SoongsilNotice
+//  Notissu
 //
 //  Copyright © 2021 Notissu. All rights reserved.
 //
@@ -11,7 +11,6 @@ import YDS
 class ErrorView: UIView {
     
     //  MARK: - Property
-    
     var text: String? {
         get { return label.text }
         set {
@@ -24,9 +23,7 @@ class ErrorView: UIView {
         didSet { label.textColor = tintColor }
     }
     
-    
     //  MARK: - View
-    
     private let stackView: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .vertical
@@ -48,7 +45,6 @@ class ErrorView: UIView {
 
     
     //  MARK: - Init
-    
     init(text: String? = nil) {
         super.init(frame: .zero)
         self.text = text

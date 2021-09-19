@@ -1,6 +1,6 @@
 //
 //  NoticesSearchListViewController.swift
-//  SoongsilNotice
+//  Notissu
 //
 //  Copyright © 2021 Notissu. All rights reserved.
 //
@@ -17,7 +17,6 @@ class NoticesSearchListViewController: BaseNoticesListViewController {
         return searchBar
     }()
 
-    
     //  MARK: - Init
     override init(with viewModel: NoticesListViewModelProtocol) {
         super.init(with: viewModel)
@@ -27,7 +26,6 @@ class NoticesSearchListViewController: BaseNoticesListViewController {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
     
     //  MARK: - Func
     override func viewDidLoad() {
@@ -54,7 +52,6 @@ extension NoticesSearchListViewController {
         searchBar.endEditing(true)
     }
 }
-
 
 //  MARK: - SearchBarDelegate
 extension NoticesSearchListViewController: UISearchBarDelegate {

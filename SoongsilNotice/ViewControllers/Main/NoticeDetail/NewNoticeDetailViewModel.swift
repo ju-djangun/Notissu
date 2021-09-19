@@ -1,6 +1,6 @@
 //
 //  NoticeDetailViewModel.swift
-//  SoongsilNotice
+//  Notissu
 //
 //  Copyright © 2021 Notissu. All rights reserved.
 //
@@ -32,7 +32,6 @@ protocol NoticeDetailViewModelProtocol: NoticeDetailViewModelInput, NoticeDetail
 class NewNoticeDetailViewModel: NoticeDetailViewModelProtocol {
     
     //  MARK: - OUTPUT
-    
     let title: String?
     let caption: String?
     let html: Dynamic<String> = Dynamic("")
@@ -42,9 +41,7 @@ class NewNoticeDetailViewModel: NoticeDetailViewModelProtocol {
     let shouldDividerBeHidden: Dynamic<Bool> = Dynamic(true)
     var fileDownloaderDelegate: FileDownloadDelegate?
     
-    
     //  MARK: - INPUT
-    
     func loadWebView() {
         if let url = notice.url {
             loadContentFromURL(string: url)
@@ -61,7 +58,6 @@ class NewNoticeDetailViewModel: NoticeDetailViewModelProtocol {
     }
     
     //  MARK: - Property
-    
     private let notice: Notice
     private let departmentCode: DeptCode?
     private let date: String?
@@ -80,7 +76,6 @@ class NewNoticeDetailViewModel: NoticeDetailViewModelProtocol {
 }
 
 //  MARK: - Bookmark
-
 extension NewNoticeDetailViewModel {
     private func isNoticeBookmarked() -> Bool {
         // Retrieve Data From Core Data
@@ -158,7 +153,6 @@ extension NewNoticeDetailViewModel {
 }
 
 //  MARK: - Webview load
-
 extension NewNoticeDetailViewModel {
     private func loadContentFromURL(string: String) {
         guard let url = string.decodeUrl()?.encodeUrl() else {
@@ -216,7 +210,6 @@ extension NewNoticeDetailViewModel {
 }
 
 //  MARK: - Download file
-
 extension NewNoticeDetailViewModel {
     private func downloadFile(at index: Int) {
         let attachment = self.attachments.value[index]

@@ -1,8 +1,7 @@
 //
 //  UIViewController+Ext.swift
-//  SoongsilNotice
+//  Notissu
 //
-//  Created by Gyuni on 2021/09/16.
 //  Copyright © 2021 Notissu. All rights reserved.
 //
 

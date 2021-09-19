@@ -1,6 +1,6 @@
 //
 //  BaseNoticesListViewController.swift
-//  SoongsilNotice
+//  Notissu
 //
 //  Copyright © 2021 Notissu. All rights reserved.
 //
@@ -13,13 +13,10 @@ class BaseNoticesListViewController: BaseViewController {
     //  MARK: - Property
     let viewModel: NoticesListViewModelProtocol
     
-    
     //  MARK: - ViewController
     let tableViewController: NoticesListTableViewController
     
-    
     //  MARK: - Init
-    
     init(with viewModel: NoticesListViewModelProtocol) {
         self.viewModel = viewModel
         self.tableViewController = NoticesListTableViewController(with: viewModel)
@@ -30,7 +27,6 @@ class BaseNoticesListViewController: BaseViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
-
     //  MARK: - Func
     override func viewDidLoad() {
         super.viewDidLoad()

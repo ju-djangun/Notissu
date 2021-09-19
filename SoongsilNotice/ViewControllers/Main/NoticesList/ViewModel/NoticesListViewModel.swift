@@ -1,6 +1,6 @@
 //
 //  NoticesListViewModel.swift
-//  SoongsilNotice
+//  Notissu
 //
 //  Copyright © 2021 Notissu. All rights reserved.
 //
@@ -22,19 +22,15 @@ protocol NoticesListViewModelOutput {
 
 protocol NoticesListViewModelProtocol: NoticesListViewModelInput, NoticesListViewModelOutput{}
 
-
 class NoticesListViewModel: NoticesListViewModelProtocol {
 
     //  MARK: - OUTPUT
-    
     var noticesList: Dynamic<[Notice]> = Dynamic([])
     var nowLoading: Dynamic<Bool> = Dynamic(false)
     var deptCode: Dynamic<DeptCode> = Dynamic(.Soongsil)
     var shouldShowErrorMessage: Dynamic<Bool> = Dynamic(false)
     
-    
     //  MARK: - INPUT
-        
     func loadInitialPage(keyword: String?) {
         self.keyword = keyword
         loadInitialPage()
@@ -53,19 +49,14 @@ class NoticesListViewModel: NoticesListViewModelProtocol {
         page += 1
     }
     
-    
     //  MARK: - Property
-    
     private var keyword: String?
     private var page: Int = 1
     
-    
     //  MARK: - Init
-    
     init(deptCode: DeptCode, keyword: String? = nil) {
         self.deptCode.value = deptCode
     }
-    
     
     //  MARK: - Func
     private func getListData(page: Int, keyword: String?) {

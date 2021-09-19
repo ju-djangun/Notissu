@@ -1,6 +1,6 @@
 //
 //  NoticesListTableViewController.swift
-//  SoongsilNotice
+//  Notissu
 //
 //  Copyright © 2021 Notissu. All rights reserved.
 //
@@ -15,13 +15,10 @@ class NoticesListTableViewController: YDSTableViewController {
     //  MARK: - View
     private let warningView = ErrorView(text: "결과를 찾을 수 없습니다.")
     
-    
     //  MARK: - Constant
-    
     private enum Dimension {
         static let bottomRefreshHeight: CGFloat = 100
     }
-    
     
     //  MARK: - Property
     private var didReachedBottom: Bool {
@@ -32,10 +29,8 @@ class NoticesListTableViewController: YDSTableViewController {
     }
     
     var progressBarDelegate: ProgressBarDelegate?
-
     
     //  MARK: - Init
-    
     init(with viewModel: NoticesListViewModelProtocol) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
@@ -45,9 +40,7 @@ class NoticesListTableViewController: YDSTableViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
-    
     //  MARK: - Func
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         bindViewModel()

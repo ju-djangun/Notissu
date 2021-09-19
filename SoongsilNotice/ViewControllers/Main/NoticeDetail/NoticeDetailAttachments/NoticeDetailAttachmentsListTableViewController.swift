@@ -1,6 +1,6 @@
 //
 //  NoticeDetailAttachmentsListTableViewController.swift
-//  SoongsilNotice
+//  Notissu
 //
 //  Copyright © 2021 Notissu. All rights reserved.
 //
@@ -16,11 +16,9 @@ class NoticeDetailAttachmentsListTableViewController: YDSTableViewController {
     
     
     //  MARK: - Constant
-    
     private enum Dimension {
         static let cellHeight: CGFloat = 48
     }
-    
     
     //  MARK: - Init
     init(with viewModel: NewNoticeDetailViewModel) {
@@ -31,10 +29,8 @@ class NoticeDetailAttachmentsListTableViewController: YDSTableViewController {
     required public init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-
     
     //  MARK: - Func
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         bindViewModel()
@@ -72,7 +68,6 @@ class NoticeDetailAttachmentsListTableViewController: YDSTableViewController {
 }
 
 //  MARK: - DataSource
-
 extension NoticeDetailAttachmentsListTableViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel.attachments.value.count
@@ -90,7 +85,6 @@ extension NoticeDetailAttachmentsListTableViewController {
 }
 
 //  MARK: - Delegate
-
 extension NoticeDetailAttachmentsListTableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
@@ -104,7 +98,6 @@ extension NoticeDetailAttachmentsListTableViewController {
 }
 
 //  MARK: - FileDownloaderDelegate
-
 extension NoticeDetailAttachmentsListTableViewController: FileDownloadDelegate, UIDocumentInteractionControllerDelegate {
     func fileDownloadDidEnd(at filePath: String?) {
         if let filePath = filePath {

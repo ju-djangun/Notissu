@@ -1,6 +1,6 @@
 //
 //  NoticesListViewController.swift
-//  SoongsilNotice
+//  Notissu
 //
 //  Copyright © 2021 Notissu. All rights reserved.
 //
@@ -11,12 +11,9 @@ import YDS
 class NoticesListViewController: BaseNoticesListViewController {
     
     //  MARK: - View
-    
     private let searchButton = YDSTopBarButton(image: YDSIcon.searchLine)
     
-    
     //  MARK: - Func
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 

@@ -1,6 +1,6 @@
 //
 //  NoticeDetailViewController.swift
-//  SoongsilNotice
+//  Notissu
 //
 //  Copyright © 2021 Notissu. All rights reserved.
 //
@@ -12,19 +12,15 @@ import YDS
 class NewNoticeDetailViewController: BaseViewController {
 
     //  MARK: - Property
-    
     private let viewModel: NoticeDetailViewModelProtocol
     
-    
     //  MARK: - Constant
-    
     private enum Dimension {
         enum Margin {
             static let vertical: CGFloat = 20
             static let horizontal: CGFloat = 24
         }
     }
-    
     
     //  MARK: - View
     private let shareButton: YDSTopBarButton = {
@@ -83,9 +79,7 @@ class NewNoticeDetailViewController: BaseViewController {
     }()
     
     //  MARK: - ViewController
-    
     private let attachmentsListTableViewController: NoticeDetailAttachmentsListTableViewController
-    
     
     //  MARK: - Init
     init(with viewModel: NewNoticeDetailViewModel) {
@@ -101,7 +95,6 @@ class NewNoticeDetailViewController: BaseViewController {
     
     
     //  MARK: - Func
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -207,9 +200,7 @@ class NewNoticeDetailViewController: BaseViewController {
 
 }
 
-
 //  MARK: - WKNavigationDelegate
-
 extension NewNoticeDetailViewController: WKNavigationDelegate {
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
@@ -234,9 +225,7 @@ extension NewNoticeDetailViewController: WKNavigationDelegate {
     }
 }
 
-
 //  MARK: - Action
-
 extension NewNoticeDetailViewController {
     @objc
     func buttonDidTap(_ sender: UIControl) {
@@ -268,9 +257,7 @@ extension NewNoticeDetailViewController {
     }
 }
 
-
 //  MARK: - ScrollView Delegate
-
 extension NewNoticeDetailViewController: UIScrollViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         if scrollView.contentOffset.y == 0 {

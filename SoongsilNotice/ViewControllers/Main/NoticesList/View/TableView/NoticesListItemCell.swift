@@ -1,6 +1,6 @@
 //
 //  NoticesListItemCell.swift
-//  SoongsilNotice
+//  Notissu
 //
 //  Copyright © 2021 Notissu. All rights reserved.
 //
@@ -13,7 +13,6 @@ class NoticesListItemCell: UITableViewCell {
     private var viewModel: NoticesListItemViewModel?
     
     //  MARK: - Constant
-    
     private enum Dimension {
         enum Margin {
             static let vertical: CGFloat = 6
@@ -25,7 +24,6 @@ class NoticesListItemCell: UITableViewCell {
             static let horizontal: CGFloat = 20
         }
     }
-    
     
     //  MARK: - View
     private let stackView: UIStackView = {
@@ -82,7 +80,6 @@ class NoticesListItemCell: UITableViewCell {
         return label
     }()
     
-    
     //  MARK: - Init
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -93,7 +90,6 @@ class NoticesListItemCell: UITableViewCell {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
     
     //  MARK: - Func
     private func setupViews() {
@@ -122,7 +118,6 @@ class NoticesListItemCell: UITableViewCell {
             $0.leading.trailing.equalToSuperview().inset(Dimension.Margin.horizontal)
         }
     }
-    
     
     //  MARK: - Input
     func fillData(with viewModel: NoticesListItemViewModel) {

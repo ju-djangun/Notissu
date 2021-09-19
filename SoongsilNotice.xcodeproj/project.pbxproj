@@ -23,6 +23,7 @@
 		531C933626F47CC7001C73DD /* NoticesListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 531C933526F47CC7001C73DD /* NoticesListTableViewController.swift */; };
 		531C933E26F5AE49001C73DD /* BaseNoticesListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 531C933D26F5AE49001C73DD /* BaseNoticesListViewController.swift */; };
 		531C934026F5B549001C73DD /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 531C933F26F5B548001C73DD /* ErrorView.swift */; };
+		5363AE1726F6FDFA00371569 /* UIColor+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5363AE1626F6FDFA00371569 /* UIColor+Ext.swift */; };
 		B03BA5F025176295002010CE /* NotissuColorSet.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DE53D1552400F54B00AEFCE2 /* NotissuColorSet.xcassets */; };
 		B07166B0269B15E300B49CF7 /* MainTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07166AF269B15E300B49CF7 /* MainTabBarViewController.swift */; };
 		B07166B7269B171E00B49CF7 /* MainNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07166B6269B171E00B49CF7 /* MainNavigationController.swift */; };
@@ -229,6 +230,7 @@
 		531C933526F47CC7001C73DD /* NoticesListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticesListTableViewController.swift; sourceTree = "<group>"; };
 		531C933D26F5AE49001C73DD /* BaseNoticesListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseNoticesListViewController.swift; sourceTree = "<group>"; };
 		531C933F26F5B548001C73DD /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
+		5363AE1626F6FDFA00371569 /* UIColor+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Ext.swift"; sourceTree = "<group>"; };
 		550CAE3A9D2DBDE403D9BE3F /* Pods-Notissu Today Extension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Notissu Today Extension.release.xcconfig"; path = "Target Support Files/Pods-Notissu Today Extension/Pods-Notissu Today Extension.release.xcconfig"; sourceTree = "<group>"; };
 		57296D4BD235F1B361E7E590 /* Pods_SoongsilNotice.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SoongsilNotice.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		90414B9DF20CF22441FFF574 /* Pods-SoongsilNotice-Notissu-Watch Extension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SoongsilNotice-Notissu-Watch Extension.debug.xcconfig"; path = "Target Support Files/Pods-SoongsilNotice-Notissu-Watch Extension/Pods-SoongsilNotice-Notissu-Watch Extension.debug.xcconfig"; sourceTree = "<group>"; };
@@ -488,6 +490,7 @@
 				B07166BA269B17CF00B49CF7 /* UIImage+Ext.swift */,
 				B07166D6269B1B6F00B49CF7 /* Dynamic.swift */,
 				531C932C26F32EAD001C73DD /* UIViewController+Ext.swift */,
+				5363AE1626F6FDFA00371569 /* UIColor+Ext.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -819,6 +822,8 @@
 			dependencies = (
 			);
 			name = "Notissu Today Extension";
+			packageProductDependencies = (
+			);
 			productName = "Notissu Today Extension";
 			productReference = DE64BE8323DD253C00DF46C5 /* Notissu Today Extension.appex */;
 			productType = "com.apple.product-type.app-extension";
@@ -1045,6 +1050,7 @@
 				B0A130BD26DE1CBA00BB1E28 /* TopContentView.swift in Sources */,
 				531C932426F31EA7001C73DD /* NoticeDetailAttachmentsListTableViewController.swift in Sources */,
 				DEF56D7A2383BF81003CA0F0 /* SchoolPresenter.swift in Sources */,
+				5363AE1726F6FDFA00371569 /* UIColor+Ext.swift in Sources */,
 				DE72017B237A76DE00F60CEB /* NoticeConvergence.swift in Sources */,
 				DEBFDC47237E3950003888D9 /* OpenSourceTableViewCell.swift in Sources */,
 				DE29614D2370FCB20074F24B /* NoticeListPresenter.swift in Sources */,

@@ -20,6 +20,20 @@ class NewNoticeDetailViewController: BaseViewController {
             static let vertical: CGFloat = 20
             static let horizontal: CGFloat = 24
         }
+        
+        enum WebView {
+            enum Margin {
+                static let vertical: CGFloat = 0
+                static let horizontal: CGFloat = 24
+            }
+        }
+    }
+    
+    private enum Paragraph {
+        static let fontSize = String(format: "%.0f", String.TypoStyle.body1.font.pointSize) + "px"
+        static let lineHeight = String(format: "%.1f", String.TypoStyle.body1.lineHeight)
+        static let textColor = YDSColor.textSecondary.hexCode
+        static let pointColor = YDSColor.textPointed.hexCode
     }
     
     //  MARK: - View
@@ -131,8 +145,18 @@ class NewNoticeDetailViewController: BaseViewController {
         webView.navigationDelegate = self
         webView.scrollView.isScrollEnabled = false
         webView.tintColor = YDSColor.textPointed
+        setWebViewProperties()
         
         attachmentsListTableViewController.progressBarDelegate = self
+    }
+    
+    private func setWebViewProperties() {
+        NoticeParser.Margin.horizontal = Dimension.Margin.horizontal
+        NoticeParser.Margin.vertical = Dimension.Margin.vertical
+        NoticeParser.Paragraph.fontSize = Paragraph.fontSize
+        NoticeParser.Paragraph.lineHeight = Paragraph.lineHeight
+        NoticeParser.Paragraph.textColor = Paragraph.textColor
+        NoticeParser.Paragraph.pointColor = Paragraph.pointColor
     }
     
     private func setViewHierarchy() {

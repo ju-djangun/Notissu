@@ -37,6 +37,13 @@ class NewNoticeDetailViewController: BaseViewController {
     }
     
     //  MARK: - View
+    private let topBarTitleLabel: UILabel = {
+        let label = UILabel()
+        label.font = YDSFont.subtitle3
+        label.textColor = UIColor.clear
+        return label
+    }()
+    
     private let shareButton: YDSTopBarButton = {
         let configuration = UIImage.SymbolConfiguration(weight: .light)
         let icon = UIImage(systemName: "square.and.arrow.up.on.square",
@@ -111,7 +118,6 @@ class NewNoticeDetailViewController: BaseViewController {
     //  MARK: - Func
     override func viewDidLoad() {
         super.viewDidLoad()
-
         setupViews()
         bindViewModel()
         loadWebView()
@@ -126,8 +132,8 @@ class NewNoticeDetailViewController: BaseViewController {
     private func setViewProperties() {
         self.extendedLayoutIncludesOpaqueBars = true
         
-        self.title = viewModel.title
-        self.navigationController?.navigationBar.setTitleVerticalPositionAdjustment(-2, for: .default)
+        topBarTitleLabel.text = viewModel.title
+        self.navigationItem.titleView = topBarTitleLabel
         self.navigationItem.setRightBarButtonItems([UIBarButtonItem(customView: bookmarkButton),
                                                     UIBarButtonItem(customView: shareButton),],
                                                    animated: true)
@@ -284,28 +290,24 @@ extension NewNoticeDetailViewController {
 //  MARK: - ScrollView Delegate
 extension NewNoticeDetailViewController: UIScrollViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        if scrollView.contentOffset.y == 0 {
+        if scrollView.contentOffset.y <= 0 {
             return
         }
         
         let topBarHeight: CGFloat = self.navigationController?.navigationBar.bounds.height ?? 44
         let gap: CGFloat = ((scrollView.contentOffset.y + topBarHeight)
                     - (titleLabel.bounds.height + Dimension.Margin.vertical))
+        var alpha: CGFloat { sineEaseInOut(gap/topBarHeight) }
+        topBarTitleLabel.textColor = YDSColor.textSecondary.withAlphaComponent(alpha)
         
-        var alpha: CGFloat {
-            let alpha = gap/topBarHeight
-            if alpha > 1 {
+        func sineEaseInOut(_ x: CGFloat) -> CGFloat {
+            if x > 1 {
                 return 1
-            } else if alpha < 0 {
+            } else if x < 0 {
                 return 0
             } else {
-                return alpha
+                return 1 / 2 * ((1 - cos(x * CGFloat.pi)))
             }
         }
-        
-        self.navigationController?.navigationBar.titleTextAttributes = [
-            NSAttributedString.Key.font: YDSFont.subtitle3,
-            NSAttributedString.Key.foregroundColor: YDSColor.textSecondary.withAlphaComponent(alpha)
-        ]
     }
 }

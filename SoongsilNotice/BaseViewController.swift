@@ -8,29 +8,21 @@
 import UIKit
 import Lottie
 import WatchConnectivity
+import YDS
 
-class BaseViewController: UIViewController, UIGestureRecognizerDelegate {
+class BaseViewController: UIViewController, UIGestureRecognizerDelegate, ProgressBarDelegate {
     let animationView = AnimationView(name: "notissu_anim")
     
     static var noticeDeptCode: DeptCode?
     static var noticeMajor   : Major?
-    weak var tabBarDelegate: MainTabBarDelegate?
-    
-//    override var preferredStatusBarStyle: UIStatusBarStyle {
-//        if let vc = self.navigationController?.topViewController {
-//            return vc.preferredStatusBarStyle
-//        } else {
-//            return .lightContent
-//        }
-//    }
-    
+        
     override func viewDidLoad() {
         super.viewDidLoad()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.navigationController?.navigationBar.barStyle = .black
+        self.view.backgroundColor = YDSColor.bgNormal
         self.checkUpdate()
     }
     
@@ -105,18 +97,23 @@ class BaseViewController: UIViewController, UIGestureRecognizerDelegate {
     }
     
     func showProgressBar() {
-        animationView.frame       = self.view.frame
-        animationView.center      = self.view.center
-        animationView.contentMode = .center
-        animationView.loopMode    = .loop
-        
+        animationView.loopMode      = .loop
         self.view.addSubview(animationView)
+        animationView.snp.makeConstraints {
+            $0.center.equalToSuperview()
+        }
         animationView.play()
     }
     
     func hideProgressBar() {
         animationView.stop()
         animationView.removeFromSuperview()
+    }
+    
+    func setNavigationTitleLabelFont() {
+        if let titleLabel = self.navigationItem.leftBarButtonItem?.customView as? UILabel {
+            titleLabel.font = UIFont(name: "Avenir-Black", size: 22)
+        }
     }
 }
 
@@ -146,4 +143,9 @@ extension UIColor {
         
         return nil
     }
+}
+
+protocol ProgressBarDelegate {
+    func showProgressBar()
+    func hideProgressBar()
 }

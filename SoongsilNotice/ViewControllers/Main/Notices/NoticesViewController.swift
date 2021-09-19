@@ -11,11 +11,6 @@ import UIKit
 import YDS
 
 final class NoticesViewController: BaseViewController {
-    private let topBar: YDSSingleTitleTopBar = {
-        $0.title = ""
-        return $0
-    }(YDSSingleTitleTopBar(title: nil))
-    
     private let noticeListView: UITableView = {
         return $0
     }(UITableView())
@@ -39,8 +34,10 @@ final class NoticesViewController: BaseViewController {
     
     private func bindViewModel() {
         viewModel.deptCode.bindAndFire { [weak self] deptCode in
-            guard let `self` = self else { return }
-            self.topBar.title = deptCode.getName()
+//            guard let `self` = self else { return }
+//            if let navigationController = self.navigationController as? YDSNavigationController {
+//                navigationController.title = deptCode.getName()
+//            }
         }
         
         viewModel.noticeList.bind { [weak self] _ in
@@ -67,6 +64,4 @@ extension NoticesViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         return UITableViewCell()
     }
-    
-    
 }

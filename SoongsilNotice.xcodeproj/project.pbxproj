@@ -8,6 +8,22 @@
 
 /* Begin PBXBuildFile section */
 		43C7B2F80E459CCCF0FD26CF /* Pods_Notissu_Today_Extension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C3F7DC8F67539D51717B753 /* Pods_Notissu_Today_Extension.framework */; };
+		531C931326F1D0A1001C73DD /* NoticesListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 531C931226F1D0A1001C73DD /* NoticesListViewController.swift */; };
+		531C931526F1D115001C73DD /* NoticesListItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 531C931426F1D115001C73DD /* NoticesListItemCell.swift */; };
+		531C931726F1D17D001C73DD /* NoticesListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 531C931626F1D17D001C73DD /* NoticesListViewModel.swift */; };
+		531C931A26F1D524001C73DD /* NoticesListItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 531C931926F1D524001C73DD /* NoticesListItemViewModel.swift */; };
+		531C931F26F1F1AD001C73DD /* NewNoticeDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 531C931E26F1F1AD001C73DD /* NewNoticeDetailViewModel.swift */; };
+		531C932126F1F1B7001C73DD /* NewNoticeDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 531C932026F1F1B7001C73DD /* NewNoticeDetailViewController.swift */; };
+		531C932426F31EA7001C73DD /* NoticeDetailAttachmentsListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 531C932326F31EA7001C73DD /* NoticeDetailAttachmentsListTableViewController.swift */; };
+		531C932626F31EC3001C73DD /* NoticeDetailAttachemtnsListItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 531C932526F31EC3001C73DD /* NoticeDetailAttachemtnsListItemCell.swift */; };
+		531C932926F32E49001C73DD /* YDSTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 531C932826F32E49001C73DD /* YDSTableViewController.swift */; };
+		531C932B26F32E57001C73DD /* YDSTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 531C932A26F32E57001C73DD /* YDSTableViewCell.swift */; };
+		531C932D26F32EAD001C73DD /* UIViewController+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 531C932C26F32EAD001C73DD /* UIViewController+Ext.swift */; };
+		531C933426F3A48C001C73DD /* NoticesSearchListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 531C933326F3A48C001C73DD /* NoticesSearchListViewController.swift */; };
+		531C933626F47CC7001C73DD /* NoticesListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 531C933526F47CC7001C73DD /* NoticesListTableViewController.swift */; };
+		531C933E26F5AE49001C73DD /* BaseNoticesListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 531C933D26F5AE49001C73DD /* BaseNoticesListViewController.swift */; };
+		531C934026F5B549001C73DD /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 531C933F26F5B548001C73DD /* ErrorView.swift */; };
+		5363AE1726F6FDFA00371569 /* UIColor+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5363AE1626F6FDFA00371569 /* UIColor+Ext.swift */; };
 		B03BA5F025176295002010CE /* NotissuColorSet.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DE53D1552400F54B00AEFCE2 /* NotissuColorSet.xcassets */; };
 		B07166B0269B15E300B49CF7 /* MainTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07166AF269B15E300B49CF7 /* MainTabBarViewController.swift */; };
 		B07166B7269B171E00B49CF7 /* MainNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07166B6269B171E00B49CF7 /* MainNavigationController.swift */; };
@@ -199,6 +215,22 @@
 		43AE74AC12E92E07EEB58FD4 /* libPods-Notissu-Watch Extension.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Notissu-Watch Extension.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4535F29D71ABF781F832B319 /* Pods-Notissu Today Extension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Notissu Today Extension.debug.xcconfig"; path = "Target Support Files/Pods-Notissu Today Extension/Pods-Notissu Today Extension.debug.xcconfig"; sourceTree = "<group>"; };
 		5109B6F37C7101EEB67D7049 /* Pods-SoongsilNotice.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SoongsilNotice.release.xcconfig"; path = "Target Support Files/Pods-SoongsilNotice/Pods-SoongsilNotice.release.xcconfig"; sourceTree = "<group>"; };
+		531C931226F1D0A1001C73DD /* NoticesListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticesListViewController.swift; sourceTree = "<group>"; };
+		531C931426F1D115001C73DD /* NoticesListItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticesListItemCell.swift; sourceTree = "<group>"; };
+		531C931626F1D17D001C73DD /* NoticesListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticesListViewModel.swift; sourceTree = "<group>"; };
+		531C931926F1D524001C73DD /* NoticesListItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticesListItemViewModel.swift; sourceTree = "<group>"; };
+		531C931E26F1F1AD001C73DD /* NewNoticeDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewNoticeDetailViewModel.swift; sourceTree = "<group>"; };
+		531C932026F1F1B7001C73DD /* NewNoticeDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewNoticeDetailViewController.swift; sourceTree = "<group>"; };
+		531C932326F31EA7001C73DD /* NoticeDetailAttachmentsListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeDetailAttachmentsListTableViewController.swift; sourceTree = "<group>"; };
+		531C932526F31EC3001C73DD /* NoticeDetailAttachemtnsListItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeDetailAttachemtnsListItemCell.swift; sourceTree = "<group>"; };
+		531C932826F32E49001C73DD /* YDSTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YDSTableViewController.swift; sourceTree = "<group>"; };
+		531C932A26F32E57001C73DD /* YDSTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YDSTableViewCell.swift; sourceTree = "<group>"; };
+		531C932C26F32EAD001C73DD /* UIViewController+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Ext.swift"; sourceTree = "<group>"; };
+		531C933326F3A48C001C73DD /* NoticesSearchListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticesSearchListViewController.swift; sourceTree = "<group>"; };
+		531C933526F47CC7001C73DD /* NoticesListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticesListTableViewController.swift; sourceTree = "<group>"; };
+		531C933D26F5AE49001C73DD /* BaseNoticesListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseNoticesListViewController.swift; sourceTree = "<group>"; };
+		531C933F26F5B548001C73DD /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
+		5363AE1626F6FDFA00371569 /* UIColor+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Ext.swift"; sourceTree = "<group>"; };
 		550CAE3A9D2DBDE403D9BE3F /* Pods-Notissu Today Extension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Notissu Today Extension.release.xcconfig"; path = "Target Support Files/Pods-Notissu Today Extension/Pods-Notissu Today Extension.release.xcconfig"; sourceTree = "<group>"; };
 		57296D4BD235F1B361E7E590 /* Pods_SoongsilNotice.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SoongsilNotice.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		90414B9DF20CF22441FFF574 /* Pods-SoongsilNotice-Notissu-Watch Extension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SoongsilNotice-Notissu-Watch Extension.debug.xcconfig"; path = "Target Support Files/Pods-SoongsilNotice-Notissu-Watch Extension/Pods-SoongsilNotice-Notissu-Watch Extension.debug.xcconfig"; sourceTree = "<group>"; };
@@ -340,6 +372,73 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		531C931826F1D1AC001C73DD /* NoticesList */ = {
+			isa = PBXGroup;
+			children = (
+				531C931B26F1F067001C73DD /* ViewModel */,
+				531C931C26F1F075001C73DD /* View */,
+			);
+			path = NoticesList;
+			sourceTree = "<group>";
+		};
+		531C931B26F1F067001C73DD /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				531C931626F1D17D001C73DD /* NoticesListViewModel.swift */,
+				531C931926F1D524001C73DD /* NoticesListItemViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		531C931C26F1F075001C73DD /* View */ = {
+			isa = PBXGroup;
+			children = (
+				531C933D26F5AE49001C73DD /* BaseNoticesListViewController.swift */,
+				531C931226F1D0A1001C73DD /* NoticesListViewController.swift */,
+				531C933326F3A48C001C73DD /* NoticesSearchListViewController.swift */,
+				531C934226F5DE0B001C73DD /* TableView */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		531C931D26F1F19D001C73DD /* NoticeDetail */ = {
+			isa = PBXGroup;
+			children = (
+				531C931E26F1F1AD001C73DD /* NewNoticeDetailViewModel.swift */,
+				531C932026F1F1B7001C73DD /* NewNoticeDetailViewController.swift */,
+				531C932226F31E5B001C73DD /* NoticeDetailAttachments */,
+			);
+			path = NoticeDetail;
+			sourceTree = "<group>";
+		};
+		531C932226F31E5B001C73DD /* NoticeDetailAttachments */ = {
+			isa = PBXGroup;
+			children = (
+				531C932326F31EA7001C73DD /* NoticeDetailAttachmentsListTableViewController.swift */,
+				531C932526F31EC3001C73DD /* NoticeDetailAttachemtnsListItemCell.swift */,
+			);
+			path = NoticeDetailAttachments;
+			sourceTree = "<group>";
+		};
+		531C932726F32E27001C73DD /* YDSTempComponent */ = {
+			isa = PBXGroup;
+			children = (
+				531C932826F32E49001C73DD /* YDSTableViewController.swift */,
+				531C932A26F32E57001C73DD /* YDSTableViewCell.swift */,
+			);
+			path = YDSTempComponent;
+			sourceTree = "<group>";
+		};
+		531C934226F5DE0B001C73DD /* TableView */ = {
+			isa = PBXGroup;
+			children = (
+				531C933526F47CC7001C73DD /* NoticesListTableViewController.swift */,
+				531C931426F1D115001C73DD /* NoticesListItemCell.swift */,
+				531C933F26F5B548001C73DD /* ErrorView.swift */,
+			);
+			path = TableView;
+			sourceTree = "<group>";
+		};
 		8C7A827DD516122B5FDBC531 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -366,6 +465,8 @@
 		B07166AE269B15D900B49CF7 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				531C931D26F1F19D001C73DD /* NoticeDetail */,
+				531C931826F1D1AC001C73DD /* NoticesList */,
 				B07166C1269B184700B49CF7 /* Search */,
 				B07166C0269B183D00B49CF7 /* Notices */,
 				B07166BF269B183300B49CF7 /* MajorList */,
@@ -388,6 +489,8 @@
 				B07166B8269B175100B49CF7 /* MainUINavigationBar.swift */,
 				B07166BA269B17CF00B49CF7 /* UIImage+Ext.swift */,
 				B07166D6269B1B6F00B49CF7 /* Dynamic.swift */,
+				531C932C26F32EAD001C73DD /* UIViewController+Ext.swift */,
+				5363AE1626F6FDFA00371569 /* UIColor+Ext.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -537,6 +640,7 @@
 		DE29613423703F4C0074F24B /* SoongsilNotice */ = {
 			isa = PBXGroup;
 			children = (
+				531C932726F32E27001C73DD /* YDSTempComponent */,
 				B0A130BB26DE1CA900BB1E28 /* CommonViews */,
 				B07166DB269B1FAD00B49CF7 /* Model */,
 				B07166D8269B1C2300B49CF7 /* DataRepository */,
@@ -718,6 +822,8 @@
 			dependencies = (
 			);
 			name = "Notissu Today Extension";
+			packageProductDependencies = (
+			);
 			productName = "Notissu Today Extension";
 			productReference = DE64BE8323DD253C00DF46C5 /* Notissu Today Extension.appex */;
 			productType = "com.apple.product-type.app-extension";
@@ -884,13 +990,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				531C932926F32E49001C73DD /* YDSTableViewController.swift in Sources */,
 				DE53D14B23FC21D300AEFCE2 /* BookmarkViewController.swift in Sources */,
 				DE8C73862379BDF6008F2FE1 /* NoticeSocial.swift in Sources */,
+				531C932626F31EC3001C73DD /* NoticeDetailAttachemtnsListItemCell.swift in Sources */,
 				DE53D14F23FC21E400AEFCE2 /* BookmarkPresenter.swift in Sources */,
 				B0A130B626DE177F00BB1E28 /* MajorListCell.swift in Sources */,
 				B0A130C326DF4BA200BB1E28 /* NoticeParser.swift in Sources */,
 				DEBFDC43237E31A3003888D9 /* MoreTableCell.swift in Sources */,
 				DE29613623703F4C0074F24B /* AppDelegate.swift in Sources */,
+				531C932B26F32E57001C73DD /* YDSTableViewCell.swift in Sources */,
 				DE7496B523DC00D400000849 /* SearchModel.swift in Sources */,
 				DE29615B237289D60074F24B /* NoticeDetailContract.swift in Sources */,
 				DE75F91424064F2E00510E78 /* VersionInfoView.swift in Sources */,
@@ -909,18 +1018,24 @@
 				DE55424623784879004E01EB /* SplashViewController.swift in Sources */,
 				DE29614F2370FCD20074F24B /* NoticeListContract.swift in Sources */,
 				DEF56D7523837778003CA0F0 /* SearchViewController.swift in Sources */,
+				531C931526F1D115001C73DD /* NoticesListItemCell.swift in Sources */,
 				DE0F8F1A2373A222006A0B49 /* BaseViewController.swift in Sources */,
+				531C931326F1D0A1001C73DD /* NoticesListViewController.swift in Sources */,
 				B07166B0269B15E300B49CF7 /* MainTabBarViewController.swift in Sources */,
 				DEF56D7C2383C002003CA0F0 /* SchoolContract.swift in Sources */,
 				B07166C9269B190800B49CF7 /* MajorListViewModel.swift in Sources */,
 				B07166CB269B193300B49CF7 /* NoticesViewController.swift in Sources */,
+				531C931A26F1D524001C73DD /* NoticesListItemViewModel.swift in Sources */,
 				DE53D0B323F8EA4E00AEFCE2 /* CoreDataUtil.swift in Sources */,
+				531C934026F5B549001C73DD /* ErrorView.swift in Sources */,
 				B07166CD269B194700B49CF7 /* NoticesViewModel.swift in Sources */,
+				531C933E26F5AE49001C73DD /* BaseNoticesListViewController.swift in Sources */,
 				B07166D1269B198100B49CF7 /* NoticeSearchViewModel.swift in Sources */,
 				B07166BD269B180900B49CF7 /* NoticeListViewModel.swift in Sources */,
 				DEC1684C23F7A84500DE2D84 /* NotissuProperty.swift in Sources */,
 				B07166D7269B1B6F00B49CF7 /* Dynamic.swift in Sources */,
 				B0A130B926DE185A00BB1E28 /* Major.swift in Sources */,
+				531C933426F3A48C001C73DD /* NoticesSearchListViewController.swift in Sources */,
 				B07166B7269B171E00B49CF7 /* MainNavigationController.swift in Sources */,
 				DE0F8F2323740041006A0B49 /* NoticeLaw.swift in Sources */,
 				B07166BB269B17CF00B49CF7 /* UIImage+Ext.swift in Sources */,
@@ -928,11 +1043,14 @@
 				B07166B9269B175100B49CF7 /* MainUINavigationBar.swift in Sources */,
 				DE03E9CF2379B05D002AA5AE /* NoticeBusiness.swift in Sources */,
 				DE5542422377D993004E01EB /* StartViewController.swift in Sources */,
+				531C932D26F32EAD001C73DD /* UIViewController+Ext.swift in Sources */,
 				DE2961592371ADEE0074F24B /* NoticeDetailViewController.swift in Sources */,
 				DE7496B323DC009500000849 /* SearchContract.swift in Sources */,
 				DE2961532370FF4E0074F24B /* Notice.swift in Sources */,
 				B0A130BD26DE1CBA00BB1E28 /* TopContentView.swift in Sources */,
+				531C932426F31EA7001C73DD /* NoticeDetailAttachmentsListTableViewController.swift in Sources */,
 				DEF56D7A2383BF81003CA0F0 /* SchoolPresenter.swift in Sources */,
+				5363AE1726F6FDFA00371569 /* UIColor+Ext.swift in Sources */,
 				DE72017B237A76DE00F60CEB /* NoticeConvergence.swift in Sources */,
 				DEBFDC47237E3950003888D9 /* OpenSourceTableViewCell.swift in Sources */,
 				DE29614D2370FCB20074F24B /* NoticeListPresenter.swift in Sources */,
@@ -944,9 +1062,13 @@
 				DE8C73842379BB2E008F2FE1 /* NoticeEconomy.swift in Sources */,
 				B0A130C626DF4CA600BB1E28 /* Attachment.swift in Sources */,
 				DE501C472374FC9D0053055A /* NoticeInmun.swift in Sources */,
+				531C932126F1F1B7001C73DD /* NewNoticeDetailViewController.swift in Sources */,
+				531C931726F1D17D001C73DD /* NoticesListViewModel.swift in Sources */,
 				DE0F8F1823739C8A006A0B49 /* NoticeAttachmentCell.swift in Sources */,
+				531C931F26F1F1AD001C73DD /* NewNoticeDetailViewModel.swift in Sources */,
 				B0A130C026DE1F7E00BB1E28 /* MajorListSectionHeaderView.swift in Sources */,
 				B07166DA269B1C3100B49CF7 /* NoticeFetchManager.swift in Sources */,
+				531C933626F47CC7001C73DD /* NoticesListTableViewController.swift in Sources */,
 				DE4B18EB241208E7007FD285 /* ModifyProfileViewController.swift in Sources */,
 				DE5542402377CC31004E01EB /* NoticeNaturalScience.swift in Sources */,
 				DE29614B2370FC720074F24B /* NoticeListViewController.swift in Sources */,
@@ -1202,7 +1324,8 @@
 			baseConfigurationReference = 4535F29D71ABF781F832B319 /* Pods-Notissu Today Extension.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = "Notissu Today Extension/Notissu Today Extension.entitlements";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = M79H9K226Y;
 				INFOPLIST_FILE = "Notissu Today Extension/Info.plist";
@@ -1215,6 +1338,7 @@
 				MARKETING_VERSION = 1.4.1;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.elliott.notissu-ios.Notissu-Today-Extension";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "Notissu iOS Today Extension Provisioning Profile";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1226,7 +1350,8 @@
 			baseConfigurationReference = 550CAE3A9D2DBDE403D9BE3F /* Pods-Notissu Today Extension.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = "Notissu Today Extension/Notissu Today Extension.entitlements";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = M79H9K226Y;
 				INFOPLIST_FILE = "Notissu Today Extension/Info.plist";
@@ -1239,6 +1364,7 @@
 				MARKETING_VERSION = 1.4.1;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.elliott.notissu-ios.Notissu-Today-Extension";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "Notissu iOS Today Extension Provisioning Profile";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

@@ -39,7 +39,7 @@ class NoticeAttachmentCell: UITableViewCell {
         self.attachmentTitle.text = self.attachment?.fileName ?? ""
         self.fileTypeIcon.image = attachment?.fileName.fileTypeIcon.iconImage
         self.fileDownloadURL = self.attachment?.fileURL ?? ""
-    }
+    }   
     
     func doDownloadFile(_ action: UIAlertAction) {
         var encodedUrl = self.fileDownloadURL

@@ -11,21 +11,19 @@ import Kanna
 final class NoticeParser {
     public static let shared: NoticeParser = NoticeParser()
     
-    private enum Dimension {
-        enum Margin {
-            static let horizontal = 20
-            static let vertical = 24
-        }
+    enum Margin {
+        static var vertical: CGFloat = 0
+        static var horizontal: CGFloat = 0
     }
     
-    private enum Paragraph {
-        static let fontSize = "16px"
-        static let lineHeight = "1.6"
-        static let textColor = "#333D4B"
-        static let pointColor = "#505782"
+    enum Paragraph {
+        static var fontSize = ""
+        static var lineHeight = ""
+        static var textColor = ""
+        static var pointColor = ""
     }
     
-    private let htmlStart =
+    private var htmlStart: String {
         // special thx to dino han
         """
         <head>
@@ -38,8 +36,8 @@ final class NoticeParser {
             }
 
             iframe {
-                width: calc(100vw - \(Dimension.Margin.horizontal*2)px) !important;
-                height: calc((100vw - \(Dimension.Margin.horizontal*2)px)/ 16*9) !important;
+                width: calc(100vw - \(Margin.horizontal*2)px) !important;
+                height: calc((100vw - \(Margin.horizontal*2)px)/ 16*9) !important;
                 overflow: scroll;
             }
 
@@ -49,8 +47,7 @@ final class NoticeParser {
             }
 
             body {
-                margin: \(Dimension.Margin.vertical)px \(Dimension.Margin.horizontal)px;
-
+                margin: \(Margin.vertical)px \(Margin.horizontal)px;
             }
         
             * {
@@ -68,6 +65,7 @@ final class NoticeParser {
             }
         </style>
         """
+    }
     private let htmlEnd = ""
     
     private init() { }

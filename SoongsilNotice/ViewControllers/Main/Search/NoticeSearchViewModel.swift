@@ -8,5 +8,13 @@
 import Foundation
 
 final class NoticeSearchViewModel {
-    var searchKeyword: Dynamic<String> = Dynamic("")
+    var majorList: Dynamic<[DeptCode]> = Dynamic([])
+    
+    init() {
+        for deptCode in DeptCode.allCases {
+            if deptCode != DeptCode.Inmun_Writing {
+                majorList.value.append(deptCode)
+            }
+        }
+    }
 }

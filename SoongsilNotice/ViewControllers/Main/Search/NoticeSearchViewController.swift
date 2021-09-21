@@ -1,45 +1,56 @@
 //
-//  NoticeSearchViewController.swift
+//  SearchViewController.swift
 //  Notissu
 //
 //  Copyright © 2021 Notissu. All rights reserved.
 //
 
-import Foundation
-import SnapKit
 import UIKit
+import YDS
 
-final class NoticeSearchViewController: BaseViewController {
-    private let containerView: UIView = {
-        $0.backgroundColor = UIColor(named: "notissuBlue1000s")
-        return $0
-    }(UIView())
+class NoticeSearchViewController: BaseViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     
-    private let searchBtn: UIButton = {
-        $0.backgroundColor = .white
+    private var majorSelectLabel: UILabel = {
+        $0.text = "전공을 선택해주세요."
+        $0.textColor = YDSColor.buttonPoint
+        $0.font = UIFont.systemFont(ofSize: 14, weight: .semibold)
         return $0
-    }(UIButton())
+    }(UILabel())
     
-    private let contentStackView: UIStackView = {
-        $0.axis = .vertical
-        $0.spacing = 4
-        $0.distribution = .fillEqually
+    private var searchTitleLabel: UILabel = {
+        $0.text = "검색어 입력"
+        $0.textColor = YDSColor.buttonPoint
+        $0.font = UIFont.systemFont(ofSize: 14, weight: .semibold)
         return $0
-    }(UIStackView())
+    }(UILabel())
     
-    private let majorSelectBtn: UIButton = {
+    private var lblSelectedMajor  : UILabel = {
+        $0.text = "선택한 전공 : 전공을 선택해주세요."
+        $0.font = UIFont.systemFont(ofSize: 14, weight: .semibold)
         return $0
-    }(UIButton())
+    }(UILabel())
     
-    private let keywordTextField: UITextField = {
+    private var searchBtn: YDSBoxButton = {
+        $0.text = "검색하기"
+        $0.addTarget(self, action: #selector(searchAction(_:)), for: .touchUpInside)
         return $0
-    }(UITextField())
+    }(YDSBoxButton())
     
-    private let resultTableView: UITableView = {
+    private var majorSelectionBtn: YDSBoxButton = {
+        $0.text = "전공 선택"
+        $0.addTarget(self, action: #selector(selectMajorAction(_:)), for: .touchUpInside)
         return $0
-    }(UITableView())
+    }(YDSBoxButton())
     
-    let viewModel: NoticeSearchViewModel
+    private var keywordTextField: YDSSimpleTextFieldView = {
+        $0.placeholder = "검색어를 입력해주세요."
+        return $0
+    }(YDSSimpleTextFieldView())
+    
+    private var selectedIndex = -1
+    private var selectedMajor: DeptCode = .IT_Computer
+    
+    private let viewModel: NoticeSearchViewModel!
     
     init(viewModel: NoticeSearchViewModel) {
         self.viewModel = viewModel
@@ -50,44 +61,148 @@ final class NoticeSearchViewController: BaseViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        setupViewLayout()
-        bindViewModel()
-        setNavigationTitleLabelFont()
-    }
-    
-    private func bindViewModel() {
-        
-    }
-    
     private func setupViewLayout() {
-        view.addSubview(containerView)
-        containerView.addSubview(searchBtn)
-        containerView.addSubview(contentStackView)
-        contentStackView.addArrangedSubview(majorSelectBtn)
-        contentStackView.addArrangedSubview(keywordTextField)
+        view.addSubview(majorSelectLabel)
+        view.addSubview(majorSelectionBtn)
+        view.addSubview(searchTitleLabel)
+        view.addSubview(keywordTextField)
+        view.addSubview(lblSelectedMajor)
+        view.addSubview(searchBtn)
         
-        containerView.snp.makeConstraints { make in
-            make.top.leading.trailing.equalToSuperview()
+        majorSelectLabel.snp.makeConstraints { make in
+            make.top.equalTo(view.safeAreaLayoutGuide.snp.top).offset(10)
+            make.leading.equalToSuperview().offset(16)
+            make.trailing.equalToSuperview().offset(-16)
+        }
+        
+        majorSelectionBtn.snp.makeConstraints { make in
+            make.top.equalTo(majorSelectLabel.snp.bottom).offset(10)
+            make.leading.equalToSuperview().offset(16)
+            make.trailing.equalToSuperview().offset(-16)
+        }
+        
+        searchTitleLabel.snp.makeConstraints { make in
+            make.top.equalTo(majorSelectionBtn.snp.bottom).offset(10)
+            make.leading.equalToSuperview().offset(16)
+            make.trailing.equalToSuperview().offset(-16)
+        }
+        
+        keywordTextField.snp.makeConstraints { make in
+            make.top.equalTo(searchTitleLabel.snp.bottom).offset(10)
+            make.leading.equalToSuperview().offset(16)
+            make.trailing.equalToSuperview().offset(-16)
+        }
+        
+        lblSelectedMajor.snp.makeConstraints { make in
+            make.top.equalTo(keywordTextField.snp.bottom).offset(10)
+            make.leading.equalToSuperview().offset(16)
+            make.trailing.equalToSuperview().offset(-16)
         }
         
         searchBtn.snp.makeConstraints { make in
-            make.top.trailing.equalToSuperview().offset(4)
-            make.bottom.equalToSuperview().offset(-4)
-            make.width.equalTo(60)
+            make.leading.equalToSuperview().offset(16)
+            make.trailing.equalToSuperview().offset(-16)
+            make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom).offset(-10)
+        }
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        setupViewLayout()
+        
+        lblSelectedMajor.textColor = NotiSSU_ColorSet.notissuGray
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
+    
+    @objc
+    private func searchAction(_ sender: Any?) {
+        if selectedIndex < 0 {
+            let alert = UIAlertController(title: "전공을 선택해주세요", message: "", preferredStyle: .alert)
+            alert.isModalInPopover = true
+            alert.addAction(UIAlertAction(title: "확인", style: .default, handler: nil))
+            self.present(alert,animated: true, completion: nil )
+        } else if (self.keywordTextField.text ?? "").isEmpty {
+            let alert = UIAlertController(title: "검색어를 입력해주세요", message: "", preferredStyle: .alert)
+            alert.isModalInPopover = true
+            alert.addAction(UIAlertAction(title: "확인", style: .default, handler: nil))
+            self.present(alert,animated: true, completion: nil )
+        } else {
+            
+            let storyBoard = self.storyboard!
+            let noticeListViewController = storyBoard.instantiateViewController(withIdentifier: "noticeListVC") as? NoticeListViewController
+            
+            noticeListViewController?.department = Major(majorCode: self.viewModel.majorList.value[selectedIndex])
+            
+            noticeListViewController?.isSearchResult = true
+            noticeListViewController?.listType = .normalList
+            noticeListViewController?.searchKeyword = self.keywordTextField.text
+            
+            self.navigationController?.pushViewController(noticeListViewController!, animated: true)
+        }
+    }
+    
+    @objc
+    private func selectMajorAction(_ sender: Any?) {
+        showPickerActionSheet()
+    }
+    
+    func showPickerActionSheet() {
+        let alert: UIAlertController?
+        let pickerFrame: UIPickerView?
+        
+        if UIDevice.current.userInterfaceIdiom == .pad {
+            alert = UIAlertController(title: "전공을 선택하세요.", message: "\n\n\n\n\n\n\n\n", preferredStyle: .alert)
+            alert!.isModalInPopover = true
+            pickerFrame = UIPickerView(frame: CGRect(x: 0, y: 40, width: 270, height: 150))
+        } else {
+            alert = UIAlertController(title: "전공을 선택하세요.", message: "\n\n\n\n\n\n", preferredStyle: .actionSheet)
+            alert!.isModalInPopover = true
+            let width = alert!.view.frame.width
+            pickerFrame = UIPickerView(frame: CGRect(x: 0, y: 40, width: width - 16, height: 150))
         }
         
-        contentStackView.snp.makeConstraints { make in
-            make.top.leading.equalToSuperview().offset(4)
-            make.bottom.equalToSuperview().offset(-4)
-            make.trailing.equalTo(searchBtn.snp.leading).offset(-4)
+        alert!.view.addSubview(pickerFrame!)
+        pickerFrame!.dataSource = self
+        pickerFrame!.delegate = self
+        
+        if self.selectedIndex < 0 {
+            self.selectedIndex = 0
         }
         
-        [majorSelectBtn, keywordTextField].forEach {
-            $0.snp.makeConstraints { make in
-                make.leading.trailing.equalToSuperview()
-            }
-        }
+        pickerFrame!.selectRow(selectedIndex, inComponent: 0, animated: true)
+        
+        alert!.addAction(UIAlertAction(title: "취소", style: .cancel, handler: nil))
+        alert!.addAction(UIAlertAction(title: "확인", style: .default, handler: { (UIAlertAction) in
+            self.lblSelectedMajor.text = "선택한 전공 : \(self.selectedMajor.getName())"
+            
+        }))
+        self.present(alert!, animated: true, completion: nil)
+    }
+    
+}
+
+extension NoticeSearchViewController {
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return viewModel.majorList.value.count
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return viewModel.majorList.value[row].getName()
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        selectedIndex = row
+        selectedMajor = viewModel.majorList.value[row]
     }
 }

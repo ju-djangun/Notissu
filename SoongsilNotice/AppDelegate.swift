@@ -30,7 +30,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         window = UIWindow(frame: UIScreen.main.bounds)
         HomeSwitcher.shared.updateRootVC()
-//        window?.rootViewController = UpdateCheckController()
         window?.makeKeyAndVisible()
         
         return true

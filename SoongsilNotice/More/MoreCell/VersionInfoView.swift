@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import YDS
 
 struct Version {
     let currentVersion: String
@@ -42,23 +43,24 @@ class VersionInfoView: UIView {
     
     private func applyVersionToView() {
         if let ver = self.version {
-            self.updateBtn.layer.borderColor = UIColor(named: "notissuAccent1000s")?.cgColor
-            self.updateBtn.layer.borderWidth = 1
+            updateBtn.layer.borderColor = YDSColor.buttonPoint.cgColor
+            updateBtn.layer.borderWidth = 1
             
-            self.updateBtn.layer.masksToBounds = true
-            self.updateBtn.layer.cornerRadius = 6
+            updateBtn.layer.masksToBounds = true
+            updateBtn.layer.cornerRadius = 6
             
-            self.lblCurrentVersion.text = "현재 버전 : \(ver.currentVersion)"
-            self.lblRecentVersion.text = "최신 버전 : \(ver.recentVersion)"
+            lblCurrentVersion.text = "현재 버전 : \(ver.currentVersion)"
+            lblRecentVersion.text = "최신 버전 : \(ver.recentVersion)"
+            lblRecentVersion.textColor = YDSColor.textPointed
             
-            self.updateBtn.isHidden = !ver.isUpdateRequired
+            updateBtn.isHidden = !ver.isUpdateRequired
             
             if ver.isUpdateRequired {
-                self.lblStateMessage.text = "업데이트가 필요합니다."
-                self.lblStateMessage.textColor = UIColor(named: "notissuRed1000s")
+                lblStateMessage.text = "업데이트가 필요합니다."
+                lblStateMessage.textColor = UIColor(named: "notissuRed1000s")
             } else {
-                self.lblStateMessage.text = "최신 버전을 사용중입니다."
-                self.lblStateMessage.textColor = UIColor(named: "notissuGray500s")
+                lblStateMessage.text = "최신 버전을 사용중입니다."
+                lblStateMessage.textColor = UIColor(named: "notissuGray500s")
             }
         }
     }

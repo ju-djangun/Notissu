@@ -121,7 +121,7 @@ class StartViewController: BaseViewController, UIPickerViewDelegate, UIPickerVie
         
         UserDefaults(suiteName: "group.com.elliott.Notissu")?.set(myCode.rawValue, forKey: "myDeptCode")
         
-        HomeSwitcher.shared.updateRootVC()
+        HomeSwitcher.shared.updateRootVCAfterCheckingVersion()
     }
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {

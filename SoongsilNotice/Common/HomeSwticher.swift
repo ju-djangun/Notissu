@@ -15,9 +15,7 @@ class HomeSwitcher {
     private var appDelegate: AppDelegate {
         return UIApplication.shared.delegate as! AppDelegate
     }
-    
-    private var count = 0
-    
+        
     static let shared = HomeSwitcher()
     
     func updateRootVC() {

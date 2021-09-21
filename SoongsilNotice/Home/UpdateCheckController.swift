@@ -23,4 +23,5 @@ class UpdateCheckController: BaseViewController {
         
         HomeSwitcher.shared.updateRootVCAfterCheckingVersion()
     }
+    
 }

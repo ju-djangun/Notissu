@@ -43,7 +43,7 @@ class BaseViewController: UIViewController, UIGestureRecognizerDelegate, Progres
         let okButton = UIAlertAction(title: "확인", style: .default, handler: handler)
         alertController.addAction(okButton)
         
-        self.present(alertController, animated: true, completion: { print ("끝") })
+        self.present(alertController, animated: true, completion: nil)
     }
     
     func showAlertOK(title: String) {
@@ -56,7 +56,7 @@ class BaseViewController: UIViewController, UIGestureRecognizerDelegate, Progres
     }
     
     func showProgressBar() {
-        animationView.loopMode      = .loop
+        animationView.loopMode = .loop
         self.view.addSubview(animationView)
         animationView.snp.makeConstraints {
             $0.center.equalToSuperview()

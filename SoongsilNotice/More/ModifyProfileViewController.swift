@@ -57,7 +57,6 @@ class ModifyProfileViewController: BaseViewController, UIPickerViewDelegate, UIP
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        self.checkUpdate()
     }
     
     override func viewDidLoad() {

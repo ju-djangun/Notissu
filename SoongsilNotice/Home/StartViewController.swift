@@ -55,7 +55,6 @@ class StartViewController: BaseViewController, UIPickerViewDelegate, UIPickerVie
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        self.checkUpdate()
     }
     
     override func viewDidLoad() {
@@ -122,7 +121,7 @@ class StartViewController: BaseViewController, UIPickerViewDelegate, UIPickerVie
         
         UserDefaults(suiteName: "group.com.elliott.Notissu")?.set(myCode.rawValue, forKey: "myDeptCode")
         
-        HomeSwitcher.updateRootVC()
+        HomeSwitcher.shared.updateRootVC()
     }
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {

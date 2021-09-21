@@ -121,7 +121,7 @@
 		DE5542402377CC31004E01EB /* NoticeNaturalScience.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE55423F2377CC31004E01EB /* NoticeNaturalScience.swift */; };
 		DE5542422377D993004E01EB /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE5542412377D993004E01EB /* StartViewController.swift */; };
 		DE5542442377E076004E01EB /* HomeSwticher.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE5542432377E076004E01EB /* HomeSwticher.swift */; };
-		DE55424623784879004E01EB /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE55424523784879004E01EB /* SplashViewController.swift */; };
+		DE55424623784879004E01EB /* UpdateCheckController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE55424523784879004E01EB /* UpdateCheckController.swift */; };
 		DE55424B2379340A004E01EB /* MoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE55424A2379340A004E01EB /* MoreViewController.swift */; };
 		DE64BE8523DD253C00DF46C5 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE64BE8423DD253C00DF46C5 /* NotificationCenter.framework */; };
 		DE64BE8823DD253C00DF46C5 /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE64BE8723DD253C00DF46C5 /* TodayViewController.swift */; };
@@ -307,7 +307,7 @@
 		DE55423F2377CC31004E01EB /* NoticeNaturalScience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeNaturalScience.swift; sourceTree = "<group>"; };
 		DE5542412377D993004E01EB /* StartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
 		DE5542432377E076004E01EB /* HomeSwticher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeSwticher.swift; sourceTree = "<group>"; };
-		DE55424523784879004E01EB /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
+		DE55424523784879004E01EB /* UpdateCheckController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateCheckController.swift; sourceTree = "<group>"; };
 		DE55424A2379340A004E01EB /* MoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreViewController.swift; sourceTree = "<group>"; };
 		DE64BE8323DD253C00DF46C5 /* Notissu Today Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Notissu Today Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE64BE8423DD253C00DF46C5 /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
@@ -612,7 +612,7 @@
 			isa = PBXGroup;
 			children = (
 				DE5542412377D993004E01EB /* StartViewController.swift */,
-				DE55424523784879004E01EB /* SplashViewController.swift */,
+				DE55424523784879004E01EB /* UpdateCheckController.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -1015,7 +1015,7 @@
 				B07166CF269B197200B49CF7 /* NoticeSearchViewController.swift in Sources */,
 				DE1772D3240F64F400A58A66 /* Encode+EUC-KR.swift in Sources */,
 				DE04186024021BCA00486BF3 /* NotissuResource.swift in Sources */,
-				DE55424623784879004E01EB /* SplashViewController.swift in Sources */,
+				DE55424623784879004E01EB /* UpdateCheckController.swift in Sources */,
 				DE29614F2370FCD20074F24B /* NoticeListContract.swift in Sources */,
 				DEF56D7523837778003CA0F0 /* SearchViewController.swift in Sources */,
 				531C931526F1D115001C73DD /* NoticesListItemCell.swift in Sources */,

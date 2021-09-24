@@ -39,7 +39,7 @@ class NewNoticeDetailViewModel: NoticeDetailViewModelProtocol {
     let attachments: Dynamic<[Attachment]> = Dynamic([])
     let isBookmarked: Dynamic<Bool> = Dynamic(false)
     let shouldDividerBeHidden: Dynamic<Bool> = Dynamic(true)
-    var fileDownloaderDelegate: FileDownloadDelegate?
+    weak var fileDownloaderDelegate: FileDownloadDelegate?
     
     //  MARK: - INPUT
     func loadWebView() {
@@ -271,6 +271,6 @@ extension NewNoticeDetailViewModel {
     }
 }
 
-protocol FileDownloadDelegate {
+protocol FileDownloadDelegate: AnyObject {
     func fileDownloadDidEnd(at filePath: String?)
 }

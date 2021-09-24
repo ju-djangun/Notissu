@@ -12,7 +12,7 @@ class NoticeDetailAttachmentsListTableViewController: YDSTableViewController {
     //  MARK: - Property
     private var viewModel: NewNoticeDetailViewModel
     private var docController : UIDocumentInteractionController!
-    var progressBarDelegate: ProgressBarDelegate?
+    weak var progressBarDelegate: ProgressBarDelegate?
     
     
     //  MARK: - Constant

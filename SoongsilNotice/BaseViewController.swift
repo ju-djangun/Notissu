@@ -104,7 +104,7 @@ extension UIColor {
     }
 }
 
-protocol ProgressBarDelegate {
+protocol ProgressBarDelegate: AnyObject {
     func showProgressBar()
     func hideProgressBar()
 }

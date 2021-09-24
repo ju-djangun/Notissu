@@ -445,6 +445,7 @@
 				B07166C0269B183D00B49CF7 /* Notices */,
 				B07166BF269B183300B49CF7 /* MajorList */,
 				B07166BE269B182C00B49CF7 /* MyNotice */,
+				DE554249237933FA004E01EB /* More */,
 				B07166AF269B15E300B49CF7 /* MainTabBarViewController.swift */,
 			);
 			path = Main;
@@ -616,7 +617,6 @@
 				DE03E9D02379B063002AA5AE /* NoticeParser */,
 				DE501C4A23750DCA0053055A /* notissu_anim.json */,
 				DE0F8F1B2373F333006A0B49 /* Home */,
-				DE554249237933FA004E01EB /* More */,
 				DE29615C237289FB0074F24B /* NoticeDetail */,
 				DE2961492370FC620074F24B /* NoticeList */,
 				DE29613523703F4C0074F24B /* AppDelegate.swift */,

@@ -18,12 +18,11 @@ class BaseViewController: UIViewController, UIGestureRecognizerDelegate, Progres
         
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.view.backgroundColor = YDSColor.bgNormal
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.view.backgroundColor = YDSColor.bgNormal
-        self.checkUpdate()
     }
     
     func showAlert(title: String, msg: String, handler: ((UIAlertAction) -> Swift.Void)?) {
@@ -56,48 +55,8 @@ class BaseViewController: UIViewController, UIGestureRecognizerDelegate, Progres
         self.present(alertController, animated: true, completion: nil)
     }
     
-    func checkUpdate() {
-        if self.isUpdateAvailable() {
-            self.showAlertOKWithHandler(title: "업데이트가 필요합니다.", msg: "원활한 서비스 이용을 위해 업데이트가 필요합니다. '확인'을 누르면 스토어로 이동합니다.", handler: onClickUpdateApp(_:))
-        }
-    }
-    
-    @objc func onClickUpdateApp(_ action: UIAlertAction) {
-        if let url = URL(string: "itms-apps://itunes.apple.com/app/id1488050194"),
-            UIApplication.shared.canOpenURL(url) {
-            UIApplication.shared.open(url, options: [:], completionHandler: nil)
-        }
-    }
-    
-    func isUpdateAvailable() -> Bool {
-        guard
-            let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String,
-            let url = URL(string: "http://itunes.apple.com/lookup?bundleId=com.elliott.notissu-ios"),
-            let data = try? Data(contentsOf: url),
-            let json = try? JSONSerialization.jsonObject(with: data, options: .allowFragments) as? [String: Any],
-            let results = json["results"] as? [[String: Any]],
-            results.count > 0,
-            let appStoreVersion = results[0]["version"] as? String
-            else { return false }
-        
-        print("🗣 Version Checking...")
-        print("🗣 ...Current Version : \(version)")
-        print("🗣 ...App Store Version : \(appStoreVersion)")
-        
-        NotissuProperty.currentVersion = version
-        NotissuProperty.recentVersion = appStoreVersion
-        
-        if appStoreVersion.compare(version, options: .numeric) == .orderedDescending {
-            NotissuProperty.isUpdateRequired = true
-            return true
-        } else {
-            NotissuProperty.isUpdateRequired = false
-            return false
-        }
-    }
-    
     func showProgressBar() {
-        animationView.loopMode      = .loop
+        animationView.loopMode = .loop
         self.view.addSubview(animationView)
         animationView.snp.makeConstraints {
             $0.center.equalToSuperview()

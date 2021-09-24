@@ -40,22 +40,6 @@
 		B07166D7269B1B6F00B49CF7 /* Dynamic.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07166D6269B1B6F00B49CF7 /* Dynamic.swift */; };
 		B07166DA269B1C3100B49CF7 /* NoticeFetchManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07166D9269B1C3100B49CF7 /* NoticeFetchManager.swift */; };
 		B07166DD269B1FB900B49CF7 /* MajorSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07166DC269B1FB900B49CF7 /* MajorSection.swift */; };
-		B0A130A526DE146F00BB1E28 /* NotoSansKR-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = B0A1309D26DE146F00BB1E28 /* NotoSansKR-Medium.otf */; };
-		B0A130A626DE146F00BB1E28 /* NotoSansKR-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = B0A1309D26DE146F00BB1E28 /* NotoSansKR-Medium.otf */; };
-		B0A130A726DE146F00BB1E28 /* NotoSansKR-Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = B0A1309E26DE146F00BB1E28 /* NotoSansKR-Thin.otf */; };
-		B0A130A826DE146F00BB1E28 /* NotoSansKR-Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = B0A1309E26DE146F00BB1E28 /* NotoSansKR-Thin.otf */; };
-		B0A130A926DE146F00BB1E28 /* NotoSansKR-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = B0A1309F26DE146F00BB1E28 /* NotoSansKR-Light.otf */; };
-		B0A130AA26DE146F00BB1E28 /* NotoSansKR-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = B0A1309F26DE146F00BB1E28 /* NotoSansKR-Light.otf */; };
-		B0A130AB26DE146F00BB1E28 /* NotoSansKR-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = B0A130A026DE146F00BB1E28 /* NotoSansKR-Bold.otf */; };
-		B0A130AC26DE146F00BB1E28 /* NotoSansKR-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = B0A130A026DE146F00BB1E28 /* NotoSansKR-Bold.otf */; };
-		B0A130AD26DE146F00BB1E28 /* NotoSansKR-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = B0A130A126DE146F00BB1E28 /* NotoSansKR-Regular.otf */; };
-		B0A130AE26DE146F00BB1E28 /* NotoSansKR-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = B0A130A126DE146F00BB1E28 /* NotoSansKR-Regular.otf */; };
-		B0A130AF26DE146F00BB1E28 /* NotoSansKR-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = B0A130A226DE146F00BB1E28 /* NotoSansKR-Black.otf */; };
-		B0A130B026DE146F00BB1E28 /* NotoSansKR-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = B0A130A226DE146F00BB1E28 /* NotoSansKR-Black.otf */; };
-		B0A130B126DE146F00BB1E28 /* Poppins-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B0A130A326DE146F00BB1E28 /* Poppins-Medium.ttf */; };
-		B0A130B226DE146F00BB1E28 /* Poppins-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B0A130A326DE146F00BB1E28 /* Poppins-Medium.ttf */; };
-		B0A130B326DE146F00BB1E28 /* Poppins-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B0A130A426DE146F00BB1E28 /* Poppins-Regular.ttf */; };
-		B0A130B426DE146F00BB1E28 /* Poppins-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B0A130A426DE146F00BB1E28 /* Poppins-Regular.ttf */; };
 		B0A130B626DE177F00BB1E28 /* MajorListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A130B526DE177F00BB1E28 /* MajorListCell.swift */; };
 		B0A130B726DE177F00BB1E28 /* MajorListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A130B526DE177F00BB1E28 /* MajorListCell.swift */; };
 		B0A130B926DE185A00BB1E28 /* Major.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A130B826DE185A00BB1E28 /* Major.swift */; };
@@ -120,7 +104,7 @@
 		DE5542402377CC31004E01EB /* NoticeNaturalScience.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE55423F2377CC31004E01EB /* NoticeNaturalScience.swift */; };
 		DE5542422377D993004E01EB /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE5542412377D993004E01EB /* StartViewController.swift */; };
 		DE5542442377E076004E01EB /* HomeSwticher.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE5542432377E076004E01EB /* HomeSwticher.swift */; };
-		DE55424623784879004E01EB /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE55424523784879004E01EB /* SplashViewController.swift */; };
+		DE55424623784879004E01EB /* UpdateCheckController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE55424523784879004E01EB /* UpdateCheckController.swift */; };
 		DE55424B2379340A004E01EB /* MoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE55424A2379340A004E01EB /* MoreViewController.swift */; };
 		DE64BE8523DD253C00DF46C5 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE64BE8423DD253C00DF46C5 /* NotificationCenter.framework */; };
 		DE64BE8823DD253C00DF46C5 /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE64BE8723DD253C00DF46C5 /* TodayViewController.swift */; };
@@ -250,14 +234,6 @@
 		B07166D6269B1B6F00B49CF7 /* Dynamic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dynamic.swift; sourceTree = "<group>"; };
 		B07166D9269B1C3100B49CF7 /* NoticeFetchManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeFetchManager.swift; sourceTree = "<group>"; };
 		B07166DC269B1FB900B49CF7 /* MajorSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MajorSection.swift; sourceTree = "<group>"; };
-		B0A1309D26DE146F00BB1E28 /* NotoSansKR-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansKR-Medium.otf"; sourceTree = "<group>"; };
-		B0A1309E26DE146F00BB1E28 /* NotoSansKR-Thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansKR-Thin.otf"; sourceTree = "<group>"; };
-		B0A1309F26DE146F00BB1E28 /* NotoSansKR-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansKR-Light.otf"; sourceTree = "<group>"; };
-		B0A130A026DE146F00BB1E28 /* NotoSansKR-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansKR-Bold.otf"; sourceTree = "<group>"; };
-		B0A130A126DE146F00BB1E28 /* NotoSansKR-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansKR-Regular.otf"; sourceTree = "<group>"; };
-		B0A130A226DE146F00BB1E28 /* NotoSansKR-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansKR-Black.otf"; sourceTree = "<group>"; };
-		B0A130A326DE146F00BB1E28 /* Poppins-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Medium.ttf"; sourceTree = "<group>"; };
-		B0A130A426DE146F00BB1E28 /* Poppins-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Regular.ttf"; sourceTree = "<group>"; };
 		B0A130B526DE177F00BB1E28 /* MajorListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MajorListCell.swift; sourceTree = "<group>"; };
 		B0A130B826DE185A00BB1E28 /* Major.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Major.swift; sourceTree = "<group>"; };
 		B0A130BC26DE1CBA00BB1E28 /* TopContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopContentView.swift; sourceTree = "<group>"; };
@@ -305,7 +281,7 @@
 		DE55423F2377CC31004E01EB /* NoticeNaturalScience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeNaturalScience.swift; sourceTree = "<group>"; };
 		DE5542412377D993004E01EB /* StartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
 		DE5542432377E076004E01EB /* HomeSwticher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeSwticher.swift; sourceTree = "<group>"; };
-		DE55424523784879004E01EB /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
+		DE55424523784879004E01EB /* UpdateCheckController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateCheckController.swift; sourceTree = "<group>"; };
 		DE55424A2379340A004E01EB /* MoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreViewController.swift; sourceTree = "<group>"; };
 		DE64BE8323DD253C00DF46C5 /* Notissu Today Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Notissu Today Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE64BE8423DD253C00DF46C5 /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
@@ -553,21 +529,6 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		B0A1309C26DE143B00BB1E28 /* Fonts */ = {
-			isa = PBXGroup;
-			children = (
-				B0A130A226DE146F00BB1E28 /* NotoSansKR-Black.otf */,
-				B0A130A026DE146F00BB1E28 /* NotoSansKR-Bold.otf */,
-				B0A1309F26DE146F00BB1E28 /* NotoSansKR-Light.otf */,
-				B0A1309D26DE146F00BB1E28 /* NotoSansKR-Medium.otf */,
-				B0A130A126DE146F00BB1E28 /* NotoSansKR-Regular.otf */,
-				B0A1309E26DE146F00BB1E28 /* NotoSansKR-Thin.otf */,
-				B0A130A326DE146F00BB1E28 /* Poppins-Medium.ttf */,
-				B0A130A426DE146F00BB1E28 /* Poppins-Regular.ttf */,
-			);
-			path = Fonts;
-			sourceTree = "<group>";
-		};
 		B0A130BB26DE1CA900BB1E28 /* CommonViews */ = {
 			isa = PBXGroup;
 			children = (
@@ -613,7 +574,7 @@
 			isa = PBXGroup;
 			children = (
 				DE5542412377D993004E01EB /* StartViewController.swift */,
-				DE55424523784879004E01EB /* SplashViewController.swift */,
+				DE55424523784879004E01EB /* UpdateCheckController.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -755,7 +716,6 @@
 		DEF56D812384DA05003CA0F0 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				B0A1309C26DE143B00BB1E28 /* Fonts */,
 				DE7E5DB224093779007F0DF2 /* FileTypeIcon.xcassets */,
 				DE29613E23703F4D0074F24B /* Assets.xcassets */,
 				DE53D1552400F54B00AEFCE2 /* NotissuColorSet.xcassets */,
@@ -864,24 +824,16 @@
 			files = (
 				DE53D1562400F54B00AEFCE2 /* NotissuColorSet.xcassets in Resources */,
 				DE7E5DB324093779007F0DF2 /* FileTypeIcon.xcassets in Resources */,
-				B0A130A926DE146F00BB1E28 /* NotoSansKR-Light.otf in Resources */,
-				B0A130A526DE146F00BB1E28 /* NotoSansKR-Medium.otf in Resources */,
 				DEF56D8E2384DB1C003CA0F0 /* manual1.png in Resources */,
 				DE53D1542400142000AEFCE2 /* TodayExtensionColor.xcassets in Resources */,
 				DE29613F23703F4D0074F24B /* Assets.xcassets in Resources */,
 				DEF56D902384DB1C003CA0F0 /* manual2.png in Resources */,
 				DE75F916240651BC00510E78 /* VersionInfoView.xib in Resources */,
-				B0A130B326DE146F00BB1E28 /* Poppins-Regular.ttf in Resources */,
-				B0A130B126DE146F00BB1E28 /* Poppins-Medium.ttf in Resources */,
 				DE501C4B23750DCB0053055A /* notissu_anim.json in Resources */,
-				B0A130AD26DE146F00BB1E28 /* NotoSansKR-Regular.otf in Resources */,
-				B0A130A726DE146F00BB1E28 /* NotoSansKR-Thin.otf in Resources */,
-				B0A130AF26DE146F00BB1E28 /* NotoSansKR-Black.otf in Resources */,
 				DEF56D912384DB1C003CA0F0 /* manual0.png in Resources */,
 				DE72017F237A871B00F60CEB /* Launch Screen.storyboard in Resources */,
 				DE0418B12402412F00486BF3 /* GoogleService-Info.plist in Resources */,
 				DE29613D23703F4C0074F24B /* Main.storyboard in Resources */,
-				B0A130AB26DE146F00BB1E28 /* NotoSansKR-Bold.otf in Resources */,
 				DEF56D8F2384DB1C003CA0F0 /* manual3.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -890,20 +842,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B0A130AC26DE146F00BB1E28 /* NotoSansKR-Bold.otf in Resources */,
-				B0A130B226DE146F00BB1E28 /* Poppins-Medium.ttf in Resources */,
-				B0A130A826DE146F00BB1E28 /* NotoSansKR-Thin.otf in Resources */,
 				DEBE387123EFF09A006F51AB /* WidgetNoticeView.xib in Resources */,
 				DEBE387323F578C6006F51AB /* TodayExtensionColor.xcassets in Resources */,
 				DE0418B22402412F00486BF3 /* GoogleService-Info.plist in Resources */,
-				B0A130B026DE146F00BB1E28 /* NotoSansKR-Black.otf in Resources */,
 				B03BA5F025176295002010CE /* NotissuColorSet.xcassets in Resources */,
-				B0A130A626DE146F00BB1E28 /* NotoSansKR-Medium.otf in Resources */,
-				B0A130B426DE146F00BB1E28 /* Poppins-Regular.ttf in Resources */,
-				B0A130AA26DE146F00BB1E28 /* NotoSansKR-Light.otf in Resources */,
 				DEC1684B23F7A3B900DE2D84 /* Assets.xcassets in Resources */,
 				DE7E5DB42409377D007F0DF2 /* FileTypeIcon.xcassets in Resources */,
-				B0A130AE26DE146F00BB1E28 /* NotoSansKR-Regular.otf in Resources */,
 				DE64BE8B23DD253C00DF46C5 /* MainInterface.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1003,7 +947,7 @@
 				DE296155237195CD0074F24B /* ConfigSetting.swift in Sources */,
 				DE1772D3240F64F400A58A66 /* Encode+EUC-KR.swift in Sources */,
 				DE04186024021BCA00486BF3 /* NotissuResource.swift in Sources */,
-				DE55424623784879004E01EB /* SplashViewController.swift in Sources */,
+				DE55424623784879004E01EB /* UpdateCheckController.swift in Sources */,
 				DE29614F2370FCD20074F24B /* NoticeListContract.swift in Sources */,
 				DEF56D7523837778003CA0F0 /* NoticeSearchViewController.swift in Sources */,
 				531C931526F1D115001C73DD /* NoticesListItemCell.swift in Sources */,

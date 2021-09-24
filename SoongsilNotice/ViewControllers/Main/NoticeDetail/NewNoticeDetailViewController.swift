@@ -270,8 +270,8 @@ extension NewNoticeDetailViewController {
     }
     
     private func presentActivityViewController() {
-        guard let url = viewModel.url.value.decodeUrl()?.encodeUrl(),
-              let url = NSURL(string: url) else {
+        guard let urlString = viewModel.url.value.decodeUrl()?.encodeUrl(),
+              let url = NSURL(string: urlString) else {
             YDSToast.makeToast(text: "공유할 수 없는 링크입니다.")
             return
         }

@@ -48,7 +48,6 @@ class NoticeDetailAttachmentsListTableViewController: YDSTableViewController {
         self.tableView.estimatedRowHeight = Dimension.cellHeight
         self.tableView.bounces = false
         self.tableView.isScrollEnabled = false
-        viewModel.fileDownloaderDelegate = self
     }
     
     private func setAutolayouts() {
@@ -62,6 +61,11 @@ class NoticeDetailAttachmentsListTableViewController: YDSTableViewController {
             guard let `self` = self else { return }
             self.tableView.reloadData()
             self.setAutolayouts()
+        }
+        
+        viewModel.downloadedFilePath.bind { [weak self] filePath in
+            guard let `self` = self else { return }
+            self.fileDownloadDidEnd(at: filePath)
         }
     }
 
@@ -97,8 +101,8 @@ extension NoticeDetailAttachmentsListTableViewController {
     }
 }
 
-//  MARK: - FileDownloaderDelegate
-extension NoticeDetailAttachmentsListTableViewController: FileDownloadDelegate, UIDocumentInteractionControllerDelegate {
+//  MARK: - Download file
+extension NoticeDetailAttachmentsListTableViewController: UIDocumentInteractionControllerDelegate {
     func fileDownloadDidEnd(at filePath: String?) {
         if let filePath = filePath {
             self.docController = UIDocumentInteractionController(url: NSURL(fileURLWithPath: filePath) as URL)

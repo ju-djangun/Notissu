@@ -24,7 +24,7 @@ protocol NoticeDetailViewModelOutput {
     var attachments: Dynamic<[Attachment]> { get }
     var isBookmarked: Dynamic<Bool> { get }
     var shouldDividerBeHidden: Dynamic<Bool> { get }
-    var fileDownloaderDelegate: FileDownloadDelegate? { get set }
+    var downloadedFilePath: Dynamic<String?> { get }
 }
 
 protocol NoticeDetailViewModelProtocol: NoticeDetailViewModelInput, NoticeDetailViewModelOutput {}
@@ -39,7 +39,7 @@ class NewNoticeDetailViewModel: NoticeDetailViewModelProtocol {
     let attachments: Dynamic<[Attachment]> = Dynamic([])
     let isBookmarked: Dynamic<Bool> = Dynamic(false)
     let shouldDividerBeHidden: Dynamic<Bool> = Dynamic(true)
-    weak var fileDownloaderDelegate: FileDownloadDelegate?
+    var downloadedFilePath: Dynamic<String?> = Dynamic(nil)
     
     //  MARK: - INPUT
     func loadWebView() {
@@ -73,6 +73,7 @@ class NewNoticeDetailViewModel: NoticeDetailViewModelProtocol {
         self.departmentCode = deptCode
         self.isBookmarked.value = isNoticeBookmarked()
     }
+    
 }
 
 //  MARK: - Bookmark
@@ -260,17 +261,7 @@ extension NewNoticeDetailViewModel {
                 print("Download Progress: \(progress.fractionCompleted)")
         }
         .response { response in
-            debugPrint(response)
-            
-            if let filePath = response.fileURL?.path {
-                self.fileDownloaderDelegate?.fileDownloadDidEnd(at: filePath)
-            } else {
-                self.fileDownloaderDelegate?.fileDownloadDidEnd(at: nil)
-            }
+            self.downloadedFilePath.value = response.fileURL?.path
         }
     }
-}
-
-protocol FileDownloadDelegate: AnyObject {
-    func fileDownloadDidEnd(at filePath: String?)
 }

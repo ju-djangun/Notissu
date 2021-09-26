@@ -1,5 +1,5 @@
 //
-//  MoreListItemViewModel.swift
+//  MorePageItemViewModel.swift
 //  SoongsilNotice
 //
 //  Created by Gyuni on 2021/09/24.

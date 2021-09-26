@@ -7,3 +7,14 @@
 //
 
 import Foundation
+
+struct MorePageItemModel {
+    let item: MorePageItem
+    let title: String?
+}
+
+enum MorePageItem {
+    case bookmark
+    case opensource
+    case developer
+}

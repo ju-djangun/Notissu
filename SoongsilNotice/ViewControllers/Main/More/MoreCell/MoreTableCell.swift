@@ -12,7 +12,7 @@ class MoreTableCell : UITableViewCell {
     static let identifier: String = "MoreTableCell"
     private let contentLabel: UILabel = UILabel()
     
-    public var content: String = "" {
+    public var content: String? {
         didSet {
             contentLabel.text = content
         }

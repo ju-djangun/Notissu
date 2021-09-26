@@ -53,9 +53,8 @@ public class MainTabBarViewController: YDSBottomBarController {
     }()
     
     private let aboutNavigationController: YDSNavigationController = {
-        //  moreNavigationController 로 이름을 짓고 싶었는데 이미 UITabBarController에서 사용중인 속성이더라고요...
-        //  새 이름 추천해주세요
-        let rootViewController = MoreViewController()
+        let deptCode = BaseNoticesListViewController.noticeDeptCode ?? .Soongsil
+        let rootViewController = MorePageViewController(with: MorePageViewModel(deptCode: deptCode, isRecentVersion: true))
         let navigationController = YDSNavigationController(title: "더 보기",
                                                            rootViewController: rootViewController)
         navigationController.tabBarItem = UITabBarItem(title: "더 보기",

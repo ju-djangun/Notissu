@@ -10,7 +10,7 @@ import UIKit
 
 protocol MorePageViewModelOutput {
     var deptCode: DeptCode { get }
-    var itemsList: [MorePageItemModel] { get }
+    var items: [MorePageItem] { get }
     var isRecentVersion: Bool { get }
     var pushViewController: Dynamic<UIViewController?> { get }
 }
@@ -26,7 +26,7 @@ class MorePageViewModel: MorePageViewModelProtocol {
     
     //  MARK: - OUTPUT
     var deptCode: DeptCode
-    var itemsList: [MorePageItemModel]
+    var items: [MorePageItem]
     var isRecentVersion: Bool
     let pushViewController: Dynamic<UIViewController?> = Dynamic(nil)
     
@@ -35,11 +35,15 @@ class MorePageViewModel: MorePageViewModelProtocol {
         pushViewController.value = StartViewController()
     }
     
-    func itemDidTap(at index: IndexPath) {
-        let item = itemsList[index.row]
-        print(item)
-        
-        pushViewController.value = UIViewController()
+    func itemDidTap(at indexPath: IndexPath) {
+        switch(items[indexPath.row]) {
+        case .bookmark:
+            pushViewController.value = UIViewController()
+        case .developer:
+            pushViewController.value = UIViewController()
+        case .opensource:
+            pushViewController.value = UIViewController()
+        }
     }
     
     //  MARK: - Proeprty
@@ -51,7 +55,7 @@ class MorePageViewModel: MorePageViewModelProtocol {
                                    isRecentVersion: isRecentVersion)
         
         self.deptCode = model.deptCode
-        self.itemsList = model.itemsList
+        self.items = model.itemsList
         self.isRecentVersion = model.isRecentVersion
     }
 }

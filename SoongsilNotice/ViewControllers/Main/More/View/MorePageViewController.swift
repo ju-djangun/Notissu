@@ -9,17 +9,18 @@ import UIKit
 import SafariServices
 import YDS
 
-class MorePageViewController : BaseViewController, UITableViewDelegate, UITableViewDataSource {
-        
-    private let myMajorView: MyMajorView
+class MorePageViewController : BaseViewController {
     
-    private let moreTableView: UITableView = UITableView()
-        
+    private let myMajorView: MyMajorView
+    private let versionView: VersionView
     private let viewModel: MorePageViewModelProtocol
+    private let itemsListTableViewController: MorePageItemsListTableViewController
     
     init(with viewModel: MorePageViewModelProtocol) {
         self.viewModel = viewModel
-        myMajorView = MyMajorView(with: viewModel)
+        self.itemsListTableViewController = MorePageItemsListTableViewController(with: viewModel)
+        self.myMajorView = MyMajorView(with: viewModel)
+        self.versionView = VersionView(with: viewModel)
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -30,13 +31,6 @@ class MorePageViewController : BaseViewController, UITableViewDelegate, UITableV
     override func viewDidLoad() {
         setupViewLayout()
         bindViewModel()
-        
-        moreTableView.delegate = self
-        moreTableView.dataSource = self
-        moreTableView.register(MoreTableCell.self, forCellReuseIdentifier: MoreTableCell.identifier)
-        moreTableView.separatorInset  = .zero
-        moreTableView.tableFooterView = UIView(frame: .zero)
-        
 //        NotificationCenter.default.addObserver(self, selector: #selector(onLoadFromWidget),
 //                                               name: NSNotification.Name("widget"),
 //                                               object: nil)
@@ -49,17 +43,14 @@ class MorePageViewController : BaseViewController, UITableViewDelegate, UITableV
     }
     
     private func setupViewLayout() {
-        view.addSubview(myMajorView)
-        view.addSubview(moreTableView)
+        self.embed(itemsListTableViewController)
         
-        myMajorView.snp.makeConstraints { make in
-            make.top.equalTo(view.safeAreaLayoutGuide.snp.top)
-            make.leading.trailing.equalToSuperview()
-        }
-        
-        moreTableView.snp.makeConstraints { make in
-            make.top.equalTo(myMajorView.snp.bottom)
-            make.leading.trailing.bottom.equalToSuperview()
+        view.addSubview(itemsListTableViewController.view)
+        itemsListTableViewController.tableView.tableHeaderView = myMajorView
+        itemsListTableViewController.tableView.tableFooterView = versionView
+        itemsListTableViewController.view.snp.makeConstraints {
+            $0.top.leading.trailing.equalTo(view.safeAreaLayoutGuide)
+            $0.bottom.equalToSuperview()
         }
         
     }
@@ -83,20 +74,6 @@ class MorePageViewController : BaseViewController, UITableViewDelegate, UITableV
                 self.tabBarController?.selectedIndex = index
             }
         }
-    }
-   
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel.itemsList.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if let cell = tableView.dequeueReusableCell(withIdentifier: MoreTableCell.identifier, for: indexPath) as? MoreTableCell {
-            cell.content = viewModel.itemsList[indexPath.row].title
-            cell.selectionStyle  = .none
-            return cell
-        }
-        
-        return UITableViewCell()
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -135,4 +112,22 @@ class MorePageViewController : BaseViewController, UITableViewDelegate, UITableV
 //            UIApplication.shared.open(url, options: [:], completionHandler: nil)
 //        }
 //    }
+}
+
+//  MARK: - Header, Footer View Height Setting
+extension MorePageViewController {
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+        let tableView = itemsListTableViewController.tableView
+        
+        if let header = tableView?.tableHeaderView {
+            let newSize = header.systemLayoutSizeFitting(UIView.layoutFittingCompressedSize)
+            header.frame.size.height = newSize.height
+        }
+        
+        if let footer = tableView?.tableFooterView {
+            let newSize = footer.systemLayoutSizeFitting(UIView.layoutFittingCompressedSize)
+            footer.frame.size.height = newSize.height
+        }
+    }
 }

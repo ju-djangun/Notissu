@@ -2,7 +2,6 @@
 //  MorePageModel.swift
 //  SoongsilNotice
 //
-//  Created by Gyuni on 2021/09/25.
 //  Copyright © 2021 Notissu. All rights reserved.
 //
 
@@ -10,12 +9,23 @@ import Foundation
 
 struct MorePageModel {
     var deptCode: DeptCode
-    var itemsList: [MorePageItemModel] = [
-        MorePageItemModel(item: .bookmark, title: "북마크"),
-        MorePageItemModel(item: .opensource, title: "오픈소스 사용 정보"),
-        MorePageItemModel(item: .developer, title: "개발자 정보"),
-    ]
+    var itemsList: [MorePageItem] = MorePageItem.allCases
     var isRecentVersion: Bool
 }
 
-
+enum MorePageItem: CaseIterable {
+    case bookmark
+    case developer
+    case opensource
+    
+    var title: String? {
+        switch(self) {
+        case .bookmark:
+            return "북마크"
+        case .developer:
+            return "개발자 정보"
+        case .opensource:
+            return "오픈소스 사용 정보"
+        }
+    }
+}

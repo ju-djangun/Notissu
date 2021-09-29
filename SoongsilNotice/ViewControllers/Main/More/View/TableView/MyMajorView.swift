@@ -2,7 +2,6 @@
 //  MyMajorView.swift
 //  SoongsilNotice
 //
-//  Created by Gyuni on 2021/09/25.
 //  Copyright © 2021 Notissu. All rights reserved.
 //
 
@@ -15,7 +14,7 @@ class MyMajorView: UIView {
     
     private enum Dimension {
         enum Margin {
-            static let vertical: CGFloat = 24
+            static let vertical: CGFloat = 16
             static let horizontal: CGFloat = 20
         }
         

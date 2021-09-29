@@ -25,10 +25,11 @@
 		531C934026F5B549001C73DD /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 531C933F26F5B548001C73DD /* ErrorView.swift */; };
 		532011A526FE39A9003B6301 /* MyMajorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 532011A426FE39A9003B6301 /* MyMajorView.swift */; };
 		535C210526FE02BC00A3F15E /* MorePageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 535C210426FE02BC00A3F15E /* MorePageViewModel.swift */; };
-		535C210726FE02C600A3F15E /* MorePageItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 535C210626FE02C600A3F15E /* MorePageItemViewModel.swift */; };
 		535C210C26FE251100A3F15E /* MorePageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 535C210B26FE251100A3F15E /* MorePageModel.swift */; };
-		535C210F26FE289100A3F15E /* MorePageItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 535C210E26FE289100A3F15E /* MorePageItemModel.swift */; };
 		5363AE1726F6FDFA00371569 /* UIColor+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5363AE1626F6FDFA00371569 /* UIColor+Ext.swift */; };
+		53DA8D59270081C3009190D2 /* MorePageItemsListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53DA8D58270081C3009190D2 /* MorePageItemsListTableViewController.swift */; };
+		53DA8D5B27008426009190D2 /* YDSSingleLineTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53DA8D5A27008426009190D2 /* YDSSingleLineTableViewCell.swift */; };
+		53DA8D5D2701D18E009190D2 /* VersionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53DA8D5C2701D18E009190D2 /* VersionView.swift */; };
 		B012285E26F9712800CA72BE /* NoticeSearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B012285D26F9712800CA72BE /* NoticeSearchViewModel.swift */; };
 		B03BA5F025176295002010CE /* NotissuColorSet.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DE53D1552400F54B00AEFCE2 /* NotissuColorSet.xcassets */; };
 		B07166B0269B15E300B49CF7 /* MainTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07166AF269B15E300B49CF7 /* MainTabBarViewController.swift */; };
@@ -220,10 +221,11 @@
 		531C933F26F5B548001C73DD /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
 		532011A426FE39A9003B6301 /* MyMajorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyMajorView.swift; sourceTree = "<group>"; };
 		535C210426FE02BC00A3F15E /* MorePageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MorePageViewModel.swift; sourceTree = "<group>"; };
-		535C210626FE02C600A3F15E /* MorePageItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MorePageItemViewModel.swift; sourceTree = "<group>"; };
 		535C210B26FE251100A3F15E /* MorePageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MorePageModel.swift; sourceTree = "<group>"; };
-		535C210E26FE289100A3F15E /* MorePageItemModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MorePageItemModel.swift; sourceTree = "<group>"; };
 		5363AE1626F6FDFA00371569 /* UIColor+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Ext.swift"; sourceTree = "<group>"; };
+		53DA8D58270081C3009190D2 /* MorePageItemsListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MorePageItemsListTableViewController.swift; sourceTree = "<group>"; };
+		53DA8D5A27008426009190D2 /* YDSSingleLineTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YDSSingleLineTableViewCell.swift; sourceTree = "<group>"; };
+		53DA8D5C2701D18E009190D2 /* VersionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VersionView.swift; sourceTree = "<group>"; };
 		550CAE3A9D2DBDE403D9BE3F /* Pods-Notissu Today Extension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Notissu Today Extension.release.xcconfig"; path = "Target Support Files/Pods-Notissu Today Extension/Pods-Notissu Today Extension.release.xcconfig"; sourceTree = "<group>"; };
 		57296D4BD235F1B361E7E590 /* Pods_SoongsilNotice.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SoongsilNotice.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		90414B9DF20CF22441FFF574 /* Pods-SoongsilNotice-Notissu-Watch Extension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SoongsilNotice-Notissu-Watch Extension.debug.xcconfig"; path = "Target Support Files/Pods-SoongsilNotice-Notissu-Watch Extension/Pods-SoongsilNotice-Notissu-Watch Extension.debug.xcconfig"; sourceTree = "<group>"; };
@@ -409,6 +411,7 @@
 			children = (
 				531C932826F32E49001C73DD /* YDSTableViewController.swift */,
 				531C932A26F32E57001C73DD /* YDSTableViewCell.swift */,
+				53DA8D5A27008426009190D2 /* YDSSingleLineTableViewCell.swift */,
 			);
 			path = YDSTempComponent;
 			sourceTree = "<group>";
@@ -427,7 +430,6 @@
 			isa = PBXGroup;
 			children = (
 				535C210426FE02BC00A3F15E /* MorePageViewModel.swift */,
-				535C210626FE02C600A3F15E /* MorePageItemViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -436,7 +438,6 @@
 			isa = PBXGroup;
 			children = (
 				DE55424A2379340A004E01EB /* MorePageViewController.swift */,
-				532011A426FE39A9003B6301 /* MyMajorView.swift */,
 				535C210A26FE02EF00A3F15E /* TableView */,
 			);
 			path = View;
@@ -445,6 +446,9 @@
 		535C210A26FE02EF00A3F15E /* TableView */ = {
 			isa = PBXGroup;
 			children = (
+				532011A426FE39A9003B6301 /* MyMajorView.swift */,
+				53DA8D58270081C3009190D2 /* MorePageItemsListTableViewController.swift */,
+				53DA8D5C2701D18E009190D2 /* VersionView.swift */,
 			);
 			path = TableView;
 			sourceTree = "<group>";
@@ -453,7 +457,6 @@
 			isa = PBXGroup;
 			children = (
 				535C210B26FE251100A3F15E /* MorePageModel.swift */,
-				535C210E26FE289100A3F15E /* MorePageItemModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -991,6 +994,7 @@
 				B07166C5269B187A00B49CF7 /* MyNoticeViewModel.swift in Sources */,
 				DE5542442377E076004E01EB /* HomeSwticher.swift in Sources */,
 				DE53D14D23FC21DB00AEFCE2 /* BookmarkContract.swift in Sources */,
+				53DA8D5D2701D18E009190D2 /* VersionView.swift in Sources */,
 				DE7E5DB124093555007F0DF2 /* String+FileType.swift in Sources */,
 				DE296155237195CD0074F24B /* ConfigSetting.swift in Sources */,
 				DE1772D3240F64F400A58A66 /* Encode+EUC-KR.swift in Sources */,
@@ -1011,7 +1015,6 @@
 				B07166CD269B194700B49CF7 /* NoticesViewModel.swift in Sources */,
 				531C933E26F5AE49001C73DD /* BaseNoticesListViewController.swift in Sources */,
 				B07166BD269B180900B49CF7 /* NoticeListViewModel.swift in Sources */,
-				535C210726FE02C600A3F15E /* MorePageItemViewModel.swift in Sources */,
 				DEC1684C23F7A84500DE2D84 /* NotissuProperty.swift in Sources */,
 				B07166D7269B1B6F00B49CF7 /* Dynamic.swift in Sources */,
 				B0A130B926DE185A00BB1E28 /* Major.swift in Sources */,
@@ -1019,13 +1022,13 @@
 				B07166B7269B171E00B49CF7 /* MainNavigationController.swift in Sources */,
 				532011A526FE39A9003B6301 /* MyMajorView.swift in Sources */,
 				DE0F8F2323740041006A0B49 /* NoticeLaw.swift in Sources */,
+				53DA8D59270081C3009190D2 /* MorePageItemsListTableViewController.swift in Sources */,
 				B07166BB269B17CF00B49CF7 /* UIImage+Ext.swift in Sources */,
 				B0B67AEB2400BB060027D038 /* MajorModel.swift in Sources */,
 				B07166B9269B175100B49CF7 /* MainUINavigationBar.swift in Sources */,
 				DE03E9CF2379B05D002AA5AE /* NoticeBusiness.swift in Sources */,
 				DE5542422377D993004E01EB /* StartViewController.swift in Sources */,
 				531C932D26F32EAD001C73DD /* UIViewController+Ext.swift in Sources */,
-				535C210F26FE289100A3F15E /* MorePageItemModel.swift in Sources */,
 				535C210526FE02BC00A3F15E /* MorePageViewModel.swift in Sources */,
 				DE2961592371ADEE0074F24B /* NoticeDetailViewController.swift in Sources */,
 				DE7496B323DC009500000849 /* SearchContract.swift in Sources */,
@@ -1038,6 +1041,7 @@
 				DEBFDC47237E3950003888D9 /* OpenSourceTableViewCell.swift in Sources */,
 				DE29614D2370FCB20074F24B /* NoticeListPresenter.swift in Sources */,
 				DE53D0B023F8E9B100AEFCE2 /* FavoriteNotice.xcdatamodeld in Sources */,
+				53DA8D5B27008426009190D2 /* YDSSingleLineTableViewCell.swift in Sources */,
 				DE7496B123DC008C00000849 /* SearchPresenter.swift in Sources */,
 				DE2961512370FD0A0074F24B /* NoticeListViewCell.swift in Sources */,
 				DEF56D782383BF05003CA0F0 /* SchoolViewController.swift in Sources */,

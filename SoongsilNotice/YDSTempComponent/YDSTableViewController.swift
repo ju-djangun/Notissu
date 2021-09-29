@@ -25,7 +25,16 @@ open class YDSTableViewController: UITableViewController {
     }
     
     override open func viewDidLoad() {
-        self.tableView.separatorColor = YDSColor.borderNormal
-        self.tableView.rowHeight = UITableView.automaticDimension
+        tableView.separatorColor = YDSColor.borderNormal
+        tableView.rowHeight = UITableView.automaticDimension
+        tableView.tableHeaderView = UIView()
+        tableView.backgroundColor = .clear
+    }
+    
+    override open func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if indexPath.row == tableView.numberOfRows(inSection: indexPath.section) - 1 {
+            cell.separatorInset.left = cell.bounds.size.width
+        }
     }
 }
+

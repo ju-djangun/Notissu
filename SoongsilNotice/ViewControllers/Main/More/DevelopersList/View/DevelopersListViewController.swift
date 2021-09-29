@@ -34,8 +34,6 @@ class DevelopersListViewController: BaseViewController {
 
         setupViews()
         bindViewModel()
-        
-        viewModel.loadDevelopersList()
     }
     
     private func setupViews() {
@@ -45,12 +43,13 @@ class DevelopersListViewController: BaseViewController {
     }
     
     private func setProperties() {
-        self.title = viewModel.title
+        title = viewModel.title
+        tableViewController.progressBarDelegate = self
     }
     
     private func setViewHierarchy() {
-        self.embed(tableViewController)
-        self.view.addSubview(tableViewController.view)
+        embed(tableViewController)
+        view.addSubview(tableViewController.view)
     }
     
     private func setAutolayout() {
@@ -61,12 +60,11 @@ class DevelopersListViewController: BaseViewController {
     }
     
     private func bindViewModel() {
-        viewModel.error.bind {
-            YDSToast.makeToast(text: $0)
-        }
-        
-        viewModel.tappedDeveloper.bind {
-            print($0)
+        viewModel.tappedDeveloper.bind { [weak self] in
+            guard let `self` = self, let developer = $0 else { return }
+            let bottomSheetViewController = YDSBottomSheet()
+            bottomSheetViewController.addViews(views: [DeveloperDetailView(with: developer)])
+            self.presentPanModal(bottomSheetViewController)
         }
     }
 

@@ -31,12 +31,18 @@ class DevelopersListTableViewController: YDSTableViewController {
         super.viewDidLoad()
         bindViewModel()
         setupViews()
+        loadDevelopersList()
     }
     
     private func bindViewModel() {
         viewModel.developersList.bind { [weak self] value in
             guard let `self` = self else { return }
             self.tableView.reloadData()
+            self.progressBarDelegate?.hideProgressBar()
+        }
+        
+        viewModel.error.bind {
+            YDSToast.makeToast(text: $0)
             self.progressBarDelegate?.hideProgressBar()
         }
     }
@@ -50,6 +56,10 @@ class DevelopersListTableViewController: YDSTableViewController {
                            forCellReuseIdentifier: DevelopersListItemCell.identifier)
     }
 
+    private func loadDevelopersList() {
+        progressBarDelegate?.showProgressBar()
+        viewModel.loadDevelopersList()
+    }
 }
 
 //  MARK: - Data Source

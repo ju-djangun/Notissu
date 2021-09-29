@@ -81,7 +81,7 @@ class DevelopersListItemCell: YDSTableViewCell {
     }
     
     private func setViewHierarchy() {
-        self.contentView.addSubview(stackView)
+        contentView.addSubview(stackView)
         [profileImageView, labelStackView].forEach {
             stackView.addArrangedSubview($0)
         }
@@ -100,7 +100,23 @@ class DevelopersListItemCell: YDSTableViewCell {
 //  MARK: - INPUT
 extension DevelopersListItemCell {
     func fillData(with model: Developer) {
-        self.titleLabel.text = model.name
-        self.captionLabel.text = model.login
+        titleLabel.text = model.name
+        captionLabel.text = "@\(model.login)"
+        
+        loadProfileImage(from: model.avatarURL)
+    }
+    
+    private func loadProfileImage(from url: String?) {
+        if let url = url {
+            ImageFetchManager.shared.loadImage(from: url) { [weak self] result in
+                guard let `self` = self else { return }
+                switch result {
+                case .success(let data):
+                    self.profileImageView.image = UIImage(data: data)
+                case .failure(_):
+                    YDSToast.makeToast(text: "네트워크 오류가 발생했습니다.")
+                }
+            }
+        }
     }
 }

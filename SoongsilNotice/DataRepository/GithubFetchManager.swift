@@ -7,7 +7,6 @@
 
 import Foundation
 import Alamofire
-import GoogleUtilities
 
 final class GithubFetchManager {
     //  MARK: - Singleton
@@ -97,10 +96,4 @@ final class GithubFetchManager {
 fileprivate struct RequestedDevelopersListItemModel: Codable {
     let login: String
     let url: String
-}
-
-//  MARK: - FetchError
-enum FetchError: Error {
-    case networkError
-    case parsingError
 }

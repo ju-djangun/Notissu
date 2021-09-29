@@ -36,6 +36,9 @@
 		53DA8D6727043ACA009190D2 /* GithubFetchManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53DA8D6627043ACA009190D2 /* GithubFetchManager.swift */; };
 		53DA8D6927046A5F009190D2 /* DevelopersListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53DA8D6827046A5F009190D2 /* DevelopersListTableViewController.swift */; };
 		53DA8D6B27046B5B009190D2 /* DevelopersListItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53DA8D6A27046B5B009190D2 /* DevelopersListItemCell.swift */; };
+		53DA8D6E270471B3009190D2 /* ImageFetchManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53DA8D6D270471B3009190D2 /* ImageFetchManager.swift */; };
+		53DA8D702704722C009190D2 /* FetchError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53DA8D6F2704722C009190D2 /* FetchError.swift */; };
+		53DA8D7227049E3F009190D2 /* DeveloperDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53DA8D7127049E3F009190D2 /* DeveloperDetailView.swift */; };
 		B012285E26F9712800CA72BE /* NoticeSearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B012285D26F9712800CA72BE /* NoticeSearchViewModel.swift */; };
 		B03BA5F025176295002010CE /* NotissuColorSet.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DE53D1552400F54B00AEFCE2 /* NotissuColorSet.xcassets */; };
 		B07166B0269B15E300B49CF7 /* MainTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07166AF269B15E300B49CF7 /* MainTabBarViewController.swift */; };
@@ -238,6 +241,9 @@
 		53DA8D6627043ACA009190D2 /* GithubFetchManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubFetchManager.swift; sourceTree = "<group>"; };
 		53DA8D6827046A5F009190D2 /* DevelopersListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevelopersListTableViewController.swift; sourceTree = "<group>"; };
 		53DA8D6A27046B5B009190D2 /* DevelopersListItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevelopersListItemCell.swift; sourceTree = "<group>"; };
+		53DA8D6D270471B3009190D2 /* ImageFetchManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageFetchManager.swift; sourceTree = "<group>"; };
+		53DA8D6F2704722C009190D2 /* FetchError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchError.swift; sourceTree = "<group>"; };
+		53DA8D7127049E3F009190D2 /* DeveloperDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeveloperDetailView.swift; sourceTree = "<group>"; };
 		550CAE3A9D2DBDE403D9BE3F /* Pods-Notissu Today Extension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Notissu Today Extension.release.xcconfig"; path = "Target Support Files/Pods-Notissu Today Extension/Pods-Notissu Today Extension.release.xcconfig"; sourceTree = "<group>"; };
 		57296D4BD235F1B361E7E590 /* Pods_SoongsilNotice.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SoongsilNotice.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		90414B9DF20CF22441FFF574 /* Pods-SoongsilNotice-Notissu-Watch Extension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SoongsilNotice-Notissu-Watch Extension.debug.xcconfig"; path = "Target Support Files/Pods-SoongsilNotice-Notissu-Watch Extension/Pods-SoongsilNotice-Notissu-Watch Extension.debug.xcconfig"; sourceTree = "<group>"; };
@@ -476,10 +482,9 @@
 		53DA8D5F27041AFA009190D2 /* DevelopersList */ = {
 			isa = PBXGroup;
 			children = (
-				53DA8D6027041B24009190D2 /* Developer.swift */,
-				53DA8D6227041B2F009190D2 /* DevelopersListViewModel.swift */,
-				53DA8D6427041B50009190D2 /* DevelopersListViewController.swift */,
-				53DA8D6C27046B5F009190D2 /* TableView */,
+				53DA8D732704B3D8009190D2 /* Model */,
+				53DA8D742704B3E1009190D2 /* ViewModel */,
+				53DA8D752704B3E9009190D2 /* View */,
 			);
 			path = DevelopersList;
 			sourceTree = "<group>";
@@ -491,6 +496,32 @@
 				53DA8D6A27046B5B009190D2 /* DevelopersListItemCell.swift */,
 			);
 			path = TableView;
+			sourceTree = "<group>";
+		};
+		53DA8D732704B3D8009190D2 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				53DA8D6027041B24009190D2 /* Developer.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		53DA8D742704B3E1009190D2 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				53DA8D6227041B2F009190D2 /* DevelopersListViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		53DA8D752704B3E9009190D2 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				53DA8D6427041B50009190D2 /* DevelopersListViewController.swift */,
+				53DA8D7127049E3F009190D2 /* DeveloperDetailView.swift */,
+				53DA8D6C27046B5F009190D2 /* TableView */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		8C7A827DD516122B5FDBC531 /* Pods */ = {
@@ -596,6 +627,8 @@
 			children = (
 				B07166D9269B1C3100B49CF7 /* NoticeFetchManager.swift */,
 				53DA8D6627043ACA009190D2 /* GithubFetchManager.swift */,
+				53DA8D6D270471B3009190D2 /* ImageFetchManager.swift */,
+				53DA8D6F2704722C009190D2 /* FetchError.swift */,
 			);
 			path = DataRepository;
 			sourceTree = "<group>";
@@ -760,11 +793,11 @@
 				535C210D26FE251700A3F15E /* Model */,
 				535C210826FE02CD00A3F15E /* ViewModel */,
 				535C210926FE02DA00A3F15E /* View */,
-				DE3A90A72406448E00C453E2 /* MoreCell */,
 				53DA8D5F27041AFA009190D2 /* DevelopersList */,
 				DEBFDC44237E391C003888D9 /* OpenSourceViewController.swift */,
 				DEBFDC46237E3950003888D9 /* OpenSourceTableViewCell.swift */,
 				DE4B18EA241208E7007FD285 /* ModifyProfileViewController.swift */,
+				DE3A90A72406448E00C453E2 /* MoreCell */,
 			);
 			path = More;
 			sourceTree = "<group>";
@@ -1047,6 +1080,7 @@
 				DEF56D7C2383C002003CA0F0 /* SchoolContract.swift in Sources */,
 				B07166C9269B190800B49CF7 /* MajorListViewModel.swift in Sources */,
 				B07166CB269B193300B49CF7 /* NoticesViewController.swift in Sources */,
+				53DA8D6E270471B3009190D2 /* ImageFetchManager.swift in Sources */,
 				531C931A26F1D524001C73DD /* NoticesListItemViewModel.swift in Sources */,
 				DE53D0B323F8EA4E00AEFCE2 /* CoreDataUtil.swift in Sources */,
 				531C934026F5B549001C73DD /* ErrorView.swift in Sources */,
@@ -1063,6 +1097,7 @@
 				DE0F8F2323740041006A0B49 /* NoticeLaw.swift in Sources */,
 				53DA8D59270081C3009190D2 /* MorePageItemsListTableViewController.swift in Sources */,
 				B07166BB269B17CF00B49CF7 /* UIImage+Ext.swift in Sources */,
+				53DA8D702704722C009190D2 /* FetchError.swift in Sources */,
 				B0B67AEB2400BB060027D038 /* MajorModel.swift in Sources */,
 				B07166B9269B175100B49CF7 /* MainUINavigationBar.swift in Sources */,
 				DE03E9CF2379B05D002AA5AE /* NoticeBusiness.swift in Sources */,
@@ -1084,6 +1119,7 @@
 				DE7496B123DC008C00000849 /* SearchPresenter.swift in Sources */,
 				DE2961512370FD0A0074F24B /* NoticeListViewCell.swift in Sources */,
 				DEF56D782383BF05003CA0F0 /* SchoolViewController.swift in Sources */,
+				53DA8D7227049E3F009190D2 /* DeveloperDetailView.swift in Sources */,
 				DE296157237198070074F24B /* NoticeIT.swift in Sources */,
 				DE8C73842379BB2E008F2FE1 /* NoticeEconomy.swift in Sources */,
 				B0A130C626DF4CA600BB1E28 /* Attachment.swift in Sources */,

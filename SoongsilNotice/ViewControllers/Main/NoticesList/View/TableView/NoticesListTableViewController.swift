@@ -28,7 +28,7 @@ class NoticesListTableViewController: YDSTableViewController {
             - Dimension.bottomRefreshHeight
     }
     
-    var progressBarDelegate: ProgressBarDelegate?
+    weak var progressBarDelegate: ProgressBarDelegate?
     
     //  MARK: - Init
     init(with viewModel: NoticesListViewModelProtocol) {

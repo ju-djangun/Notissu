@@ -40,7 +40,7 @@ class MorePageViewModel: MorePageViewModelProtocol {
         case .bookmark:
             pushViewController.value = UIViewController()
         case .developer:
-            pushViewController.value = UIViewController()
+            pushViewController.value = DevelopersListViewController(with: DevelopersListViewModel())
         case .opensource:
             pushViewController.value = UIViewController()
         }

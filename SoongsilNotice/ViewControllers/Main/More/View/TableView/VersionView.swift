@@ -1,8 +1,7 @@
 //
 //  VersionView.swift
-//  SoongsilNotice
+//  Notissu
 //
-//  Created by Gyuni on 2021/09/27.
 //  Copyright © 2021 Notissu. All rights reserved.
 //
 

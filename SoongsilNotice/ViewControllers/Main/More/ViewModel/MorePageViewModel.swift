@@ -1,8 +1,7 @@
 //
 //  MorePageViewModel.swift
-//  SoongsilNotice
+//  Notissu
 //
-//  Created by Gyuni on 2021/09/24.
 //  Copyright © 2021 Notissu. All rights reserved.
 //
 
@@ -38,11 +37,9 @@ class MorePageViewModel: MorePageViewModelProtocol {
     func itemDidTap(at indexPath: IndexPath) {
         switch(items[indexPath.row]) {
         case .bookmark:
-            pushViewController.value = UIViewController()
+            pushViewController.value = BaseViewController()
         case .developer:
             pushViewController.value = DevelopersListViewController(with: DevelopersListViewModel())
-        case .opensource:
-            pushViewController.value = UIViewController()
         }
     }
     

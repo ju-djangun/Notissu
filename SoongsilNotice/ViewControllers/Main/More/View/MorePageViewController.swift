@@ -38,6 +38,7 @@ class MorePageViewController : BaseViewController {
     override func viewDidLoad() {
         setupViewLayout()
         bindViewModel()
+        setNavigationTitleLabelFont()
     }
     
     private func setupViewLayout() {

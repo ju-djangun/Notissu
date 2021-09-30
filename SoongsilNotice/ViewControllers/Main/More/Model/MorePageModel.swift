@@ -1,6 +1,6 @@
 //
 //  MorePageModel.swift
-//  SoongsilNotice
+//  Notissu
 //
 //  Copyright © 2021 Notissu. All rights reserved.
 //
@@ -16,7 +16,6 @@ struct MorePageModel {
 enum MorePageItem: CaseIterable {
     case bookmark
     case developer
-    case opensource
     
     var title: String? {
         switch(self) {
@@ -24,8 +23,6 @@ enum MorePageItem: CaseIterable {
             return "북마크"
         case .developer:
             return "개발자 정보"
-        case .opensource:
-            return "오픈소스 사용 정보"
         }
     }
 }

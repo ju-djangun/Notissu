@@ -1,6 +1,6 @@
 //
 //  MyMajorView.swift
-//  SoongsilNotice
+//  Notissu
 //
 //  Copyright © 2021 Notissu. All rights reserved.
 //
@@ -16,7 +16,7 @@ class MyMajorView: UIView {
     //  MARK: - Constant
     private enum Dimension {
         enum Margin {
-            static let vertical: CGFloat = 16
+            static let vertical: CGFloat = 12
             static let horizontal: CGFloat = 20
         }
         

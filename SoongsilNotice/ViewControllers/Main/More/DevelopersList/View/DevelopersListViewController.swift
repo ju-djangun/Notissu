@@ -1,8 +1,7 @@
 //
 //  DevelopersListViewController.swift
-//  SoongsilNotice
+//  Notissu
 //
-//  Created by Gyuni on 2021/09/29.
 //  Copyright © 2021 Notissu. All rights reserved.
 //
 

@@ -1,8 +1,7 @@
 //
 //  YDSSingleLineTableViewCell.swift
-//  SoongsilNotice
+//  Notissu
 //
-//  Created by Gyuni on 2021/09/26.
 //  Copyright © 2021 Notissu. All rights reserved.
 //
 

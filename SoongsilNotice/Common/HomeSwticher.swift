@@ -32,7 +32,7 @@ class HomeSwitcher {
         } else {
             BaseViewController.noticeDeptCode = myDeptCode
             BaseViewController.noticeMajor = Major(majorCode: myDeptCode)
-            appDelegate.window?.rootViewController = MainTabBarViewController()
+            appDelegate.window?.rootViewController = MainTabBarViewController(isRecentVersion: !isUpdateRequired())
         }
     }
     

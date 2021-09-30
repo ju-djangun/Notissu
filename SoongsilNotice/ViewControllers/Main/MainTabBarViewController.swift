@@ -11,57 +11,13 @@ import UIKit
 import YDS
 
 public class MainTabBarViewController: YDSBottomBarController {
-    private let myNoticeNavigationController: YDSNavigationController = {
-        let deptCode = BaseNoticesListViewController.noticeDeptCode ?? .Soongsil
-        let rootViewController = NoticesListViewController(with: NoticesListViewModel(deptCode: deptCode))
-        let navigationController = YDSNavigationController(title: deptCode.getName(),
-                                                           rootViewController: rootViewController)
-        navigationController.tabBarItem = UITabBarItem(title: "내 공지",
-                                                       image: YDSIcon.homeLine,
-                                                       selectedImage: YDSIcon.homeFilled)
-        return navigationController
-    }()
     
-    private let majorListNavigationController: YDSNavigationController = {
-        let rootViewController = MajorListViewController(viewModel: MajorListViewModel())
-        let navigationController = YDSNavigationController(title: "전공 목록",
-                                                           rootViewController: rootViewController)
-        navigationController.tabBarItem = UITabBarItem(title: "전공 목록",
-                                                       image: YDSIcon.listLine,
-                                                       selectedImage: YDSIcon.listLine)
-        return navigationController
-    }()
+    private let isRecentVersion: Bool
     
-    private let ssuCatchNavigationController: YDSNavigationController = {
-        let rootViewController = NoticesListViewController(with: NoticesListViewModel(deptCode: .Soongsil))
-        let navigationController = YDSNavigationController(title: "SSU:Catch",
-                                                           rootViewController: rootViewController)
-        navigationController.tabBarItem = UITabBarItem(title: "학교 공지",
-                                                       image: YDSIcon.noticeLine,
-                                                       selectedImage: YDSIcon.noticeFilled)
-        return navigationController
-    }()
-    
-    private let noticeSearchNavigationController: YDSNavigationController = {
-        let rootViewController = NoticeSearchViewController(viewModel: NoticeSearchViewModel())
-        let navigationController = YDSNavigationController(title: "검색",
-                                                           rootViewController: rootViewController)
-        navigationController.tabBarItem = UITabBarItem(title: "검색",
-                                                       image: YDSIcon.searchLine,
-                                                       selectedImage: YDSIcon.searchLine)
-        return navigationController
-    }()
-    
-    private let aboutNavigationController: YDSNavigationController = {
-        let deptCode = BaseNoticesListViewController.noticeDeptCode ?? .Soongsil
-        let rootViewController = MorePageViewController(with: MorePageViewModel(deptCode: deptCode, isRecentVersion: true))
-        let navigationController = YDSNavigationController(title: "더 보기",
-                                                           rootViewController: rootViewController)
-        navigationController.tabBarItem = UITabBarItem(title: "더 보기",
-                                                       image: YDSIcon.plusLine,
-                                                       selectedImage: YDSIcon.plusLine)
-        return navigationController
-    }()
+    private let myNoticeNavigationController: YDSNavigationController
+    private let majorListNavigationController: YDSNavigationController
+    private let ssuCatchNavigationController: YDSNavigationController
+    private let morePageNavigationController: YDSNavigationController
     
     public override func viewDidLoad() {
         super.viewDidLoad()
@@ -69,8 +25,7 @@ public class MainTabBarViewController: YDSBottomBarController {
             myNoticeNavigationController,
             majorListNavigationController,
             ssuCatchNavigationController,
-            noticeSearchNavigationController,
-            aboutNavigationController
+            morePageNavigationController
         ], animated: true)
         
         setNavigationControllerProperties()
@@ -80,5 +35,57 @@ public class MainTabBarViewController: YDSBottomBarController {
         self.viewControllers?.forEach {
             $0.view.backgroundColor = YDSColor.bgNormal
         }
+    }
+    
+    init(isRecentVersion: Bool) {
+        self.isRecentVersion = isRecentVersion
+        
+        myNoticeNavigationController = {
+            let deptCode = BaseNoticesListViewController.noticeDeptCode ?? .Soongsil
+            let rootViewController = NoticesListViewController(with: NoticesListViewModel(deptCode: deptCode))
+            let navigationController = YDSNavigationController(title: deptCode.getName(),
+                                                               rootViewController: rootViewController)
+            navigationController.tabBarItem = UITabBarItem(title: "내 공지",
+                                                           image: YDSIcon.homeLine,
+                                                           selectedImage: YDSIcon.homeFilled)
+            return navigationController
+        }()
+        
+        majorListNavigationController = {
+            let rootViewController = MajorListViewController(viewModel: MajorListViewModel())
+            let navigationController = YDSNavigationController(title: "전공 목록",
+                                                               rootViewController: rootViewController)
+            navigationController.tabBarItem = UITabBarItem(title: "전공 목록",
+                                                           image: YDSIcon.listLine,
+                                                           selectedImage: YDSIcon.listLine)
+            return navigationController
+        }()
+        
+        ssuCatchNavigationController = {
+            let rootViewController = NoticesListViewController(with: NoticesListViewModel(deptCode: .Soongsil))
+            let navigationController = YDSNavigationController(title: "SSU:Catch",
+                                                               rootViewController: rootViewController)
+            navigationController.tabBarItem = UITabBarItem(title: "학교 공지",
+                                                           image: YDSIcon.noticeLine,
+                                                           selectedImage: YDSIcon.noticeFilled)
+            return navigationController
+        }()
+        
+        morePageNavigationController = {
+            let deptCode = BaseNoticesListViewController.noticeDeptCode ?? .Soongsil
+            let rootViewController = MorePageViewController(with: MorePageViewModel(deptCode: deptCode, isRecentVersion: isRecentVersion))
+            let navigationController = YDSNavigationController(title: "더 보기",
+                                                               rootViewController: rootViewController)
+            navigationController.tabBarItem = UITabBarItem(title: "더 보기",
+                                                           image: YDSIcon.plusLine,
+                                                           selectedImage: YDSIcon.plusLine)
+            return navigationController
+        }()
+        
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
 }

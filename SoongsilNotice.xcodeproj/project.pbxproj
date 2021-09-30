@@ -39,6 +39,8 @@
 		53DA8D6E270471B3009190D2 /* ImageFetchManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53DA8D6D270471B3009190D2 /* ImageFetchManager.swift */; };
 		53DA8D702704722C009190D2 /* FetchError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53DA8D6F2704722C009190D2 /* FetchError.swift */; };
 		53DA8D7227049E3F009190D2 /* DeveloperDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53DA8D7127049E3F009190D2 /* DeveloperDetailView.swift */; };
+		53DA8D7D27059CB3009190D2 /* MyMajorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53DA8D7C27059CB3009190D2 /* MyMajorViewModel.swift */; };
+		53DA8D812705A0C2009190D2 /* VersionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53DA8D802705A0C2009190D2 /* VersionViewModel.swift */; };
 		B012285E26F9712800CA72BE /* NoticeSearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B012285D26F9712800CA72BE /* NoticeSearchViewModel.swift */; };
 		B03BA5F025176295002010CE /* NotissuColorSet.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DE53D1552400F54B00AEFCE2 /* NotissuColorSet.xcassets */; };
 		B07166B0269B15E300B49CF7 /* MainTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07166AF269B15E300B49CF7 /* MainTabBarViewController.swift */; };
@@ -240,6 +242,8 @@
 		53DA8D6D270471B3009190D2 /* ImageFetchManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageFetchManager.swift; sourceTree = "<group>"; };
 		53DA8D6F2704722C009190D2 /* FetchError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchError.swift; sourceTree = "<group>"; };
 		53DA8D7127049E3F009190D2 /* DeveloperDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeveloperDetailView.swift; sourceTree = "<group>"; };
+		53DA8D7C27059CB3009190D2 /* MyMajorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyMajorViewModel.swift; sourceTree = "<group>"; };
+		53DA8D802705A0C2009190D2 /* VersionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VersionViewModel.swift; sourceTree = "<group>"; };
 		550CAE3A9D2DBDE403D9BE3F /* Pods-Notissu Today Extension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Notissu Today Extension.release.xcconfig"; path = "Target Support Files/Pods-Notissu Today Extension/Pods-Notissu Today Extension.release.xcconfig"; sourceTree = "<group>"; };
 		57296D4BD235F1B361E7E590 /* Pods_SoongsilNotice.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SoongsilNotice.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		90414B9DF20CF22441FFF574 /* Pods-SoongsilNotice-Notissu-Watch Extension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SoongsilNotice-Notissu-Watch Extension.debug.xcconfig"; path = "Target Support Files/Pods-SoongsilNotice-Notissu-Watch Extension/Pods-SoongsilNotice-Notissu-Watch Extension.debug.xcconfig"; sourceTree = "<group>"; };
@@ -456,9 +460,9 @@
 		535C210A26FE02EF00A3F15E /* TableView */ = {
 			isa = PBXGroup;
 			children = (
-				532011A426FE39A9003B6301 /* MyMajorView.swift */,
+				53DA8D7E27059CB6009190D2 /* MyMajorView */,
 				53DA8D58270081C3009190D2 /* MorePageItemsListTableViewController.swift */,
-				53DA8D5C2701D18E009190D2 /* VersionView.swift */,
+				53DA8D7F2705A0AC009190D2 /* VersionView */,
 			);
 			path = TableView;
 			sourceTree = "<group>";
@@ -514,6 +518,24 @@
 				53DA8D6C27046B5F009190D2 /* TableView */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		53DA8D7E27059CB6009190D2 /* MyMajorView */ = {
+			isa = PBXGroup;
+			children = (
+				532011A426FE39A9003B6301 /* MyMajorView.swift */,
+				53DA8D7C27059CB3009190D2 /* MyMajorViewModel.swift */,
+			);
+			path = MyMajorView;
+			sourceTree = "<group>";
+		};
+		53DA8D7F2705A0AC009190D2 /* VersionView */ = {
+			isa = PBXGroup;
+			children = (
+				53DA8D5C2701D18E009190D2 /* VersionView.swift */,
+				53DA8D802705A0C2009190D2 /* VersionViewModel.swift */,
+			);
+			path = VersionView;
 			sourceTree = "<group>";
 		};
 		8C7A827DD516122B5FDBC531 /* Pods */ = {
@@ -1080,6 +1102,7 @@
 				DE03E9CF2379B05D002AA5AE /* NoticeBusiness.swift in Sources */,
 				DE5542422377D993004E01EB /* StartViewController.swift in Sources */,
 				531C932D26F32EAD001C73DD /* UIViewController+Ext.swift in Sources */,
+				53DA8D812705A0C2009190D2 /* VersionViewModel.swift in Sources */,
 				535C210526FE02BC00A3F15E /* MorePageViewModel.swift in Sources */,
 				DE2961592371ADEE0074F24B /* NoticeDetailViewController.swift in Sources */,
 				DE7496B323DC009500000849 /* SearchContract.swift in Sources */,
@@ -1114,6 +1137,7 @@
 				DE53D15123FC21ED00AEFCE2 /* BookmarkModel.swift in Sources */,
 				53DA8D6327041B2F009190D2 /* DevelopersListViewModel.swift in Sources */,
 				B0A130C926E10E3100BB1E28 /* NoticeBaseModel.swift in Sources */,
+				53DA8D7D27059CB3009190D2 /* MyMajorViewModel.swift in Sources */,
 				DE55424B2379340A004E01EB /* MorePageViewController.swift in Sources */,
 				B07166C3269B185800B49CF7 /* MyNoticeViewController.swift in Sources */,
 				DE29615E23728A330074F24B /* NoticeDetailPresenter.swift in Sources */,

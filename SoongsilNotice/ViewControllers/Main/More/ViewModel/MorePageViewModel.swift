@@ -15,11 +15,10 @@ protocol MorePageViewModelOutput {
 }
 
 protocol MorePageViewModelInput {
-    func deptChangeButtonDidTap()
     func itemDidTap(at index: IndexPath)
 }
 
-protocol MorePageViewModelProtocol: MorePageViewModelInput, MorePageViewModelOutput {}
+protocol MorePageViewModelProtocol: MorePageViewModelInput, MorePageViewModelOutput, MyMajorViewModelDelegate {}
 
 class MorePageViewModel: MorePageViewModelProtocol {
     
@@ -29,11 +28,12 @@ class MorePageViewModel: MorePageViewModelProtocol {
     var isRecentVersion: Bool
     let pushViewController: Dynamic<UIViewController?> = Dynamic(nil)
     
-    //  MARK: - INPUT
+    //  MARK: - Delegate
     func deptChangeButtonDidTap() {
         pushViewController.value = StartViewController()
     }
     
+    //  MARK: - INPUT
     func itemDidTap(at indexPath: IndexPath) {
         switch(items[indexPath.row]) {
         case .bookmark:

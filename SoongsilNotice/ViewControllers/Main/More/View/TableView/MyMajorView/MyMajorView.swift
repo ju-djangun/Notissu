@@ -11,7 +11,7 @@ import YDS
 class MyMajorView: UIView {
     
     //  MARK: - ViewModel
-    private let viewModel: MorePageViewModelProtocol
+    private let viewModel: MyMajorViewModel
     
     //  MARK: - Constant
     private enum Dimension {
@@ -75,7 +75,7 @@ class MyMajorView: UIView {
     }()
 
     //  MARK: - Init
-    init(with viewModel: MorePageViewModelProtocol) {
+    init(with viewModel: MyMajorViewModel) {
         self.viewModel = viewModel
         super.init(frame: .zero)
 

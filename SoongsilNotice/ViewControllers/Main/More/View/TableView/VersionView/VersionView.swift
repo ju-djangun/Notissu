@@ -16,7 +16,7 @@ class VersionView: UIView {
         }
     }
 
-    private let viewModel: MorePageViewModelProtocol
+    private let viewModel: VersionViewModel
     
     private let label: YDSLabel = {
         let label = YDSLabel(style: .caption1)
@@ -24,7 +24,7 @@ class VersionView: UIView {
         return label
     }()
     
-    init(with viewModel: MorePageViewModelProtocol) {
+    init(with viewModel: VersionViewModel) {
         self.viewModel = viewModel
         super.init(frame: .zero)
         
@@ -36,9 +36,7 @@ class VersionView: UIView {
     }
     
     private func setupViews() {
-        label.text = viewModel.isRecentVersion
-            ? "최신 버전을 사용하고 있습니다."
-            : "업데이트가 필요합니다."
+        label.text = viewModel.text
         
         addSubview(label)
         label.snp.makeConstraints {

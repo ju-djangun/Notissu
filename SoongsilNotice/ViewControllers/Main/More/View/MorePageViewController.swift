@@ -24,9 +24,16 @@ class MorePageViewController : BaseViewController {
     //  MARK: - Init
     init(with viewModel: MorePageViewModelProtocol) {
         self.viewModel = viewModel
+        
         self.itemsListTableViewController = MorePageItemsListTableViewController(with: viewModel)
-        self.myMajorView = MyMajorView(with: viewModel)
-        self.versionView = VersionView(with: viewModel)
+        
+        let myMajorViewModel = MyMajorViewModel(deptCode: viewModel.deptCode)
+        myMajorViewModel.delegate = viewModel
+        self.myMajorView = MyMajorView(with: myMajorViewModel)
+        
+        let versionViewModel = VersionViewModel(isRecentVersion: viewModel.isRecentVersion)
+        self.versionView = VersionView(with: versionViewModel)
+        
         super.init(nibName: nil, bundle: nil)
     }
     

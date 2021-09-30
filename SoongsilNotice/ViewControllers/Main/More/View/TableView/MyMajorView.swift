@@ -10,8 +10,10 @@ import YDS
 
 class MyMajorView: UIView {
     
+    //  MARK: - ViewModel
     private let viewModel: MorePageViewModelProtocol
     
+    //  MARK: - Constant
     private enum Dimension {
         enum Margin {
             static let vertical: CGFloat = 16
@@ -24,6 +26,7 @@ class MyMajorView: UIView {
         }
     }
 
+    //  MARK: - View
     private let captionLabel: YDSLabel = {
         let label = YDSLabel(style: .caption1)
         label.textColor = YDSColor.textSecondary
@@ -71,6 +74,7 @@ class MyMajorView: UIView {
         return stackView
     }()
 
+    //  MARK: - Init
     init(with viewModel: MorePageViewModelProtocol) {
         self.viewModel = viewModel
         super.init(frame: .zero)
@@ -82,6 +86,7 @@ class MyMajorView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    //  MARK: - Func
     private func setupViews() {
         setViewProperties()
         setViewHierarchy()
@@ -116,14 +121,10 @@ class MyMajorView: UIView {
     }
 }
 
+//  MARK: - Action
 extension MyMajorView {
     @objc
     private func buttonDidTap(_ sender: UIControl) {
-        switch(sender) {
-        case deptChangeButton:
-            viewModel.deptChangeButtonDidTap()
-        default:
-            return
-        }
+        viewModel.deptChangeButtonDidTap()
     }
 }

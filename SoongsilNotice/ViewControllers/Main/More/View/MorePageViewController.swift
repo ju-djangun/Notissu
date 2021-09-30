@@ -5,17 +5,23 @@
 //  Copyright © 2019 Notissu. All rights reserved.
 //
 
-import UIKit
 import SafariServices
+import UIKit
 import YDS
 
 class MorePageViewController : BaseViewController {
     
+    //  MARK: - ViewModel
+    private let viewModel: MorePageViewModelProtocol
+    
+    //  MARK: - View
     private let myMajorView: MyMajorView
     private let versionView: VersionView
-    private let viewModel: MorePageViewModelProtocol
+    
+    //  MARK: - ViewController
     private let itemsListTableViewController: MorePageItemsListTableViewController
     
+    //  MARK: - Init
     init(with viewModel: MorePageViewModelProtocol) {
         self.viewModel = viewModel
         self.itemsListTableViewController = MorePageItemsListTableViewController(with: viewModel)
@@ -28,18 +34,10 @@ class MorePageViewController : BaseViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
+    //  MARK: - Func
     override func viewDidLoad() {
         setupViewLayout()
         bindViewModel()
-//        NotificationCenter.default.addObserver(self, selector: #selector(onLoadFromWidget),
-//                                               name: NSNotification.Name("widget"),
-//                                               object: nil)
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        self.checkURLScheme()
     }
     
     private func setupViewLayout() {
@@ -64,54 +62,6 @@ class MorePageViewController : BaseViewController {
         }
     }
     
-    @objc func onLoadFromWidget() {
-        self.checkURLScheme()
-    }
-    
-    private func checkURLScheme() {
-        if let index = NotissuProperty.openIndex {
-            if index != self.tabBarController?.selectedIndex {
-                self.tabBarController?.selectedIndex = index
-            }
-        }
-    }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        switch(indexPath.row) {
-//        case 0:
-//            let storyBoard = self.storyboard!
-//            let bookmarkController = storyBoard.instantiateViewController(withIdentifier: "bookmarkVC") as? BookmarkViewController
-//            self.navigationController?.pushViewController(bookmarkController!, animated: true)
-//        case 1:
-//            let storyBoard = self.storyboard!
-//            let noticeDetailController = storyBoard.instantiateViewController(withIdentifier: "OpenSourceVC") as? OpenSourceViewController
-//            self.navigationController?.pushViewController(noticeDetailController!, animated: true)
-//        case 2:
-//            showAlert(title: "개발자 정보", msg: "숭실대학교 컴퓨터학부\n14학번 김태인\nContributor : 김봉균\n\n메일 전송을 위해 메일 앱을 실행합니다.", handler: onClickMailButton(_:))
-//        case 3:
-//            showAlert(title: "개발자 GitHub", msg: "개발자의 GitHub 사이트에 접속합니다.", handler: onClickDevelopGitHub(_:))
-//        default: break
-//        }
-        viewModel.itemDidTap(at: indexPath)
-    }
-    
-//    @objc func onClickDevelopGitHub(_ action: UIAlertAction) {
-//        let viewController = SFSafariViewController(url: URL(string: "https://github.com/della-padula")!)
-//        self.present(viewController, animated: true, completion: nil)
-//    }
-//
-//    @objc func onClickMailButton(_ action: UIAlertAction) {
-//        let email = "della.kimko@gmail.com"
-//        if let url = URL(string: "mailto:\(email)") {
-//            UIApplication.shared.open(url)
-//        }
-//    }
-//
-//    @objc func onClickRecommendApp(_ action: UIAlertAction) {
-//        if let url = URL(string: "itms-apps://apps.apple.com/kr/app/%EA%B7%B8%EB%9D%BC%EC%9A%B4%EB%93%9C/id1483838254") {
-//            UIApplication.shared.open(url, options: [:], completionHandler: nil)
-//        }
-//    }
 }
 
 //  MARK: - Header, Footer View Height Setting

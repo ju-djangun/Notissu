@@ -102,7 +102,6 @@
 		DE2961592371ADEE0074F24B /* NoticeDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2961582371ADEE0074F24B /* NoticeDetailViewController.swift */; };
 		DE29615B237289D60074F24B /* NoticeDetailContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE29615A237289D60074F24B /* NoticeDetailContract.swift */; };
 		DE29615E23728A330074F24B /* NoticeDetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE29615D23728A330074F24B /* NoticeDetailPresenter.swift */; };
-		DE4B18EB241208E7007FD285 /* ModifyProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE4B18EA241208E7007FD285 /* ModifyProfileViewController.swift */; };
 		DE501C472374FC9D0053055A /* NoticeInmun.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE501C462374FC9D0053055A /* NoticeInmun.swift */; };
 		DE501C492374FD250053055A /* NoticeURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE501C482374FD250053055A /* NoticeURL.swift */; };
 		DE501C4B23750DCB0053055A /* notissu_anim.json in Resources */ = {isa = PBXBuildFile; fileRef = DE501C4A23750DCA0053055A /* notissu_anim.json */; };
@@ -130,8 +129,6 @@
 		DE7496B123DC008C00000849 /* SearchPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE7496B023DC008C00000849 /* SearchPresenter.swift */; };
 		DE7496B323DC009500000849 /* SearchContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE7496B223DC009500000849 /* SearchContract.swift */; };
 		DE7496B523DC00D400000849 /* SearchModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE7496B423DC00D400000849 /* SearchModel.swift */; };
-		DE75F91424064F2E00510E78 /* VersionInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE75F91324064F2E00510E78 /* VersionInfoView.swift */; };
-		DE75F916240651BC00510E78 /* VersionInfoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DE75F915240651BC00510E78 /* VersionInfoView.xib */; };
 		DE7E5DB124093555007F0DF2 /* String+FileType.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE7E5DB024093555007F0DF2 /* String+FileType.swift */; };
 		DE7E5DB324093779007F0DF2 /* FileTypeIcon.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DE7E5DB224093779007F0DF2 /* FileTypeIcon.xcassets */; };
 		DE7E5DB42409377D007F0DF2 /* FileTypeIcon.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DE7E5DB224093779007F0DF2 /* FileTypeIcon.xcassets */; };
@@ -155,7 +152,6 @@
 		DEBE386B23EFEFC2006F51AB /* WidgetNoticeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEBE386A23EFEFC2006F51AB /* WidgetNoticeView.swift */; };
 		DEBE387123EFF09A006F51AB /* WidgetNoticeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DEBE387023EFF09A006F51AB /* WidgetNoticeView.xib */; };
 		DEBE387323F578C6006F51AB /* TodayExtensionColor.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DEBE387223F578C6006F51AB /* TodayExtensionColor.xcassets */; };
-		DEBFDC43237E31A3003888D9 /* MoreTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEBFDC42237E31A3003888D9 /* MoreTableCell.swift */; };
 		DEBFDC45237E391C003888D9 /* OpenSourceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEBFDC44237E391C003888D9 /* OpenSourceViewController.swift */; };
 		DEBFDC47237E3950003888D9 /* OpenSourceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEBFDC46237E3950003888D9 /* OpenSourceTableViewCell.swift */; };
 		DEC1684A23F7A1FF00DE2D84 /* NotissuProperty.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEC1684923F7A1FF00DE2D84 /* NotissuProperty.swift */; };
@@ -296,7 +292,6 @@
 		DE2961582371ADEE0074F24B /* NoticeDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeDetailViewController.swift; sourceTree = "<group>"; };
 		DE29615A237289D60074F24B /* NoticeDetailContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeDetailContract.swift; sourceTree = "<group>"; };
 		DE29615D23728A330074F24B /* NoticeDetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeDetailPresenter.swift; sourceTree = "<group>"; };
-		DE4B18EA241208E7007FD285 /* ModifyProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModifyProfileViewController.swift; sourceTree = "<group>"; };
 		DE501C462374FC9D0053055A /* NoticeInmun.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeInmun.swift; sourceTree = "<group>"; };
 		DE501C482374FD250053055A /* NoticeURL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeURL.swift; sourceTree = "<group>"; };
 		DE501C4A23750DCA0053055A /* notissu_anim.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = notissu_anim.json; sourceTree = SOURCE_ROOT; };
@@ -323,8 +318,6 @@
 		DE7496B023DC008C00000849 /* SearchPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPresenter.swift; sourceTree = "<group>"; };
 		DE7496B223DC009500000849 /* SearchContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchContract.swift; sourceTree = "<group>"; };
 		DE7496B423DC00D400000849 /* SearchModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchModel.swift; sourceTree = "<group>"; };
-		DE75F91324064F2E00510E78 /* VersionInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VersionInfoView.swift; sourceTree = "<group>"; };
-		DE75F915240651BC00510E78 /* VersionInfoView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VersionInfoView.xib; sourceTree = "<group>"; };
 		DE7E5DB024093555007F0DF2 /* String+FileType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+FileType.swift"; sourceTree = "<group>"; };
 		DE7E5DB224093779007F0DF2 /* FileTypeIcon.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = FileTypeIcon.xcassets; sourceTree = "<group>"; };
 		DE85B92D23DD28D4001FB35C /* Notissu Today Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Notissu Today Extension.entitlements"; sourceTree = "<group>"; };
@@ -337,7 +330,6 @@
 		DEBE386A23EFEFC2006F51AB /* WidgetNoticeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetNoticeView.swift; sourceTree = "<group>"; };
 		DEBE387023EFF09A006F51AB /* WidgetNoticeView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WidgetNoticeView.xib; sourceTree = "<group>"; };
 		DEBE387223F578C6006F51AB /* TodayExtensionColor.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = TodayExtensionColor.xcassets; sourceTree = "<group>"; };
-		DEBFDC42237E31A3003888D9 /* MoreTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreTableCell.swift; sourceTree = "<group>"; };
 		DEBFDC44237E391C003888D9 /* OpenSourceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenSourceViewController.swift; sourceTree = "<group>"; };
 		DEBFDC46237E3950003888D9 /* OpenSourceTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenSourceTableViewCell.swift; sourceTree = "<group>"; };
 		DEC1684923F7A1FF00DE2D84 /* NotissuProperty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotissuProperty.swift; sourceTree = "<group>"; };
@@ -766,16 +758,6 @@
 			path = NoticeDetail;
 			sourceTree = "<group>";
 		};
-		DE3A90A72406448E00C453E2 /* MoreCell */ = {
-			isa = PBXGroup;
-			children = (
-				DEBFDC42237E31A3003888D9 /* MoreTableCell.swift */,
-				DE75F91324064F2E00510E78 /* VersionInfoView.swift */,
-				DE75F915240651BC00510E78 /* VersionInfoView.xib */,
-			);
-			path = MoreCell;
-			sourceTree = "<group>";
-		};
 		DE53D14923FC21BA00AEFCE2 /* Bookmark */ = {
 			isa = PBXGroup;
 			children = (
@@ -796,8 +778,6 @@
 				53DA8D5F27041AFA009190D2 /* DevelopersList */,
 				DEBFDC44237E391C003888D9 /* OpenSourceViewController.swift */,
 				DEBFDC46237E3950003888D9 /* OpenSourceTableViewCell.swift */,
-				DE4B18EA241208E7007FD285 /* ModifyProfileViewController.swift */,
-				DE3A90A72406448E00C453E2 /* MoreCell */,
 			);
 			path = More;
 			sourceTree = "<group>";
@@ -945,7 +925,6 @@
 				DE53D1542400142000AEFCE2 /* TodayExtensionColor.xcassets in Resources */,
 				DE29613F23703F4D0074F24B /* Assets.xcassets in Resources */,
 				DEF56D902384DB1C003CA0F0 /* manual2.png in Resources */,
-				DE75F916240651BC00510E78 /* VersionInfoView.xib in Resources */,
 				DE501C4B23750DCB0053055A /* notissu_anim.json in Resources */,
 				DEF56D912384DB1C003CA0F0 /* manual0.png in Resources */,
 				DE72017F237A871B00F60CEB /* Launch Screen.storyboard in Resources */,
@@ -1049,14 +1028,12 @@
 				B0A130B626DE177F00BB1E28 /* MajorListCell.swift in Sources */,
 				B0A130C326DF4BA200BB1E28 /* NoticeParser.swift in Sources */,
 				53DA8D6527041B50009190D2 /* DevelopersListViewController.swift in Sources */,
-				DEBFDC43237E31A3003888D9 /* MoreTableCell.swift in Sources */,
 				53DA8D6927046A5F009190D2 /* DevelopersListTableViewController.swift in Sources */,
 				DE29613623703F4C0074F24B /* AppDelegate.swift in Sources */,
 				531C932B26F32E57001C73DD /* YDSTableViewCell.swift in Sources */,
 				DE7496B523DC00D400000849 /* SearchModel.swift in Sources */,
 				DE29615B237289D60074F24B /* NoticeDetailContract.swift in Sources */,
 				53DA8D6B27046B5B009190D2 /* DevelopersListItemCell.swift in Sources */,
-				DE75F91424064F2E00510E78 /* VersionInfoView.swift in Sources */,
 				B07166C7269B18F700B49CF7 /* MajorListViewController.swift in Sources */,
 				DE501C492374FD250053055A /* NoticeURL.swift in Sources */,
 				DEBFDC45237E391C003888D9 /* OpenSourceViewController.swift in Sources */,
@@ -1132,7 +1109,6 @@
 				B0A130C026DE1F7E00BB1E28 /* MajorListSectionHeaderView.swift in Sources */,
 				B07166DA269B1C3100B49CF7 /* NoticeFetchManager.swift in Sources */,
 				531C933626F47CC7001C73DD /* NoticesListTableViewController.swift in Sources */,
-				DE4B18EB241208E7007FD285 /* ModifyProfileViewController.swift in Sources */,
 				DE5542402377CC31004E01EB /* NoticeNaturalScience.swift in Sources */,
 				DE29614B2370FC720074F24B /* NoticeListViewController.swift in Sources */,
 				DE53D15123FC21ED00AEFCE2 /* BookmarkModel.swift in Sources */,

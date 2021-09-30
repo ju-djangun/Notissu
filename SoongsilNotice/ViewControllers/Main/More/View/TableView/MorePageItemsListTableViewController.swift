@@ -56,7 +56,9 @@ extension MorePageItemsListTableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell: YDSSingleLineTableViewCell = tableView.dequeueReusableCell(withIdentifier: "YDSSingleLineTableViewCell", for: indexPath) as? YDSSingleLineTableViewCell ?? YDSSingleLineTableViewCell()
+        let cell: YDSSingleLineTableViewCell = tableView.dequeueReusableCell(withIdentifier: "YDSSingleLineTableViewCell",
+                                                                             for: indexPath)
+        as? YDSSingleLineTableViewCell ?? YDSSingleLineTableViewCell()
         
         cell.fillData(title: viewModel.items[indexPath.row].title)
         return cell

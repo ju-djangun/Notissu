@@ -12,8 +12,8 @@
 		531C931526F1D115001C73DD /* NoticesListItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 531C931426F1D115001C73DD /* NoticesListItemCell.swift */; };
 		531C931726F1D17D001C73DD /* NoticesListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 531C931626F1D17D001C73DD /* NoticesListViewModel.swift */; };
 		531C931A26F1D524001C73DD /* NoticesListItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 531C931926F1D524001C73DD /* NoticesListItemViewModel.swift */; };
-		531C931F26F1F1AD001C73DD /* NewNoticeDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 531C931E26F1F1AD001C73DD /* NewNoticeDetailViewModel.swift */; };
-		531C932126F1F1B7001C73DD /* NewNoticeDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 531C932026F1F1B7001C73DD /* NewNoticeDetailViewController.swift */; };
+		531C931F26F1F1AD001C73DD /* NoticeDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 531C931E26F1F1AD001C73DD /* NoticeDetailViewModel.swift */; };
+		531C932126F1F1B7001C73DD /* NoticeDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 531C932026F1F1B7001C73DD /* NoticeDetailViewController.swift */; };
 		531C932426F31EA7001C73DD /* NoticeDetailAttachmentsListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 531C932326F31EA7001C73DD /* NoticeDetailAttachmentsListTableViewController.swift */; };
 		531C932626F31EC3001C73DD /* NoticeDetailAttachemtnsListItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 531C932526F31EC3001C73DD /* NoticeDetailAttachemtnsListItemCell.swift */; };
 		531C932926F32E49001C73DD /* YDSTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 531C932826F32E49001C73DD /* YDSTableViewController.swift */; };
@@ -190,8 +190,8 @@
 		531C931426F1D115001C73DD /* NoticesListItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticesListItemCell.swift; sourceTree = "<group>"; };
 		531C931626F1D17D001C73DD /* NoticesListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticesListViewModel.swift; sourceTree = "<group>"; };
 		531C931926F1D524001C73DD /* NoticesListItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticesListItemViewModel.swift; sourceTree = "<group>"; };
-		531C931E26F1F1AD001C73DD /* NewNoticeDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewNoticeDetailViewModel.swift; sourceTree = "<group>"; };
-		531C932026F1F1B7001C73DD /* NewNoticeDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewNoticeDetailViewController.swift; sourceTree = "<group>"; };
+		531C931E26F1F1AD001C73DD /* NoticeDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeDetailViewModel.swift; sourceTree = "<group>"; };
+		531C932026F1F1B7001C73DD /* NoticeDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeDetailViewController.swift; sourceTree = "<group>"; };
 		531C932326F31EA7001C73DD /* NoticeDetailAttachmentsListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeDetailAttachmentsListTableViewController.swift; sourceTree = "<group>"; };
 		531C932526F31EC3001C73DD /* NoticeDetailAttachemtnsListItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeDetailAttachemtnsListItemCell.swift; sourceTree = "<group>"; };
 		531C932826F32E49001C73DD /* YDSTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YDSTableViewController.swift; sourceTree = "<group>"; };
@@ -367,8 +367,8 @@
 		531C931D26F1F19D001C73DD /* NoticeDetail */ = {
 			isa = PBXGroup;
 			children = (
-				531C931E26F1F1AD001C73DD /* NewNoticeDetailViewModel.swift */,
-				531C932026F1F1B7001C73DD /* NewNoticeDetailViewController.swift */,
+				531C931E26F1F1AD001C73DD /* NoticeDetailViewModel.swift */,
+				531C932026F1F1B7001C73DD /* NoticeDetailViewController.swift */,
 				531C932226F31E5B001C73DD /* NoticeDetailAttachments */,
 			);
 			path = NoticeDetail;
@@ -984,9 +984,9 @@
 				DE8C73842379BB2E008F2FE1 /* NoticeEconomy.swift in Sources */,
 				B0A130C626DF4CA600BB1E28 /* Attachment.swift in Sources */,
 				DE501C472374FC9D0053055A /* NoticeInmun.swift in Sources */,
-				531C932126F1F1B7001C73DD /* NewNoticeDetailViewController.swift in Sources */,
+				531C932126F1F1B7001C73DD /* NoticeDetailViewController.swift in Sources */,
 				531C931726F1D17D001C73DD /* NoticesListViewModel.swift in Sources */,
-				531C931F26F1F1AD001C73DD /* NewNoticeDetailViewModel.swift in Sources */,
+				531C931F26F1F1AD001C73DD /* NoticeDetailViewModel.swift in Sources */,
 				B0A130C026DE1F7E00BB1E28 /* MajorListSectionHeaderView.swift in Sources */,
 				B07166DA269B1C3100B49CF7 /* NoticeFetchManager.swift in Sources */,
 				531C933626F47CC7001C73DD /* NoticesListTableViewController.swift in Sources */,

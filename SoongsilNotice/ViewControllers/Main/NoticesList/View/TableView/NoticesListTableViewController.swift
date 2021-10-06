@@ -118,9 +118,9 @@ extension NoticesListTableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         
-        let viewModel = NewNoticeDetailViewModel(notice: viewModel.noticesList.value[indexPath.row],
+        let viewModel = NoticeDetailViewModel(notice: viewModel.noticesList.value[indexPath.row],
                                                  deptCode: viewModel.deptCode.value)
-        let viewController = NewNoticeDetailViewController(with: viewModel)
+        let viewController = NoticeDetailViewController(with: viewModel)
                                                            
         self.navigationController?.pushViewController(viewController, animated: true)
     }

@@ -9,7 +9,7 @@ import UIKit
 import WebKit
 import YDS
 
-class NewNoticeDetailViewController: BaseViewController {
+class NoticeDetailViewController: BaseViewController {
 
     //  MARK: - Property
     private let viewModel: NoticeDetailViewModelProtocol
@@ -103,7 +103,7 @@ class NewNoticeDetailViewController: BaseViewController {
     private let attachmentsListTableViewController: NoticeDetailAttachmentsListTableViewController
     
     //  MARK: - Init
-    init(with viewModel: NewNoticeDetailViewModel) {
+    init(with viewModel: NoticeDetailViewModel) {
         self.viewModel = viewModel
         self.attachmentsListTableViewController = NoticeDetailAttachmentsListTableViewController(with: viewModel)
         super.init(nibName: nil, bundle: nil)
@@ -231,7 +231,7 @@ class NewNoticeDetailViewController: BaseViewController {
 }
 
 //  MARK: - WKNavigationDelegate
-extension NewNoticeDetailViewController: WKNavigationDelegate {
+extension NoticeDetailViewController: WKNavigationDelegate {
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
             self.hideProgressBar()
@@ -256,7 +256,7 @@ extension NewNoticeDetailViewController: WKNavigationDelegate {
 }
 
 //  MARK: - Action
-extension NewNoticeDetailViewController {
+extension NoticeDetailViewController {
     @objc
     func buttonDidTap(_ sender: UIControl) {
         switch(sender) {
@@ -288,7 +288,7 @@ extension NewNoticeDetailViewController {
 }
 
 //  MARK: - ScrollView Delegate
-extension NewNoticeDetailViewController: UIScrollViewDelegate {
+extension NoticeDetailViewController: UIScrollViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         if scrollView.contentOffset.y <= 0 {
             return

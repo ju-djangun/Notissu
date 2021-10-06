@@ -256,7 +256,7 @@
 		DE296156237198070074F24B /* NoticeIT.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeIT.swift; sourceTree = "<group>"; };
 		DE501C462374FC9D0053055A /* NoticeInmun.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeInmun.swift; sourceTree = "<group>"; };
 		DE501C482374FD250053055A /* NoticeURL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeURL.swift; sourceTree = "<group>"; };
-		DE501C4A23750DCA0053055A /* notissu_anim.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = notissu_anim.json; sourceTree = SOURCE_ROOT; };
+		DE501C4A23750DCA0053055A /* notissu_anim.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = notissu_anim.json; path = SoongsilNotice/Resources/notissu_anim.json; sourceTree = SOURCE_ROOT; };
 		DE53D0AF23F8E9B100AEFCE2 /* FavoriteNotice.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FavoriteNotice.xcdatamodel; sourceTree = "<group>"; };
 		DE53D0B223F8EA4E00AEFCE2 /* CoreDataUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataUtil.swift; sourceTree = "<group>"; };
 		DE53D0B523F92B3600AEFCE2 /* TodayModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayModel.swift; sourceTree = "<group>"; };
@@ -323,6 +323,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		53190FEE270DCDE70064BA59 /* Apps */ = {
+			isa = PBXGroup;
+			children = (
+				DE0418B02402412E00486BF3 /* GoogleService-Info.plist */,
+				DE85B93B23DD2DEB001FB35C /* Notissu.entitlements */,
+				DE29613523703F4C0074F24B /* AppDelegate.swift */,
+				DE29613B23703F4C0074F24B /* Main.storyboard */,
+				DE72017E237A871B00F60CEB /* Launch Screen.storyboard */,
+			);
+			path = Apps;
+			sourceTree = "<group>";
+		};
 		531C931826F1D1AC001C73DD /* NoticesList */ = {
 			isa = PBXGroup;
 			children = (
@@ -515,6 +527,7 @@
 		B07166AE269B15D900B49CF7 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				DE0F8F1B2373F333006A0B49 /* Home */,
 				531C931826F1D1AC001C73DD /* NoticesList */,
 				531C931D26F1F19D001C73DD /* NoticeDetail */,
 				B07166BF269B183300B49CF7 /* MajorList */,
@@ -527,6 +540,7 @@
 		B07166B5269B170E00B49CF7 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				DE0F8F192373A222006A0B49 /* BaseViewController.swift */,
 				DE296154237195CD0074F24B /* ConfigSetting.swift */,
 				DE501C482374FD250053055A /* NoticeURL.swift */,
 				DE5542432377E076004E01EB /* HomeSwticher.swift */,
@@ -566,6 +580,7 @@
 		B07166DB269B1FAD00B49CF7 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				DE2961522370FF4E0074F24B /* Notice.swift */,
 				B0B67AEA2400BB060027D038 /* MajorModel.swift */,
 				B07166DC269B1FB900B49CF7 /* MajorSection.swift */,
 				B0A130B826DE185A00BB1E28 /* Major.swift */,
@@ -639,34 +654,18 @@
 		DE29613423703F4C0074F24B /* SoongsilNotice */ = {
 			isa = PBXGroup;
 			children = (
-				531C932726F32E27001C73DD /* YDSTempComponent */,
+				53190FEE270DCDE70064BA59 /* Apps */,
 				B07166DB269B1FAD00B49CF7 /* Model */,
 				B07166D8269B1C2300B49CF7 /* DataRepository */,
+				DE03E9D02379B063002AA5AE /* NoticeParser */,
 				B07166B5269B170E00B49CF7 /* Common */,
 				B07166AD269B15D100B49CF7 /* ViewControllers */,
-				DE0418B02402412E00486BF3 /* GoogleService-Info.plist */,
-				DE53D14923FC21BA00AEFCE2 /* Bookmark */,
-				DE85B93B23DD2DEB001FB35C /* Notissu.entitlements */,
+				531C932726F32E27001C73DD /* YDSTempComponent */,
 				DEF56D812384DA05003CA0F0 /* Resources */,
-				DE03E9D02379B063002AA5AE /* NoticeParser */,
-				DE501C4A23750DCA0053055A /* notissu_anim.json */,
-				DE0F8F1B2373F333006A0B49 /* Home */,
-				DE2961492370FC620074F24B /* NoticeList */,
-				DE29613523703F4C0074F24B /* AppDelegate.swift */,
-				DE29613B23703F4C0074F24B /* Main.storyboard */,
 				DE29614323703F4D0074F24B /* Info.plist */,
-				DE0F8F192373A222006A0B49 /* BaseViewController.swift */,
-				DE72017E237A871B00F60CEB /* Launch Screen.storyboard */,
+				DE53D14923FC21BA00AEFCE2 /* Bookmark */,
 			);
 			path = SoongsilNotice;
-			sourceTree = "<group>";
-		};
-		DE2961492370FC620074F24B /* NoticeList */ = {
-			isa = PBXGroup;
-			children = (
-				DE2961522370FF4E0074F24B /* Notice.swift */,
-			);
-			path = NoticeList;
 			sourceTree = "<group>";
 		};
 		DE53D14923FC21BA00AEFCE2 /* Bookmark */ = {
@@ -714,6 +713,7 @@
 		DEF56D812384DA05003CA0F0 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				DE501C4A23750DCA0053055A /* notissu_anim.json */,
 				DE7E5DB224093779007F0DF2 /* FileTypeIcon.xcassets */,
 				DE29613E23703F4D0074F24B /* Assets.xcassets */,
 				DE53D1552400F54B00AEFCE2 /* NotissuColorSet.xcassets */,

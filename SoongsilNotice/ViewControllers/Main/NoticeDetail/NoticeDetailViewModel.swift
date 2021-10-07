@@ -29,7 +29,7 @@ protocol NoticeDetailViewModelOutput {
 
 protocol NoticeDetailViewModelProtocol: NoticeDetailViewModelInput, NoticeDetailViewModelOutput {}
 
-class NewNoticeDetailViewModel: NoticeDetailViewModelProtocol {
+class NoticeDetailViewModel: NoticeDetailViewModelProtocol {
     
     //  MARK: - OUTPUT
     let title: String?
@@ -77,7 +77,7 @@ class NewNoticeDetailViewModel: NoticeDetailViewModelProtocol {
 }
 
 //  MARK: - Bookmark
-extension NewNoticeDetailViewModel {
+extension NoticeDetailViewModel {
     private func isNoticeBookmarked() -> Bool {
         // Retrieve Data From Core Data
         // Favorite 여부를 확인하여 View 에 적용하기 위한 함수
@@ -154,7 +154,7 @@ extension NewNoticeDetailViewModel {
 }
 
 //  MARK: - Webview load
-extension NewNoticeDetailViewModel {
+extension NoticeDetailViewModel {
     private func loadContentFromURL(string: String) {
         guard let url = string.decodeUrl()?.encodeUrl() else {
             return
@@ -211,7 +211,7 @@ extension NewNoticeDetailViewModel {
 }
 
 //  MARK: - Download file
-extension NewNoticeDetailViewModel {
+extension NoticeDetailViewModel {
     private func downloadFile(at index: Int) {
         let attachment = self.attachments.value[index]
         

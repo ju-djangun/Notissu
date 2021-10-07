@@ -10,7 +10,7 @@ import UIKit
 class NoticeDetailAttachmentsListTableViewController: YDSTableViewController {
     
     //  MARK: - Property
-    private var viewModel: NewNoticeDetailViewModel
+    private var viewModel: NoticeDetailViewModel
     private var docController : UIDocumentInteractionController!
     weak var progressBarDelegate: ProgressBarDelegate?
     
@@ -21,7 +21,7 @@ class NoticeDetailAttachmentsListTableViewController: YDSTableViewController {
     }
     
     //  MARK: - Init
-    init(with viewModel: NewNoticeDetailViewModel) {
+    init(with viewModel: NoticeDetailViewModel) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
     }

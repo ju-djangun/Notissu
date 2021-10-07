@@ -1327,7 +1327,7 @@
 			repositoryURL = "https://github.com/yourssu/YDS-iOS";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 0.3.4;
+				minimumVersion = 0.3.6;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */

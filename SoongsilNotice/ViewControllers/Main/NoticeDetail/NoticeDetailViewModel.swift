@@ -226,8 +226,8 @@ extension NoticeDetailViewModel {
         
         var encodedURL: String
         switch(departmentCode) {
-        case .LAW_IntlLaw,
-             .Inmun_Korean,
+        // .LAW_IntlLaw,
+        case .Inmun_Korean,
              .Inmun_French,
              .Inmun_Chinese,
              .Inmun_English,

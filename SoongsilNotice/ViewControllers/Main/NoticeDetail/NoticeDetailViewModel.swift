@@ -177,7 +177,16 @@ extension NoticeDetailViewModel {
                     print(error)
                 }
             })
-            
+        case .IT_Media:
+            AF.request(url).responseData(completionHandler: { response in
+                switch(response.result) {
+                case .success(let data):
+                    let utf8Text = String(data: data, encoding: .utf8) ?? String(decoding: data, as: UTF8.self)
+                    self.parseNoticeDetail(html: utf8Text)
+                case .failure(let error):
+                    print(error)
+                }
+            })
         default:
             AF.request(url).responseString(completionHandler: { response in
                 switch(response.result) {

@@ -14,8 +14,4 @@ target 'SoongsilNotice' do
   pod 'Firebase/Core'
   pod 'Firebase/Messaging'
   pod 'Google-Mobile-Ads-SDK'
-  
-  target 'Notissu Today Extension' do
-    inherit! :search_paths
-  end
 end

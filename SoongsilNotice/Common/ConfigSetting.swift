@@ -52,7 +52,7 @@ public enum DeptCode: Int, CaseIterable {
     
     // 법과대학
     case LAW_Law          = 6
-    case LAW_IntlLaw      = 7
+//    case LAW_IntlLaw      = 7
     
     // 공과대학
     case Engineering_Chemistry    = 8
@@ -125,8 +125,8 @@ public enum DeptCode: Int, CaseIterable {
             return isKorean ? "전자정보공학부" : "School of Electronic Engineering"
         case .LAW_Law:
             return isKorean ? "법학과" : "Law"
-        case .LAW_IntlLaw:
-            return isKorean ? "국제법무학과" : "Global Law"
+//        case .LAW_IntlLaw:
+//            return isKorean ? "국제법무학과" : "Global Law"
         case .Inmun_Korean:
             return isKorean ? "국어국문학과" : "Korean Language & Literature"
         case .Inmun_French:
@@ -214,8 +214,8 @@ public enum DeptCode: Int, CaseIterable {
             NoticeIT.parseListElectric(page: page, keyword: keyword, completion: completion)
         case .LAW_Law:
             NoticeLaw.parseListLaw(page: page, keyword: keyword, completion: completion)
-        case .LAW_IntlLaw:
-            NoticeLaw.parseListIntlLaw(page: page, keyword: keyword, completion: completion)
+//        case .LAW_IntlLaw:
+//            NoticeLaw.parseListIntlLaw(page: page, keyword: keyword, completion: completion)
         case .Inmun_Korean:
             NoticeInmun.parseListKorean(page: page, keyword: keyword, completion: completion)
         case .Inmun_French:

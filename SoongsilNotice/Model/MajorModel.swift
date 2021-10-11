@@ -15,7 +15,7 @@ struct MajorModel {
     static var majorCodeListIT = [DeptCode.IT_Computer, DeptCode.IT_Media, DeptCode.IT_Electric, DeptCode.IT_Software, DeptCode.IT_SmartSystem]
     
     // 법과대학
-    static var majorCodeListLaw = [DeptCode.LAW_Law, DeptCode.LAW_IntlLaw]
+    static var majorCodeListLaw = [DeptCode.LAW_Law] // , DeptCode.LAW_IntlLaw
     
     // 인문대학
     static var majorCodeListInmun = [DeptCode.Inmun_Korean, DeptCode.Inmun_French, DeptCode.Inmun_German, DeptCode.Inmun_Chinese, DeptCode.Inmun_English, DeptCode.Inmun_History, DeptCode.Inmun_Philosophy, DeptCode.Inmun_Japanese, DeptCode.Inmun_Writing]

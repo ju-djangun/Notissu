@@ -8,7 +8,6 @@
 import Foundation
 
 protocol DevelopersListViewModelOutput {
-    var title: String? { get }
     var error: Dynamic<String?> { get }
     var developersList: Dynamic<[Developer]> { get }
     var tappedDeveloper: Dynamic<Developer?> { get }
@@ -24,7 +23,6 @@ protocol DevelopersListViewModelProtocol: DevelopersListViewModelOutput, Develop
 class DevelopersListViewModel: DevelopersListViewModelProtocol {
     
     //  MARK: - INPUT
-    var title: String? = "개발자 정보"
     var error: Dynamic<String?> = Dynamic<String?>(nil)
     var developersList: Dynamic<[Developer]> = Dynamic<[Developer]>([])
     var tappedDeveloper: Dynamic<Developer?> = Dynamic<Developer?>(nil)

@@ -1,20 +1,16 @@
 //
-//  BookmarkPresenter.swift
-//  Notissu
+//  BookmarkViewModel.swift
+//  SoongsilNotice
 //
-//  Copyright © 2020 Notissu. All rights reserved.
+//  Created by denny on 2021/10/11.
+//  Copyright © 2021 Notissu. All rights reserved.
 //
 
-import Foundation
 import CoreData
+import Foundation
 
-class BookmarkPresenter: BookmarkPresenterProtocol {
-    private var view: BookmarkViewProtocol!
-    private var model = BookmarkModel()
-    
-    init(view: BookmarkViewProtocol) {
-        self.view = view
-    }
+final class BookmarkViewModel {
+    var bookmarkList: Dynamic<[FavoriteNotice]> = Dynamic([])
     
     func fetchBookmarkNotice() {
         let managedContext = CoreDataUtil.shared.persistentContainer.viewContext
@@ -33,13 +29,16 @@ class BookmarkPresenter: BookmarkPresenterProtocol {
                 let author = notice.value(forKey: "author") as! String
                 let isNotice = notice.value(forKey: "isNotice") as! Bool
                 let deptCode = notice.value(forKey: "deptCode") as! Int
-                let deptName = notice.value(forKey: "deptName") as! String
+//                let deptName = notice.value(forKey: "deptName") as! String
                 let hasAttachment = (notice.value(forKey: "hasAttachment") as? Bool) ?? false
                 
                 favoriteList.append(FavoriteNotice(notice: Notice(author: author, title: title, url: url, date: date, isNotice: isNotice, hasAttachment: hasAttachment), deptCode: DeptCode(rawValue: deptCode) ?? DeptCode.IT_Computer))
             }
-            self.model.appendBookmarkList(list: favoriteList)
-            self.view.applyListToTableView(list: favoriteList)
+            
+            var tempList = bookmarkList.value
+            tempList.removeAll()
+            tempList.append(contentsOf: favoriteList)
+            bookmarkList.value = tempList
         } catch {
             print("ERROR")
         }
@@ -47,7 +46,7 @@ class BookmarkPresenter: BookmarkPresenterProtocol {
     
     func removeBookmark(bookmark: FavoriteNotice) {
         let managedContext = CoreDataUtil.shared.persistentContainer.viewContext
-        let fetchRequest:NSFetchRequest<NSFetchRequestResult> = NSFetchRequest.init(entityName: "Favorite")
+        let fetchRequest: NSFetchRequest<NSFetchRequestResult> = NSFetchRequest.init(entityName: "Favorite")
         fetchRequest.predicate = NSPredicate(format: "title = %@ AND date = %@ AND deptCode = %i", bookmark.notice.title!, bookmark.notice.date!, bookmark.deptCode.rawValue)
         
         do {
@@ -57,7 +56,14 @@ class BookmarkPresenter: BookmarkPresenterProtocol {
 
             do {
                 try managedContext.save()
-                self.model.removeBookmark(bookmark: bookmark)
+                
+                var tempList = bookmarkList.value
+                for (index, item) in tempList.enumerated() {
+                    if item == bookmark {
+                        tempList.remove(at: index)
+                    }
+                }
+                bookmarkList.value = tempList
             } catch {
                 print(error)
                 return
@@ -66,17 +72,5 @@ class BookmarkPresenter: BookmarkPresenterProtocol {
             print(error)
             return
         }
-    }
-    
-    func removeBookmark(at: Int) {
-        self.removeBookmark(bookmark: self.getBookmark(at: at))
-    }
-    
-    func getBookmark(at: Int) -> FavoriteNotice {
-        return self.model.getBookmark(at: at)
-    }
-    
-    func getBookmarkCount() -> Int {
-        return self.model.getBookmarkCount()
     }
 }

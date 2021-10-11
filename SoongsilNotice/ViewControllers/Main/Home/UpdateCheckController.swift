@@ -2,7 +2,7 @@
 //  SplashViewController.swift
 //  Notissu
 //
-//  Copyright © 2019 Notissu. All rights reserved.
+//  Copyright © 2021 Notissu. All rights reserved.
 //
 
 import UIKit

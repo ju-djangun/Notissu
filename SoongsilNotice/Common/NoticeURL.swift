@@ -141,7 +141,7 @@ struct NoticeRequestURL {
     
     // 법과대학
     static func lawURL(page: Int, keyword: String?) -> String {
-        return "http://law.ssu.ac.kr/web/law/board1?p_p_id=EXT_BBS&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&p_p_col_id=column-1&p_p_col_count=1&_EXT_BBS_struts_action=%2Fext%2Fbbs%2Fview&_EXT_BBS_sCategory=&_EXT_BBS_sTitle=\(keyword ?? "")&_EXT_BBS_sWriter=&_EXT_BBS_sTag=&_EXT_BBS_sContent=&_EXT_BBS_sCategory2=&_EXT_BBS_sKeyType=title&_EXT_BBS_sKeyword=\(keyword ?? "")&_EXT_BBS_curPage=\(page)"
+        return "https://law.ssu.ac.kr/menu4/m4sub1/page/\(page)/?select=title&term_id&keyword=\(keyword ?? "")#038;keyword=\(keyword ?? "")"
     }
     
     static func intlLawURL(page: Int, keyword: String?) -> String {

@@ -7,7 +7,7 @@
 
 import Foundation
 
-class Notice: Codable {
+class Notice: Codable, Equatable {
     var author        : String?
     var title         : String?
     var url           : String?
@@ -42,5 +42,12 @@ class Notice: Codable {
         self.date          = date
         self.isNotice      = isNotice
         self.hasAttachment = hasAttachment
+    }
+    
+    static func == (lhs: Notice, rhs: Notice) -> Bool {
+        if lhs.author == rhs.author && lhs.title == rhs.title && lhs.url == rhs.url && lhs.date == rhs.date && lhs.isNotice == rhs.isNotice && lhs.hasAttachment == rhs.hasAttachment {
+            return true
+        }
+        return false
     }
 }

@@ -37,7 +37,8 @@ class MorePageViewModel: MorePageViewModelProtocol {
     func itemDidTap(at indexPath: IndexPath) {
         switch(items[indexPath.row]) {
         case .bookmark:
-            pushViewController.value = BaseViewController()
+            let bookmarkViewModel = BookmarkViewModel()
+            pushViewController.value = BookmarkViewController(viewModel: bookmarkViewModel)
         case .developer:
             pushViewController.value = DevelopersListViewController(with: DevelopersListViewModel())
         }

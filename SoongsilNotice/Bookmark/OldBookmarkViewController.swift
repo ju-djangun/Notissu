@@ -7,7 +7,7 @@
 
 //import UIKit
 //
-//class BookmarkViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, BookmarkViewProtocol {
+//class OldBookmarkViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, BookmarkViewProtocol {
 //    
 //    private var presenter: BookmarkPresenterProtocol!
 //    @IBOutlet var noticeListView: UITableView!

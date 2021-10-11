@@ -42,7 +42,7 @@ class DevelopersListViewController: BaseViewController {
     }
     
     private func setProperties() {
-        title = viewModel.title
+        title = "개발자 정보"
         tableViewController.progressBarDelegate = self
     }
     

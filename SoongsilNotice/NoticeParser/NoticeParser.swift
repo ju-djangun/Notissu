@@ -277,14 +277,14 @@ extension NoticeParser {
     }
     
     private func parseLaw(html: HTMLDocument, completion: @escaping ([Attachment], String) -> Void) {
-        let contentHTML = html.css("div[class^='frame-box']").first?.innerHTML ?? ""
+        let contentHTML = html.css("div[class^='td_box']").first?.innerHTML ?? ""
         let detailHTML = "\(htmlStart)\(contentHTML)\(htmlEnd)"
         var attachmentList = [Attachment]()
         
-        for link in html.css("table[class='bbs-view'] a") {
-            //            print(link["href"])
-            //            print(link.content)
-            attachmentList.append(Attachment(fileName: link.content ?? "", fileURL: link["href"] ?? ""))
+        for link in html.css("ul[class='flie_list'] li") {
+                        print(link.css("a").first?["href"])
+            print(link.css("a").first?.content?.trimmingCharacters(in: .whitespacesAndNewlines))
+            attachmentList.append(Attachment(fileName: link.css("a").first?.content?.trimmingCharacters(in: .whitespacesAndNewlines) ?? "", fileURL: link.css("a").first?["href"] ?? ""))
         }
         
         completion(attachmentList, detailHTML)

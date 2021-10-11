@@ -25,7 +25,7 @@ class NoticeLaw: NoticeBaseModel {
                 if let data = response.value {
                     do {
                         let doc = try HTML(html: data, encoding: .utf8)
-                        for product in doc.css("table[class='bbs-list']") {
+                        for product in doc.css("table[class='t_list hover']") {
                             var isAppendNotice = false
                             var title = ""
                             var date = ""
@@ -33,13 +33,17 @@ class NoticeLaw: NoticeBaseModel {
                             var isNotice = false
                             var hasAttachment = false
                             
+                            print(product)
+                            
                             for (index, td) in product.css("td").enumerated() {
-                                let content = td.text!.trimmingCharacters(in: .whitespacesAndNewlines)
+                                let content = td.text?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
+                                
+                                print(content)
                                 
                                 switch (index % 5) {
                                 case 0:
                                     isAppendNotice = false
-                                    if td.innerHTML?.contains("img") ?? false {
+                                    if td.content?.contains("공지") ?? false {
                                         isNotice = true
                                         if page < 2 {
                                             isAppendNotice = true
@@ -62,8 +66,7 @@ class NoticeLaw: NoticeBaseModel {
                                     }
                                 case 2:
                                     hasAttachment = false
-                                    let imgHTML = td.toHTML ?? ""
-                                    if imgHTML.contains("ico_file.gif") {
+                                    if td.content?.contains("파일") ?? false {
                                         hasAttachment = true
                                     }
                                     

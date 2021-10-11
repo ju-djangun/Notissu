@@ -8,10 +8,17 @@
 import Foundation
 import CoreData
 
-struct FavoriteNotice {
+struct FavoriteNotice: Equatable {
     var notice: Notice
     var deptCode: DeptCode
 //    var deptName: DeptName
+    
+    static func == (lhs: FavoriteNotice, rhs: FavoriteNotice) -> Bool {
+        if lhs.notice == rhs.notice && lhs.deptCode == rhs.deptCode {
+            return true
+        }
+        return false
+    }
 }
 
 class CoreDataUtil {

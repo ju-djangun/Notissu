@@ -1,9 +1,9 @@
 //
 //  NotissuProperty.swift
-//  Notissu Today Extension
+//  SoongsilNotice
 //
-//  Created by TaeinKim on 2020/02/15.
-//  Copyright © 2020 TaeinKim. All rights reserved.
+//  Created by denny on 2021/10/11.
+//  Copyright © 2021 Notissu. All rights reserved.
 //
 
 import Foundation

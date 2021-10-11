@@ -24,6 +24,7 @@
 		531C933E26F5AE49001C73DD /* BaseNoticesListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 531C933D26F5AE49001C73DD /* BaseNoticesListViewController.swift */; };
 		531C934026F5B549001C73DD /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 531C933F26F5B548001C73DD /* ErrorView.swift */; };
 		532011A526FE39A9003B6301 /* MyMajorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 532011A426FE39A9003B6301 /* MyMajorView.swift */; };
+		535A815C27145B340021A801 /* logo_transparent.png in Resources */ = {isa = PBXBuildFile; fileRef = 535A815B27145B340021A801 /* logo_transparent.png */; };
 		535C210526FE02BC00A3F15E /* MorePageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 535C210426FE02BC00A3F15E /* MorePageViewModel.swift */; };
 		535C210C26FE251100A3F15E /* MorePageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 535C210B26FE251100A3F15E /* MorePageModel.swift */; };
 		5363AE1726F6FDFA00371569 /* UIColor+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5363AE1626F6FDFA00371569 /* UIColor+Ext.swift */; };
@@ -136,7 +137,6 @@
 		DEBFDC45237E391C003888D9 /* OpenSourceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEBFDC44237E391C003888D9 /* OpenSourceViewController.swift */; };
 		DEBFDC47237E3950003888D9 /* OpenSourceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEBFDC46237E3950003888D9 /* OpenSourceTableViewCell.swift */; };
 		DEC1684A23F7A1FF00DE2D84 /* NotissuProperty.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEC1684923F7A1FF00DE2D84 /* NotissuProperty.swift */; };
-		DEC1684B23F7A3B900DE2D84 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DE29613E23703F4D0074F24B /* Assets.xcassets */; };
 		DEC1684C23F7A84500DE2D84 /* NotissuProperty.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEC1684923F7A1FF00DE2D84 /* NotissuProperty.swift */; };
 		DEF56D7E238425D7003CA0F0 /* NoticeSoongsil.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEF56D7D238425D7003CA0F0 /* NoticeSoongsil.swift */; };
 		DEF56D8E2384DB1C003CA0F0 /* manual1.png in Resources */ = {isa = PBXBuildFile; fileRef = DEF56D8A2384DB1B003CA0F0 /* manual1.png */; };
@@ -202,6 +202,7 @@
 		531C933D26F5AE49001C73DD /* BaseNoticesListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseNoticesListViewController.swift; sourceTree = "<group>"; };
 		531C933F26F5B548001C73DD /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
 		532011A426FE39A9003B6301 /* MyMajorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyMajorView.swift; sourceTree = "<group>"; };
+		535A815B27145B340021A801 /* logo_transparent.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo_transparent.png; sourceTree = "<group>"; };
 		535C210426FE02BC00A3F15E /* MorePageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MorePageViewModel.swift; sourceTree = "<group>"; };
 		535C210B26FE251100A3F15E /* MorePageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MorePageModel.swift; sourceTree = "<group>"; };
 		5363AE1626F6FDFA00371569 /* UIColor+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Ext.swift"; sourceTree = "<group>"; };
@@ -713,6 +714,7 @@
 		DEF56D812384DA05003CA0F0 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				535A815B27145B340021A801 /* logo_transparent.png */,
 				DE501C4A23750DCA0053055A /* notissu_anim.json */,
 				DE7E5DB224093779007F0DF2 /* FileTypeIcon.xcassets */,
 				DE29613E23703F4D0074F24B /* Assets.xcassets */,
@@ -824,6 +826,7 @@
 				DE7E5DB324093779007F0DF2 /* FileTypeIcon.xcassets in Resources */,
 				DEF56D8E2384DB1C003CA0F0 /* manual1.png in Resources */,
 				DE53D1542400142000AEFCE2 /* TodayExtensionColor.xcassets in Resources */,
+				535A815C27145B340021A801 /* logo_transparent.png in Resources */,
 				DE29613F23703F4D0074F24B /* Assets.xcassets in Resources */,
 				DEF56D902384DB1C003CA0F0 /* manual2.png in Resources */,
 				DE501C4B23750DCB0053055A /* notissu_anim.json in Resources */,
@@ -843,7 +846,6 @@
 				DEBE387323F578C6006F51AB /* TodayExtensionColor.xcassets in Resources */,
 				DE0418B22402412F00486BF3 /* GoogleService-Info.plist in Resources */,
 				B03BA5F025176295002010CE /* NotissuColorSet.xcassets in Resources */,
-				DEC1684B23F7A3B900DE2D84 /* Assets.xcassets in Resources */,
 				DE7E5DB42409377D007F0DF2 /* FileTypeIcon.xcassets in Resources */,
 				DE64BE8B23DD253C00DF46C5 /* MainInterface.storyboard in Resources */,
 			);

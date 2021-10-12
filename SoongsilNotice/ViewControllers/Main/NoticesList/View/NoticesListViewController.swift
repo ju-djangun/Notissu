@@ -42,7 +42,7 @@ class NoticesListViewController: BaseNoticesListViewController {
 extension NoticesListViewController {
     @objc
     private func pushSearchViewController(sender: UIControl) {
-        let viewController = NoticesSearchListViewController(with: NoticesListViewModel(deptCode: viewModel.deptCode.value))
+        let viewController = NoticesSearchListViewController(with: NoticesSearchListViewModel(deptCode: viewModel.deptCode.value))
         self.navigationController?.pushViewController(viewController, animated: true)
     }
 }

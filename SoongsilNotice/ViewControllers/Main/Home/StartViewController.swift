@@ -13,7 +13,7 @@ class StartViewController: BaseViewController, UIPickerViewDelegate, UIPickerVie
     private let bottomLabel: UILabel = {
         $0.text = "Copyright (C) 2019 Taein Kim All Rights Reserved."
         $0.textAlignment = .center
-        $0.font = UIFont(name: "NotoSansKR-Light", size: 10)
+        $0.font = YDSFont.caption2 // UIFont.systemFont(ofSize: 10)
         $0.textColor = UIColor(red: 155/255, green: 155/255, blue: 155/255, alpha: 1.0)
         return $0
     }(UILabel())
@@ -21,7 +21,7 @@ class StartViewController: BaseViewController, UIPickerViewDelegate, UIPickerVie
     private let titleLabel: UILabel = {
         $0.text = "앱을 시작하기 위해"
         $0.textAlignment = .center
-        $0.font = UIFont(name: "NotoSansKR-Light", size: 16)
+        $0.font = YDSFont.title3 // UIFont.systemFont(ofSize: 16)
         $0.textColor = .black
         return $0
     }(UILabel())
@@ -29,12 +29,12 @@ class StartViewController: BaseViewController, UIPickerViewDelegate, UIPickerVie
     private let subTitleLabel: UILabel = {
         $0.text = "전공을 선택해주세요"
         $0.textAlignment = .center
-        $0.font = UIFont(name: "NotoSansKR-Medium", size: 24)
+        $0.font = YDSFont.title1 // UIFont.systemFont(ofSize: 24)
         $0.textColor = .black
         return $0
     }(UILabel())
     
-    private let continueButton: YDSBoxButton = {
+    private lazy var continueButton: YDSBoxButton = {
         $0.text = "계속하기"
         $0.addTarget(self, action: #selector(onClickNext(_:)), for: .touchUpInside)
         return $0

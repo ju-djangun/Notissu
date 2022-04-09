@@ -150,7 +150,7 @@ struct NoticeRequestURL {
     
     // 인문대학
     static func korlanURL(page: Int, keyword: String?) -> String {
-        return "http://korlan.ssu.ac.kr/web/korlan/notice_a?p_p_id=EXT_BBS&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&p_p_col_id=column-1&p_p_col_count=1&_EXT_BBS_struts_action=%2Fext%2Fbbs%2Fview&_EXT_BBS_sCategory=&_EXT_BBS_sTitle=\(keyword ?? "")&_EXT_BBS_sWriter=&_EXT_BBS_sTag=&_EXT_BBS_sContent=&_EXT_BBS_sCategory2=&_EXT_BBS_sKeyType=title&_EXT_BBS_sKeyword=\(keyword ?? "")&_EXT_BBS_curPage=\(page)"
+        return "https://korlan.ssu.ac.kr/%ed%95%99%ea%b3%bc%ec%82%ac%eb%ac%b4%ec%8b%a4%ec%95%8c%eb%a6%bc/%ea%b3%b5%ec%a7%80%ec%82%ac%ed%95%ad/page/\(page)/?select=title&keyword=\(keyword)"
     }
     
     static func englanURL(page: Int, keyword: String?) -> String {

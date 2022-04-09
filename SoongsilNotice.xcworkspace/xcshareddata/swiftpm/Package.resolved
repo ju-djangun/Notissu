@@ -1,34 +1,32 @@
 {
-  "object": {
-    "pins": [
-      {
-        "package": "PanModal",
-        "repositoryURL": "https://github.com/slackhq/PanModal.git",
-        "state": {
-          "branch": null,
-          "revision": "b012aecb6b67a8e46369227f893c12544846613f",
-          "version": "1.2.7"
-        }
-      },
-      {
-        "package": "SnapKit",
-        "repositoryURL": "https://github.com/SnapKit/SnapKit",
-        "state": {
-          "branch": null,
-          "revision": "d458564516e5676af9c70b4f4b2a9178294f1bc6",
-          "version": "5.0.1"
-        }
-      },
-      {
-        "package": "YDS",
-        "repositoryURL": "https://github.com/yourssu/YDS-iOS",
-        "state": {
-          "branch": null,
-          "revision": "67f07ee2060538a9272dead08cc8c4d224ca2bdb",
-          "version": "0.3.6"
-        }
+  "pins" : [
+    {
+      "identity" : "panmodal",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/slackhq/PanModal.git",
+      "state" : {
+        "revision" : "b012aecb6b67a8e46369227f893c12544846613f",
+        "version" : "1.2.7"
       }
-    ]
-  },
-  "version": 1
+    },
+    {
+      "identity" : "snapkit",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/SnapKit/SnapKit",
+      "state" : {
+        "revision" : "d458564516e5676af9c70b4f4b2a9178294f1bc6",
+        "version" : "5.0.1"
+      }
+    },
+    {
+      "identity" : "yds-ios",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/yourssu/YDS-iOS",
+      "state" : {
+        "revision" : "67f07ee2060538a9272dead08cc8c4d224ca2bdb",
+        "version" : "0.3.6"
+      }
+    }
+  ],
+  "version" : 2
 }

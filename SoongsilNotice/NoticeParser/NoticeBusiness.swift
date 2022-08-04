@@ -115,65 +115,30 @@ class NoticeBusiness: NoticeBaseModel {
                 if let data = response.value {
                     do {
                         let doc = try HTML(html: data, encoding: .utf8)
-                        for product in doc.css("table[class='bbs-list']") {
-                            var isAppendNotice = false
-                            var title = ""
-                            var author = ""
-                            var date = ""
-                            var url = ""
-                            var isNotice = false
-                            var hasAttachment = false
-                            
-                            for (index, td) in product.css("td").enumerated() {
-                                let content = td.text!.trimmingCharacters(in: .whitespacesAndNewlines)
-                                
-                                switch (index % 6) {
-                                case 0:
-                                    isAppendNotice = false
-                                    if td.innerHTML?.contains("img") ?? false {
-                                        isNotice = true
-                                        if page < 2 {
-                                            isAppendNotice = true
-                                        }
-                                    } else {
-                                        isNotice = false
-                                        isAppendNotice = true
-                                    }
-                                    
-                                    if isAppendNotice {
-                                        isNoticeList.append(isNotice)
-                                    }
-                                case 1:
-                                    title = content
-                                    url = td.css("a").first?["href"] ?? ""
-                                    
-                                    if isAppendNotice {
-                                        titleList.append(title)
-                                        urlList.append(url)
-                                    }
-                                case 2:
-                                    hasAttachment = false
-                                    let imgHTML = td.toHTML ?? ""
-                                    if imgHTML.contains("ico_file.gif") {
-                                        hasAttachment = true
-                                    }
-                                    
-                                    if isAppendNotice {
-                                        attachmentCheckList.append(hasAttachment)
-                                    }
-                                case 3:
-                                    author = content
-                                    if isAppendNotice {
-                                        authorList.append(author)
-                                    }
-                                case 4:
-                                    date = content
-                                    if isAppendNotice {
-                                        dateStringList.append(date)
-                                    }
-                                default: break
-                                }
+                        for line in doc.css("tbody tr") {
+                            let num = line.css("td span[class^=notice_color]").first?.text ?? ""
+                            if num.isEmpty {
+                                isNoticeList.append(false)
+                            } else {
+                                isNoticeList.append(true)
                             }
+
+                            let attach = line.css("td span[class^=flie_ic]").first?.text ?? ""
+                            var hasAttachment : Bool = true
+                            if attach.isEmpty {
+                                hasAttachment = false
+                            }
+                            attachmentCheckList.append(hasAttachment)
+
+                            let linked_title = line.css("td[class^=title] a").first
+                            let url = linked_title?["href"] ?? ""
+                            titleList.append(linked_title?.text ?? "")
+                            urlList.append(url)
+
+                            let date = line.css("td")[3].text ?? ""
+                            dateStringList.append(date)
+
+                            authorList.append("벤처중소기업학과 학부")
                         }
                     } catch let error {
                         print("Error : \(error)")

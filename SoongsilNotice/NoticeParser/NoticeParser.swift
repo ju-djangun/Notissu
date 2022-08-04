@@ -488,13 +488,15 @@ extension NoticeParser {
     }
     
     private func parseBusinessVenture(html: HTMLDocument, host: String?, completion: @escaping ([Attachment], String) -> Void) {
-        let contentHTML = html.css("div[class^='frame-box']").first?.innerHTML ?? ""
-        var detailHTML = "\(htmlStart)\(contentHTML)\(htmlEnd)"
-        detailHTML = detailHTML.replacingOccurrences(of: "src=\"/", with: "src=\"\(host ?? "")/")
+        let contentHTML = html.css("div[class^='td_box']").first?.innerHTML ?? ""
+        let detailHTML = "\(htmlStart)\(contentHTML)\(htmlEnd)"
         var attachmentList = [Attachment]()
         
-        for link in html.css("table[class='bbs-view'] a") {
-            attachmentList.append(Attachment(fileName: link.content ?? "", fileURL: link["href"] ?? ""))
+        for link in html.css("dl[class^='flie_w'] a") {
+            let url = link["href"] ?? ""
+            let fileName = link.text?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
+
+            attachmentList.append(Attachment(fileName: fileName, fileURL: url))
         }
         completion(attachmentList, detailHTML)
     }
